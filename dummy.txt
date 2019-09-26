@@ -1,1 +1,2 @@
-Dummy text
+Dummy text 
+New line from FirstBranch
