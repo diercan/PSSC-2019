@@ -4,7 +4,7 @@ namespace SOLID.Samples.ISP.After
 	{
 		string Feed();
 	}
-
+	
 	public interface IGroom
 	{
 		string Groom();

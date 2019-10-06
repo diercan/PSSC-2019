@@ -1,6 +1,6 @@
-namespace SOLID.Samples.ISP.Before
+namespace SOLID.Samples.ISP.After
 {
-	public class Dog : IAnimal
+	public class Dog : IFeed, IGroom
 	{
 		public string Feed()
 		{
