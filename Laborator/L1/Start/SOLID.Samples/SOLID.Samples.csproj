@@ -79,6 +79,8 @@
     <Compile Include="OCP\Before\Product.cs" />
     <Compile Include="OCP\Before\ProductFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SRP\After\Account.cs" />
+    <Compile Include="SRP\After\Person.cs" />
     <Compile Include="SRP\Before\Person.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -98,7 +100,6 @@
     <Folder Include="ISP\After\" />
     <Folder Include="LSP\After\" />
     <Folder Include="OCP\After\" />
-    <Folder Include="SRP\After\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
