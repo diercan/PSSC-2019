@@ -1,6 +1,6 @@
 namespace SOLID.Samples.Tests.LSP.Before
 {
-	public class Bartender
+	public class Bartender : Adult
 	{
 		public bool CanPersonDrinkAlcohol(Person person)
 		{

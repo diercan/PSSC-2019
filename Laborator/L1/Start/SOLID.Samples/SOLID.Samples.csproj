@@ -63,9 +63,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DIP\After\ITaxCalculator.cs" />
+    <Compile Include="DIP\After\Order.cs" />
+    <Compile Include="DIP\After\OrderLine.cs" />
+    <Compile Include="DIP\After\OrderProcessor.cs" />
+    <Compile Include="DIP\After\UsTaxCalculator.cs" />
     <Compile Include="DIP\Before\Order.cs" />
     <Compile Include="DIP\Before\OrderLine.cs" />
     <Compile Include="DIP\Before\OrderProcessor.cs" />
+    <Compile Include="ISP\After\Ant.cs" />
+    <Compile Include="ISP\After\Dog.cs" />
+    <Compile Include="ISP\After\IGroomable.cs" />
+    <Compile Include="ISP\After\IFeedable.cs" />
     <Compile Include="ISP\Before\Dog.cs" />
     <Compile Include="ISP\Before\IAnimal.cs" />
     <Compile Include="ISP\Before\Ant.cs" />
@@ -74,6 +83,15 @@
     <Compile Include="LSP\Before\Mother.cs" />
     <Compile Include="LSP\Before\Person.cs" />
     <Compile Include="LSP\Before\Toddler.cs" />
+    <Compile Include="OCP\After\Color.cs" />
+    <Compile Include="OCP\After\Consumer.cs" />
+    <Compile Include="OCP\After\IFilter.cs" />
+    <Compile Include="OCP\After\ISpecification.cs" />
+    <Compile Include="OCP\After\Product.cs" />
+    <Compile Include="OCP\After\ProductFilter.cs" />
+    <Compile Include="OCP\After\Specs\AndSpecification.cs" />
+    <Compile Include="OCP\After\Specs\ColorSpecification.cs" />
+    <Compile Include="OCP\After\Specs\PriceSpecification.cs" />
     <Compile Include="OCP\Before\Color.cs" />
     <Compile Include="OCP\Before\Consumer.cs" />
     <Compile Include="OCP\Before\Product.cs" />
@@ -96,10 +114,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DIP\After\" />
-    <Folder Include="ISP\After\" />
     <Folder Include="LSP\After\" />
-    <Folder Include="OCP\After\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

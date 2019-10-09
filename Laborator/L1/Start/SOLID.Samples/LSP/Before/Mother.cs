@@ -1,6 +1,6 @@
 namespace SOLID.Samples.Tests.LSP.Before
 {
-	public class Mother
+	public class Mother : Adult
 	{
 		public bool ShouldGiveBottleOfMilkTo(Person person)
 		{
