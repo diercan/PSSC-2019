@@ -1,7 +1,10 @@
 using SOLID.Samples.DIP.After;
 using System;
 using System.Linq;
-
+/*
+ * OrderProcessor nu mai depinde de o clasa concreta
+ * a lui TaxCalculator.
+ */
 namespace SOLID.Samples.Tests.DIP.After
 {
 	
