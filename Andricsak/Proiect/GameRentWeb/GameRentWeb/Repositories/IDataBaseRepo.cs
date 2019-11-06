@@ -7,12 +7,12 @@ using GameRentWeb.Models;
 namespace GameRentWeb.Repositories
 {
     
-    public interface IDataBaseRepo<T>
+    public interface IDataBaseRepo<T> where T : class
     {
-        T GetObject(int id);
+        T GetObjectById(int id);
         IEnumerable<T> GetAllObjects();
-        T Add(T myObject);
-        T Update(T objectChanges);
-        T Delete(int id);
+        void Insert(T myObject);
+        void Update(T objectChanges);
+        void Delete(int id);
     }
 }

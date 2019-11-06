@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using GameRentWeb.Repositories;
 using GameRentWeb.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GameRentWeb
 {
@@ -29,7 +30,10 @@ namespace GameRentWeb
             services.AddSession();
             services.AddDistributedMemoryCache();
 
-            services.AddTransient(typeof(IDataBaseRepo<>),);
+            services.AddDbContext<AppDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<IDataBaseRepo<User>, DataBaseRepo<User>>();
+            services.AddTransient<IDataBaseRepo<Game>, DataBaseRepo<Game>>();
+            services.AddTransient<IDataBaseRepo<RentOrder>, DataBaseRepo<RentOrder>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

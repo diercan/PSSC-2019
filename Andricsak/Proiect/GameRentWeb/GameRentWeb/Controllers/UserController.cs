@@ -10,6 +10,8 @@ namespace GameRentWeb.Controllers
     public class UserController : Controller
     {
         private readonly IDataBaseRepo<User> _userRepository;
+        
+        
         public UserController(IDataBaseRepo<User> userRepository)
         {
             _userRepository = userRepository;

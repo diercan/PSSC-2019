@@ -8,6 +8,7 @@ namespace GameRentWeb.Models
 {
     public class User
     {
+        public int Id { get; set; }
         [Display(Name = "User name")]
         [Required(ErrorMessage ="Username is required!")]
         [StringLength(100,ErrorMessage = "Must be between 5 and 100 characters",MinimumLength =5)]

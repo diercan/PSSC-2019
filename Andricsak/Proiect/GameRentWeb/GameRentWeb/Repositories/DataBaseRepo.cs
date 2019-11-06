@@ -1,4 +1,5 @@
 ﻿using GameRentWeb.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,50 +7,51 @@ using System.Threading.Tasks;
 
 namespace GameRentWeb.Repositories
 {
-    public class DataBaseRepo<T> : IDataBaseRepo<T>
+    public class DataBaseRepo<T> : IDataBaseRepo<T> where T : class
     {
     
-        private readonly AppDBContext _context;
+        private  AppDBContext _context;
+        private DbSet<T> table;
         
         public DataBaseRepo(AppDBContext context)
         {
             _context = context;
+            table = _context.Set<T>();
             
         }
-        public T Add(T myObject) 
+
+        public void Insert(T myObject) 
         {
-            _context.Add<T>(myObject);
+            table.Add(myObject);
             _context.SaveChanges();
-            return myObject;
         }
 
-        public T Delete(int id)
+        public void Delete(int id)
         {
-            T deletedObject = _context.Find(id);
+            T deletedObject = table.Find(id);
             if (deletedObject != null)
             {
-                _context.Users.Remove(deletedObject);
+                table.Remove(deletedObject);
                 _context.SaveChanges();
             }
-            return deletedObject;
+ 
         }
 
         public IEnumerable<T> GetAllObjects()
         {
-            return _context.Users;
+            return table.ToList();
         }
 
-        public T GetObject(int id)
+        public T GetObjectById(int id)
         {
-            return _context.Users.Find(id);
+            return table.Find(id);
         }
 
-        public T Update(T objectChanges)
+        public void Update(T objectChanges)
         {
-            var modifiedUser = _context.Users.Attach(objectChanges);
-            modifiedUser.State = EntityState.Modified;
+            var modifiedObject = table.Attach(objectChanges);
+            modifiedObject.State = EntityState.Modified;
             _context.SaveChanges();
-            return objectChanges;
         }
     }
 }
