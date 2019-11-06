@@ -15,5 +15,6 @@ namespace GameRentWeb.Models
         public string CoverImage { get; set; }
         public string Platform { get; set; }
         public string Category { get; set; }
+        public int Quantity { get; set; } // this will decrease when an order is made
     }
 }

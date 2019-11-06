@@ -17,6 +17,7 @@ namespace GameRentWeb.Models
         public string Password { get; set; }
         [Required(ErrorMessage = "Email is required!"),DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        public float balance { get; set; }
+        public float Balance { get; set; }
+        public ICollection<RentOrder> RentOrders { get; set; }
     }
 }

@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using GameRentWeb.Repositories;
+using GameRentWeb.Models;
 
 namespace GameRentWeb
 {
@@ -26,6 +28,8 @@ namespace GameRentWeb
             services.AddControllersWithViews();
             services.AddSession();
             services.AddDistributedMemoryCache();
+
+            services.AddTransient(typeof(IDataBaseRepo<>),);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +49,7 @@ namespace GameRentWeb
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            
             app.UseAuthorization();
             app.UseSession();
             app.UseEndpoints(endpoints =>
