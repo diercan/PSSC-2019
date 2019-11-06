@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using GameRentWeb.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using GameRentWeb.Models;
+using Microsoft.AspNetCore.Http;
+
 namespace GameRentWeb.Controllers
 {
     public class UserController : Controller
@@ -16,14 +18,38 @@ namespace GameRentWeb.Controllers
         {
             _userRepository = userRepository;
         }
-        public IActionResult Register()
+        public IActionResult RegisterView()
         {
             return View();
         }
-
-        public IActionResult Login()
+        public IActionResult LoginView()
         {
             return View();
+        }
+        
+        public IActionResult Register(User user)
+        {
+            if(ModelState.IsValid)
+            {
+                _userRepository.Insert(user);
+                return RedirectToAction("Game/Index");
+            }
+            return RedirectToAction("RegisterView");
+        }
+
+        public IActionResult Login(User user)
+        {
+            if(user.UserName != null && user.Password !=null)
+            {
+                User foundUser = _userRepository.GetObjectById(user.Id);
+                if(foundUser != null)
+                {
+                    HttpContext.Session.SetString("Username", user.UserName);
+                    return RedirectToAction("Game/Index");
+
+                }
+            }
+            return RedirectToAction("LoginView");
         }
     }
 }

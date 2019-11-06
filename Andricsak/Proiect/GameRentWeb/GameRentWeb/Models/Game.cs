@@ -12,7 +12,7 @@ namespace GameRentWeb.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string CoverImage { get; set; }
+        public byte[] CoverImage { get; set; }
         public string Platform { get; set; }
         public string Category { get; set; }
         public int Quantity { get; set; } // this will decrease when an order is made

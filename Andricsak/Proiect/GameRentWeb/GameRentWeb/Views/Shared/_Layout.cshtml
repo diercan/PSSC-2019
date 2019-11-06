@@ -31,8 +31,8 @@
                 </div>
                 @{ if (Context.Session.GetString("Username") == null)
                     {
-                        <a class="btn btn-outline-primary m-2 my-sm-0" asp-controller="User" asp-action="Register">Sign up</a>
-                        <a class="btn btn-outline-primary m-2 my-sm-0" asp-controller="User" asp-action="Login">Login</a>
+                        <a class="btn btn-outline-primary m-2 my-sm-0" asp-controller="User" asp-action="RegisterView">Sign up</a>
+                        <a class="btn btn-outline-primary m-2 my-sm-0" asp-controller="User" asp-action="LoginView">Login</a>
                     }
                     else
                     {
