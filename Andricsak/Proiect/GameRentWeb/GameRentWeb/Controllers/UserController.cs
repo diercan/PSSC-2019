@@ -27,29 +27,37 @@ namespace GameRentWeb.Controllers
             return View();
         }
         
-        public IActionResult Register(User user)
+        public async Task<IActionResult> Register(User user)
         {
             if(ModelState.IsValid)
             {
-                _userRepository.Insert(user);
-                return RedirectToAction("Game/Index");
+                await _userRepository.Insert(user);
+                return RedirectToAction("Index", "Game");
             }
             return RedirectToAction("RegisterView");
         }
 
-        public IActionResult Login(User user)
+        public async Task<IActionResult> Login(User user)
         {
             if(user.UserName != null && user.Password !=null)
             {
-                User foundUser = _userRepository.GetObjectById(user.Id);
-                if(foundUser != null)
+                User foundUser = _userRepository.GetAllObjects().Result.FirstOrDefault(e => e.UserName == user.UserName);
+                if (foundUser != null && user.Password == foundUser.Password)
                 {
                     HttpContext.Session.SetString("Username", user.UserName);
-                    return RedirectToAction("Game/Index");
+                    HttpContext.Session.SetString("Balance", Convert.ToString(foundUser.Balance));
+                    return RedirectToAction("Index", "Game");
 
                 }
             }
             return RedirectToAction("LoginView");
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("Username");
+            HttpContext.Session.Remove("Balance");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

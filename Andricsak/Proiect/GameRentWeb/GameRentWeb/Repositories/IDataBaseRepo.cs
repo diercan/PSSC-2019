@@ -9,10 +9,10 @@ namespace GameRentWeb.Repositories
     
     public interface IDataBaseRepo<T> where T : class
     {
-        T GetObjectById(int id);
-        IEnumerable<T> GetAllObjects();
-        void Insert(T myObject);
-        void Update(T objectChanges);
-        void Delete(int id);
+        Task<T> GetObjectById(int id);
+        Task<IEnumerable<T>> GetAllObjects();
+        Task Insert(T myObject);
+        Task Update(T objectChanges);
+        Task Delete(int id);
     }
 }

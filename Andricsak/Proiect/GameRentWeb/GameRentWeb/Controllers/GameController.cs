@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using GameRentWeb.Models;
@@ -13,29 +14,20 @@ namespace GameRentWeb.Controllers
     public class GameController : Controller
     {
         private readonly IDataBaseRepo<Game> _games;
-        private List<Game> games;
-        private string testDescription = "Why does the executive knife grab the rough ballet? The worse token clashs with a molecule after a desirable treasure. The biblical freeway fudges throughout the mouth. The arm accepts on top of a hierarchy! A dog breaks the back defect. A setting alert grasps the reform around the doomed exhibit.";
         public GameController(IDataBaseRepo<Game> games)
         {
             _games = games;
-            //games = new List<Game>()
-            //{
-            //    new Game{Id=1,Name="God of war",Category="Adventure",Description=testDescription,Platform="PC, PS4",CoverImage="/images/TestImages/God-of-War.jfif" },
-            //    new Game{Id=2,Name="Spider man",Category="Sci-Fi",Description=testDescription,Platform="PC, PS4",CoverImage="/images/TestImages/Marvels-Spider-Man.jfif"},
-            //    new Game{Id=3,Name="Outlast",Category="Horror",Description=testDescription,Platform="PC, PS4",CoverImage="/images/TestImages/outlast_2_ps4_cover_boxart__40574.1514317536.jpg" },
-            //    new Game{Id=4,Name="Fifa",Category="Sport",Description=testDescription,Platform="PC, PS4" }
-            //};
+            
         }
-
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var model = _games.GetAllObjects();
+            var model = await _games.GetAllObjects();
             return View(model);
         }
         public IActionResult Rent()
         {
             var currentUser = HttpContext.Session.GetString("Username");
-            if(currentUser == null)
+            if (currentUser == null)
             {
                 TempData["Error"] = "You must login first.";
                 return RedirectToAction("Index");
@@ -45,5 +37,29 @@ namespace GameRentWeb.Controllers
                 return View();
             }
         }
+
+        public IActionResult AddGameView()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> AddGame(Game game,IFormFile Image)
+        {
+            if (ModelState.IsValid)
+            {
+                var something = game.CoverImage;
+                byte[] p1 = null;
+                using (var fs1 = Image.OpenReadStream())
+                using (var ms1 = new MemoryStream())
+                {
+                    fs1.CopyTo(ms1);
+                    p1 = ms1.ToArray();
+                }
+                game.CoverImage = p1;
+                await _games.Insert(game);
+            }
+            return RedirectToAction("AddGameView");
+        }
+       
     }
 }

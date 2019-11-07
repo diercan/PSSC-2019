@@ -20,38 +20,38 @@ namespace GameRentWeb.Repositories
             
         }
 
-        public void Insert(T myObject) 
+        public async Task Insert(T myObject) 
         {
-            table.Add(myObject);
-            _context.SaveChanges();
+            await table.AddAsync(myObject);
+            await _context.SaveChangesAsync();
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            T deletedObject = table.Find(id);
-            if (deletedObject != null)
+            T deletedObject = await table.FindAsync(id);
+            if (deletedObject == null)
             {
-                table.Remove(deletedObject);
-                _context.SaveChanges();
+                return;
             }
- 
+            table.Remove(deletedObject);
+            await _context.SaveChangesAsync();
         }
 
-        public IEnumerable<T> GetAllObjects()
+        public async Task<IEnumerable<T>> GetAllObjects()
         {
-            return table.ToList();
+            return await table.ToListAsync();
         }
 
-        public T GetObjectById(int id)
+        public async Task<T> GetObjectById(int id)
         {
-            return table.Find(id);
+            return await table.FindAsync(id);
         }
 
-        public void Update(T objectChanges)
+        public Task Update(T objectChanges)
         {
             var modifiedObject = table.Attach(objectChanges);
             modifiedObject.State = EntityState.Modified;
-            _context.SaveChanges();
+            return _context.SaveChangesAsync();
         }
     }
 }
