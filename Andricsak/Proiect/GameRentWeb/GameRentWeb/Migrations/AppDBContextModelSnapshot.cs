@@ -29,8 +29,8 @@ namespace GameRentWeb.Migrations
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CoverImage")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("CoverImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");

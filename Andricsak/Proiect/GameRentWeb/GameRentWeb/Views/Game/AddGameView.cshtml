@@ -20,13 +20,14 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <label>Cover image</label>
-            <div class="form-group custom-file">
-
-                <input asp-for="CoverImage" type="file" class="form-control custom-file-input" />
-                <label asp-for="CoverImage" class="custom-file-label">Choose File...</label>
-
-                <span asp-validation-for="CoverImage" class="text-danger"></span>
+            
+            <div class="form-group">
+                <label asp-for="CoverImage" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="CoverImage" type="file" class="form-control custom-file-input" />
+                    <label class="custom-file-label">Choose File..</label>
+                    <span asp-validation-for="CoverImage" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="Platform" class="control-label"></label>
@@ -48,6 +49,16 @@
             </div>
         </form>
     </div>
+    @*@section Scripts{ 
+    <script>
+        $(document).ready(function () {
+            $('.custom-file-input').on("change"), function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fileName);
+            }
+        });
+    </script>
+    }*@
 </div>
 
 

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameRentWeb.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20191106210112_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20191107210127_SecondMigratio")]
+    partial class SecondMigratio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,8 +31,8 @@ namespace GameRentWeb.Migrations
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CoverImage")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("CoverImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");

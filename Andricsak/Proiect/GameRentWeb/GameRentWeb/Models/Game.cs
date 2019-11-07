@@ -14,7 +14,7 @@ namespace GameRentWeb.Models
         public string Name { get; set; }
         public string Description { get; set; }
         [Display(Name = "Cover image")]
-        public byte[] CoverImage { get; set; }
+        public string CoverImage { get; set; }  // this holds the path to the file
         public string Platform { get; set; }
         public string Category { get; set; }
         public int Quantity { get; set; } // this will decrease when an order is made

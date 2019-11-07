@@ -34,6 +34,7 @@ namespace GameRentWeb
             services.AddTransient<IDataBaseRepo<User>, DataBaseRepo<User>>();
             services.AddTransient<IDataBaseRepo<Game>, DataBaseRepo<Game>>();
             services.AddTransient<IDataBaseRepo<RentOrder>, DataBaseRepo<RentOrder>>();
+            services.AddScoped<MessageBroker>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
