@@ -15,7 +15,7 @@ namespace BackgroundWorker
             Console.WriteLine("Background worker started!");
             using (MessageBroker broker = new MessageBroker())
             {
-                await broker.Receive();
+                await broker.Receive("RentToWorker","WorkerToRent");
             }
         }
         static async Task Main(string[] args)
