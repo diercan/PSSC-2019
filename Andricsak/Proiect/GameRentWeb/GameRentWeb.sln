@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameRentWeb", "GameRentWeb\GameRentWeb.csproj", "{92130A12-3E9E-456B-A521-98F185D311D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackgroundWorker", "BackgroundWorker\BackgroundWorker.csproj", "{75834F66-9C95-4AE8-BC79-7DCC742AE413}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackgroundWorker", "BackgroundWorker\BackgroundWorker.csproj", "{75834F66-9C95-4AE8-BC79-7DCC742AE413}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{C76836A1-B013-4693-BC3F-18805E68C078}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{75834F66-9C95-4AE8-BC79-7DCC742AE413}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75834F66-9C95-4AE8-BC79-7DCC742AE413}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75834F66-9C95-4AE8-BC79-7DCC742AE413}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C76836A1-B013-4693-BC3F-18805E68C078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C76836A1-B013-4693-BC3F-18805E68C078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C76836A1-B013-4693-BC3F-18805E68C078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C76836A1-B013-4693-BC3F-18805E68C078}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
