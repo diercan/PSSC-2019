@@ -24,11 +24,11 @@ namespace BackgroundWorker
             _connection.Close();
         }
 
-        public async Task Receive()
+        public async Task Receive(string queueReceive, string queueSend)
         {        
             var channel = _connection.CreateModel();
             
-            channel.QueueDeclare(queue: "RentToWorker",
+            channel.QueueDeclare(queue: queueReceive,
                                     durable: false,
                                     exclusive: false,
                                     autoDelete: false,
@@ -47,19 +47,19 @@ namespace BackgroundWorker
 
                 var rentSent = JsonConvert.SerializeObject(rentOrder);
 
-                await SendMessage(rentSent);
+                await SendMessage(rentSent, queueSend);
             };
-            channel.BasicConsume(queue: "RentToWorker",
+            channel.BasicConsume(queue: queueReceive,
                                     autoAck: true,
                                     consumer: consumer);
             Console.ReadLine();
         }
 
-        public async Task SendMessage(string message)
+        public async Task SendMessage(string message,string messageQueue)
         {
             using (var channel = _connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "WorkerToRent",
+                channel.QueueDeclare(queue: messageQueue,
                                      durable: false,
                                      exclusive: false,
                                      autoDelete: false,
@@ -69,7 +69,7 @@ namespace BackgroundWorker
                 var body = Encoding.UTF8.GetBytes(message);
 
                 channel.BasicPublish(exchange: "",
-                                             routingKey: "WorkerToRent",
+                                             routingKey: messageQueue,
                                              basicProperties: null,
                                              body: body);
                 Console.WriteLine("Sent to web app --- {0}\n", message);

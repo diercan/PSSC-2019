@@ -70,8 +70,8 @@ namespace GameRentWeb.Controllers
             rent.GameRented = gameRented.Name;
            
             var rentJson = JsonConvert.SerializeObject(rent);
-            await _broker.SendMessage(rentJson);
-            var rentReceived = _broker.ReceiveMessage().Result;
+            await _broker.SendMessage(rentJson,"RentToWorker");
+            var rentReceived = _broker.ReceiveMessage("WorkerToRent").Result;
 
             rent.ExpiringDate = rentReceived.ExpiringDate;
             rent.TotalPayment = rentReceived.TotalPayment;
@@ -99,6 +99,19 @@ namespace GameRentWeb.Controllers
                 return View("Index");
             }
             
+        }
+
+        public async Task<IActionResult> Return(int id)
+        {
+            RentOrder selectedRent = _rentOrders.GetObjectById(id).Result;
+
+        }
+
+        public async Task<IActionResult> Extend(int id)
+        {
+            RentOrder selectedRent =  _rentOrders.GetObjectById(id).Result;
+
+
         }
     }
 }

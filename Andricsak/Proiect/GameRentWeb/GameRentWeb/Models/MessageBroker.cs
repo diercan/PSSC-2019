@@ -19,11 +19,11 @@ namespace GameRentWeb.Models
             _connection = _factory.CreateConnection();
         }
 
-        public async Task SendMessage(string message)
+        public async Task SendMessage(string message,string queueSend)
         {          
             using (var channel = _connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "RentToWorker",
+                channel.QueueDeclare(queue: queueSend,
                                      durable: false,
                                      exclusive: false,
                                      autoDelete: false,
@@ -33,21 +33,21 @@ namespace GameRentWeb.Models
                 var body = Encoding.UTF8.GetBytes(message);
 
                 channel.BasicPublish(exchange: "",
-                                             routingKey: "RentToWorker",
+                                             routingKey: queueSend,
                                              basicProperties: null,
                                              body: body);
                 Console.WriteLine(" [x] Sent {0}", message);
             }
         }
 
-        public async Task<RentOrder> ReceiveMessage()
+        public async Task<RentOrder> ReceiveMessage(string queueReceive)
         {
             RentOrder rent = null;
             bool received = false;
             var channel = _connection.CreateModel();
             while (!received)
             {
-                channel.QueueDeclare(queue: "WorkerToRent",
+                channel.QueueDeclare(queue: queueReceive,
                                       durable: false,
                                       exclusive: false,
                                       autoDelete: false,
@@ -62,7 +62,7 @@ namespace GameRentWeb.Models
                     rent = JsonConvert.DeserializeObject<RentOrder>(message);
                     received = true;
                 };
-                channel.BasicConsume(queue: "WorkerToRent",
+                channel.BasicConsume(queue: queueReceive,
                                         autoAck: true,
                                         consumer: consumer);
             }
