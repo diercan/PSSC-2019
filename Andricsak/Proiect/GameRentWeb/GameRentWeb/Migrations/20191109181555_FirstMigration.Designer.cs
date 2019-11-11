@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameRentWeb.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20191107210127_SecondMigratio")]
-    partial class SecondMigratio
+    [Migration("20191109181555_FirstMigration")]
+    partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -73,12 +73,12 @@ namespace GameRentWeb.Migrations
                     b.Property<float>("TotalPayment")
                         .HasColumnType("real");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int?>("userId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("userId");
 
                     b.ToTable("RentOrders");
                 });
@@ -114,9 +114,9 @@ namespace GameRentWeb.Migrations
 
             modelBuilder.Entity("GameRentWeb.Models.RentOrder", b =>
                 {
-                    b.HasOne("GameRentWeb.Models.User", null)
+                    b.HasOne("GameRentWeb.Models.User", "user")
                         .WithMany("RentOrders")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("userId");
                 });
 #pragma warning restore 612, 618
         }

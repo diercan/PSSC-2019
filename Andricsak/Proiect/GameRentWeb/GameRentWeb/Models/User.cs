@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace GameRentWeb.Models
 {
     public class User
-    {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    {     
         public int Id { get; set; }
         [Display(Name = "User name")]
         [Required(ErrorMessage ="Username is required!")]
@@ -21,6 +20,6 @@ namespace GameRentWeb.Models
         [Required(ErrorMessage = "Email is required!"),DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public float Balance { get; set; }
-        public ICollection<RentOrder> RentOrders { get; set; }
+        public virtual ICollection<RentOrder> RentOrders { get; set; }
     }
 }

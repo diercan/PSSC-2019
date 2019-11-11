@@ -6,7 +6,18 @@
 
 <h1 class="text-white">Login</h1>
 
-
+@{
+    if (TempData["LoginError"] != null)
+    {
+        if (TempData["LoginError"].ToString() != "")
+        {
+            <div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>@TempData["LoginError"].ToString()</strong>
+            </div>
+        }
+    }
+}
 <div class="row text-white">
     <div class="col-md-4">
         <form asp-action="Login" method="post">

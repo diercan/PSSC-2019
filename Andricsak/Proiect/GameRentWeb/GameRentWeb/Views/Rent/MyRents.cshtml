@@ -1,0 +1,20 @@
+﻿@model List<RentOrder>
+@{
+    ViewData["Title"] = "MyRent";
+}
+
+<h1 class="text-white">My Rents</h1>
+
+@foreach (var item in Model)
+{
+    <div class="card text-black m-5 " style="opacity:0.7">
+        <h5 class="card-header">Game rented: @item.GameRented</h5>
+        <div class="card-body">
+            <h5 class="card-title">Expiring date: @item.ExpiringDate.ToString("dd/MM/yyyy")</h5>
+            <p class="card-text">Total Payment is @item.TotalPayment$</p>
+            <p class="card-text">Number of days: @item.RentPeriod</p>
+            <a href="#" class="btn btn-primary m-md-2">Return game</a>
+            <a href="#" class="btn btn-primary m-md-2">Extend rent period</a>
+        </div>
+    </div>
+}

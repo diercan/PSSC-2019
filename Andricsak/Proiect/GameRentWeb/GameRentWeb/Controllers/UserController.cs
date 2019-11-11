@@ -49,6 +49,10 @@ namespace GameRentWeb.Controllers
                     return RedirectToAction("Index", "Game");
 
                 }
+                else
+                {
+                    TempData["LoginError"] = "Incorrect username or password!";
+                }
             }
             return RedirectToAction("LoginView");
         }

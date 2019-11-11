@@ -5,7 +5,18 @@
 }
 
 <h1 class="text-white">Rent @ViewBag.GameName</h1>
-
+@{
+    if (TempData["Funds"] != null)
+    {
+        if (TempData["Funds"].ToString() != "")
+        {
+            <div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>@TempData["Funds"].ToString()</strong>
+            </div>
+        }
+    }
+}
 <div class="row">
     <div class="col-md-4 text-white">
         <form asp-action="Index">

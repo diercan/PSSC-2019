@@ -31,6 +31,13 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-white" asp-area="" asp-controller="Game" asp-action="AddGameView">Add a Game</a>
                                 </li>
+
+                            }
+                            else if (Context.Session.GetString("Username") != null)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Rent" asp-action="DisplayRents">My Rents</a>
+                                </li>
                             }
 
                         }

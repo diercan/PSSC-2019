@@ -9,20 +9,21 @@ using System.Threading.Tasks;
 
 namespace GameRentWeb.Models
 {
-    public class MessageBroker
+    public class MessageBroker : IDisposable
     {
         private readonly IConnectionFactory _factory;
+        private readonly IConnection _connection;
         public MessageBroker()
         {
             _factory = new ConnectionFactory() { Uri = new Uri("amqp://zswjrhxx:USPn7uoCvEEPxLVGO0XrzjhK9wDx3Gwq@reindeer.rmq.cloudamqp.com/zswjrhxx") };
+            _connection = _factory.CreateConnection();
         }
 
         public async Task SendMessage(string message)
-        {
-            using (var connection = _factory.CreateConnection())
-            using (var channel = connection.CreateModel())
+        {          
+            using (var channel = _connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "rents",
+                channel.QueueDeclare(queue: "RentToWorker",
                                      durable: false,
                                      exclusive: false,
                                      autoDelete: false,
@@ -32,7 +33,7 @@ namespace GameRentWeb.Models
                 var body = Encoding.UTF8.GetBytes(message);
 
                 channel.BasicPublish(exchange: "",
-                                             routingKey: "rents",
+                                             routingKey: "RentToWorker",
                                              basicProperties: null,
                                              body: body);
                 Console.WriteLine(" [x] Sent {0}", message);
@@ -41,29 +42,36 @@ namespace GameRentWeb.Models
 
         public async Task<RentOrder> ReceiveMessage()
         {
-            RentOrder rent;
-            using (var connection = _factory.CreateConnection())
-            using (var channel = connection.CreateModel())
+            RentOrder rent = null;
+            bool received = false;
+            var channel = _connection.CreateModel();
+            while (!received)
             {
-                channel.QueueDeclare(queue: "rents",
-                                     durable: false,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
+                channel.QueueDeclare(queue: "WorkerToRent",
+                                      durable: false,
+                                      exclusive: false,
+                                      autoDelete: false,
+                                      arguments: null);
 
                 var consumer = new EventingBasicConsumer(channel);
                 consumer.Received += async (model, ea) =>
                 {
                     var body = ea.Body;
                     var message = Encoding.UTF8.GetString(body);
-                    Console.WriteLine(" [x] Received {0}", message);
-                    rent = JsonConvert.DeserializeObject<RentOrder>(message);             
+                    Console.WriteLine("Received from worker {0}", message);
+                    rent = JsonConvert.DeserializeObject<RentOrder>(message);
+                    received = true;
                 };
-                channel.BasicConsume(queue: "rents",
-                                     autoAck: true,
-                                     consumer: consumer);
-                return rent;
+                channel.BasicConsume(queue: "WorkerToRent",
+                                        autoAck: true,
+                                        consumer: consumer);
             }
+            return await Task.FromResult<RentOrder>(rent);
+        }
+      
+        public void Dispose()
+        {
+            _connection.Close();
         }
     }
 }
