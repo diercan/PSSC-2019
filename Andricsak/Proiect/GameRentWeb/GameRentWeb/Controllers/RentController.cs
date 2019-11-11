@@ -31,6 +31,10 @@ namespace GameRentWeb.Controllers
             _rents = new Collection<RentOrder>();
         }
 
+        public IActionResult ExtendView()
+        {
+            return View();
+        }
         public IActionResult DisplayRents()
         {
             if (HttpContext.Session.GetString("Username") == null)
