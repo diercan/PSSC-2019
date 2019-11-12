@@ -1,0 +1,184 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoDdd", "DemoDdd\DemoDdd.csproj", "{E5F02979-06C8-4E03-B0C6-92A17EC665A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modele.Disciplina", "Modele.Disciplina\Modele.Disciplina.csproj", "{62354C1F-E39F-47C1-B33E-7E6E253B18E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modele.Facultate", "Modele.Facultate\Modele.Facultate.csproj", "{672F2FFB-5D4C-4775-8561-9CC492C1C97C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modele.Specializare", "Modele.Specializare\Modele.Specializare.csproj", "{8A017729-B9D4-4DF9-8C2E-09E7723C5FC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modele.Cazare", "Modele.Cazare\Modele.Cazare.csproj", "{BA5DF175-B4F9-4934-A35B-0C498E8DE593}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modele.Student", "Modele.Student\Modele.Student.csproj", "{E7E81B28-5481-4494-BE28-686C277FDF60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modele.Orar", "Modele.Orar\Modele.Orar.csproj", "{31C7F071-448D-4413-AEDE-31E9D36DFEA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modele.Departament", "Modele.Departament\Modele.Departament.csproj", "{14B3C60F-A062-45FA-885F-90790911AF46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modele.Generic", "Modele.Generic\Modele.Generic.csproj", "{237C8225-36B8-4F1A-BFB7-4E75E97825CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modele", "Modele", "{34D98A06-8955-405F-A578-992DDED738AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servicii", "Servicii", "{B50EE42D-8ADD-4337-98A8-645DE40BEDB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{405BBC3B-515A-47FC-8FF0-E91754F3A8E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicii.Disciplina", "Servicii.Disciplina\Servicii.Disciplina.csproj", "{1A7B7026-A69C-4237-87BD-496CCB69711E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories.Disciplina", "Repositories.Disciplina\Repositories.Disciplina.csproj", "{39DE9648-CCFD-4FED-A6A5-1D255DE12E69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicii.Facultate", "Servicii.Facultate\Servicii.Facultate.csproj", "{E04EC16D-0865-4472-8AED-32D7B9167CCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructura", "Infrastructura", "{3A566E0A-D2BE-4589-BF7E-0DA499530117}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdf", "Pdf\Pdf.csproj", "{2FAE348E-C5DE-463D-8F39-BA71011DD74B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSitePublisher", "WebSitePublisher\WebSitePublisher.csproj", "{6F439E77-26D3-441C-8E42-36DC6E72CA6A}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 15
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://b624-software.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DemoDdd\\DemoDdd.csproj
+		SccProjectName1 = DemoDdd
+		SccLocalPath1 = DemoDdd
+		SccProjectUniqueName2 = Modele.Disciplina\\Modele.Disciplina.csproj
+		SccProjectTopLevelParentUniqueName2 = DemoDdd.sln
+		SccProjectName2 = Modele.Disciplina
+		SccLocalPath2 = Modele.Disciplina
+		SccProjectUniqueName3 = Modele.Facultate\\Modele.Facultate.csproj
+		SccProjectTopLevelParentUniqueName3 = DemoDdd.sln
+		SccProjectName3 = Modele.Facultate
+		SccLocalPath3 = Modele.Facultate
+		SccProjectUniqueName4 = Modele.Specializare\\Modele.Specializare.csproj
+		SccProjectTopLevelParentUniqueName4 = DemoDdd.sln
+		SccProjectName4 = Modele.Specializare
+		SccLocalPath4 = Modele.Specializare
+		SccProjectUniqueName5 = Modele.Cazare\\Modele.Cazare.csproj
+		SccProjectTopLevelParentUniqueName5 = DemoDdd.sln
+		SccProjectName5 = Modele.Cazare
+		SccLocalPath5 = Modele.Cazare
+		SccProjectUniqueName6 = Modele.Student\\Modele.Student.csproj
+		SccProjectTopLevelParentUniqueName6 = DemoDdd.sln
+		SccProjectName6 = Modele.Student
+		SccLocalPath6 = Modele.Student
+		SccProjectUniqueName7 = Modele.Orar\\Modele.Orar.csproj
+		SccProjectTopLevelParentUniqueName7 = DemoDdd.sln
+		SccProjectName7 = Modele.Orar
+		SccLocalPath7 = Modele.Orar
+		SccProjectUniqueName8 = Modele.Departament\\Modele.Departament.csproj
+		SccProjectTopLevelParentUniqueName8 = DemoDdd.sln
+		SccProjectName8 = Modele.Departament
+		SccLocalPath8 = Modele.Departament
+		SccProjectUniqueName9 = Modele.Generic\\Modele.Generic.csproj
+		SccProjectTopLevelParentUniqueName9 = DemoDdd.sln
+		SccProjectName9 = Modele.Generic
+		SccLocalPath9 = Modele.Generic
+		SccProjectUniqueName10 = Servicii.Disciplina\\Servicii.Disciplina.csproj
+		SccProjectTopLevelParentUniqueName10 = DemoDdd.sln
+		SccProjectName10 = Servicii.Disciplina
+		SccLocalPath10 = Servicii.Disciplina
+		SccProjectUniqueName11 = Repositories.Disciplina\\Repositories.Disciplina.csproj
+		SccProjectTopLevelParentUniqueName11 = DemoDdd.sln
+		SccProjectName11 = Repositories.Disciplina
+		SccLocalPath11 = Repositories.Disciplina
+		SccProjectUniqueName12 = Servicii.Facultate\\Servicii.Facultate.csproj
+		SccProjectTopLevelParentUniqueName12 = DemoDdd.sln
+		SccProjectName12 = Servicii.Facultate
+		SccLocalPath12 = Servicii.Facultate
+		SccProjectUniqueName13 = Pdf\\Pdf.csproj
+		SccProjectTopLevelParentUniqueName13 = DemoDdd.sln
+		SccProjectName13 = Pdf
+		SccLocalPath13 = Pdf
+		SccProjectUniqueName14 = WebSitePublisher\\WebSitePublisher.csproj
+		SccProjectTopLevelParentUniqueName14 = DemoDdd.sln
+		SccProjectName14 = WebSitePublisher
+		SccLocalPath14 = WebSitePublisher
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5F02979-06C8-4E03-B0C6-92A17EC665A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F02979-06C8-4E03-B0C6-92A17EC665A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5F02979-06C8-4E03-B0C6-92A17EC665A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5F02979-06C8-4E03-B0C6-92A17EC665A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62354C1F-E39F-47C1-B33E-7E6E253B18E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62354C1F-E39F-47C1-B33E-7E6E253B18E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62354C1F-E39F-47C1-B33E-7E6E253B18E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62354C1F-E39F-47C1-B33E-7E6E253B18E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{672F2FFB-5D4C-4775-8561-9CC492C1C97C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{672F2FFB-5D4C-4775-8561-9CC492C1C97C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{672F2FFB-5D4C-4775-8561-9CC492C1C97C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{672F2FFB-5D4C-4775-8561-9CC492C1C97C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A017729-B9D4-4DF9-8C2E-09E7723C5FC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A017729-B9D4-4DF9-8C2E-09E7723C5FC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A017729-B9D4-4DF9-8C2E-09E7723C5FC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A017729-B9D4-4DF9-8C2E-09E7723C5FC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA5DF175-B4F9-4934-A35B-0C498E8DE593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA5DF175-B4F9-4934-A35B-0C498E8DE593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA5DF175-B4F9-4934-A35B-0C498E8DE593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA5DF175-B4F9-4934-A35B-0C498E8DE593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7E81B28-5481-4494-BE28-686C277FDF60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7E81B28-5481-4494-BE28-686C277FDF60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7E81B28-5481-4494-BE28-686C277FDF60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7E81B28-5481-4494-BE28-686C277FDF60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31C7F071-448D-4413-AEDE-31E9D36DFEA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31C7F071-448D-4413-AEDE-31E9D36DFEA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31C7F071-448D-4413-AEDE-31E9D36DFEA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31C7F071-448D-4413-AEDE-31E9D36DFEA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14B3C60F-A062-45FA-885F-90790911AF46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14B3C60F-A062-45FA-885F-90790911AF46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14B3C60F-A062-45FA-885F-90790911AF46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14B3C60F-A062-45FA-885F-90790911AF46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{237C8225-36B8-4F1A-BFB7-4E75E97825CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{237C8225-36B8-4F1A-BFB7-4E75E97825CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{237C8225-36B8-4F1A-BFB7-4E75E97825CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{237C8225-36B8-4F1A-BFB7-4E75E97825CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A7B7026-A69C-4237-87BD-496CCB69711E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A7B7026-A69C-4237-87BD-496CCB69711E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A7B7026-A69C-4237-87BD-496CCB69711E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A7B7026-A69C-4237-87BD-496CCB69711E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39DE9648-CCFD-4FED-A6A5-1D255DE12E69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39DE9648-CCFD-4FED-A6A5-1D255DE12E69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39DE9648-CCFD-4FED-A6A5-1D255DE12E69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39DE9648-CCFD-4FED-A6A5-1D255DE12E69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E04EC16D-0865-4472-8AED-32D7B9167CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E04EC16D-0865-4472-8AED-32D7B9167CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E04EC16D-0865-4472-8AED-32D7B9167CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E04EC16D-0865-4472-8AED-32D7B9167CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FAE348E-C5DE-463D-8F39-BA71011DD74B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FAE348E-C5DE-463D-8F39-BA71011DD74B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FAE348E-C5DE-463D-8F39-BA71011DD74B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FAE348E-C5DE-463D-8F39-BA71011DD74B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F439E77-26D3-441C-8E42-36DC6E72CA6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F439E77-26D3-441C-8E42-36DC6E72CA6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F439E77-26D3-441C-8E42-36DC6E72CA6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F439E77-26D3-441C-8E42-36DC6E72CA6A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{62354C1F-E39F-47C1-B33E-7E6E253B18E7} = {34D98A06-8955-405F-A578-992DDED738AB}
+		{672F2FFB-5D4C-4775-8561-9CC492C1C97C} = {34D98A06-8955-405F-A578-992DDED738AB}
+		{8A017729-B9D4-4DF9-8C2E-09E7723C5FC1} = {34D98A06-8955-405F-A578-992DDED738AB}
+		{BA5DF175-B4F9-4934-A35B-0C498E8DE593} = {34D98A06-8955-405F-A578-992DDED738AB}
+		{E7E81B28-5481-4494-BE28-686C277FDF60} = {34D98A06-8955-405F-A578-992DDED738AB}
+		{31C7F071-448D-4413-AEDE-31E9D36DFEA8} = {34D98A06-8955-405F-A578-992DDED738AB}
+		{14B3C60F-A062-45FA-885F-90790911AF46} = {34D98A06-8955-405F-A578-992DDED738AB}
+		{237C8225-36B8-4F1A-BFB7-4E75E97825CB} = {34D98A06-8955-405F-A578-992DDED738AB}
+		{1A7B7026-A69C-4237-87BD-496CCB69711E} = {B50EE42D-8ADD-4337-98A8-645DE40BEDB3}
+		{39DE9648-CCFD-4FED-A6A5-1D255DE12E69} = {405BBC3B-515A-47FC-8FF0-E91754F3A8E9}
+		{E04EC16D-0865-4472-8AED-32D7B9167CCD} = {B50EE42D-8ADD-4337-98A8-645DE40BEDB3}
+		{2FAE348E-C5DE-463D-8F39-BA71011DD74B} = {3A566E0A-D2BE-4589-BF7E-0DA499530117}
+		{6F439E77-26D3-441C-8E42-36DC6E72CA6A} = {3A566E0A-D2BE-4589-BF7E-0DA499530117}
+	EndGlobalSection
+EndGlobal

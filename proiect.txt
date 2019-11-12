@@ -1,0 +1,3 @@
+2 parti:app nvc+worker si sa comunice prin cozi.evenimente
+ndesign peste 2 sapt
+pe sapt viitoare , max 2: sa ne gandim pe ce domeniu,sistem si cerinta , diag de componente de inceput pt proiect

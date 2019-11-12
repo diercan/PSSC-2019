@@ -1,0 +1,15 @@
+lista optionale:
+-fiecare student isi alege materiile,prioritatea
+-se sorteaza studentii dupa medie
+-se parcurg studentii si se inscriu la primele n optiuni
+-cand nu mai sunt locuri se inscrie la urmatoarele optiuni
+
+
+#entitati/value obj/:
+-disciplina: denumire, nr loc max, nr loc----------entity
+-student:nume, medie, list optiuni----------entity
+-optiune: prioritate, pasam obiect disciplina---------value object
+-an universitar: lista studenti, lista discipline---------aggregation root
+-repository: persistenta datelor 
+-serviciu(ce nu tine de niciun elem): serviciu repartizare, pasam an univ
+-program.cs unde cream entitatile si facem setup la tot contextul
