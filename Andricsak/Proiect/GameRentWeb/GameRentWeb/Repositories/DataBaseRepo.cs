@@ -47,11 +47,19 @@ namespace GameRentWeb.Repositories
             return await table.FindAsync(id);
         }
 
-        public Task Update(T objectChanges)
+        public async Task Update(T objectChanges)
         {
-            var modifiedObject = table.Attach(objectChanges);
-            modifiedObject.State = EntityState.Modified;
-            return _context.SaveChangesAsync();
+            if (Exists(objectChanges))
+            {
+                var modifiedObject = table.Attach(objectChanges);
+                modifiedObject.State = EntityState.Modified;
+            }        
+            await _context.SaveChangesAsync();
+        }
+
+        public bool Exists<T>(T entity) where T : class
+        {
+            return table.Local.Any(e => e == entity);
         }
     }
 }

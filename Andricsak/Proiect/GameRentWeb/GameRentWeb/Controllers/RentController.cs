@@ -16,7 +16,6 @@ namespace GameRentWeb.Controllers
         private readonly IDataBaseRepo<RentOrder> _rentOrders;
         private readonly IDataBaseRepo<Game> _games;
         private readonly IDataBaseRepo<User> _users;
-        private ICollection<RentOrder> _rents;
         private readonly MessageBroker _broker;
         private static Game gameRented;
         
@@ -28,7 +27,6 @@ namespace GameRentWeb.Controllers
             _games = games;
             _broker = broker;
             _users = users;
-            _rents = new Collection<RentOrder>();
         }
 
         public IActionResult ExtendView()
@@ -108,14 +106,36 @@ namespace GameRentWeb.Controllers
         public async Task<IActionResult> Return(int id)
         {
             RentOrder selectedRent = _rentOrders.GetObjectById(id).Result;
+            Game returnedGame =  _games.GetAllObjects().Result.Where(g => g.Name.Equals(selectedRent.GameRented)).FirstOrDefault();
+            returnedGame.Quantity += 1;
 
+            var selectedRentJson = JsonConvert.SerializeObject(selectedRent);
+
+            await _broker.SendMessage(selectedRentJson+"Return", "RentToWorker");
+
+            return RedirectToAction("DisplayRents", "Rent");
         }
 
-        public async Task<IActionResult> Extend(int id)
+        [HttpGet]
+        [Route("Rent/Extend/{id}/{days}")]
+        public async Task<IActionResult> Extend(int id,int days)
         {
-            RentOrder selectedRent =  _rentOrders.GetObjectById(id).Result;
 
+            var selectedRent =  _rentOrders.GetObjectById(id).Result;
+            var initialRentDate = selectedRent.CurrentRentedDay;
+            selectedRent.RentPeriod += Convert.ToInt32(days);
 
+            selectedRent.CurrentRentedDay = selectedRent.ExpiringDate;
+            var selectedRentJson = JsonConvert.SerializeObject(selectedRent);
+            
+            await _broker.SendMessage(selectedRentJson, "RentToWorker");
+            var rentReceived = _broker.ReceiveMessage("WorkerToRent").Result;
+
+            rentReceived.CurrentRentedDay = initialRentDate;
+           
+            await _rentOrders.Update(rentReceived);
+
+            return RedirectToAction("DisplayRents", "Rent");
         }
     }
 }

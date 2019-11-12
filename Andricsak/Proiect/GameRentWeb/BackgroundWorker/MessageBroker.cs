@@ -41,10 +41,16 @@ namespace BackgroundWorker
                 var message = Encoding.UTF8.GetString(body);
                 Console.WriteLine("Received from web app --- {0}\n", message);
                 var rentOrder = JsonConvert.DeserializeObject<RentOrder>(message);
-                RentOperations rentOper = new RentOperations(rentOrder);
+                RentOperations _rentOper = new RentOperations(rentOrder);
+                if(queueReceive.Equals("WebToWorkerExtend"))
+                {
 
-                rentOrder = await rentOper.CalculatePayment(4f);
-
+                }
+                else if(queueReceive.Equals("RentToWorker"))
+                {
+                    rentOrder = await _rentOper.CalculatePayment(3.0f);
+                }
+               
                 var rentSent = JsonConvert.SerializeObject(rentOrder);
 
                 await SendMessage(rentSent, queueSend);

@@ -31,9 +31,9 @@ namespace GameRentWeb
             services.AddDistributedMemoryCache();
 
             services.AddDbContext<AppDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddTransient<IDataBaseRepo<User>, DataBaseRepo<User>>();
-            services.AddTransient<IDataBaseRepo<Game>, DataBaseRepo<Game>>();
-            services.AddTransient<IDataBaseRepo<RentOrder>, DataBaseRepo<RentOrder>>();
+            services.AddScoped<IDataBaseRepo<User>, DataBaseRepo<User>>();
+            services.AddScoped<IDataBaseRepo<Game>, DataBaseRepo<Game>>();
+            services.AddScoped<IDataBaseRepo<RentOrder>, DataBaseRepo<RentOrder>>();
             services.AddScoped<MessageBroker>();
         }
 

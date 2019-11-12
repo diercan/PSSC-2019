@@ -14,7 +14,40 @@
             <p class="card-text">Total Payment is @item.TotalPayment$</p>
             <p class="card-text">Number of days: @item.RentPeriod</p>
             <a href=@Url.Action("Return","Rent", new { id = item.Id }) class="btn btn-primary m-md-2">Return game</a>
-            <a href=@Url.Action("Extend","Rent", new { id = item.Id }) class="btn btn-primary m-md-2">Extend rent period</a>
+            <input type="button" class="btn btn-primary" id="btnDisplay" value="Extend rent period">
+            <div class="text-white" style="display:none"  id="hiddenForm">
+                <form >
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">How many days do you want to extend?</label>
+                        <input type="number" class="form-control" id="days" placeholder="Number of days">
+                    </div>
+                    <div class="form-group">
+                        <a href=@Url.Action("Extend","Rent", new { id = item.Id }) class="btn btn-primary m-md-2" id="extendButton">Extend</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+    
+}
+
+
+@section Scripts{ 
+<script>
+    $(document).ready(function () {
+        $("#btnDisplay").click(function(e) {
+        $("#hiddenForm").show();
+
+        e.preventDefault();
+        });
+
+        $("#extendButton").click(function (e) {
+            $("#hiddenForm").hide();
+            var days = $('#days').val();
+            var url = $(this).attr('href');
+            window.location.href = url + '/' + days;
+            e.preventDefault();
+        });
+    })
+</script>
 }

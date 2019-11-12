@@ -20,6 +20,5 @@ namespace BackgroundWorker
             _rentOrder.TotalPayment = _rentOrder.RentPeriod * dollarPerDay;
             return _rentOrder;
         }
-
     }
 }
