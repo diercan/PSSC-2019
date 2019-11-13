@@ -1,4 +1,5 @@
 ﻿using GameRentWeb.Models;
+using GameRentWeb.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +14,8 @@ namespace GenericWorker
         {
             _rentOrder = rentOrder;
         }
+
+     
       
         public async Task<RentOrder> CalculatePayment(float dollarPerDay)
         {
@@ -21,5 +24,12 @@ namespace GenericWorker
             return _rentOrder;
         }
 
+        public async Task<RentOrder> CalculateReturn(float dollarPerDay)
+        {
+            _rentOrder.ExpiringDate = DateTime.Today;
+            _rentOrder.RentPeriod = Convert.ToInt32((_rentOrder.ExpiringDate - _rentOrder.CurrentRentedDay).TotalDays);
+            _rentOrder.TotalPayment -= _rentOrder.RentPeriod * dollarPerDay;       
+            return _rentOrder;
+        }
     }
 }

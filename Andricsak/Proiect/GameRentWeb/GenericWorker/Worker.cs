@@ -12,6 +12,7 @@ namespace GenericWorker
     {
         private readonly ILogger<Worker> _logger;
         private readonly IMessageBroker _broker;
+        private List<Task> tasks;
 
         public Worker(ILogger<Worker> logger,IMessageBroker broker)
         {
@@ -24,9 +25,12 @@ namespace GenericWorker
             while (!stoppingToken.IsCancellationRequested)
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                await Task.Run(() => _broker.Receive());
-                await Task.Delay(1000, stoppingToken);
+                Task.Run(() => _broker.Receive("RentToWorker"));
+                Task.Run(() => _broker.Receive("ReturnToWorker"));
+                Thread.Sleep(10000);
             }
         }
+
+
     }
 }

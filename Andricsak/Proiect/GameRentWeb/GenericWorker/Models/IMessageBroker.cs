@@ -7,8 +7,8 @@ namespace GenericWorker
 {
     public interface IMessageBroker : IDisposable
     {
-        public  Task Receive();
-        public  Task SendMessage(string message);
+        public  Task Receive(string queueReceive);
+        public  Task SendMessage(string message,string queueSend);
         public new void Dispose();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using GameRentWeb.Models;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -13,9 +14,11 @@ namespace GenericWorker
     {
         private readonly IConnectionFactory _factory;
         private readonly IConnection _connection;
-        public MessageBroker()
+        private readonly ILogger<MessageBroker> _logMessage;
+        public MessageBroker(ILogger<MessageBroker> logMessage)
         {
             _factory = new ConnectionFactory { Uri = new Uri("amqp://zswjrhxx:USPn7uoCvEEPxLVGO0XrzjhK9wDx3Gwq@reindeer.rmq.cloudamqp.com/zswjrhxx") };
+            _logMessage = logMessage;
             _connection = _factory.CreateConnection();
         }
 
@@ -24,11 +27,11 @@ namespace GenericWorker
             _connection.Close();
         }
 
-        public async Task Receive()
+        public async Task Receive(string queueReceive)
         {        
             var channel = _connection.CreateModel();
             
-            channel.QueueDeclare(queue: "RentToWorker",
+            channel.QueueDeclare(queue: queueReceive,
                                     durable: false,
                                     exclusive: false,
                                     autoDelete: false,
@@ -39,27 +42,37 @@ namespace GenericWorker
             {
                 var body = ea.Body;
                 var message = Encoding.UTF8.GetString(body);
-                Console.WriteLine("Received from web app --- {0}\n", message);
+                _logMessage.LogInformation($"{DateTimeOffset.Now} - Received from web app --- { message}\n" );
                 var rentOrder = JsonConvert.DeserializeObject<RentOrder>(message);
                 RentOperations rentOper = new RentOperations(rentOrder);
 
-                rentOrder = await rentOper.CalculatePayment(4f);
-
-                var rentSent = JsonConvert.SerializeObject(rentOrder);
-
-                await SendMessage(rentSent);
+                _logMessage.LogInformation($"Queue for receiving triggered is: {queueReceive}\n");
+                if (queueReceive == "ReturnToWorker")
+                {
+                    rentOrder = await rentOper.CalculateReturn(3f);
+                    var rentSent = JsonConvert.SerializeObject(rentOrder);
+                    _logMessage.LogInformation("Received a return command\n");
+                    await SendMessage(rentSent, "ReturnToWeb");
+                }
+                else
+                {
+                    rentOrder = await rentOper.CalculatePayment(3f);
+                    var rentSent = JsonConvert.SerializeObject(rentOrder);
+                    _logMessage.LogInformation("Received rent/extend command\n");
+                    await SendMessage(rentSent, "WorkerToRent");
+                }
             };
-            channel.BasicConsume(queue: "RentToWorker",
+            channel.BasicConsume(queue: queueReceive,
                                     autoAck: true,
                                     consumer: consumer);
             Console.ReadLine();
         }
 
-        public async Task SendMessage(string message)
+        public async Task SendMessage(string message,string queueSend)
         {
             using (var channel = _connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "WorkerToRent",
+                channel.QueueDeclare(queue: queueSend,
                                      durable: false,
                                      exclusive: false,
                                      autoDelete: false,
@@ -69,10 +82,10 @@ namespace GenericWorker
                 var body = Encoding.UTF8.GetBytes(message);
 
                 channel.BasicPublish(exchange: "",
-                                             routingKey: "WorkerToRent",
+                                             routingKey: queueSend,
                                              basicProperties: null,
                                              body: body);
-                Console.WriteLine("Sent to web app --- {0}\n", message);
+                _logMessage.LogInformation($"{DateTimeOffset.Now} - Sent to web app --- {message}\n");
             }
 }
     }

@@ -49,17 +49,32 @@ namespace GameRentWeb.Repositories
 
         public async Task Update(T objectChanges)
         {
-            if (Exists(objectChanges))
+            try
             {
                 var modifiedObject = table.Attach(objectChanges);
                 modifiedObject.State = EntityState.Modified;
-            }        
-            await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
+            }
+            catch(InvalidOperationException ex)
+            {
+                DetachAllEntities();
+                var modifiedObject = table.Attach(objectChanges);
+                modifiedObject.State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+            }
+            
         }
 
-        public bool Exists<T>(T entity) where T : class
+        public void DetachAllEntities()
         {
-            return table.Local.Any(e => e == entity);
+            var changedEntriesCopy = _context.ChangeTracker.Entries()
+                .Where(e => e.State == EntityState.Added ||
+                            e.State == EntityState.Modified ||
+                            e.State == EntityState.Deleted)
+                .ToList();
+
+            foreach (var entry in changedEntriesCopy)
+                entry.State = EntityState.Detached;
         }
     }
 }

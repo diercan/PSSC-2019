@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BackgroundWorker\BackgroundWorker.csproj" />
     <ProjectReference Include="..\GameRentWeb\GameRentWeb.csproj" />
   </ItemGroup>
 

@@ -105,13 +105,31 @@ namespace GameRentWeb.Controllers
 
         public async Task<IActionResult> Return(int id)
         {
+            
             RentOrder selectedRent = _rentOrders.GetObjectById(id).Result;
+            if(selectedRent.CurrentRentedDay == DateTime.Today)
+            {
+                TempData["Error"] = "You can't return a game on the same day you rent it!";
+                return RedirectToAction("DisplayRents", "Rent");
+            }
             Game returnedGame =  _games.GetAllObjects().Result.Where(g => g.Name.Equals(selectedRent.GameRented)).FirstOrDefault();
             returnedGame.Quantity += 1;
+            var user = _users.GetAllObjects().Result.FirstOrDefault(u => u.UserName.Equals(HttpContext.Session.GetString("Username")));
+           
+            var selectedRentJson = JsonConvert.SerializeObject(selectedRent,new JsonSerializerSettings()
+            {
+                ReferenceLoopHandling =ReferenceLoopHandling.Ignore
+            }
+            );
 
-            var selectedRentJson = JsonConvert.SerializeObject(selectedRent);
+            await _broker.SendMessage(selectedRentJson, "ReturnToWorker");
+            var receivedRent = await _broker.ReceiveMessage("ReturnToWeb");
 
-            await _broker.SendMessage(selectedRentJson+"Return", "RentToWorker");
+            user.Balance += receivedRent.TotalPayment;
+
+            await _users.Update(user);
+            await _rentOrders.Delete(selectedRent.Id);
+            HttpContext.Session.SetString("Balance", user.Balance.ToString());
 
             return RedirectToAction("DisplayRents", "Rent");
         }
@@ -120,19 +138,26 @@ namespace GameRentWeb.Controllers
         [Route("Rent/Extend/{id}/{days}")]
         public async Task<IActionResult> Extend(int id,int days)
         {
-
-            var selectedRent =  _rentOrders.GetObjectById(id).Result;
-            var initialRentDate = selectedRent.CurrentRentedDay;
+            
+            var selectedRent =  _rentOrders.GetObjectById(id).Result;           
             selectedRent.RentPeriod += Convert.ToInt32(days);
 
-            selectedRent.CurrentRentedDay = selectedRent.ExpiringDate;
             var selectedRentJson = JsonConvert.SerializeObject(selectedRent);
             
             await _broker.SendMessage(selectedRentJson, "RentToWorker");
             var rentReceived = _broker.ReceiveMessage("WorkerToRent").Result;
 
-            rentReceived.CurrentRentedDay = initialRentDate;
-           
+          
+
+            var user = _users.GetAllObjects().Result.FirstOrDefault(u => u.UserName.Equals(HttpContext.Session.GetString("Username")));
+            user.Balance -= days * 3f;
+            if(user.Balance < 0)
+            {
+                TempData["Error"] = "You don't have enough money to extend it's rent duartion";
+                return RedirectToAction("DisplayRents", "Rent");
+            }
+            HttpContext.Session.SetString("Balance", user.Balance.ToString());
+            await _users.Update(user);
             await _rentOrders.Update(rentReceived);
 
             return RedirectToAction("DisplayRents", "Rent");
