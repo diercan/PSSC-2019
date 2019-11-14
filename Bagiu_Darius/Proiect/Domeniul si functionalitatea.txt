@@ -5,5 +5,5 @@ Domeniul:
 
 Functionalitati:
 -Adaugarea cabinetelor in lista
--Sortare dupa specializari
--etc
+-Alegerea cabinetelor la care vor studentii sa aplice
+-informarea medicilor despre studentii aplicanti
