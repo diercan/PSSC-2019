@@ -1,0 +1,11 @@
+Domeniul culinar. Aplicație web și interfață în care oamenii pot împărți idei și diferite rețete care pot fi apreciate și notate între 1-10 stele si adaugate comentarii, cele mai apreciate
+fiind plasate intr-un clasament, oferind posibilitatea bucatarilor de top de a-si crea retete premium care sunt accesibile doar dupa plata unei anumite sume de bani.
+Posibilitatea de a conversa doi sau mai multi utilizatori intre ei
+
+Functionalitati:
+- incarcarea unei retete(daca este premium necesita aprobarea unui administrator) sau retragerea acesteia
+- vizualizarea si aprecierea/comentarea unei retete precum si vizualizarea unui clasament
+- incarcarea contului cu bani virtuali care pot fi convertiti in bani reali printr-un request pentru un transfer bancar
+- folosirea unor metode de autentificare sigura care necesita aprobare sau introducerea unui cod primit prin email sau SMS
+- schimbarea unor date de utilizator, cum ar fi parola, numele, imaginea de profil precum si modificarea unor retete existente
+- interfata de comunicare intre utilizatori
