@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace GenericWorker
 {
-    public interface IMessageBroker : IDisposable
+    public interface IMessageBroker
     {
         public  Task Receive(string queueReceive);
         public  Task SendMessage(string message,string queueSend);
-        public new void Dispose();
     }
 }

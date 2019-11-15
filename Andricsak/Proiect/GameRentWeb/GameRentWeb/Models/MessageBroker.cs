@@ -9,14 +9,12 @@ using System.Threading.Tasks;
 
 namespace GameRentWeb.Models
 {
-    public class MessageBroker : IDisposable
+    public class MessageBroker
     {
-        private readonly IConnectionFactory _factory;
         private readonly IConnection _connection;
-        public MessageBroker()
+        public MessageBroker(IConnection connection)
         {
-            _factory = new ConnectionFactory() { Uri = new Uri("amqp://zswjrhxx:USPn7uoCvEEPxLVGO0XrzjhK9wDx3Gwq@reindeer.rmq.cloudamqp.com/zswjrhxx") };
-            _connection = _factory.CreateConnection();
+            _connection = connection;
         }
 
         public async Task SendMessage(string message,string queueSend)
@@ -67,11 +65,6 @@ namespace GameRentWeb.Models
                                         consumer: consumer);
             }
             return await Task.FromResult<RentOrder>(rent);
-        }
-      
-        public void Dispose()
-        {
-            _connection.Close();
         }
     }
 }

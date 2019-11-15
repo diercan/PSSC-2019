@@ -12,19 +12,13 @@ namespace GenericWorker
 {
     class MessageBroker : IMessageBroker
     {
-        private readonly IConnectionFactory _factory;
         private readonly IConnection _connection;
         private readonly ILogger<MessageBroker> _logMessage;
-        public MessageBroker(ILogger<MessageBroker> logMessage)
+        public MessageBroker(ILogger<MessageBroker> logMessage, IConnection connection)
         {
-            _factory = new ConnectionFactory { Uri = new Uri("amqp://zswjrhxx:USPn7uoCvEEPxLVGO0XrzjhK9wDx3Gwq@reindeer.rmq.cloudamqp.com/zswjrhxx") };
+            
             _logMessage = logMessage;
-            _connection = _factory.CreateConnection();
-        }
-
-        public void Dispose()
-        {
-            _connection.Close();
+            _connection = connection;
         }
 
         public async Task Receive(string queueReceive)
