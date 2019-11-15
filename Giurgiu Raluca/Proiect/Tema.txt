@@ -1,0 +1,9 @@
+problema : cartelele pt cantina
+
+solutie : implementarea unui sistem software care usureaza plata consumatiei la cantina
+universitara.
+Studentii pot accesa aplicatia pentru a vizualiza cati bani au pe cartela, tranzactile 
+efectuate cat si efectuarea de plati. de asemenea incarcarea cartelei se poate face tot
+cu ajutorul aplicatiei.
+
+
