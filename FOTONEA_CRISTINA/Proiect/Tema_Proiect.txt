@@ -1,0 +1,10 @@
+	Problema: Concediile medicale 
+ Solutie: Implementarea unui sistem software care usureaza cererea de concedii medicale cat si calcularea
+de zile de concediu avute pe anul curent pana in prezent. 
+	Angajatii pot accesa aceasta aplicatie web pentru
+a face o cerere de concediu medical nefiind nevoie de deplasare la birou pentru a dobandi adeverinta de salariat,
+act fara de care medicul nu iti poate oferi foaia de concediu. Dupa primirea acestei foi, angajatul isi poate
+introduce singur in baza de date numarul de zile, boala si perioada de concediu. De asemenea, acestia isi pot
+vizualiza cate zile de concediu au avut in anul curent si in ultimii 2 ani. 
+	Personalul de la HR poate vizualiza toate cererile de concediu medical.
+	
