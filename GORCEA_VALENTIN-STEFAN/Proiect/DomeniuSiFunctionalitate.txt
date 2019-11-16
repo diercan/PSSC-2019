@@ -1,0 +1,8 @@
+Domeniu:
+	Companii multinationale, aplicatie web pe care companiile o vor folosi pentru a face un bun management al sedintelor de training 
+din cadrul companiei.
+Functionalitate:
+	-Itroducerea unui nou training disponibil cu datele corespunzatoare (subiect, data, trainer, locuri disponibile, locatie)
+	-Orice angajat are posibilitatea de a se inscrie la un training in limita locurilor disponibile
+	-Fiecare trainer poate sa vada lista cu cei inscrisi la un training introdus de el
+	-Posibilitatea de a adauga comentarii/feedback in urma training-ului
