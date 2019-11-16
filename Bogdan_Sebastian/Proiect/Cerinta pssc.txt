@@ -1,0 +1,4 @@
+Cerinta: Vanzarea online a fiselor pentru spalarea masinii la o spalatorie auto.
+	 Aplicatie web cu ofertele disponibile pentru majoritatea autovehicolelor.
+
+Solutie: Clientii care vor sa isi spele autovehicolul o sa poata sa isi creeze un cont iar folosind acel cont se pot achizitiona online fise.Aceasta aplicatie vine in ajutorul persoanelor care nu mai vor sa stea mult timp la coada pentru achizitionarea acestor fise si pentru a beneficia de oferte avantajoase.
