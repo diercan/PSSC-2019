@@ -1,0 +1,7 @@
+Se va crea un MVC pentru gestionarea unei grădinițe.
+In cadrul aplicației internet se vor putea utiliza următoarele funcții:
+- listarea copiilor din grădiniță
+- detalii despre fiecare copil
+- inscrierea unui copil la grădiniță (adăugarea)
+- scoaterea copilului de la grădiniță (ștergerea)
+De asemenea, printr-o aplicație mobilă părintele trebuie înștiințat de diferite mesaje pe care angajații grădiniței vor să i le comunice.
