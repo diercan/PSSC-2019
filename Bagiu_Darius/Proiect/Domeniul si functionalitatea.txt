@@ -1,9 +1,0 @@
-
-Domeniul:
--Stomatologie, Facultatea de stomatologie din Timisoara
--Aplicatie web cu lista cabinetelor din Timisoara la care se poate realiza stagiul de practica pe timp de vara al studentilor.
-
-Functionalitati:
--Adaugarea cabinetelor in lista
--Alegerea cabinetelor la care vor studentii sa aplice
--informarea medicilor despre studentii aplicanti
