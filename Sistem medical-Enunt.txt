@@ -1,0 +1,6 @@
+Se realizeaza o aplicatie web in care se tine evidenta pacientilor dintr-un spital.
+Pacientii sunt introdusi de catre un medic.
+Medicul poate introduce un pacient nou doar daca este logat in contul sau.
+Medicul poate cauta date despre un pacient, chiar daca nu este logat.
+Pentru fiecare pacient nou se va introduce numele, prenumele,varsta, adresa si diagnosticul.
+Pacientul logandu-se in aplicatie isi poate vedea datele din contul personal. 
