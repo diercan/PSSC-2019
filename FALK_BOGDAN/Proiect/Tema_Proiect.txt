@@ -1,0 +1,7 @@
+	Problema: Cautarea unui hotel
+ Solutie: Implementarea unui sistem software care usureaza gasirea unui hotel, unei camere la anumite preturi. 
+	Persoanele pot accesa aceasta aplicatie web pentru
+a face o cerere pentru o camera de hotel nefiind nevoie de deplasare la un hotel.
+	De asemenea isi poate alege o perioada indelungata pentru camera de hotel dorita.
+	Personalul de la Hotel poate vizualiza toate cererile.
+	
