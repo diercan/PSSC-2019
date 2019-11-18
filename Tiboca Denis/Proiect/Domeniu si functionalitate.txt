@@ -1,0 +1,13 @@
+Domeniul ales de mine se axeaza pe literatura.
+Aplcatia se axeaza pe strangerea unui volum cat mai mare de carti si de notarea lor de utilizatori
+in functie de cat de mult le-a placut lectura. Are ca scop un sistem de recomandare pentru
+toti utilizatorii care cauta o lectura noua si nu stiu de unde sa inceapa.
+
+Functionalitati:
+- inregistrare utilizator
+- autentificare 
+- resetare parola
+- vizualizarea cartilor pe categorie
+- vizualizare date utilizator
+- adaugarea unei aprecieri (nota)
+- adagarea unei carti noi
