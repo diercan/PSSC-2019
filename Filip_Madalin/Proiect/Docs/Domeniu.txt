@@ -1,0 +1,15 @@
+
+Domeniu : Automated Tests Sharing and Management System ( in automotive environment )
+
+Definitie Problema : 
+Proiecte diferite cu functionalitati (standard in industrie) asemanatoare ale caror teste
+nu sunt cunoscute de oameni de la alte departamente(sau vin cu tot contextu in care au fost folosite) resultand multa munca redundanta.
+Progresul in dezvoltare testelor incetinita de lipsa de informatii si comunicare.
+
+Solutie: Centralizare testelor de pe proiecte la care toti sa aiba acces.
+Id , si toate fisierele necesare si descriere contextului la fiecare test.
+Procesul de adunare ale acestor informatii sa fie facut in mare parte automat din fisierele testelor,
+cu foarte putina interventie de la tester. 
+Sistemul creat ofera testerului optiunea de filtrare dupa functionalitate si prioritate.
+De asemenea testerul poate face Request la dreptul de download( #copyright) sau deschide un fir de discutie \
+cu proprietarul testelor de care ar avea nevoie .
