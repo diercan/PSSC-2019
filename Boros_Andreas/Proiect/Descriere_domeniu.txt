@@ -1,0 +1,8 @@
+Problema : - Gestionarea unui magazin cu telefoane mobile 
+	   - Aplicatie web cu lista telefoanelor mobile disponibile pentru cumparare 
+
+Solutie : - Clientii care doresc cumpararea unui telefon mobil trebuie sa isi creeze un cont , pentru a-i avea in baza de date.
+	  - Adaugarea telefoanelor mobile in aplicatia web de catre admin.
+	  - Cu ajutorul acestei aplicatii clientii nu mai sunt nevoiti sa se deplaseze pana la magazinul nostru pentru a vedea preturile si ofertele telefoanelor.
+	  - Clientii pot vizualiza specificatiile si descrierile telefoanelor.
+	  - In cazul in care nu mai avem pe stoc un telefon mobil , in dreptul lui va aparea stoc epuizat.
