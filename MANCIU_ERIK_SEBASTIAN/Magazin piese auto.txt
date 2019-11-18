@@ -1,0 +1,10 @@
+- Domeniul ales este cel al vanzarii
+- Sofware-ul se axeaza pe gestiunea stocului pieselor si pe vanzarea acestora
+
+FUNCTIONALITATILE:
+
+-inregistrare pe aplicatie mobila
+-autentificare
+-resetare parola
+-cumparare produse
+
