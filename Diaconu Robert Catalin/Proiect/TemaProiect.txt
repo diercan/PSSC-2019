@@ -1,0 +1,6 @@
+
+Se considera un sistem software care implementeaza interactiunea dintre clientul unei banci si contul sau bancar.
+Pentru dezvoltarea aplicatiei s-au luat in vedere urmatoarele aspecte:
+- clientul poate sa vizualizeze informatii despre cont(sold, istoric tranzactii, IBAN )
+- clientul poate sa efectueze tranzactii( transfer bancar, efectuare plati)
+- clientul poate vizualiza mesaje trimise de catre banca, continand oferte precum si ulterioare schimbari ale contractului.
