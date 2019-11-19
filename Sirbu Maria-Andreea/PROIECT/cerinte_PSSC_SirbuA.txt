@@ -1,0 +1,20 @@
+Domeniul farmaceutic
+Se considera un sistem software dedicat gestionarii stocului unei farmacii.
+Functionalitati:
+-Farmacistului ii este permisa utilizarea aplicatiei de gestiune în urma unui proces de autentificare
+-Farmacistul are posibilitatea de a vizualiza stocul curent al medicamentelor, precum si informatiile aferente 
+fiecarui medicament (numar bucati, distribuitor, pretul de la distribuitor, pretul de vânzare, profitul obtinut). 
+Pretul de vanzare si profitul sunt calculate in functie de pretul oferit de distribuitor si adaosul comercial
+Consultarea stocului de medicamente are asociata 3 optiuni de vizualizare:în ordinea alfabetica a numealui, a  
+distribuitorilor,a denumirii categoriei de medicamente
+-Utilizatorul are posibilitatea de a consulta doar anumite informatii stocate in baza de date, fiind disponibile 3
+optiuni de cautare: dupa numele medicamnetului, dupa numele distribuitorului, dupa categorie
+- Utilizatorul are posibilitatea de a actualiza stocul in urma primirii unei noi comenzi sau in urma efectuarii unei 
+vanzari
+-Farmacistul poate vizualiza istoricul comenzilor finalizate, precum si a celor alate in curs de fnalizare
+-Farmacistul este notificat daca stocul unui medicament se apropie de final(sunt mai putin de 15 produse)
+-Utilizatorul aplicatiei va putea plasa o noua comanda prin completarea unui formular, acest fapt avand ca rezultat o 
+solicitare trimisa distribuitorului prin intermediul unui e-mail
+-Sistemul genereaza rapoarte zilnice ale vanzarilor farmacistilor
+
+
