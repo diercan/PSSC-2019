@@ -1,0 +1,15 @@
+C:\Users\Seba\Desktop\CookBook-MVC\CookBook-MVC\CookBook-MVC\bin\Debug\netcoreapp2.0\appsettings.Development.json
+C:\Users\Seba\Desktop\CookBook-MVC\CookBook-MVC\CookBook-MVC\bin\Debug\netcoreapp2.0\appsettings.json
+C:\Users\Seba\Desktop\CookBook-MVC\CookBook-MVC\CookBook-MVC\bin\Debug\netcoreapp2.0\bower.json
+C:\Users\Seba\Desktop\CookBook-MVC\CookBook-MVC\CookBook-MVC\bin\Debug\netcoreapp2.0\bundleconfig.json
+C:\Users\Seba\Desktop\CookBook-MVC\CookBook-MVC\CookBook-MVC\bin\Debug\netcoreapp2.0\Properties\launchSettings.json
+C:\Users\Seba\Desktop\CookBook-MVC\CookBook-MVC\CookBook-MVC\bin\Debug\netcoreapp2.0\CookBook_MVC.deps.json
+C:\Users\Seba\Desktop\CookBook-MVC\CookBook-MVC\CookBook-MVC\bin\Debug\netcoreapp2.0\CookBook_MVC.runtimeconfig.json
+C:\Users\Seba\Desktop\CookBook-MVC\CookBook-MVC\CookBook-MVC\bin\Debug\netcoreapp2.0\CookBook_MVC.runtimeconfig.dev.json
+C:\Users\Seba\Desktop\CookBook-MVC\CookBook-MVC\CookBook-MVC\bin\Debug\netcoreapp2.0\CookBook_MVC.dll
+C:\Users\Seba\Desktop\CookBook-MVC\CookBook-MVC\CookBook-MVC\bin\Debug\netcoreapp2.0\CookBook_MVC.pdb
+C:\Users\Seba\Desktop\CookBook-MVC\CookBook-MVC\CookBook-MVC\obj\Debug\netcoreapp2.0\CookBook_MVC.csprojAssemblyReference.cache
+C:\Users\Seba\Desktop\CookBook-MVC\CookBook-MVC\CookBook-MVC\obj\Debug\netcoreapp2.0\CookBook_MVC.AssemblyInfoInputs.cache
+C:\Users\Seba\Desktop\CookBook-MVC\CookBook-MVC\CookBook-MVC\obj\Debug\netcoreapp2.0\CookBook_MVC.AssemblyInfo.cs
+C:\Users\Seba\Desktop\CookBook-MVC\CookBook-MVC\CookBook-MVC\obj\Debug\netcoreapp2.0\CookBook_MVC.dll
+C:\Users\Seba\Desktop\CookBook-MVC\CookBook-MVC\CookBook-MVC\obj\Debug\netcoreapp2.0\CookBook_MVC.pdb
