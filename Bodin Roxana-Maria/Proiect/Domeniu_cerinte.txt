@@ -1,0 +1,12 @@
+Domeniul: 
+	Medical
+
+Problema pusa: 
+	O Clinica Veterinara vrea sa activeze programrile online in locul celor facute la telefon sau la receptie.
+
+Cerinte si functionalitati:
+	Userii vor intra pe pagina Web a Clinicii Veterinare, se vor loga si apoi in sectiunea de Programari Online, 
+vor selecta Clinica dorita. Vor alege serviciul medical si vor completa detaliile aferente animalului. Apoi va fi 
+afisat un date-time picker si in functie de data selectata, vor fi listati doctorii disponibili si ora aferenta.
+Programarea se va face prin selectarea orei si doctorului dorit , iar toate aceste detalii vor fi trimise si
+actualizate in programul doctorului.
