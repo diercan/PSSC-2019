@@ -1,0 +1,67 @@
+﻿@model GameRentWeb.Models.Game
+
+@{
+    ViewData["Title"] = "AddGameView";
+}
+
+<h1 class="text-white">Add a game</h1>
+
+<div class="row">
+    <div class="col-md-4 text-white">
+        <form enctype="multipart/form-data" asp-action="AddGameView">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="CoverImage" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="CoverImage" type="file" class="form-control custom-file-input" />
+                    <label class="custom-file-label">Choose File..</label>
+                    <span asp-validation-for="CoverImage" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Platform" class="control-label"></label>
+                <input asp-for="Platform" class="form-control" />
+                <span asp-validation-for="Platform" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" type="number" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" asp-controller="Game" asp-action="AddGame" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    @*@section Scripts{ 
+    <script>
+        $(document).ready(function () {
+            $('.custom-file-input').on("change"), function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fileName);
+            }
+        });
+    </script>
+    }*@
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

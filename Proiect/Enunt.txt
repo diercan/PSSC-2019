@@ -1,0 +1,4 @@
+-Domeniul : Scoala
+_ Software-ul se bazeaza pe afisarea situatiei scolare a elevului , parintele poate vedea situatia copilului de acasa : 
+daca a fost la ora si ce note are
+-Profesorul dupa fiecare ora introduce notele si spune daca elevul a fost prezent sau absent 

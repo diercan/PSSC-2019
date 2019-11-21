@@ -1,0 +1,46 @@
+﻿@model GameRentWeb.Models.User
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1 class="text-white">Login</h1>
+
+@{
+    if (TempData["LoginError"] != null)
+    {
+        if (TempData["LoginError"].ToString() != "")
+        {
+            <div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>@TempData["LoginError"].ToString()</strong>
+            </div>
+        }
+    }
+}
+<div class="row text-white">
+    <div class="col-md-4">
+        <form asp-action="Login" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

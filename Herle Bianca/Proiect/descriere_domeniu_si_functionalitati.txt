@@ -1,0 +1,14 @@
+Domeniul ales de mine vizeaza organizatiile non-guvernamentale si organizatiile non-profit, din afara sferei IT&Corporate.
+Aplicatia pe care doresc sa o dezvolt vine in sprijinul organizarii modului in care angajatii si contribuitorii isi desfasoara activitatea.
+Aceasta permite managerilor sau celor care au in subordine mai multe persoane sa posteze intr-un spatiu accesibil tuturor task-urile presupuse de un anumit proiect, de unde angajatii pot alege pe care dintre acestea vor sa le realizeze.
+Fiecare task va avea o descriere, cat si etichete care sa redea daca acesta este urgent, daca presupune un efort considerabil, daca presupune deplasari sau daca este nevoie de mai multe persoane care sa il realizeze. 
+De asemenea, fiecare task va mai fi caracterizat si de "recognition points", in functie de etichetele mai sus mentionate.
+Astfel, prin intermediul acestei aplicatii se asigura transparenta in sensul ca fiecare contribuitor poate sa vada ce au realizat ceilalti; se evita neintelegeri legate responsabilitatile fiecaruia sau alte detalii legate de activitati(ce presupune, locatia unde se desfasoara, ora impusa), iar disponibilitatea fiecaruia devine mult mai clara.
+
+Functionalitatile sistemului vor fi:
+-logare manager/contribuitor
+-postarea de catre manager a unui task
+-preluarea unui task de catre contribuitor si clasificarea acestuia : in viitor/ in derulare/ finalizat
+-profilul contribuitorul contine taskurile acestuia cat si feedback-ul pentru cele realizate
+-profilul managerului contine taskurile impartite de acesta si feedback din partea contribuitorilor
+-algoritm de sugestie a nivelului de "recognition points" pentru fiecare task

@@ -1,0 +1,38 @@
+﻿@model GameRentWeb.Models.RentOrder
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-white">Rent @ViewBag.GameName</h1>
+@{
+    if (TempData["Funds"] != null)
+    {
+        if (TempData["Funds"].ToString() != "")
+        {
+            <div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>@TempData["Funds"].ToString()</strong>
+            </div>
+        }
+    }
+}
+<div class="row">
+    <div class="col-md-4 text-white">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RentPeriod" class="control-label"></label>
+                <input asp-for="RentPeriod" class="form-control" />
+                <span asp-validation-for="RentPeriod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" asp-controller="Rent" asp-action="Rent" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

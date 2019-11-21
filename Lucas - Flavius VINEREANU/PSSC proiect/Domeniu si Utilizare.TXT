@@ -1,0 +1,12 @@
+Domeniul se axeaza pe it (laptopuri, calculatoare)
+Aplicatia este pentru programarea si transferul de informatii intre client si reparatori
+programarile se pot modifica, iar in fiecare zi reparatori pun un update pentru
+ca clientul sa fie informat in legatura cu stagiul lucrarilor
+
+Utilizare:
+ - creare conturi
+ - logare
+ - aplicare programari
+ - update programari
+ - status
+ - verificare lucrare primita

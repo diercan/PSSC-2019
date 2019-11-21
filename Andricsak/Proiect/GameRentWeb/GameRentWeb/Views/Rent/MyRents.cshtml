@@ -1,0 +1,73 @@
+﻿@model List<RentOrder>
+@{
+    ViewData["Title"] = "MyRent";
+}
+
+<h1 class="text-white">My Rents</h1>
+
+@{
+    if (TempData["Error"] != null)
+    {
+        if (TempData["Error"].ToString() != "")
+        {
+            <div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>@TempData["Error"].ToString()</strong>
+            </div>
+        }
+    }
+}
+
+@foreach (var item in Model)
+{
+    <div class="card text-black m-5 " style="opacity:0.7">
+        <h5 class="card-header">Game rented: @item.GameRented</h5>
+        <div class="card-body">
+            <h5 class="card-title">Expiring date: @item.ExpiringDate.ToString("dd/MM/yyyy")</h5>
+            <p class="card-text">Total Payment is @item.TotalPayment$</p>
+            <p class="card-text">Number of days: @item.RentPeriod</p>
+            <a href=@Url.Action("Return","Rent", new { id = item.Id }) class="btn btn-primary m-md-2">Return game</a>
+            <input type="button" class="btnDisplay btn btn-primary" id="@item.Id.ToString()" value="Extend rent period">
+            <div class="hiddenForm text-white" style="display:none" id="id_@item.Id.ToString()">
+                <form>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">How many days do you want to extend?</label>
+                        <input type="number" class="form-control" id="days_@item.Id.ToString()" placeholder="Number of days">
+                    </div>
+                    <div class="form-group">
+                        <a href=@Url.Action("Extend","Rent", new { id = item.Id }) class="extendButton btn btn-primary m-md-2" id="ex_@item.Id.ToString()">Extend</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $(".btnDisplay").click(function (e) {
+
+
+                $("#id_" + this.id).show();
+
+                e.preventDefault();
+            });
+
+            $(".extendButton").click(function (e) {
+                var id = this.id.substr(this.id.length - 2)
+                alert(id)
+                $("#" + this.id).hide();
+
+
+                var days = $('#days_' + id).val();
+                alert(days);
+                var url = $(this).attr('href');
+                window.location.href = url + '/' + days;
+                e.preventDefault();
+            });
+        })
+    </script>
+}
