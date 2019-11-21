@@ -1,0 +1,9 @@
+Domeniul : Contabilitate 
+Functionalitatea sistemului este de a tine evidenta de intrare a marfurilor de patiserie,
+ de tip Fornetti din punct de vedere valoric pentru a se aplica in magazinele de desfacere cu amanuntul. 
+ Produsele sunt prelucrate termic si apoi receptionate cu ajutorul NIR-urilor (nota de intrare receptie). 
+	Aplicatia va permite generarea automata a NIR-urilor unde se vor afisa valorile totale de achizitie, 
+valorile totale a adaosului comercial si a TVA-ului. In primul rand se vor selecta produsele achizitionate de 
+pe facturile primite de la furnizatori, care au un pret de achizitie si cantitatea. Dupa ce prelucrezi
+ termic produsele congelate, se pune un adous comercial la valoarea cantitatii ramase stabilit de administrator,
+ se adauga cota de tva (9%) in vederea stabilirii pretului de vanzare cu amanuntul a marfii. 
