@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using GenericWorker;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace GenericWorker
+namespace Workers
 {
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
         private readonly IMessageBroker _broker;
-        private List<Task> tasks;
-
         public Worker(ILogger<Worker> logger,IMessageBroker broker)
         {
             _logger = logger;
@@ -22,12 +21,12 @@ namespace GenericWorker
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            _logger.LogInformation("Worker started at: {time}", DateTimeOffset.Now);
             while (!stoppingToken.IsCancellationRequested)
-            {
-                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+            {               
                 Task.Run(() => _broker.Receive("RentToWorker"));
                 Task.Run(() => _broker.Receive("ReturnToWorker"));
-                Thread.Sleep(10000);
+                Thread.Sleep(5000);
             }
         }
 

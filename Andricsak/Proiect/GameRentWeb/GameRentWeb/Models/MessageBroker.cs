@@ -12,6 +12,10 @@ namespace GameRentWeb.Models
     public class MessageBroker
     {
         private readonly IConnection _connection;
+        public MessageBroker()
+        {
+
+        }
         public MessageBroker(IConnection connection)
         {
             _connection = connection;

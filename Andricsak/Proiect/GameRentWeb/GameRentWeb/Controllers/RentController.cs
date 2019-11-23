@@ -29,18 +29,29 @@ namespace GameRentWeb.Controllers
             _users = users;
         }
 
+        public virtual void SetTempData(string key,string message)
+        {
+            TempData[key] = message;
+        }
+
+        public virtual string GetSessionValue(string key)
+        {
+            return HttpContext.Session.GetString(key);
+        }
+
         public IActionResult ExtendView()
         {
             return View();
         }
+
         public IActionResult DisplayRents()
         {
-            if (HttpContext.Session.GetString("Username") == null)
+            if (GetSessionValue("Username") == null)
             {
-                TempData["Error"] = "You need to login First!";
+                SetTempData("Error","You need to login first!");
                 return RedirectToAction("Index", "Game");
             }
-            var loggedUser = _users.GetAllObjects().Result.FirstOrDefault(u => u.UserName.Equals(HttpContext.Session.GetString("Username")));
+            var loggedUser = _users.GetAllObjects().Result.FirstOrDefault(u => u.UserName.Equals(GetSessionValue("Username")));
             
             List<RentOrder> rents = _rentOrders.GetAllObjects().Result.Where(r => r.user.Id == loggedUser.Id).ToList();
             return View("MyRents", rents);
@@ -51,7 +62,7 @@ namespace GameRentWeb.Controllers
         {
             if(HttpContext.Session.GetString("Username") ==null)
             {
-                TempData["Error"] = "You need to login First!";
+                SetTempData("Error", "You need to login first!");
                 return RedirectToAction("Index","Game");
             }
             
@@ -60,7 +71,7 @@ namespace GameRentWeb.Controllers
             ViewBag.GameName = gameRented.Name;
             if(gameRented.Quantity < 1)
             {
-                TempData["Error"] = "There are no copies available!";
+                SetTempData("Error","There are no copies available!");
                 return RedirectToAction("Index", "Game");
             }
             return View();
@@ -97,7 +108,7 @@ namespace GameRentWeb.Controllers
             }
             else
             {
-                TempData["Funds"] = $"Not enough funds, payment is {rent.TotalPayment}$!";
+                SetTempData("Funds",$"Not enough funds, payment is {rent.TotalPayment}$!");
                 return View("Index");
             }
             
@@ -109,7 +120,7 @@ namespace GameRentWeb.Controllers
             RentOrder selectedRent = _rentOrders.GetObjectById(id).Result;
             if(selectedRent.CurrentRentedDay == DateTime.Today)
             {
-                TempData["Error"] = "You can't return a game on the same day you rent it!";
+                SetTempData("Error","You can't return a game on the same day you rent it!");
                 return RedirectToAction("DisplayRents", "Rent");
             }
             Game returnedGame =  _games.GetAllObjects().Result.Where(g => g.Name.Equals(selectedRent.GameRented)).FirstOrDefault();
@@ -126,7 +137,7 @@ namespace GameRentWeb.Controllers
             var receivedRent = await _broker.ReceiveMessage("ReturnToWeb");
 
             user.Balance += receivedRent.TotalPayment;
-
+            user.RentOrders.Remove(selectedRent);
             await _users.Update(user);
             await _rentOrders.Delete(selectedRent.Id);
             HttpContext.Session.SetString("Balance", user.Balance.ToString());
@@ -153,7 +164,7 @@ namespace GameRentWeb.Controllers
             user.Balance -= days * 3f;
             if(user.Balance < 0)
             {
-                TempData["Error"] = "You don't have enough money to extend it's rent duartion";
+                SetTempData("Error","You don't have enough money to extend it's rent duartion");
                 return RedirectToAction("DisplayRents", "Rent");
             }
             HttpContext.Session.SetString("Balance", user.Balance.ToString());

@@ -21,5 +21,7 @@ namespace GameRentWeb.Models
         public string Email { get; set; }
         public float Balance { get; set; }
         public virtual ICollection<RentOrder> RentOrders { get; set; }
+        [NotMapped]
+        public Rents UserRents { get; set; }
     }
 }

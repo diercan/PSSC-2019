@@ -12,6 +12,7 @@ using GameRentWeb.Repositories;
 using GameRentWeb.Models;
 using Microsoft.EntityFrameworkCore;
 using RabbitMQ.Client;
+using GameRentWeb.GenericModels;
 
 namespace GameRentWeb
 {
@@ -37,7 +38,7 @@ namespace GameRentWeb
             services.AddScoped<IDataBaseRepo<RentOrder>, DataBaseRepo<RentOrder>>();
             services.AddTransient<MessageBroker, MessageBroker>();
             services.AddSingleton(new ConnectionFactory() { Uri = new Uri(Configuration.GetConnectionString("AMQPConnection")) }.CreateConnection());
-            
+       
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

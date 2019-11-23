@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GenericWorker
 {
-    class RentOperations
+    public class RentOperations
     {
         private RentOrder _rentOrder;
         public RentOperations(RentOrder rentOrder)

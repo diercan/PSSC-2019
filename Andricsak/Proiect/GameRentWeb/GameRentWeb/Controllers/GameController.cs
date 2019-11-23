@@ -51,28 +51,31 @@ namespace GameRentWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var files = HttpContext.Request.Form.Files;
-                foreach (var Image in files)
+                if (HttpContext.Request.Form.Files != null)
                 {
-                    if (Image != null && Image.Length > 0)
+                    var files = HttpContext.Request.Form.Files;
+                    foreach (var Image in files)
                     {
-
-                        var file = Image;
-                        var uploads = Path.Combine(_environment.WebRootPath, "images\\uploads\\");
-
-                        if (file.Length > 0)
+                        if (Image != null && Image.Length > 0)
                         {
-                            var fileName = ContentDispositionHeaderValue.Parse
-                                (file.ContentDisposition).FileName.Trim('"');
 
-                            System.Console.WriteLine(fileName);
-                            using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
+                            var file = Image;
+                            var uploads = Path.Combine(_environment.WebRootPath, "images\\uploads\\");
+
+                            if (file.Length > 0)
                             {
-                                await file.CopyToAsync(fileStream);
-                                game.CoverImage = file.FileName;
+                                var fileName = ContentDispositionHeaderValue.Parse
+                                    (file.ContentDisposition).FileName.Trim('"');
+
+                                System.Console.WriteLine(fileName);
+                                using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
+                                {
+                                    await file.CopyToAsync(fileStream);
+                                    game.CoverImage = file.FileName;
+                                }
+
+
                             }
-
-
                         }
                     }
                 }

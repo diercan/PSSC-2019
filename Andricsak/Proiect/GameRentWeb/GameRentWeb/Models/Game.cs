@@ -19,5 +19,25 @@ namespace GameRentWeb.Models
         public string Platform { get; set; }
         public string Category { get; set; }
         public int Quantity { get; set; } // this will decrease when an order is made
+
+        #region operations
+        internal void UpdateQuantity(int quantity)
+        {
+            Quantity = quantity;
+        }
+        #endregion
+        
+        #region overrides
+        public override bool Equals(object obj)
+        {
+            var game = (Game)obj;
+
+            if(game != null)
+            {
+                return (Id == game.Id);
+            }
+            return false;
+        }
+        #endregion
     }
 }
