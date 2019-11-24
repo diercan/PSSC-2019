@@ -1,20 +1,18 @@
 <template>
-  <div class="container">
-    <navigation></navigation>
-    <router-view></router-view>
-  </div>
+  <v-app>
+      <navigation></navigation>
+      <router-view></router-view>
+  </v-app>
 </template>
 
 <script>
-import Navigation from './components/Navigation';
+import Navigation from "./components/Navigation";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Navigation
   },
 
-  data: () => ({
-
-  }),
+  data: () => ({})
 };
 </script>

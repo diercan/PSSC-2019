@@ -6,22 +6,18 @@
       <v-toolbar-title>WE-TEST</v-toolbar-title>
       <v-spacer ></v-spacer>
       <v-toolbar-items>
-            <v-btn text>
+            <v-btn>
                 <router-link to="/" class="nav-link" active-class="active" exact style="cursor: pointer" >Home</router-link>
             </v-btn>
-            <v-btn text>
+            <v-btn>
                 <router-link to="/tests" class="nav-link" active-class="active" exact style="cursor: pointer">Tests</router-link>
             </v-btn>
-             <v-btn text>
+             <v-btn>
                 <router-link to="/login" class="nav-link" active-class="active" exact style="cursor: pointer">Login</router-link>
             </v-btn>
       </v-toolbar-items>
      
-    </v-toolbar>
-
-
-
-        
+    </v-toolbar>        
     </div>
 </template>
 <style>
