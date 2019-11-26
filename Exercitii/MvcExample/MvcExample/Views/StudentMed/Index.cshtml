@@ -1,0 +1,26 @@
+﻿@model MvcExample.Models.StudentMed
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div>
+    <h4>StudentMed</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StudentID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Passwordl)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Passwordl)
+        </dd>
+    </dl>
+</div>
