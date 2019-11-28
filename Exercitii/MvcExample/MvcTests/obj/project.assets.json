@@ -9630,11 +9630,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Desktop\\PSSC-2019-master\\LAB6\\MvcExample\\MvcTests\\MvcTests.csproj",
+      "projectUniqueName": "D:\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcTests\\MvcTests.csproj",
       "projectName": "MvcTests",
-      "projectPath": "D:\\Desktop\\PSSC-2019-master\\LAB6\\MvcExample\\MvcTests\\MvcTests.csproj",
+      "projectPath": "D:\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcTests\\MvcTests.csproj",
       "packagesPath": "C:\\Users\\ghemi\\.nuget\\packages\\",
-      "outputPath": "D:\\Desktop\\PSSC-2019-master\\LAB6\\MvcExample\\MvcTests\\obj\\",
+      "outputPath": "D:\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -9653,8 +9653,8 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "D:\\Desktop\\PSSC-2019-master\\LAB6\\MvcExample\\MvcExample\\MvcExample.csproj": {
-              "projectPath": "D:\\Desktop\\PSSC-2019-master\\LAB6\\MvcExample\\MvcExample\\MvcExample.csproj"
+            "D:\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\MvcExample.csproj": {
+              "projectPath": "D:\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\MvcExample.csproj"
             }
           }
         }

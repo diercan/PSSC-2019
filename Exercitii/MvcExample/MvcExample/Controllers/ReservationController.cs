@@ -54,24 +54,26 @@ namespace MvcExample.Controllers
 		// GET: Reservation/Edit/5
 		public ActionResult Edit(int id)
 		{
+
 			return View();
 		}
 
 		// POST: Reservation/Edit/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit(int id, IFormCollection collection)
+		public ActionResult Edit(Reservation reservation)
 		{
 			try
 			{
-				// TODO: Add update logic here
-
+                // TODO: Add update logic here
+                reservationRepository.EditReservation(reservation);
 				return RedirectToAction(nameof(Index));
 			}
 			catch
 			{
-				return View();
-			}
+                //return View();
+                return RedirectToAction(nameof(Index));
+            }
 		}
 
 		// GET: Reservation/Delete/5

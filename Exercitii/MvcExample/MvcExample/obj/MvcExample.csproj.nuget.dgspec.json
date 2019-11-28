@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Desktop\\PSSC-2019-master\\LAB6\\MvcExample\\MvcExample\\MvcExample.csproj": {}
+    "D:\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\MvcExample.csproj": {}
   },
   "projects": {
-    "D:\\Desktop\\PSSC-2019-master\\LAB6\\MvcExample\\MvcExample\\MvcExample.csproj": {
+    "D:\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\MvcExample.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Desktop\\PSSC-2019-master\\LAB6\\MvcExample\\MvcExample\\MvcExample.csproj",
+        "projectUniqueName": "D:\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\MvcExample.csproj",
         "projectName": "MvcExample",
-        "projectPath": "D:\\Desktop\\PSSC-2019-master\\LAB6\\MvcExample\\MvcExample\\MvcExample.csproj",
+        "projectPath": "D:\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\MvcExample.csproj",
         "packagesPath": "C:\\Users\\ghemi\\.nuget\\packages\\",
-        "outputPath": "D:\\Desktop\\PSSC-2019-master\\LAB6\\MvcExample\\MvcExample\\obj\\",
+        "outputPath": "D:\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using MvcExample.Models;
 
 namespace MvcExample.Models
 {
@@ -14,5 +15,7 @@ namespace MvcExample.Models
         }
 
         public DbSet<MvcExample.Models.StudentMed> StudentMed { get; set; }
+
+        public DbSet<MvcExample.Models.Reservation> Reservation { get; set; }
     }
 }

@@ -11,6 +11,7 @@ namespace MvcExample.Repository
 		List<Reservation> GetAllReservations();
 		Reservation GetReservationById(Guid id);
 		void DeleteReservation(Reservation reservation);
+        void EditReservation(Reservation reservation);
 	}
 
 	public class ReservationRepository : IReservationRepository
@@ -53,7 +54,21 @@ namespace MvcExample.Repository
 			List.Remove(reservation);
 		}
 
-		public List<Reservation> GetAllReservations()
+        public void EditReservation(Reservation reservation)
+        {
+            foreach(Reservation item in List)
+            {
+                if(item.Id.Equals(reservation.Id))
+                {
+                    //item.Date = reservation.Date;
+                    item.Name = reservation.Name;
+                    item.WashMachineType = reservation.WashMachineType;
+                }
+            }
+            //throw new NotImplementedException();
+        }
+
+        public List<Reservation> GetAllReservations()
 		{
 			return List;
 		}
