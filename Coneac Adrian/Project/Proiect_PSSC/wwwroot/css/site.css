@@ -1,0 +1,31 @@
+﻿.btn {
+    width: 75px;
+}
+
+.pacient-view {
+    width: 100%;
+}
+
+.btn-view {
+    color: #FFFFFF;
+    background: #124191;
+}
+
+.btn-edit {
+    color: #FFFFFF;
+    background: #32CD32;
+}
+
+.btn-delete {
+    color: #FFFFFF;
+    background: #FF0000;
+}
+
+.model {
+    margin-left: 10px;
+    border: red 1px;
+}
+
+.container {
+    margin-left: 10px;
+}

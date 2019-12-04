@@ -1,0 +1,27 @@
+﻿@model Pacient
+
+@{ 
+    ViewBag.Title = "Create Pacient";
+}
+
+    <form asp-controller="Home" asp-action="Create" method="post">
+        <div>
+            <label asp-for="Nume"></label>
+            <input asp-for="Nume" />
+        </div>
+        <div>
+            <label asp-for="Prenume"></label>
+            <input asp-for="Prenume" />
+        </div>
+        <div>
+            <label asp-for="CNP"></label>
+            <input asp-for="CNP" />
+        </div>
+        <div>
+            <label asp-for="Sexul"></label>
+            <select asp-for="Sexul" asp-items="Html.GetEnumSelectList<Sex>()"></select>
+        </div>
+        <div>
+            <button type="submit">Create</button>
+        </div>
+    </form>

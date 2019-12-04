@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Pacient>
+
+    <div class="pacient-view">
+        @foreach (var pacient in Model)
+        {
+            <div class="card m-3">
+                <div class="card-header">
+                    <h3>@pacient.Nume @pacient.Prenume</h3>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-controller="home" asp-action="details" asp-route-id="@pacient.Id"
+                       class="btn btn-view">View</a>
+                    <a asp-action="edit" asp-controller="home"
+                       asp-route-id="@pacient.Id"
+                       class="btn btn-edit">Edit</a>
+                    <a class="btn btn-delete">Delete</a>
+                </div>
+            </div>
+        }
+    </div>
