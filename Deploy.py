@@ -29,7 +29,7 @@ print (bcolors.OKGREEN + "Deploy to Heroku!" + bcolors.ENDC)
 print (bcolors.OKBLUE + "Inital Pull" + bcolors.ENDC)
 os.system("git pull")
 
-directory  = './01_Source/02_Web/Frontend'
+directory  = './FOTONEA_CRISTINA/Source/src'
 md5hash    = dirhash(directory, 'md5',excluded_extensions=['.ts','.md','.json','.yml',"LICENSE",".npmignore",".eslintrc"])
 
 size = 0
@@ -45,10 +45,11 @@ if(md5hash != size):
         the_file.write(md5hash)
     print (bcolors.OKBLUE + "Build Frontend" + bcolors.ENDC)
     # os.system("")
-    os.system("cd 01_Source/02_Web/Frontend && npm run build")
+    
+    os.system("cd FOTONEA_CRISTINA/Source && npm run build")
     os.system("cd ..")
     os.system("cd ..")
-    os.system("cd ..")
+    
 else:
     print (bcolors.HEADER + "No new updates on frontend" + bcolors.ENDC)    
 
@@ -59,13 +60,13 @@ print (bcolors.OKBLUE + "Commiting files" + bcolors.ENDC)
 os.system("git commit -m \"Deploy to Heroku\"")
 
 print (bcolors.FAIL + "Pushing to Heroku!" + bcolors.ENDC)
-os.system("git subtree push --prefix 01_Source/02_Web heroku master")
+os.system("git subtree push --prefix FOTONEA_CRISTINA/Source heroku master")
 
 print (bcolors.HEADER + "Done.." + bcolors.ENDC)
 
 
 
-url = "https://voting-system-3f.herokuapp.com"
+url = "https://medical-webapp.herokuapp.com"
 if sys.platform=='win32':
     os.startfile(url)
 elif sys.platform=='darwin':
