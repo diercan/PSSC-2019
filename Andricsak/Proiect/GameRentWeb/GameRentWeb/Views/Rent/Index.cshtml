@@ -1,4 +1,4 @@
-﻿@model GameRentWeb.Models.RentOrder
+﻿@model GameRentWeb.ViewModels.RentViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -22,9 +22,13 @@
         <form asp-action="Index">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="RentPeriod" class="control-label"></label>
-                <input asp-for="RentPeriod" class="form-control" />
-                <span asp-validation-for="RentPeriod" class="text-danger"></span>
+                <label asp-for="Rent.RentPeriod" class="control-label"></label>
+                <input asp-for="Rent.RentPeriod" class="form-control" />
+                <span asp-validation-for="Rent.RentPeriod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RentedGame" class="control-label"></label>
+                <input asp-for="RentedGame" class="form-control" readonly="readonly" value="@ViewBag.GameName"/>
             </div>
             <div class="form-group">
                 <input type="submit" asp-controller="Rent" asp-action="Rent" class="btn btn-primary" />

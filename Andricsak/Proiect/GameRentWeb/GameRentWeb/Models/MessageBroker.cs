@@ -68,6 +68,7 @@ namespace GameRentWeb.Models
                                         autoAck: true,
                                         consumer: consumer);
             }
+            channel.Close();
             return await Task.FromResult<RentOrder>(rent);
         }
     }

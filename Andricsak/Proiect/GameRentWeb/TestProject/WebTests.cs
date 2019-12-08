@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 using TestProject.MockedClasses;
 using System.Linq;
 using RabbitMQ.Client;
+using GameRentWeb.ViewModels;
 
 namespace TestProject
 {
@@ -29,14 +30,13 @@ namespace TestProject
         private List<User> _usersList;
         private List<Game> _gameList;
         private List<RentOrder> _rentList;
-        private RentOperations _operations;
         // variable used for setting TempData
         [SetUp]
         public void Setup()
         {
             _usersList = new List<User>();
             _rentList = new List<RentOrder>();
-            _broker = new MessageBroker(new ConnectionFactory() { Uri = new Uri("amqp://zswjrhxx:USPn7uoCvEEPxLVGO0XrzjhK9wDx3Gwq@reindeer.rmq.cloudamqp.com/zswjrhxx") }.CreateConnection());
+           
             _users = new Mock<IDataBaseRepo<User>>();
             _mockHttpContext = new Mock<HttpContext>();
             _mockSession = new MockHttpSession();
@@ -69,6 +69,12 @@ namespace TestProject
                         .Callback<int>(item => _rentList.Find(r => r.Id == item));
             _rents.Setup(m => m.Delete(It.IsAny<int>()))
                         .Callback<int>( id => _rentList.RemoveAll(r => r.Id == id));
+            _rents.Setup(r => r.Update(It.IsAny<RentOrder>()))
+                        .Callback<RentOrder>(rent =>
+                        {
+                            var rentToUpdate = _rentList.FirstOrDefault(r => r.Id == rent.Id);
+                            rentToUpdate.ExpiringDate = rent.ExpiringDate;
+                        });
                         
 
             //mocking messageBroker
@@ -162,46 +168,40 @@ namespace TestProject
         public async Task DisplayRents()
         {
             //Arrange
+            _broker = new MessageBroker(new ConnectionFactory() { Uri = new Uri("amqp://zswjrhxx:USPn7uoCvEEPxLVGO0XrzjhK9wDx3Gwq@reindeer.rmq.cloudamqp.com/zswjrhxx") }.CreateConnection());
             var controller = new RentController(_rents.Object, _games.Object, _broker, _users.Object);
             var testUser = new User { Id = 1, UserName = "Daniel", Balance = 120, RentOrders = new List<RentOrder>() };
             var testGame = new Game { Id = 1, Name = "God of War", Quantity = 4 };
-            var testGame2 = new Game { Id = 1, Name = "Spider-man", Quantity = 6 };
             var testRent = new RentOrder
             {
                 Id = 1,
                 GameRented = "God of War",
                 user = testUser,
-                CurrentRentedDay = new DateTime(2019, 11, 20)
-            ,
-                ExpiringDate = new DateTime(2019, 11, 25),
+                CurrentRentedDay = DateTime.Today,
                 RentPeriod = 5
-            };
-            var testRent2 = new RentOrder
-            {
-                Id = 2,
-                GameRented = "Spider-man",
-                user = testUser,
-                RentPeriod = 10,
             };
 
             _mockSession["Balance"] = testUser.Balance;
+            _mockSession["Username"] = testUser.UserName;
             _mockHttpContext.Setup(s => s.Session).Returns(_mockSession);
 
             controller.ControllerContext.HttpContext = _mockHttpContext.Object;
-            testUser.RentOrders.Add(testRent2);
-            testUser.RentOrders.Add(testRent);
-
-            _rentList.Add(testRent);
-            _rentList.Add(testRent2);
+            _gameList.Add(testGame);
             _usersList.Add(testUser);
-           
 
+            RentViewModel rentView = new RentViewModel { Rent = testRent,RentedGame = testGame.Name};
             //Act
-            var result = controller.Rent(testRent);
+            var firstRent = controller.Rent(rentView);
             
             //Assert
-            Assert.AreEqual(1, _usersList.Count);
             Assert.AreEqual(1, _rentList.Count);
+            Assert.AreEqual(1, testUser.RentOrders.Count);
+            //verify quantity for the games after rent
+            Assert.AreEqual(3, testGame.Quantity);
+            // verify expiring dates
+            Assert.AreEqual(DateTime.Today.AddDays(5), testRent.ExpiringDate);
+            // verify user balance
+            Assert.AreEqual(105, testUser.Balance);
             _rents.Verify(m => m.GetAllObjects(), Times.Never);
         }
 
@@ -209,10 +209,11 @@ namespace TestProject
         public void ReturnGame()
         {
             // arrange
+            _broker = new MessageBroker(new ConnectionFactory() { Uri = new Uri("amqp://zswjrhxx:USPn7uoCvEEPxLVGO0XrzjhK9wDx3Gwq@reindeer.rmq.cloudamqp.com/zswjrhxx") }.CreateConnection());
             var controller = new RentController(_rents.Object, _games.Object, _broker, _users.Object);
             var testUser = new User { Id = 1, UserName = "Daniel", Balance = 100 ,RentOrders = new List<RentOrder>()};
-            var testRent = new RentOrder { Id = 1, GameRented = "God of War", user = testUser,CurrentRentedDay=new DateTime(2019,11,20)
-            , ExpiringDate=new DateTime(2019,11,25),RentPeriod=5};
+            var testRent = new RentOrder { Id = 1, GameRented = "God of War", user = testUser, CurrentRentedDay = DateTime.Today.AddDays(-3)
+            , ExpiringDate=DateTime.Today.AddDays(2),RentPeriod=5};
             testUser.RentOrders.Add(testRent);
             var testGame = new Game { Id = 1, Name = "God of War", Quantity = 4 };
             _rentList.Add(testRent);
@@ -232,13 +233,55 @@ namespace TestProject
             Assert.AreEqual(0, testUser.RentOrders.Count); // rent has been removed
             Assert.AreEqual(91, testUser.Balance);
             Assert.AreEqual(5, testGame.Quantity);
-            
+         
+        }
+
+        [Test]
+        public void XExtendGamePeriod()
+        {
+            // arrange
+            _broker = new MessageBroker(new ConnectionFactory() { Uri = new Uri("amqp://zswjrhxx:USPn7uoCvEEPxLVGO0XrzjhK9wDx3Gwq@reindeer.rmq.cloudamqp.com/zswjrhxx") }.CreateConnection());
+            var controller = new RentController(_rents.Object, _games.Object, _broker, _users.Object);
+            var testUser = new User { Id = 1, UserName = "Daniel", Balance = 100, RentOrders = new List<RentOrder>() };
+            var testRent = new RentOrder
+            {
+                Id = 1,
+                GameRented = "God of War",
+                user = testUser,
+                CurrentRentedDay = DateTime.Today,
+                ExpiringDate = DateTime.Today.AddDays(5),
+                RentPeriod = 5
+            };
+            testUser.RentOrders.Add(testRent);
+            // inject http session variables
+            _mockSession["Balance"] = testUser.Balance;
+            _mockSession["Username"] = testUser.UserName;
+            _mockHttpContext.Setup(s => s.Session).Returns(_mockSession);
+            controller.ControllerContext.HttpContext = _mockHttpContext.Object;
+
+            _usersList.Add(testUser);
+            _rentList.Add(testRent);
+            // act
+            // user initially had 115 balance
+            var result = controller.Extend(testRent.Id, 5);
+            //assert
+            Assert.AreEqual(DateTime.Today.AddDays(10), testRent.ExpiringDate);
+            Assert.AreEqual(85, testUser.Balance);
+            var viewResult = (RedirectToActionResult)result.Result;
+            Assert.AreEqual("DisplayRents", viewResult.ActionName);
         }
 
         [TearDown]
         public void TearDown()
         {
-            
+            _rentList = null;
+            _gameList = null;
+            _usersList = null;
+
+            _users = null;
+            _games = null;
+            _rents = null;
+            _broker = null;
         }
     }
 }

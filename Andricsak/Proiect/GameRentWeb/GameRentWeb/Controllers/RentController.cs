@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GameRentWeb.Models;
 using GameRentWeb.Repositories;
+using GameRentWeb.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -17,7 +18,6 @@ namespace GameRentWeb.Controllers
         private readonly IDataBaseRepo<Game> _games;
         private readonly IDataBaseRepo<User> _users;
         private readonly MessageBroker _broker;
-        private static Game gameRented;
         
         private int rentedGameid;
         public RentController(IDataBaseRepo<RentOrder> rentOrders, IDataBaseRepo<Game> games, MessageBroker broker,
@@ -67,7 +67,7 @@ namespace GameRentWeb.Controllers
             }
             
             rentedGameid = id;
-            gameRented = _games.GetObjectById(rentedGameid).Result;
+            var gameRented = _games.GetObjectById(rentedGameid).Result;
             ViewBag.GameName = gameRented.Name;
             if(gameRented.Quantity < 1)
             {
@@ -77,11 +77,14 @@ namespace GameRentWeb.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Rent(RentOrder rent)
+        public async Task<IActionResult> Rent(RentViewModel rentView)
         {
+            var rent = rentView.Rent;
+
             rent.CurrentRentedDay = DateTime.Today;
-            rent.GameRented = gameRented.Name;
-           
+            rent.GameRented = rentView.RentedGame;
+            // get current game
+            var gameRented = _games.GetAllObjects().Result.FirstOrDefault(g => g.Name.Equals(rentView.RentedGame));
             var rentJson = JsonConvert.SerializeObject(rent);
             await _broker.SendMessage(rentJson,"RentToWorker");
             var rentReceived = _broker.ReceiveMessage("WorkerToRent").Result;
@@ -153,8 +156,12 @@ namespace GameRentWeb.Controllers
             var selectedRent =  _rentOrders.GetObjectById(id).Result;           
             selectedRent.RentPeriod += Convert.ToInt32(days);
 
-            var selectedRentJson = JsonConvert.SerializeObject(selectedRent);
-            
+            var selectedRentJson = JsonConvert.SerializeObject(selectedRent, new JsonSerializerSettings()
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            }
+            );
+
             await _broker.SendMessage(selectedRentJson, "RentToWorker");
             var rentReceived = _broker.ReceiveMessage("WorkerToRent").Result;
 

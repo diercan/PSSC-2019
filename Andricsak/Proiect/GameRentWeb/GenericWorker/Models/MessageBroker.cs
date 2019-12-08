@@ -64,6 +64,7 @@ namespace GenericWorker
 
         public async Task SendMessage(string message,string queueSend)
         {
+            _logMessage.LogInformation($"Queue for sending triggered is: {queueSend}\n");
             using (var channel = _connection.CreateModel())
             {
                 channel.QueueDeclare(queue: queueSend,
@@ -81,6 +82,7 @@ namespace GenericWorker
                                              body: body);
                 _logMessage.LogInformation($"{DateTimeOffset.Now} - Sent to web app --- {message}\n");
             }
+            Console.WriteLine("\n\n");
 }
     }
 }
