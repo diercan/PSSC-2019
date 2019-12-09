@@ -168,12 +168,13 @@ namespace GameRentWeb.Controllers
           
 
             var user = _users.GetAllObjects().Result.FirstOrDefault(u => u.UserName.Equals(HttpContext.Session.GetString("Username")));
-            user.Balance -= days * 3f;
-            if(user.Balance < 0)
+            
+            if(user.Balance < days * 3f)
             {
                 SetTempData("Error","You don't have enough money to extend it's rent duartion");
                 return RedirectToAction("DisplayRents", "Rent");
             }
+            user.Balance -= days * 3f;
             HttpContext.Session.SetString("Balance", user.Balance.ToString());
             await _users.Update(user);
             await _rentOrders.Update(rentReceived);

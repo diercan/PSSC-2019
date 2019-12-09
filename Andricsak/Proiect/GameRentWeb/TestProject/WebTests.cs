@@ -36,7 +36,7 @@ namespace TestProject
         {
             _usersList = new List<User>();
             _rentList = new List<RentOrder>();
-           
+            _broker = new MessageBroker(new ConnectionFactory() { Uri = new Uri("amqp://zswjrhxx:USPn7uoCvEEPxLVGO0XrzjhK9wDx3Gwq@reindeer.rmq.cloudamqp.com/zswjrhxx") }.CreateConnection());
             _users = new Mock<IDataBaseRepo<User>>();
             _mockHttpContext = new Mock<HttpContext>();
             _mockSession = new MockHttpSession();
@@ -74,6 +74,7 @@ namespace TestProject
                         {
                             var rentToUpdate = _rentList.FirstOrDefault(r => r.Id == rent.Id);
                             rentToUpdate.ExpiringDate = rent.ExpiringDate;
+                            rentToUpdate.RentPeriod = rent.RentPeriod;
                         });
                         
 
@@ -94,6 +95,7 @@ namespace TestProject
         }
 
         [Test]
+        [Category("Negative Tests")]
         public async Task FailedLoginAsync()
         {
             //Arrange
@@ -237,7 +239,7 @@ namespace TestProject
         }
 
         [Test]
-        public void XExtendGamePeriod()
+        public void ExtendGamePeriod()
         {
             // arrange
             _broker = new MessageBroker(new ConnectionFactory() { Uri = new Uri("amqp://zswjrhxx:USPn7uoCvEEPxLVGO0XrzjhK9wDx3Gwq@reindeer.rmq.cloudamqp.com/zswjrhxx") }.CreateConnection());
@@ -269,6 +271,131 @@ namespace TestProject
             Assert.AreEqual(85, testUser.Balance);
             var viewResult = (RedirectToActionResult)result.Result;
             Assert.AreEqual("DisplayRents", viewResult.ActionName);
+
+        }
+
+        [Test]
+        [Category("Negative Tests")]
+        [Description("When the user doesn't have enough money")]
+        public void ExtendPeriodFailed()
+        {
+            // arrange
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            tempData["Error"] = "";
+            var controller = new RentController(_rents.Object, _games.Object, _broker, _users.Object)
+            {
+                TempData = tempData
+            };
+
+            var testUser = new User { Id = 1, UserName = "Daniel", Balance = 10, RentOrders = new List<RentOrder>() };
+            var testRent = new RentOrder
+            {
+                Id = 1,
+                GameRented = "God of War",
+                user = testUser,
+                CurrentRentedDay = DateTime.Today,
+                ExpiringDate = DateTime.Today.AddDays(5),
+                RentPeriod = 5
+            };
+            testUser.RentOrders.Add(testRent);
+            // inject http session variables
+            _mockSession["Balance"] = testUser.Balance;
+            _mockSession["Username"] = testUser.UserName;
+            _mockHttpContext.Setup(s => s.Session).Returns(_mockSession);
+            controller.ControllerContext.HttpContext = _mockHttpContext.Object;
+
+            _usersList.Add(testUser);
+            _rentList.Add(testRent);
+            // act
+            // user initially had 115 balance
+            var result = controller.Extend(testRent.Id, 5);
+            //assert
+            Assert.AreEqual(DateTime.Today.AddDays(5), testRent.ExpiringDate);
+            Assert.AreEqual(10, testUser.Balance);
+            var viewResult = (RedirectToActionResult)result.Result;
+            Assert.AreEqual("DisplayRents", viewResult.ActionName);
+            Assert.AreEqual("You don't have enough money to extend it's rent duartion", tempData["Error"]);
+        }
+
+        [Test]
+        [Category("Negative Tests")]
+        public void RentInsuficientBalance()
+        {
+            //arrange
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            tempData["Funds"] = "";
+            var controller = new RentController(_rents.Object, _games.Object, _broker, _users.Object)
+            {
+                TempData = tempData
+            };
+            var testUser = new User { Id = 1, UserName = "Daniel", Balance = 10, RentOrders = new List<RentOrder>() };
+            var testRent = new RentOrder
+            {
+                Id = 1,
+                GameRented = "God of War",
+                user = testUser,
+                RentPeriod = 5
+            };
+            var testGame = new Game
+            {
+                Id=1,
+                Name="God of War",
+                Quantity=5,
+            };
+
+            _gameList.Add(testGame);
+            RentViewModel rentView = new RentViewModel { Rent = testRent, RentedGame = testRent.GameRented };
+            // inject http session variables
+            _mockSession["Balance"] = testUser.Balance;
+            _mockSession["Username"] = testUser.UserName;
+            _mockHttpContext.Setup(s => s.Session).Returns(_mockSession);
+            controller.ControllerContext.HttpContext = _mockHttpContext.Object;
+
+            _usersList.Add(testUser);
+            // act
+            var result = controller.Rent(rentView);
+            //assert
+            Assert.AreEqual(0, testUser.RentOrders.Count);
+            Assert.AreEqual(0, _rentList.Count);
+            Assert.AreEqual("Not enough funds, payment is 15$!", tempData["Funds"]);
+            var viewResult = (ViewResult)result.Result;
+            Assert.AreEqual("Index", viewResult.ViewName);
+        }
+
+        [Test]
+        [Category("Negative tests")]
+        public void ReturnGameSameDayFail()
+        {
+            //arrange
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            tempData["Error"] = "";
+            var controller = new RentController(_rents.Object, _games.Object, _broker, _users.Object)
+            {
+                TempData = tempData
+            };
+            var testUser = new User { Id = 1, UserName = "Daniel", Balance = 10, RentOrders = new List<RentOrder>() };
+            var testRent = new RentOrder
+            {
+                Id = 1,
+                GameRented = "God of War",
+                user = testUser,
+                RentPeriod = 5,
+                CurrentRentedDay = DateTime.Today,
+                TotalPayment=15f
+            };
+            _rentList.Add(testRent);
+            _usersList.Add(testUser);
+            //act
+            var result = controller.Return(testRent.Id);
+            //assert 
+            Assert.AreEqual("You can't return a game on the same day you rent it!", tempData["Error"]);
+            var redirectResult = (RedirectToActionResult)result.Result;
+            Assert.AreEqual("DisplayRents", redirectResult.ActionName);
+            Assert.AreEqual(5, testRent.RentPeriod);
+            Assert.AreEqual(15f, testRent.TotalPayment);
         }
 
         [TearDown]
