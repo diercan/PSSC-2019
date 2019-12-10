@@ -1,6 +1,6 @@
 using System;
 
-namespace WeTestServerApp
+namespace WeTestBackend
 {
     public class WeatherForecast
     {
