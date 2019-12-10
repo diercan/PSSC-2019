@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ghemi\\source\\repos\\MedFind\\MedFind\\MedFind.csproj": {}
+    "E:\\User\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MedFind\\MedFind\\MedFind.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ghemi\\source\\repos\\MedFind\\MedFind\\MedFind.csproj": {
+    "E:\\User\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MedFind\\MedFind\\MedFind.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ghemi\\source\\repos\\MedFind\\MedFind\\MedFind.csproj",
+        "projectUniqueName": "E:\\User\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MedFind\\MedFind\\MedFind.csproj",
         "projectName": "MedFind",
-        "projectPath": "C:\\Users\\ghemi\\source\\repos\\MedFind\\MedFind\\MedFind.csproj",
-        "packagesPath": "C:\\Users\\ghemi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ghemi\\source\\repos\\MedFind\\MedFind\\obj\\",
+        "projectPath": "E:\\User\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MedFind\\MedFind\\MedFind.csproj",
+        "packagesPath": "C:\\Users\\dariu\\.nuget\\packages\\",
+        "outputPath": "E:\\User\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MedFind\\MedFind\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ghemi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dariu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

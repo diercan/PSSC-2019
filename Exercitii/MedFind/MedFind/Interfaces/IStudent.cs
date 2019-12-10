@@ -8,7 +8,7 @@ namespace MedFind.Interfaces
 {
     public interface IStudent
     {
-        Student CheckStudent(Student student);
+        Student ReturnStudentAfterLoginStudent(LoginStudentViewModel student);
         void CreateStudent(Student student);
 
         IEnumerable<Student> GetAllStudents();

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MedFind.Interfaces;
+using MedFind.Interfaces.LoginInterfaces;
 using MedFind.Repository;
+using MedFind.Repository.LoginRepository;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +30,8 @@ namespace MedFind
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IStudent, RStudent>();
+            services.AddSingleton<ILoginStudent, RLoginStudent>();
+            services.AddSingleton<ILoginMedic, RLoginMedic>();
             //services.AddSingleton<ILoginStudent, RStudent>();
             //services.AddIdentity<IdentityUser, IdentityRole>();
             services.AddControllersWithViews();

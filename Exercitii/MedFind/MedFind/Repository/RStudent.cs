@@ -14,15 +14,16 @@ namespace MedFind.Repository
         public RStudent()
         {
             List_Student = new List<Student>();
-            List_Student.Add(new Student { Name="Mada",StudentID="a"});
-            List_Student.Add(new Student { Name = "Darius", StudentID = "a" });
+
+            List_Student.Add(new Student { StudentAccount="Madalina.Cristina", Name="Madalina Cristina",StudentID="a"});
+            List_Student.Add(new Student { StudentAccount="Darius.Bagiu", Name = "Darius Bagiu", StudentID = "a" });
         }
 
-        public Student CheckStudent(Student student)
+        public Student ReturnStudentAfterLoginStudent(LoginStudentViewModel student)
         {
             foreach(Student item in List_Student)
             {
-                if (item.Name.Equals(student.Name) && item.StudentID.Equals(student.StudentID))
+                if (item.StudentAccount.Equals(student.StudentAccount))
                     return item;
                 
             }

@@ -20,7 +20,7 @@ namespace MedFind.Controllers
             _student = student;
             
         }
-    
+    /*
         public ActionResult LoginStudent()
         {
                     return View();
@@ -45,7 +45,7 @@ namespace MedFind.Controllers
 
                 return View();
             }
-        }
+        }*/
 
     // GET: Student
         public ActionResult Index()

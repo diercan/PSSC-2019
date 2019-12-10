@@ -9,7 +9,7 @@ namespace MedFind.Models
     public class LoginStudentViewModel
     {
         [Required]
-        public string Name { get; set; }
+        public string StudentAccount { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
