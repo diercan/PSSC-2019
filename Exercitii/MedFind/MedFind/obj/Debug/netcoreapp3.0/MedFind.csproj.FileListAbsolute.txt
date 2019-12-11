@@ -276,3 +276,5 @@ E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\obj\Debug\netcoreap
 E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\obj\Debug\netcoreapp3.0\Razor\Views\Medic\Details.cshtml.g.cs
 E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\obj\Debug\netcoreapp3.0\Razor\Views\LoginMedic\LoginMedic.cshtml.g.cs
 E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_LayoutMedic.cshtml.g.cs
+E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\bin\Debug\netcoreapp3.0\System.Security.Cryptography.Pkcs.dll
+E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll

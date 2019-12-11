@@ -8,11 +8,13 @@ namespace MedFind.Models
 {
     public class LoginStudentViewModel
     {
-        [Required]
+        [Display(Name = "User name")]
+        [Required(ErrorMessage = "Username is required!")]
+        [StringLength(100, ErrorMessage = "Must be between 5 and 100 characters", MinimumLength = 5)]
         public string StudentAccount { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "Password is required!"), DataType(DataType.Password)]
+        [StringLength(100, ErrorMessage = "Must be between 5 and 100 characters", MinimumLength = 5)]
         public string Password { get; set; }
         /*
         [Display(Name="Remember Me")]

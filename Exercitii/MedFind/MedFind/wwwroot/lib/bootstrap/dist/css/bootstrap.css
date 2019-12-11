@@ -61,6 +61,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+  
 }
 
 [tabindex="-1"]:focus {
@@ -8146,7 +8147,8 @@ button.bg-dark:focus {
 
 .pb-3,
 .py-3 {
-  padding-bottom: 1rem !important;
+    padding-bottom: 1rem !important;
+    color: white;
 }
 
 .pl-3,

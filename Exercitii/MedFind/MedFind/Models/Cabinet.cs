@@ -7,6 +7,7 @@ namespace MedFind.Models
 {
     public class Cabinet
     {
+       
         public Category Specialty { get;set; }
 
         public string Description { get; set; }
