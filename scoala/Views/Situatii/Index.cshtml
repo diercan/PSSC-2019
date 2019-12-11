@@ -1,0 +1,57 @@
+﻿@model IEnumerable<scoala.Models.Situatie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Elev.Nume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Materie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SituatieOra)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Elev.Nume)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Materie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SituatieOra)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDSituatie }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDSituatie }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDSituatie })
+        </td>
+    </tr>
+}
+
+</table>

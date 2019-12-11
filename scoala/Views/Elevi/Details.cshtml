@@ -1,0 +1,42 @@
+﻿@model scoala.Models.Elev
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Elev</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prenume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clasa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clasa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDElev }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

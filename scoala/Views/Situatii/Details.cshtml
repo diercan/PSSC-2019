@@ -1,0 +1,58 @@
+﻿@model scoala.Models.Situatie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Situatie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Elev.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Elev.Nume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Materie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Materie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SituatieOra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SituatieOra)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDSituatie }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
