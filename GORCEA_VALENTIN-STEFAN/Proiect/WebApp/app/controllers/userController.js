@@ -24,7 +24,7 @@ const router = function (userService) {
 
     userRouter.get('/me', async (req, res, next) => {
         try {
-            const user = await userService.getUser("valentin.gorcea");
+            const user = await userService.getUser(req.authenticatedUser.userName);
 
             res.setHeader('Status', 200);
             res.send(user);

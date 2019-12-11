@@ -23,6 +23,22 @@ UserService.prototype.getUsers = async function (userName) {
   });
 }
 
+UserService.prototype.getUsersWithPassword = async function (pass, userName) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let sql = `SELECT * FROM user where password = ? and userName = ? `;
+     
+      let result = await this._dbService.query(sql, [pass, userName]);
+      
+      log.debug(`--->SUCCES: get users details : ${JSON.stringify(result)}`);
+      resolve(result);
+
+    } catch (err) {
+      return reject(err);
+    }
+  });
+}
+
 UserService.prototype.getUser = async function (userName) {
   return new Promise(async (resolve, reject) => {
     try {

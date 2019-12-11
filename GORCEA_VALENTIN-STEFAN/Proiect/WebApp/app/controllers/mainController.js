@@ -7,23 +7,9 @@ const cors = require('cors');
 const HttpError = require('../util/httpError');
 const TrainerController = require('./trainingController');
 const UserController = require('./userController');
-const basicAuth = require('express-basic-auth')
 
-module.exports = function (log, config, dbService) {
+module.exports = function (log, config, dbService, userService) {
   const app = express();
-
-/* 
-  app.use(basicAuth({
-    users: { 'Foo': 'bar' },
-    unauthorizedResponse: getUnauthorizedResponse
-}))
- 
-function getUnauthorizedResponse(req) {
-  console.log(req.auth, req.path)
-    return req.auth
-        ? ('Credentials ' + req.auth.user + ':' + req.auth.password + ' rejected')
-        : 'No credentials provided'
-} */
 
   // cors
   // =============================================================================
@@ -40,10 +26,27 @@ function getUnauthorizedResponse(req) {
     extended: false,
   }));
 
+  app.all('*', async(req,res,next)=>{
+    try{
+    let pass = JSON.parse(req.headers['authorization']).password;
+    let userName = JSON.parse(req.headers['authorization']).userName;
+    const authUser = await userService.getUsersWithPassword(pass,userName);
+    if(authUser === -1){
+      return next(new HttpError(401, `Unauthorized`));
+    }
+    req.authenticatedUser = authUser[0];
+    next();
+    }
+    catch(err){
+      log.error(err)
+      return next(new HttpError(401, `Unauthorized`));
+    }
+  })
+
   // register context
   // =============================================================================
   const trainingService = new (require('./../services/trainingService'))(config, dbService);
-  const userService = new (require('./../services/userService'))(config, dbService);
+  //const userService = new (require('./../services/userService'))(config, dbService);
   app.use(config.endpoints.trainingContext, new TrainerController(trainingService));
   app.use(config.endpoints.userContext, new UserController(userService));
 

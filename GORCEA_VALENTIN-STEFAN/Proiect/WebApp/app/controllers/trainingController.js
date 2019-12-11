@@ -12,10 +12,10 @@ const router = function (trainingService) {
     // get all trainings
     trainingRouter.get('/', async (req, res, next) => {
         try {
-            const trainings = await trainingService.getTrainings("valentin.gorcea");
+            const trainings = await trainingService.getTrainings(req.authenticatedUser.userName);
 
             const result = { 
-                user : "valentin.gorcea",
+                user : req.authenticatedUser.userName,
                 trainings : trainings
             }; 
 
@@ -31,7 +31,7 @@ const router = function (trainingService) {
     // create a training
     trainingRouter.post('/new', async (req, res, next) => {
         try {
-            const result = await trainingService.createTraining(req.body.training, {"id": 1, "userName": "valentin.gorcea"});
+            const result = await trainingService.createTraining(req.body, req.authenticatedUser);
     
             res.setHeader('Status', 200);
             res.send(result);
@@ -45,7 +45,7 @@ const router = function (trainingService) {
     // join a training
     trainingRouter.post('/:trainingId', async (req, res, next) => {
         try {
-            const result = await trainingService.joinTraining(req.params.trainingId, "valentin.gorcea", true);
+            const result = await trainingService.joinTraining(req.params.trainingId, req.authenticatedUser.userName, true);
     
             res.setHeader('Status', 200);
             res.send(result);
@@ -59,7 +59,7 @@ const router = function (trainingService) {
      // give up on a training
      trainingRouter.put('/leave/:trainingId', async (req, res, next) => {
         try {
-             const result = await trainingService.cancelJoinTraining(req.params.trainingId, "valentin.gorcea");
+             const result = await trainingService.cancelJoinTraining(req.params.trainingId, req.authenticatedUser.userName);
 
             res.setHeader('Status', 200);
             res.send(result);
@@ -72,7 +72,7 @@ const router = function (trainingService) {
     // cancel a training
     trainingRouter.delete('/:trainingId', async (req, res, next) => {
         try {
-             const result = await trainingService.deleteTraining(req.params.trainingId, "valentin.gorcea");
+             const result = await trainingService.deleteTraining(req.params.trainingId, req.authenticatedUser.userName);
             if(result === -1){
                 res.setHeader('Status', 200);
                 res.send([]);
