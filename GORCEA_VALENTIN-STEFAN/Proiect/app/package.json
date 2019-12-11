@@ -1,0 +1,41 @@
+{
+    "name": "training-scheduler",
+    "version": "1.0.0",
+    "description": "an app for scheduling trainings",
+    "main": "app.js",
+    "scripts": {
+        "lint": "eslint ./app --fix",
+        "test": "nyc --reporter=html --reporter=text mocha",
+        "test4Dev": "mocha test --colors --recursive --watch",
+        "start": "node app.js"
+    },
+    "keywords": [
+        "training",
+        "scheduler"
+    ],
+    "author": "valentin.gorcea",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "ews-javascript-api": "^0.9.4",
+        "express": "^4.16.3",
+        "express-basic-auth": "^1.2.0",
+        "express-ntlm": "^2.3.0",
+        "mysql": "^2.15.0",
+        "request": "^2.85.0",
+        "winston": "^2.4.4",
+        "winston-daily-rotate-file": "^3.3.2"
+    },
+    "devDependencies": {
+        "chai": "^4.1.2",
+        "chai-http": "^4.0.0",
+        "eslint": "^5.12.1",
+        "eslint-config-google": "^0.11.0",
+        "eslint-plugin-import": "^2.15.0",
+        "istanbul": "^0.4.5",
+        "mocha": "^5.1.0",
+        "nyc": "^11.7.1",
+        "proxyquire": "^2.0.1",
+        "sinon": "^4.5.0"
+    }
+}
