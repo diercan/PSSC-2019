@@ -1,0 +1,9 @@
+Am ales domeniul fotografiei, care consta in ajutorul fotografilor oferind informatii cu privire la datele unei poze. 
+Sistemul software se axeaza pe incarcarea si analizarea datelor unei fotografii. 
+Este un domeniu bazat pe modelul client-serivce.
+
+Funcționalitățile sistemului software sunt:
+-incarcarea unei fotografii
+-analizarea acesteia
+-trimiterea datelor prin e-mail
+-stergerea fotografiei
