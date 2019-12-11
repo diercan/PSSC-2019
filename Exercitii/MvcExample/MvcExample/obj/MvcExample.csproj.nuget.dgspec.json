@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\MvcExample.csproj": {}
+    "E:\\User\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\MvcExample.csproj": {}
   },
   "projects": {
-    "D:\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\MvcExample.csproj": {
+    "E:\\User\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\MvcExample.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\MvcExample.csproj",
+        "projectUniqueName": "E:\\User\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\MvcExample.csproj",
         "projectName": "MvcExample",
-        "projectPath": "D:\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\MvcExample.csproj",
-        "packagesPath": "C:\\Users\\ghemi\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\obj\\",
+        "projectPath": "E:\\User\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\MvcExample.csproj",
+        "packagesPath": "C:\\Users\\dariu\\.nuget\\packages\\",
+        "outputPath": "E:\\User\\Documents\\GitHub\\PSSC-2019\\Exercitii\\MvcExample\\MvcExample\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ghemi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dariu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -70,6 +70,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.0.1, 3.0.1]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -78,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

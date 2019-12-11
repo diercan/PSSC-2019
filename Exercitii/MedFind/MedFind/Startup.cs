@@ -30,6 +30,7 @@ namespace MedFind
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IStudent, RStudent>();
+            services.AddSingleton<IMedic, RMedic>();
             services.AddSingleton<ILoginStudent, RLoginStudent>();
             services.AddSingleton<ILoginMedic, RLoginMedic>();
             //services.AddSingleton<ILoginStudent, RStudent>();

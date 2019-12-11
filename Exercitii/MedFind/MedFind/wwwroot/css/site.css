@@ -52,6 +52,10 @@ button.accept-policy {
   line-height: inherit;
 }
 
+.button {
+    font-size: 13px;
+    color: green;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -83,4 +87,8 @@ body {
 }
 .pb-3{
     color:white;
+}
+.table{
+    color:white;
+    max-width:100%;
 }

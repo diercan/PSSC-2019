@@ -1,5 +1,6 @@
 ﻿using MedFind.Models;
 using MedFind.Models.ViewModels;
+using MedFind.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,10 @@ namespace MedFind.Interfaces
 {
     public interface IMedic
     {
-         Medic ReturnMedicAfterLoginMedic(LoginMedicViewModel medic);
-        
+        Medic ReturnMedicAfterLoginMedic(LoginMedicViewModel medic);
+
+        public List<Medic> GetCabinets();
+
+
     }
 }

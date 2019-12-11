@@ -15,8 +15,8 @@ namespace MedFind.Repository
         {
             List_Student = new List<Student>();
 
-            List_Student.Add(new Student { StudentAccount="Madalina.Cristina", Name="Madalina Cristina",StudentID="a"});
-            List_Student.Add(new Student { StudentAccount="Darius.Bagiu", Name = "Darius Bagiu", StudentID = "a" });
+            List_Student.Add(new Student { StudentAccount="Madalina.Cristina", Name="Madalina Cristina",StudentID="12345"});
+            List_Student.Add(new Student { StudentAccount="Darius.Bagiu", Name = "Darius Bagiu", StudentID = "12345" });
         }
 
         public Student ReturnStudentAfterLoginStudent(LoginStudentViewModel student)

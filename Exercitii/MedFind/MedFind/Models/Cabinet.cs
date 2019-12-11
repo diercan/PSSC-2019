@@ -12,6 +12,8 @@ namespace MedFind.Models
 
         public string Description { get; set; }
 
+        
+
     }
     public enum Category
     {

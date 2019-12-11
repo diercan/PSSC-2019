@@ -15,7 +15,15 @@ namespace MedFind.Repository
         {
             List_Medics = new List<Medic>();
             List_Medics.Add(new Medic { MedicAccount = "Medic1", Name = "George", CabinetMedic = new Cabinet {Specialty = Category.Endodontie, Description = "descriere cabinet 1" } });
+            List_Medics.Add(new Medic { MedicAccount = "Medic2", Name = "Georgel", CabinetMedic = new Cabinet { Specialty = Category.Parodontologie, Description = "descriere cabinet 1" } });
+
         }
+
+        public List<Medic> GetCabinets()
+        {
+            return List_Medics;
+        }
+
         public Medic ReturnMedicAfterLoginMedic(LoginMedicViewModel medic)
         {
             foreach (Medic item in List_Medics)
@@ -26,6 +34,8 @@ namespace MedFind.Repository
             }
             return null;
         }
+
+
 
         Medic IMedic.ReturnMedicAfterLoginMedic(LoginMedicViewModel medic)
         {

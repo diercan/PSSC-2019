@@ -19,6 +19,11 @@ namespace MedFind.Controllers
             _medic = medic;
 
         }
+
+        public ActionResult ShowCabinets()
+        {
+            return View(_medic.GetCabinets());
+        }
         // GET: Medic
         public ActionResult Index()
         {
