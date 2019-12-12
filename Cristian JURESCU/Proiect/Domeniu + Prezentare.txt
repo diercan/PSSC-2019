@@ -1,0 +1,7 @@
+	Domeniu: Turism
+
+	Prezentare proiect: Aplicatie mobile ce permite utilizatorilor(turistilor) sa isi cunoasca orasul. Acestia pot scana QrCode-urile
+amplasate la obiectivele turistice din oras, primind in timp real informatii despre acestea, cat si event-urile ce au loc la acelasi obiectiv.
+	Totodata, pentru a ajunge la aceste QrCode-uri, userii se vor folosi de harta existenta in aplicatie (Google Map) ce le va arata
+exact amplasarea tutoro QrCode-urilor la locatiile turistice din Timisoara.
+	Event-urile existene in oras se pot urmari si fara scanarea unui QrCode, extrase dintr-o baza de date separata.
