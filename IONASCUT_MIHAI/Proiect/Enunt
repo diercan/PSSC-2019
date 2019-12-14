@@ -1,6 +1,5 @@
-Domeniul pescuitului.
+Aplicatie pentru vot online.
 
-Ce vei putea face in aplicatie:
-- logare
-- cumparare de produs
-- vizualizare istoric produse cumparate
+In aplicatie utilizatorul va putea sa faca urmatoarele actiuni:
+- sa isi introduca CNP-ul
+- sa voteze cu unul dintre candidatii de pe lista de votare
