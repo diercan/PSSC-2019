@@ -20,5 +20,7 @@ namespace GameRentWeb.Models
         public string GameRented { get; set; }
         public virtual User user { get; set; }
 
+
+
     }
 }

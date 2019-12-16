@@ -1,4 +1,6 @@
 ﻿using GameRentWeb.ExceptionClasses;
+using GameRentWeb.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,16 +9,18 @@ using System.Threading.Tasks;
 
 namespace GameRentWeb.Models
 {
-    public class Rents
+    public class RentDDD
     {
         private List<RentOrder> _rents;
-        public ReadOnlyCollection<RentOrder> Values { get { return _rents.AsReadOnly(); } }
-        public Rents()
+        ReadOnlyCollection<RentOrder> Values { get { return _rents.AsReadOnly(); } }
+
+        public RentDDD(IDataBaseRepo<RentOrder> repo)
         {
-            _rents = new List<RentOrder>();
+            _rents = repo.GetAllObjects().Result.ToList();
         }
-        internal void AddRentList(RentOrder rentToAdd)
+        internal void AddRent(RentOrder rentToAdd, IDataBaseRepo<RentOrder> repo)
         {
+            repo.Insert(rentToAdd);
             _rents.Add(rentToAdd);
         }
 
@@ -33,5 +37,7 @@ namespace GameRentWeb.Models
                 }
             }
         }
+
+        
     }
 }
