@@ -1,5 +1,5 @@
 'use strict';
-const log = require('../services/logService');
+const log = require('../middlewares/logService');
 
 class HttpError extends Error {
   constructor(statusCode, message, fileName, lineNumber) {

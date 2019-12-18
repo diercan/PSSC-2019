@@ -2,16 +2,16 @@
 
 const express = require('express');
 const HttpError = require('../util/httpError');
-const log = require('../services/logService');
+const log = require('../middlewares/logService');
 
 const userRouter = express.Router();
 
-const router = function (userService) {
+const router = function (userModel) {
 
     // get users details
     userRouter.get('/', async (req, res, next) => {
         try {
-            const user = await userService.getUsers();
+            const user = await userModel.getUsers();
 
             res.setHeader('Status', 200);
             res.send(user);
@@ -24,7 +24,7 @@ const router = function (userService) {
 
     userRouter.get('/me', async (req, res, next) => {
         try {
-            const user = await userService.getUser(req.authenticatedUser.userName);
+            const user = await userModel.getUser(req.authenticatedUser.userName);
 
             res.setHeader('Status', 200);
             res.send(user);

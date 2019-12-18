@@ -247,7 +247,7 @@ class Components extends React.Component {
             <GridContainer>
               <GridItem>
                 <div className={classes.brand}>
-                  <h1 className={classes.title}>Training Scheduler</h1>
+                  <h1 className={classes.title}>Training Planner</h1>
                 </div>
               </GridItem>
             </GridContainer>

@@ -1,18 +1,16 @@
 'use strict';
 
-const https = require('https');
 const http = require('http');
-const fs = require('fs');
-
-
-const log = require('./app/services/logService');
-const config = require('./app/services/configuration');
-const dbService = new(require('./app/services/dbService'))(config);
+const log = require('./app/middlewares/logService');
+const config = require('./app/middlewares/configuration');
+const db = new(require('./app/models/db'))(config);
+const userModel = new(require('./app/models/userModel'))(config,db);
 
 const app = require('./app/controllers/mainController')(
     log,
     config,
-    dbService
+    db,
+    userModel
 );
 
 // PORT is either provided as cli param, or read from config
@@ -22,8 +20,9 @@ const HTTP_PORT = (process.argv)[2] || config.webServer.httpport;
 // START THE SERVER
 // =============================================================================
 if (HTTP_PORT) {
-    const server = http.createServer(app).listen(HTTP_PORT, function() {
-        log.debug(`Server started on http port:  ${HTTP_PORT} ....`);
+    const server = http.createServer(app).listen(HTTP_PORT, async function() {
+            log.debug(`Server started on http port:  ${HTTP_PORT} ....`);
+        
     });
     server.timeout = config.webServer.serverTimeout;
 }
@@ -32,7 +31,7 @@ if (HTTP_PORT) {
 // =============================================================================
 function gracefulShutdownHandler() {
     const msg = `Shutting down gracefully ...`;
-    log.debug(msg);
+    //log.debug(msg);
 
     dataService.closeConnections().finally(() => {
         process.exit(0);
@@ -41,9 +40,9 @@ function gracefulShutdownHandler() {
 process.on('SIGTERM', gracefulShutdownHandler);
 
 process.on('unhandledRejection', (reason) => {
-    log.debug(reason.stack || reason);
+   // log.debug(reason.stack || reason);
 });
 
 process.on('uncaughtException', (reason, promise) => {
-    log.debug(reason.stack || reason);
+//log.debug(reason.stack || reason);
 });

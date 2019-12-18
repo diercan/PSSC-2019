@@ -3,12 +3,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
 const HttpError = require('../util/httpError');
-const TrainerController = require('./trainingController');
+const TrainingController = require('./trainingController');
 const UserController = require('./userController');
 
-module.exports = function (log, config, dbService, userService) {
+module.exports = function (log, config, db, userModel) {
   const app = express();
 
   // cors
@@ -30,7 +29,7 @@ module.exports = function (log, config, dbService, userService) {
     try{
     let pass = JSON.parse(req.headers['authorization']).password;
     let userName = JSON.parse(req.headers['authorization']).userName;
-    const authUser = await userService.getUsersWithPassword(pass,userName);
+    const authUser = await userModel.getUsersWithPassword(pass,userName);
     if(authUser === -1){
       return next(new HttpError(401, `Unauthorized`));
     }
@@ -45,14 +44,12 @@ module.exports = function (log, config, dbService, userService) {
 
   // register context
   // =============================================================================
-  const trainingService = new (require('./../services/trainingService'))(config, dbService);
-  //const userService = new (require('./../services/userService'))(config, dbService);
-  app.use(config.endpoints.trainingContext, new TrainerController(trainingService));
-  app.use(config.endpoints.userContext, new UserController(userService));
+  const trainingModel = new (require('../models/trainingModel'))(config, db);
+  app.use(config.endpoints.trainingContext, new TrainingController(trainingModel));
+  app.use(config.endpoints.userContext, new UserController(userModel));
 
   // middlewares
   // =============================================================================
-  app.use(require('./../middlewares/errorLogging')());
   app.use(require('./../middlewares/errorJsonResponse')());
 
 
