@@ -1,0 +1,8 @@
+Pentru realizarea aplicatiei am ales domeniul de medicina veterinara.
+Acest sistem software ofera posibilitatea de a face programere online pentru animale.
+Sistemul software are urmatoarele functionalitati:
+-pe pagina login se deosebeste tipul utilizatorului, care poate fi doctorul sau pacientul
+-pentru un utilizator de tip medic este posibila vizualizarea pacientilor respectiv programarilor de consultatii
+-pentru un pacient este posibil sa vizualizeze informatii despre doctorul veterinar, nume si specializare, 
+si are acces la un calendar care evidentieaza programul de lucru a medicilor unde se poate face si programarea 
+
