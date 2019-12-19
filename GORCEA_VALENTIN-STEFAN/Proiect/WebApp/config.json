@@ -1,0 +1,33 @@
+{
+    "storage": {
+        "host": "localhost",
+        "port": 3306,
+        "user": "root",
+        "password": "",
+        "database": "training",
+        "dateStrings" : true
+    },
+    "pool": {
+        "connectionLimit": 60,
+        "connectTimeout": 120000,
+        "acquireTimeout": 120000,
+        "queryTimeout": 600000
+    },
+    "webServer": {
+        "httpport" : 6001,
+        "instance": 1,
+        "timeout": 60000,
+        "corsAllowed": [
+                        "http://localhost:6001",
+                        "http://localhost:3001"]
+    },
+    "webConstants": {
+        "textPlain": "text/plain",
+        "appJson": "application/json",
+        "noDataAvailable" : -1
+    },
+   "endpoints" : {
+        "trainingContext": "/api/v1.0/ts/training",
+        "userContext": "/api/v1.0/ts/user"
+    }
+}

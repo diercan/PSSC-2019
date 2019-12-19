@@ -1,0 +1,10 @@
+.nyc_output
+.vscode
+coverage
+logs
+node_modules
+npm-debug.log
+debug.log
+*.out
+*.zip
+/.vs
