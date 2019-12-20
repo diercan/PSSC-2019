@@ -1,0 +1,10 @@
+*****Domeniu si functionalitati*****
+
+Domeniul pe care l-am ales se refera la un sistem software dedicat monitorizarii si controlului unei case, din sfera Internet Of Things.
+Aplicatia dezvoltata de mine poate fi folosita de clientii care doresc sa-si poata controla si monitoriza locuinta de la distanta.
+
+Ca si functionalitati, am ales urmatoarele:
+-posibilitatea utilizatorului de a se loga in aplicatia web;
+-controlarea luminilor din interiorul casei - stigerea si aprinderea unui bec;
+-vizualizarea unor informatii relevante pentru utilizator - temperatura curenta, data si ora ultimei autentificari in aplicatie, cheile de acces existente;
+-posibilitatea de a adauga noi chei de acces in baza de date a aplicatiei.
