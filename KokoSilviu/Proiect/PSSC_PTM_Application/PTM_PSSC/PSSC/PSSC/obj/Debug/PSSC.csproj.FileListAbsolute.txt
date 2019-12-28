@@ -34,3 +34,16 @@ C:\Users\Silviu\Desktop\PTM_PSSC\PSSC\PSSC\bin\Debug\PSSC.exe
 C:\Users\Silviu\Desktop\PTM_PSSC\PSSC\PSSC\bin\Debug\PSSC.pdb
 C:\Users\Silviu\Desktop\PTM_PSSC\PSSC\PSSC\obj\Debug\PSSC.AddForm.resources
 C:\Users\Silviu\Desktop\PTM_PSSC\PSSC\PSSC\obj\Debug\PSSC.csprojResolveAssemblyReference.cache
+D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\obj\Debug\PSSC.AddForm.resources
+D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\obj\Debug\PSSC.FormLogIn.resources
+D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\obj\Debug\PSSC.MainForm.resources
+D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\obj\Debug\PSSC.Properties.Resources.resources
+D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\obj\Debug\PSSC.csproj.GenerateResource.Cache
+D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\bin\Debug\Psscdb.mdf
+D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\bin\Debug\Psscdb_log.ldf
+D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\bin\Debug\PSSC.exe.config
+D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\bin\Debug\PSSC.exe
+D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\bin\Debug\PSSC.pdb
+D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\obj\Debug\PSSC.exe
+D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\obj\Debug\PSSC.pdb
+D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\obj\Debug\PSSC.csprojResolveAssemblyReference.cache

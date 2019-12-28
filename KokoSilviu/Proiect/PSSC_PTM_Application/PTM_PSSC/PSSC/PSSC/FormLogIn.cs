@@ -131,7 +131,7 @@ namespace PSSC
         {
             bool login = false;
             bool Dev_user = false;
-            SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Silviu\\Desktop\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
             conn.Open();
             string cmd = "SELECT * FROM UserLogIn";
             SqlDataAdapter da = new SqlDataAdapter(cmd,conn);

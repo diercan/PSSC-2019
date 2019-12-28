@@ -8,8 +8,8 @@ namespace PSSC.Models
 {
     public class Developer
     {
-        public string name { get; set; }
-        public string internal_id { get; set; }      
+        public string name { get; private set; }
+        public string internal_id { get; private set; }      
 
 
         public void UpdateDeveloper(Developer d)

@@ -13,7 +13,10 @@ namespace PSSC.Repositories
         System.Threading.Tasks.Task Delete(PSSC.Models.Task task);
         PSSC.Models.Task GetTask(int taskID);
         System.Threading.Tasks.Task UpdateTask(PSSC.Models.Task task);
-
+        int GetPlannedNr(string uid);
+        int GetInWorkN(string uid);
+        int GetRealizedNr(string uid);
+        int GetCanceledNr(string uid);
     }
 }
 

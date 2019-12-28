@@ -8,13 +8,13 @@ namespace PSSC.Models
 {
     public class Task
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public Developer author { get; set; }
-        public Developer developer { get; set; }
-        public string description { get; set; }
-        public string status { get; set; }
-        public string priority { get; set; }
+        public int id { get; private  set; }
+        public string name { get; private set; }
+        public Developer author { get; private set; }
+        public Developer developer { get; private set; }
+        public string description { get; private set; }
+        public string status { get; private set; }
+        public string priority { get; private set; }
        
         public void Create(Task t)
         {
@@ -25,6 +25,10 @@ namespace PSSC.Models
             this.developer = t.developer;
             this.status = t.status;
             this.priority = t.priority;
+        }
+        public void ChangeID(int id)
+        {
+            this.id = id;
         }
 
         public void ChangeName(string s)
@@ -50,6 +54,11 @@ namespace PSSC.Models
         public void Assign(Developer d)
         {
             this.developer = d;
+        }
+
+        public void ChangeAuthor(Developer aut)
+        {
+            this.developer = aut;
         }
 
     }
