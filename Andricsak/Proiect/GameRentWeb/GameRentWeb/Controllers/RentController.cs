@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using GameRentWeb.GenericModels;
 using GameRentWeb.Models;
 using GameRentWeb.Repositories;
 using GameRentWeb.ViewModels;
@@ -79,42 +80,40 @@ namespace GameRentWeb.Controllers
 
         public async Task<IActionResult> Rent(RentViewModel rentView)
         {
-            var rent = rentView.Rent;
-
-            rent.CurrentRentedDay = DateTime.Today;
-            rent.GameRented = rentView.RentedGame;
-            // get current game
+            // database operations
+            var rentedGame = _games.GetAllObjects().Result.FirstOrDefault(g => g.Name == rentView.RentedGame);
+            var user = _users.GetAllObjects().Result.FirstOrDefault(u => u.UserName.Equals(HttpContext.Session.GetString("Username")));
             var gameRented = _games.GetAllObjects().Result.FirstOrDefault(g => g.Name.Equals(rentView.RentedGame));
-            var rentJson = JsonConvert.SerializeObject(rent);
-            await _broker.SendMessage(rentJson,"RentToWorker");
-            var rentReceived = _broker.ReceiveMessage("WorkerToRent").Result;
-
-            rent.ExpiringDate = rentReceived.ExpiringDate;
-            rent.TotalPayment = rentReceived.TotalPayment;
-
-            var user = _users.GetAllObjects().Result.FirstOrDefault(u => u.UserName.Equals(HttpContext.Session.GetString("Username"))); 
-
-            user.RentOrders = new Collection<RentOrder>();
             
-            if(user.Balance > rent.TotalPayment && gameRented.Quantity >= 1)
+            rentedGame = rentedGame.RentGame();
+            if(rentedGame == null)
             {
-                user.Balance -= rent.TotalPayment;
-                // update game quantity
-                gameRented.Quantity -= 1;
-                await _rentOrders.Insert(rent);
-                user.RentOrders.Add(rent);
+                SetTempData("Quantity", "No more products left on stock");
+                return View("Index");
+            }
+            else
+            {
                 await _games.Update(gameRented);
-                
+            }
+            var rent = rentView.Rent;
+            user.RentOrders = new Collection<RentOrder>();
+            // DDD operations (kind of)
+            rent.GameRented = gameRented.Name;
+            await rent.CreateRentAsync(_broker);
+            user = user.AddRent(rent);
+
+            if(user == null)
+            {
+                SetTempData("Funds", $"Not enough funds, payment is {rent.TotalPayment}$!");
+                return View("Index");
+            }
+            else
+            {
+                await _rentOrders.Insert(rent);
                 await _users.Update(user);
                 HttpContext.Session.SetString("Balance", Convert.ToString(user.Balance));
                 return RedirectToAction("Index", "Game");
             }
-            else
-            {
-                SetTempData("Funds",$"Not enough funds, payment is {rent.TotalPayment}$!");
-                return View("Index");
-            }
-            
         }
 
         public async Task<IActionResult> Return(int id)
@@ -127,20 +126,14 @@ namespace GameRentWeb.Controllers
                 return RedirectToAction("DisplayRents", "Rent");
             }
             Game returnedGame =  _games.GetAllObjects().Result.Where(g => g.Name.Equals(selectedRent.GameRented)).FirstOrDefault();
-            returnedGame.Quantity += 1;
             var user = _users.GetAllObjects().Result.FirstOrDefault(u => u.UserName.Equals(HttpContext.Session.GetString("Username")));
-           
-            var selectedRentJson = JsonConvert.SerializeObject(selectedRent,new JsonSerializerSettings()
-            {
-                ReferenceLoopHandling =ReferenceLoopHandling.Ignore
-            }
-            );
 
-            await _broker.SendMessage(selectedRentJson, "ReturnToWorker");
-            var receivedRent = await _broker.ReceiveMessage("ReturnToWeb");
-
-            user.Balance += receivedRent.TotalPayment;
-            user.RentOrders.Remove(selectedRent);
+            // DDD operations (kind of)
+            returnedGame = returnedGame.ReturnGame();
+            selectedRent = await selectedRent.InterruptRentAsync(_broker);     
+            user = user.RemoveRent(selectedRent);
+            
+            // database operations
             await _users.Update(user);
             await _rentOrders.Delete(selectedRent.Id);
             HttpContext.Session.SetString("Balance", user.Balance.ToString());

@@ -11,51 +11,66 @@ namespace GameRentWeb.GenericModels
 {
     public class GameDDD
     {
-        private List<Game> _games;
+        public string Id { get; private set; }
+        public string Name { get; private set; }
+        public int Qty { get; private set; }
 
-        public ReadOnlyCollection<Game> Values { get { return _games.AsReadOnly(); } }
 
-        internal GameDDD(IDataBaseRepo<Game> repo)
+        //operations
+
+        public GameDDD RentGame()
         {
-            _games = repo.GetAllObjects().Result.ToList();
-        }
-
-        internal void AddGame(Game game, IDataBaseRepo<Game> repo)
-        {
-            if (IsFound(game,repo))
-            {
-                repo.Insert(game);
-                _games.Add(game);
-            }
+            if (Qty > 0)
+                Qty--;
             else
-            {
-                throw new ItemNotFound(game.Name);
-            }
+                throw new Exception("Not available");
+            return this;
         }
-        internal void DeleteGame(Game game,IDataBaseRepo<Game> repo)
-        {
-            if (IsFound(game, repo))
-            {
-                _games.Remove(game);
-                repo.Delete(game.Id);
-            }
-            else
-            {
-                throw new ItemNotFound(game.Name);
-            }
+        //private List<Game> _games;
 
-        }
-        internal bool IsFound(Game game,IDataBaseRepo<Game> repo)
-        {
-            if (_games.Find(g => g.Id == game.Id) != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        
+        //public ReadOnlyCollection<Game> Values { get { return _games.AsReadOnly(); } }
+
+        //internal GameDDD(IDataBaseRepo<Game> repo)
+        //{
+        //    _games = repo.GetAllObjects().Result.ToList();
+        //}
+
+        //internal void AddGame(Game game, IDataBaseRepo<Game> repo)
+        //{
+        //    if (IsFound(game,repo))
+        //    {
+        //        repo.Insert(game);
+        //        _games.Add(game);
+        //    }
+        //    else
+        //    {
+        //        throw new ItemNotFound(game.Name);
+        //    }
+        //}
+        //internal void DeleteGame(Game game,IDataBaseRepo<Game> repo)
+        //{
+        //    if (IsFound(game, repo))
+        //    {
+        //        _games.Remove(game);
+        //        repo.Delete(game.Id);
+        //    }
+        //    else
+        //    {
+        //        throw new ItemNotFound(game.Name);
+        //    }
+
+        //}
+        //internal bool IsFound(Game game,IDataBaseRepo<Game> repo)
+        //{
+        //    if (_games.Find(g => g.Id == game.Id) != null)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
     }
 }

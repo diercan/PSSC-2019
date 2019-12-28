@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -20,7 +21,34 @@ namespace GameRentWeb.Models
         public string GameRented { get; set; }
         public virtual User user { get; set; }
 
+        #region operations
+        public async Task<RentOrder> CreateRentAsync(MessageBroker broker)
+        {
+            CurrentRentedDay = DateTime.Today;
+            // get current game
 
+            var rentJson = JsonConvert.SerializeObject(this);
+            await broker.SendMessage(rentJson, "RentToWorker");
+            var rentReceived = broker.ReceiveMessage("WorkerToRent").Result;
+
+            ExpiringDate = rentReceived.ExpiringDate;
+            TotalPayment = rentReceived.TotalPayment;
+
+            return this;
+        }
+
+        public async Task<RentOrder> InterruptRentAsync(MessageBroker broker)
+        {
+            var selectedRentJson = JsonConvert.SerializeObject(this, new JsonSerializerSettings()
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            }
+           );
+            await broker.SendMessage(selectedRentJson, "ReturnToWorker");
+            var receivedRent = await broker.ReceiveMessage("ReturnToWeb");
+            return this;
+        }
+        #endregion
 
     }
 }
