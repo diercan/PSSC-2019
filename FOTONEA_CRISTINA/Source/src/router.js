@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/Login.vue'
 import Error404 from './views/Error404.vue'
-import Home from './views/Home.vue'
+import Register from './views/Register.vue'
 import SickLeaveRequest from './views/SickLeaveRequest.vue'
-import Details from './views/Details.vue'
+import EmployeeAccDetails from './views/EmployeeAccDetails.vue'
 // import axios from "axios"
 
 Vue.use(Router)
@@ -13,9 +13,9 @@ export const router = new Router({
     mode: 'hash',
     routes: [
         {
-            path: '/',
-            name: 'Home',
-            component: Home
+            path: '/Register',
+            name: 'Register',
+            component: Register
         },
         {
             path: '/Login',
@@ -28,9 +28,9 @@ export const router = new Router({
             component: SickLeaveRequest
         },
         {
-            path: '/Details',
-            name: 'Details',
-            component: Details
+            path: '/EmployeeAccDetails',
+            name: 'EmployeeAccDetails',
+            component: EmployeeAccDetails
         },
         {
             path: '/*',
@@ -42,9 +42,9 @@ export const router = new Router({
 })
 router.beforeEach((to, from, next) => {
 
-    const publicPages = ['/', '/Login', '/SickLeaveRequest', '/Details'];
+    const publicPages = ['/', '/Login', '/SickLeaveRequest', '/EmployeeAccDetails'];
     const logPage =['/Login'];
-    if(localStorage.getItem('isLogged') == "false" && (to.fullPath == '/SickLeaveRequest' && to.fullPath == '/Details' ) )
+    if(localStorage.getItem('isLogged') == "false" && (to.fullPath == '/SickLeaveRequest' && to.fullPath == '/EmployeeAccDetails' ) )
     {
         return next('/Login');
     }

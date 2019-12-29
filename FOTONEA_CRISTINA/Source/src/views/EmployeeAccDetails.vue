@@ -1,7 +1,7 @@
-
+<!-- MVVM => View -->
 <template>
   <v-layout align-space-between justify-space-between column fill-height>
-    <div class="back" :style="{'background-image':'url('+require('../assets/medicalBack.jpg')+')'}">
+    <div class="back" :style="{'background-image':'url('+require('../assets/medical.png')+')'}">
       <v-layout align-center justify-space-between row fill-height>
        
   </v-layout>
@@ -12,6 +12,7 @@
 
 
 <script>
+/* Model*/
 export default {};
 </script>
 

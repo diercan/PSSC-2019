@@ -24,19 +24,28 @@ export default {
       route: [
         //vector de obiecte
         {
-          name: "Home",
-          path: "/"
+          name: "Register",
+          path: "/Register"
         },
         {
           name: "Login",
           path: "/Login"
+        },
+        {
+          name: "Sick Leave Request",
+          path: "/SickLeaveRequest"
+        }
+        ,
+        {
+          name: "Employee Details",
+          path: "/EmployeeAccDetails"
         }
       ]
     };
   },
   methods: {
     routeTo(routename) {
-      console.log("MNOOOOOOOOO");
+      console.log("Menu");
       router.push(routename);
     }
   }
@@ -56,12 +65,14 @@ export default {
 .titlePage{
   width: 100%;
   text-align: center;
-  color: brown;
-  font-family: "Impact";
+  color:brown;
+  /* font-family: "Impact"; */
   font-size: 3rem;
 }
 .button {
   width: 100%;
+  /* font-size: 1rem; */
+  margin-left: 5px;
 }
 .alignBtn {
   margin-top: 10px;
