@@ -1,4 +1,4 @@
-﻿using GestiuneElevi.Models;
+﻿using GestiuneElevi.Entities;
 using GestiuneElevi.Reositories;
 using System;
 using System.Threading.Tasks;
@@ -8,21 +8,19 @@ namespace GestiuneElevi
 {
     public partial class EditareForm : Form
     {
-        private IEleviRepository eleviRepository;
         private ElevEntity elevGasit = null;
 
-        public EditareForm(IEleviRepository eleviRepository)
+        public EditareForm()
         {
             InitializeComponent();
-            this.eleviRepository = eleviRepository;
             button2.Enabled = false;
         }
 
-        private async void button1_ClickAsync(object sender, System.EventArgs e)
+        private async void button1_ClickAsync(object sender, EventArgs e)
         {
             string cnp = textBox1.Text;
 
-            await Task.Run(async () => { elevGasit = await eleviRepository.GetElevAsyncTask(cnp); });
+            await Task.Run(async () => { elevGasit = await MasterRepository.EleviRepository.GetElevAsyncTask(cnp); });
 
             if(elevGasit != null)
             {
@@ -52,7 +50,7 @@ namespace GestiuneElevi
                 elevEntity.Varsta = varsta;
                 elevEntity.Clasa = clasa;
 
-                Task.Run(() => { eleviRepository.AdaugaElevAsyncTask(elevEntity); });
+                Task.Run(() => { MasterRepository.EleviRepository.AdaugaElevAsyncTask(elevEntity); });
 
                 textBox2.Text = string.Empty;
                 textBox3.Text = string.Empty;

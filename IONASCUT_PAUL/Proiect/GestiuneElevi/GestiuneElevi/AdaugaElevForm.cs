@@ -1,4 +1,4 @@
-﻿using GestiuneElevi.Models;
+﻿using GestiuneElevi.Entities;
 using GestiuneElevi.Reositories;
 using System;
 using System.Threading.Tasks;
@@ -8,12 +8,9 @@ namespace GestiuneElevi
 {
     public partial class AdaugaElevForm : Form
     {
-        private IEleviRepository eleviRepository;
-
-        public AdaugaElevForm(IEleviRepository eleviRepository)
+        public AdaugaElevForm()
         {
             InitializeComponent();
-            this.eleviRepository = eleviRepository;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,7 +30,7 @@ namespace GestiuneElevi
                 elevEntity.Varsta = varsta;
                 elevEntity.Clasa = clasa;
 
-                Task.Run(() => { eleviRepository.AdaugaElevAsyncTask(elevEntity); });
+                Task.Run(() => { MasterRepository.EleviRepository.AdaugaElevAsyncTask(elevEntity); });
 
                 textBox1.Text = string.Empty;
                 textBox2.Text = string.Empty;

@@ -1,4 +1,5 @@
-﻿using GestiuneElevi.Models;
+﻿using GestiuneElevi.Entities;
+using GestiuneElevi.Models;
 using GestiuneElevi.Reositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -8,21 +9,32 @@ namespace GestiuneElevi
 {
     public partial class VeziTotiEleviiForm : Form
     {
-        private IEleviRepository eleviRepository;
-        private List<ElevEntity> elevi = new List<ElevEntity>();
+        private List<ElevModel> elevi = new List<ElevModel>();
 
-        public VeziTotiEleviiForm(IEleviRepository eleviRepository)
+        public VeziTotiEleviiForm()
         {
             InitializeComponent();
 
-            this.eleviRepository = eleviRepository;
+            Task.Run(async () => {
+                List<ElevEntity> entities = await MasterRepository.EleviRepository.GetAllEleviAsyncTask();
+                foreach(ElevEntity entity in entities)
+                {
+                    ElevModel elev = new ElevModel();
+                    elev.setId(entity.PartitionKey);
+                    elev.setCnp(entity.RowKey);
+                    elev.setNume(entity.Nume);
+                    elev.setPrenume(entity.Prenume);
+                    elev.setVarsta(entity.Varsta);
+                    elev.setClasa(entity.Clasa);
+                    elevi.Add(elev);
+                }
+            }).Wait();
 
-            Task.Run(async () => { elevi = await eleviRepository.GetAllEleviAsyncTask(); }).Wait();
             listBox1.Items.Add("Nume\tPrenume\tVarsta\tClasa");
             listBox1.Items.Add("");
-            foreach(ElevEntity entity in elevi)
+            foreach(ElevModel elev in elevi)
             {
-                listBox1.Items.Add(entity.getInfo());
+                listBox1.Items.Add(elev.getInfo());
             }
         }
 
@@ -30,8 +42,8 @@ namespace GestiuneElevi
         {
             try
             {
-                ElevEntity elev = elevi[listBox1.SelectedIndex - 2];
-                AdaugaNotaForm form = new AdaugaNotaForm(eleviRepository, elev);
+                ElevModel elev = elevi[listBox1.SelectedIndex - 2];
+                AdaugaNotaForm form = new AdaugaNotaForm(elev);
                 form.Show();
             }
             catch

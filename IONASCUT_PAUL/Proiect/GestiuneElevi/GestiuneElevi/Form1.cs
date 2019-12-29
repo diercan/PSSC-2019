@@ -6,36 +6,33 @@ namespace GestiuneElevi
 {
     public partial class Form1 : Form
     {
-        private IEleviRepository eleviRepository;
-
         public Form1()
         {
             InitializeComponent();
-
-            eleviRepository = new EleviRepository();
+            MasterRepository.InstantiateEleviRepository();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AdaugaElevForm form = new AdaugaElevForm(eleviRepository);
+            AdaugaElevForm form = new AdaugaElevForm();
             form.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            EditareForm form = new EditareForm(eleviRepository);
+            EditareForm form = new EditareForm();
             form.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            VeziTotiEleviiForm form = new VeziTotiEleviiForm(eleviRepository);
+            VeziTotiEleviiForm form = new VeziTotiEleviiForm();
             form.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            VeziNoteEleviForm form = new VeziNoteEleviForm(eleviRepository);
+            VeziNoteEleviForm form = new VeziNoteEleviForm();
             form.Show();
         }
     }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.WindowsAzure.Storage.Table;
 
-namespace GestiuneElevi.Models
+namespace GestiuneElevi.Entities
 {
     public class NotaEntity : TableEntity
     {

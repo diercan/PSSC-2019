@@ -1,4 +1,5 @@
-﻿using GestiuneElevi.Models;
+﻿using GestiuneElevi.Entities;
+using GestiuneElevi.Models;
 using GestiuneElevi.Reositories;
 using System;
 using System.Threading.Tasks;
@@ -8,19 +9,17 @@ namespace GestiuneElevi
 {
     public partial class AdaugaNotaForm : Form
     {
-        private IEleviRepository eleviRepository;
-        private ElevEntity elev;
+        private ElevModel elev;
 
-        public AdaugaNotaForm(IEleviRepository eleviRepository, ElevEntity elev)
+        public AdaugaNotaForm(ElevModel elev)
         {
             InitializeComponent();
-            this.eleviRepository = eleviRepository;
             this.elev = elev;
 
-            label1.Text = elev.Nume + elev.Prenume;
+            label1.Text = elev.Nume + " " + elev.Prenume;
         }
 
-        private void button1_Click(object sender, System.EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             string materie = textBox2.Text;
             int nota;
@@ -28,10 +27,10 @@ namespace GestiuneElevi
 
             if(nota >= 1 && nota <= 10 && !string.IsNullOrEmpty(materie))
             {
-                NotaEntity notaEntity = new NotaEntity(Guid.NewGuid().ToString(), elev.RowKey);
+                NotaEntity notaEntity = new NotaEntity(Guid.NewGuid().ToString(), elev.Cnp);
                 notaEntity.Materie = materie;
                 notaEntity.Nota = nota;
-                Task.Run(() => { eleviRepository.AdaugaNotaAsyncTask(notaEntity); });
+                Task.Run(() => { MasterRepository.EleviRepository.AdaugaNotaAsyncTask(notaEntity); });
                 Close();
             }
             else

@@ -1,4 +1,4 @@
-﻿using GestiuneElevi.Models;
+﻿using GestiuneElevi.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
