@@ -30,13 +30,33 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonTask = new System.Windows.Forms.Button();
             this.panelindex = new System.Windows.Forms.Panel();
             this.panelStatistic = new System.Windows.Forms.Panel();
+            this.panelDashboard = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.DeleteButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxPrio = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxStatus = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxDev = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxDesc = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ModifyButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.textBoxId = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.AddButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.TaskChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tasksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.psscdbDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -66,27 +86,10 @@
             this.tableAdapterManager = new PSSC.PsscdbDataSet1TableAdapters.TableAdapterManager();
             this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.buttonStatistic = new System.Windows.Forms.Button();
-            this.panelDashboard = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.AddButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.ModifyButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.DeleteButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panelStatistic.SuspendLayout();
+            this.panelDashboard.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TaskChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tasksBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.psscdbDataSet1BindingSource)).BeginInit();
@@ -95,9 +98,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridViewTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tasksBindingSource)).BeginInit();
             this.panelPower.SuspendLayout();
-            this.panelDashboard.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -141,24 +141,209 @@
             this.panelStatistic.Size = new System.Drawing.Size(809, 514);
             this.panelStatistic.TabIndex = 6;
             // 
+            // panelDashboard
+            // 
+            this.panelDashboard.Controls.Add(this.groupBox3);
+            this.panelDashboard.Controls.Add(this.groupBox1);
+            this.panelDashboard.Location = new System.Drawing.Point(9, 6);
+            this.panelDashboard.Name = "panelDashboard";
+            this.panelDashboard.Size = new System.Drawing.Size(699, 505);
+            this.panelDashboard.TabIndex = 17;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.DeleteButton);
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox3.Location = new System.Drawing.Point(29, 400);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(443, 61);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Delete Task";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(121, 23);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(150, 20);
+            this.textBox1.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(61, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 23);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Task id:";
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Location = new System.Drawing.Point(286, 21);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(90, 25);
+            this.DeleteButton.TabIndex = 2;
+            this.DeleteButton.Values.Text = "Delete";
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textBoxPrio);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.textBoxStatus);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.textBoxDev);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.textBoxDesc);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.textBoxName);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.ModifyButton);
+            this.groupBox1.Controls.Add(this.textBoxId);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.AddButton);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox1.Location = new System.Drawing.Point(31, 38);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(441, 343);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Add Task";
+            // 
+            // textBoxPrio
+            // 
+            this.textBoxPrio.Location = new System.Drawing.Point(142, 266);
+            this.textBoxPrio.Name = "textBoxPrio";
+            this.textBoxPrio.Size = new System.Drawing.Size(275, 20);
+            this.textBoxPrio.TabIndex = 22;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Location = new System.Drawing.Point(84, 266);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 23);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Priority:";
+            // 
+            // textBoxStatus
+            // 
+            this.textBoxStatus.Location = new System.Drawing.Point(142, 224);
+            this.textBoxStatus.Name = "textBoxStatus";
+            this.textBoxStatus.Size = new System.Drawing.Size(275, 20);
+            this.textBoxStatus.TabIndex = 20;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(92, 224);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 23);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Status:";
+            // 
+            // textBoxDev
+            // 
+            this.textBoxDev.Location = new System.Drawing.Point(142, 183);
+            this.textBoxDev.Name = "textBoxDev";
+            this.textBoxDev.Size = new System.Drawing.Size(275, 20);
+            this.textBoxDev.TabIndex = 18;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(62, 183);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 23);
+            this.label4.TabIndex = 17;
+            this.label4.Text = " Developer:";
+            // 
+            // textBoxDesc
+            // 
+            this.textBoxDesc.Location = new System.Drawing.Point(142, 109);
+            this.textBoxDesc.Multiline = true;
+            this.textBoxDesc.Name = "textBoxDesc";
+            this.textBoxDesc.Size = new System.Drawing.Size(275, 55);
+            this.textBoxDesc.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(26, 120);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(119, 23);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Task Description:";
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Location = new System.Drawing.Point(142, 69);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(275, 20);
+            this.textBoxName.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(59, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 23);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Task Name:";
+            // 
+            // ModifyButton
+            // 
+            this.ModifyButton.Location = new System.Drawing.Point(179, 301);
+            this.ModifyButton.Name = "ModifyButton";
+            this.ModifyButton.Size = new System.Drawing.Size(90, 25);
+            this.ModifyButton.TabIndex = 1;
+            this.ModifyButton.Values.Text = "Modify";
+            // 
+            // textBoxId
+            // 
+            this.textBoxId.Location = new System.Drawing.Point(142, 27);
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.Size = new System.Drawing.Size(275, 20);
+            this.textBoxId.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(84, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 23);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Task id:";
+            // 
+            // AddButton
+            // 
+            this.AddButton.Location = new System.Drawing.Point(284, 301);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(90, 25);
+            this.AddButton.TabIndex = 0;
+            this.AddButton.Values.Text = "Add";
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
             // TaskChart
             // 
             this.TaskChart.BackColor = System.Drawing.Color.Transparent;
             this.TaskChart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.TaskChart.BorderlineColor = System.Drawing.Color.Transparent;
-            chartArea4.Name = "ChartArea1";
-            this.TaskChart.ChartAreas.Add(chartArea4);
+            chartArea1.Name = "ChartArea1";
+            this.TaskChart.ChartAreas.Add(chartArea1);
             this.TaskChart.DataSource = this.tasksBindingSource1;
-            legend4.Name = "Legend1";
-            this.TaskChart.Legends.Add(legend4);
+            legend1.Name = "Legend1";
+            this.TaskChart.Legends.Add(legend1);
             this.TaskChart.Location = new System.Drawing.Point(21, 23);
             this.TaskChart.Name = "TaskChart";
             this.TaskChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Legend = "Legend1";
-            series4.Name = "Series2";
-            this.TaskChart.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series2";
+            this.TaskChart.Series.Add(series1);
             this.TaskChart.Size = new System.Drawing.Size(422, 241);
             this.TaskChart.TabIndex = 1;
             this.TaskChart.Text = "chart1";
@@ -412,189 +597,6 @@
             this.buttonStatistic.UseVisualStyleBackColor = true;
             this.buttonStatistic.Click += new System.EventHandler(this.buttonStatistic_Click);
             // 
-            // panelDashboard
-            // 
-            this.panelDashboard.Controls.Add(this.groupBox3);
-            this.panelDashboard.Controls.Add(this.groupBox1);
-            this.panelDashboard.Location = new System.Drawing.Point(9, 6);
-            this.panelDashboard.Name = "panelDashboard";
-            this.panelDashboard.Size = new System.Drawing.Size(699, 505);
-            this.panelDashboard.TabIndex = 17;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.ModifyButton);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.AddButton);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox1.Location = new System.Drawing.Point(31, 38);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(441, 343);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Add Task";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.DeleteButton);
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox3.Location = new System.Drawing.Point(29, 400);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(443, 61);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Delete Task";
-            // 
-            // AddButton
-            // 
-            this.AddButton.Location = new System.Drawing.Point(284, 301);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(90, 25);
-            this.AddButton.TabIndex = 0;
-            this.AddButton.Values.Text = "Add";
-            // 
-            // ModifyButton
-            // 
-            this.ModifyButton.Location = new System.Drawing.Point(179, 301);
-            this.ModifyButton.Name = "ModifyButton";
-            this.ModifyButton.Size = new System.Drawing.Size(90, 25);
-            this.ModifyButton.TabIndex = 1;
-            this.ModifyButton.Values.Text = "Modify";
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.Location = new System.Drawing.Point(286, 21);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(90, 25);
-            this.DeleteButton.TabIndex = 2;
-            this.DeleteButton.Values.Text = "Delete";
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(61, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 23);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Task id:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(121, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 20);
-            this.textBox1.TabIndex = 4;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(142, 27);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(275, 20);
-            this.textBox5.TabIndex = 12;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(84, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 23);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Task id:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(142, 69);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(275, 20);
-            this.textBox2.TabIndex = 14;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(59, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 23);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Task Name:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(142, 109);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(275, 55);
-            this.textBox3.TabIndex = 16;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(26, 120);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 23);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Task Description:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(142, 183);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(275, 20);
-            this.textBox4.TabIndex = 18;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(62, 183);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 23);
-            this.label4.TabIndex = 17;
-            this.label4.Text = " Developer:";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(142, 224);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(275, 20);
-            this.textBox6.TabIndex = 20;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(92, 224);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 23);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Status:";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(142, 266);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(275, 20);
-            this.textBox7.TabIndex = 22;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(84, 266);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 23);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Priority:";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -619,6 +621,11 @@
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelStatistic.ResumeLayout(false);
+            this.panelDashboard.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TaskChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tasksBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.psscdbDataSet1BindingSource)).EndInit();
@@ -627,11 +634,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridViewTasks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tasksBindingSource)).EndInit();
             this.panelPower.ResumeLayout(false);
-            this.panelDashboard.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -676,18 +678,18 @@
         private System.Windows.Forms.Label label1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton DeleteButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBoxPrio;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBoxStatus;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxDev;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxDesc;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label label2;
         private ComponentFactory.Krypton.Toolkit.KryptonButton ModifyButton;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.Label label5;
         private ComponentFactory.Krypton.Toolkit.KryptonButton AddButton;
     }

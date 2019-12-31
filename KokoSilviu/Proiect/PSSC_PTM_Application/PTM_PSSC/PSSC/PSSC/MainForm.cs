@@ -51,12 +51,14 @@ namespace PSSC
         private void buttonDashboard_Click(object sender, EventArgs e)
         {
             panelindex.Location = new Point(panelindex.Location.X, 182);
+            panelTasks.Visible = false;
             panelDashboard.Visible = true;
         }
 
         private void buttonStatistic_Click(object sender, EventArgs e)
         {
             panelDashboard.Visible = false;
+            TaskChart.Series["Series2"].Points.Clear();
             var taskPlannedNr = taskRepository.GetPlannedNr(user_uid);
             var taskInWorkNr = taskRepository.GetInWorkN(user_uid);
             var taskRealizedNr = taskRepository.GetRealizedNr(user_uid);
@@ -149,7 +151,7 @@ namespace PSSC
                 //change status of the task
                 task.ChangeStatus(status);
                 //update the db with the changes
-                taskRepository.UpdateTask(task);
+                taskRepository.UpdateTaskStatus(task);
 
                 //refresh datagridview to observe the changes
                 this.tasksBindingSource.EndEdit();
@@ -179,5 +181,73 @@ namespace PSSC
             string s = sender.ToString();
         }
 
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            string taskId = null;
+            if (textBox1.Text!= null && textBox1.Text!="")
+            {
+                taskId = textBox1.Text.ToString();
+            }
+            //get aggregate instance
+            if (taskId != "" && taskId != null)
+            {
+                //delete the task
+                var task = taskRepository.Delete(taskId);
+                //refresh datagridview to observe the changes
+                this.tasksBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.psscdbDataSet1);
+            }
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            string taskId = null;
+            string taskName = null;
+            string taskDesc = null;
+            string taskDev = null;
+            string taskStatus = null;
+            string taskPrio = null;
+            if (textBoxId.Text != null && textBoxId.Text != "")
+            {
+                taskId = textBoxId.Text.ToString();
+            }
+
+            if (textBoxName.Text != null && textBoxName.Text != "")
+            {
+                taskName = textBoxName.Text.ToString();
+            }
+
+            if (textBoxDesc.Text != null && textBoxDesc.Text != "")
+            {
+                taskDesc = textBoxDesc.Text.ToString();
+            }
+
+            if (textBoxDev.Text != null && textBoxDev.Text != "")
+            {
+                taskDev = textBoxDev.Text.ToString();
+            }
+
+            if (textBoxStatus.Text != null && textBoxStatus.Text != "")
+            {
+                taskStatus = textBoxStatus.Text.ToString();
+            }
+
+            if (textBoxPrio.Text != null && textBoxPrio.Text != "")
+            {
+                taskPrio = textBoxPrio.Text.ToString();
+            }
+            //get aggregate instance
+            if (taskId != null && taskName != null && taskDesc != null && taskDev!=null && taskStatus!=null && taskPrio!=null)
+            {
+                Developer ath = new Developer("1",user_uid);
+                Developer dev = new Developer("1", taskDev);
+                PSSC.Models.Task tsk = new PSSC.Models.Task(int.Parse(taskId), taskName, ath, dev, taskDesc, taskStatus, taskPrio);
+                //delete the task
+                var task = taskRepository.Create(tsk);
+                //refresh datagridview to observe the changes
+                this.tasksBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.psscdbDataSet1);
+            }
+        }
     }
 }

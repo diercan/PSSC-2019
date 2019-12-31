@@ -35,11 +35,17 @@ namespace PSSC.Repositories
             string description = task.description;
             string status = task.status;
             string prio = task.priority;
-            string author = task.author.name + "(" + task.author.internal_id + ")";
-            string dev = task.developer.name + "(" + task.developer.internal_id + ")";
-            // Adaugarea datelor
-            TableAdapter.Insert(id, nume, description, author, dev, status, prio);
-            // Salvarea datelor
+           // string author = task.author.name + "(" + task.author.internal_id + ")";
+            //string dev = task.developer.name + "(" + task.developer.internal_id + ")";
+            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
+            string query = "INSERT INTO Tasks VALUES('" + id + "','" + nume + "','" + description + "','" + task.author.internal_id + "','" + task.developer.internal_id + "','" + status + "','" + prio + "');";
+            SqlDataAdapter da = new SqlDataAdapter();
+            sql_con.Open();
+            da.InsertCommand = sql_con.CreateCommand();
+            da.InsertCommand.CommandText = query;
+            da.InsertCommand.ExecuteNonQuery();
+            sql_con.Close();
+            tBinding.EndEdit();
             TableAdapterManager.UpdateAll(dbDataSet);
         }
 
@@ -85,7 +91,7 @@ namespace PSSC.Repositories
             sql_con.Close();
             return t;
         }
-        public async Task UpdateTask(PSSC.Models.Task task)
+        public async Task UpdateTaskStatus(PSSC.Models.Task task)
         {
             SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
             string query = "Update Tasks SET Status='" + task.status + "' where Id=" + task.id + ";";
@@ -99,17 +105,31 @@ namespace PSSC.Repositories
             TableAdapterManager.UpdateAll(dbDataSet);
         }
 
-        public async Task Delete(PSSC.Models.Task task)
+        public async Task UpdateTask(PSSC.Models.Task task)
         {
-            int id = task.id;
-            string nume = task.name;
-            string status = task.status;
-            string prio = task.priority;
-            string author = task.author.name + "(" + task.author.internal_id + ")";
-            string dev = task.developer.name + "(" + task.developer.internal_id + ")";
-            // Stergerea datelor
-            TableAdapter.Delete(id, nume, author, dev, status, prio);
-            // Salvarea datelor
+            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
+            string query = "Update Tasks SET Status='" + task.status + "' where Id=" + task.id + ";";
+            SqlDataAdapter da = new SqlDataAdapter();
+            sql_con.Open();
+            da.UpdateCommand = sql_con.CreateCommand();
+            da.UpdateCommand.CommandText = query;
+         //   await da.UpdateCommand.ExecuteNonQueryAsync();
+            sql_con.Close();
+            tBinding.EndEdit();
+            TableAdapterManager.UpdateAll(dbDataSet);
+        }
+
+        public async Task Delete(string taskID)
+        {
+            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
+            string query = "DELETE FROM Tasks where Id='" + taskID + "';";
+            SqlDataAdapter da = new SqlDataAdapter();
+            sql_con.Open();
+            da.DeleteCommand = sql_con.CreateCommand();
+            da.DeleteCommand.CommandText = query;
+            await da.DeleteCommand.ExecuteNonQueryAsync();
+            sql_con.Close();
+            tBinding.EndEdit();
             TableAdapterManager.UpdateAll(dbDataSet);
         }
 

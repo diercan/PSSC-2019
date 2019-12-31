@@ -11,6 +11,16 @@ namespace PSSC.Models
         public string name { get; private set; }
         public string internal_id { get; private set; }      
 
+        public Developer(string n,string id)
+        {
+            this.name = n;
+            this.internal_id = id;
+        }
+
+        public Developer()
+        {
+
+        }
 
         public void UpdateDeveloper(Developer d)
         {

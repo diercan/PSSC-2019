@@ -16,6 +16,21 @@ namespace PSSC.Models
         public string status { get; private set; }
         public string priority { get; private set; }
        
+        public Task()
+        {
+
+        }
+
+        public Task(int id,string name,Developer a, Developer d, string description,string status, string priority)
+        {
+            this.id = id;
+            this.name = name;
+            this.author = a;
+            this.description = description;
+            this.developer = d;
+            this.status = status;
+            this.priority = priority;
+        }
         public void Create(Task t)
         {
             this.id = t.id;
