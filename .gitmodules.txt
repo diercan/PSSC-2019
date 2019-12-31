@@ -1,2 +1,0 @@
-[submodule "FALK_BOGDAN/Proiect/Source"]
-	path = FALK_BOGDAN/Proiect/Source
