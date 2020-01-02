@@ -12,7 +12,6 @@
         <h2> Sick days : <b>{{details_days}}</b></h2>
          <div class="btnAlignRow">
           <v-btn class="btnSignOut" rounded color="primary" v-on:click="UserSignOut()">Sign out</v-btn>
-          <v-btn class="btnDeleteUser" rounded color="primary" v-on:click="UserDelete()">Delete User</v-btn>
         </div>
       </v-card>
       
@@ -48,25 +47,6 @@ export default {
       localStorage.setItem("usersdb_company", "");
       localStorage.setItem("isLogged", "false");
       router.push("/Login");
-    },
-    UserDelete() {
-       this.details_ID= localStorage.getItem("userData_personnelID");
-        console.log("delete");
-      axios
-        .post("/api/deleteUser", {
-           personnelID:this.details_ID
-        })
-        .then(response => {
-            
-           localStorage.setItem("userData_name", "");
-      localStorage.setItem("userData_mail", "");
-       localStorage.setItem("userData_username", "");
-      localStorage.setItem("userData_password", "");
-      localStorage.setItem("userData_personnelID", "");
-      localStorage.setItem("usersdb_company", "");
-          localStorage.setItem("isLogged", "false");
-          router.push("/Login");
-        });
     },
     DetailsUser(){
         this.details_ID= localStorage.getItem("userData_personnelID");
