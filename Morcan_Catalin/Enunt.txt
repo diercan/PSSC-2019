@@ -1,0 +1,4 @@
+Se considera un sistem software care implementeaza un spatiu de socializare al unui cartier.
+- Utilizatorii vor putea accesa si modifica informatiile despre pagina lor personala
+- Utilizatorii pot vedea postarile celorlalti utilizatori
+- Utilizatorii pot trimite mesaje altor utilizatori
