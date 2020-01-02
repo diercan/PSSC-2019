@@ -83,31 +83,33 @@ export default {
         this.popUptxt = "Invalid data!";
       } else {
         axios
-          .post("/api/login", {
+          .post("/api/usersdb/login2", {
             username: this.log_user,
             password: this.log_pass,
             personnelID: this.log_persID
           })
           .then(
             response => {
+                console.log("dddddddddddd"+response.data.user.usersdb_name);
               if (typeof response.data === "object") {
                 this.popUptxt = "Login successfully!";
                 this.log_user = null;
                 this.log_pass = null;
                 this.log_persID = null;
-                
+               console.log(response.data.user.usersdb_username);
+               console.log(response);
                 localStorage.setItem(
                   "userData_username",
-                  response.data.usersdb_username
+                  response.data.user.usersdb_username
                 ); // save user data in browser till the browser is close
-                localStorage.setItem("userData_name", response.data.usersdb_name);
+                localStorage.setItem("userData_name", response.data.user.usersdb_name);
                 localStorage.setItem(
                   "userData_password",
-                  response.data.usersdb_password
+                  response.data.user.usersdb_password
                 );
-                localStorage.setItem("userData_mail", response.data.usersdb_mail);
-                localStorage.setItem("userData_personnelID", response.data.usersdb_personnelID);
-                localStorage.setItem("userData_company", response.data.usersdb_company);
+                localStorage.setItem("userData_mail", response.data.user.usersdb_mail);
+                localStorage.setItem("userData_personnelID", response.data.user.usersdb_personnelID);
+                localStorage.setItem("userData_company", response.data.user.usersdb_company);
                 localStorage.setItem("isLogged", "true");
                 console.log(localStorage.getItem("userData_name"));
               } else {

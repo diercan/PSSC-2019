@@ -44,7 +44,7 @@ router.beforeEach((to, from, next) => {
 
     const publicPages = ['/', '/Login', '/SickLeaveRequest', '/EmployeeAccDetails'];
     const logPage =['/Login'];
-    if(localStorage.getItem('isLogged') == "false" && (to.fullPath == '/SickLeaveRequest' && to.fullPath == '/EmployeeAccDetails' ) )
+    if(localStorage.getItem('isLogged') == "false" &&  to.fullPath == '/EmployeeAccDetails' )
     {
         return next('/Login');
     }

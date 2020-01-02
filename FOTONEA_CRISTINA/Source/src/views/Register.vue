@@ -136,7 +136,7 @@ export default {
         this.popUpText = "Invalid data!";
       } else {
         axios
-          .post("/api/register", {
+          .post("/api/usersdb/register2", {
             name: this.reg_name,
             mail: this.reg_mail,
             username: this.reg_user,

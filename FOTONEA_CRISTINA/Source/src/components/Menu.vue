@@ -35,11 +35,6 @@ export default {
           name: "Sick Leave Request",
           path: "/SickLeaveRequest"
         }
-        ,
-        {
-          name: "Employee Details",
-          path: "/EmployeeAccDetails"
-        }
       ]
     };
   },
