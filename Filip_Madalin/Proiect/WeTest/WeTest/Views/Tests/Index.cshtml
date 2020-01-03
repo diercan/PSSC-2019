@@ -4,7 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>All Tests</h1>
+<h3>Here you can see test suite of your company.</h3>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -18,6 +19,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Functionality)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TesterId)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -29,6 +33,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Functionality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TesterId)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.TestId">Edit</a> |

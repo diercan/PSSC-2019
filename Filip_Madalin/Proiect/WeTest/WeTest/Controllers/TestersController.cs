@@ -10,23 +10,22 @@ using WeTest.Models;
 
 namespace WeTest.Controllers
 {
-    public class TestsController : Controller
+    public class TestersController : Controller
     {
         private readonly WeTestContext _context;
 
-        public TestsController(WeTestContext context)
+        public TestersController(WeTestContext context)
         {
             _context = context;
         }
 
-        // GET: Tests
+        // GET: Testers
         public async Task<IActionResult> Index()
         {
-            
-            return View(await _context.Test.ToListAsync());
+            return View(await _context.Tester.ToListAsync());
         }
 
-        // GET: Tests/Details/5
+        // GET: Testers/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -34,48 +33,43 @@ namespace WeTest.Controllers
                 return NotFound();
             }
 
-            var test = await _context.Test
-                .FirstOrDefaultAsync(m => m.TestId == id);
-            if (test == null)
+            var tester = await _context.Tester
+                .FirstOrDefaultAsync(m => m.TesterId == id);
+            if (tester == null)
             {
                 return NotFound();
             }
 
-            return View(test);
+            return View(tester);
         }
 
-        // GET: Tests/Create
+        // GET: Testers/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Tests/Create
+        // POST: Testers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TestId,TestTitle,Functionality,TesterId")] Test test)
+        public async Task<IActionResult> Create([Bind("TesterId,TesterName")] Tester tester)
         {
+            
             if (ModelState.IsValid)
             {
-                if (TestExists(test.TestId)) {
-                    return Content("This test Id already exists. Check Id from Requirements of Your Company database.");
+                if (TesterExists(tester.TesterId)) {
+                    return Content("Tester Id already exists.Please use company id number.");
                 }
-                if (!TesterExists(test.TesterId.ToString()))
-                {
-                    return Content("The tester Id for this test does not exist .Return and retry.");
-                }
-                
-                
-                _context.Add(test);
+                _context.Add(tester);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(test);
+            return View(tester);
         }
 
-        // GET: Tests/Edit/5
+        // GET: Testers/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -83,22 +77,22 @@ namespace WeTest.Controllers
                 return NotFound();
             }
 
-            var test = await _context.Test.FindAsync(id);
-            if (test == null)
+            var tester = await _context.Tester.FindAsync(id);
+            if (tester == null)
             {
                 return NotFound();
             }
-            return View(test);
+            return View(tester);
         }
 
-        // POST: Tests/Edit/5
+        // POST: Testers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("TestId,TestTitle,Functionality,TesterId")] Test test)
+        public async Task<IActionResult> Edit(string id, [Bind("TesterId,TesterName")] Tester tester)
         {
-            if (id != test.TestId)
+            if (id != tester.TesterId)
             {
                 return NotFound();
             }
@@ -107,12 +101,12 @@ namespace WeTest.Controllers
             {
                 try
                 {
-                    _context.Update(test);
+                    _context.Update(tester);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TestExists(test.TestId))
+                    if (!TesterExists(tester.TesterId))
                     {
                         return NotFound();
                     }
@@ -123,10 +117,10 @@ namespace WeTest.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(test);
+            return View(tester);
         }
 
-        // GET: Tests/Delete/5
+        // GET: Testers/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -134,31 +128,27 @@ namespace WeTest.Controllers
                 return NotFound();
             }
 
-            var test = await _context.Test
-                .FirstOrDefaultAsync(m => m.TestId == id);
-            if (test == null)
+            var tester = await _context.Tester
+                .FirstOrDefaultAsync(m => m.TesterId == id);
+            if (tester == null)
             {
                 return NotFound();
             }
 
-            return View(test);
+            return View(tester);
         }
 
-        // POST: Tests/Delete/5
+        // POST: Testers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var test = await _context.Test.FindAsync(id);
-            _context.Test.Remove(test);
+            var tester = await _context.Tester.FindAsync(id);
+            _context.Tester.Remove(tester);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TestExists(string id)
-        {
-            return _context.Test.Any(e => e.TestId == id);
-        }
         private bool TesterExists(string id)
         {
             return _context.Tester.Any(e => e.TesterId == id);

@@ -15,5 +15,7 @@ namespace WeTest.Data
         }
 
         public DbSet<WeTest.Models.Test> Test { get; set; }
+
+        public DbSet<WeTest.Models.Tester> Tester { get; set; }
     }
 }
