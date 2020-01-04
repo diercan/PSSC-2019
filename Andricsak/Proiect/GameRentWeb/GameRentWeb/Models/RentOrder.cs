@@ -48,6 +48,21 @@ namespace GameRentWeb.Models
             var receivedRent = await broker.ReceiveMessage("ReturnToWeb");
             return this;
         }
+
+        public async Task<RentOrder> ExtendRentAsync(int days,MessageBroker broker)
+        {
+            this.RentPeriod += Convert.ToInt32(days);
+
+            var selectedRentJson = JsonConvert.SerializeObject(this, new JsonSerializerSettings()
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            }
+            );
+
+            await broker.SendMessage(selectedRentJson, "RentToWorker");
+            var rentReceived = broker.ReceiveMessage("WorkerToRent").Result;
+            return rentReceived;
+        }
         #endregion
 
     }

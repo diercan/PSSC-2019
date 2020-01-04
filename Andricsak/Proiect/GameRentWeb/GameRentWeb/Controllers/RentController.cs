@@ -145,23 +145,10 @@ namespace GameRentWeb.Controllers
         [Route("Rent/Extend/{id}/{days}")]
         public async Task<IActionResult> Extend(int id,int days)
         {
-            
-            var selectedRent =  _rentOrders.GetObjectById(id).Result;           
-            selectedRent.RentPeriod += Convert.ToInt32(days);
-
-            var selectedRentJson = JsonConvert.SerializeObject(selectedRent, new JsonSerializerSettings()
-            {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            }
-            );
-
-            await _broker.SendMessage(selectedRentJson, "RentToWorker");
-            var rentReceived = _broker.ReceiveMessage("WorkerToRent").Result;
-
+            var selectedRent =  _rentOrders.GetObjectById(id).Result;
+            selectedRent = await selectedRent.ExtendRentAsync(days, _broker);
           
-
             var user = _users.GetAllObjects().Result.FirstOrDefault(u => u.UserName.Equals(HttpContext.Session.GetString("Username")));
-            
             if(user.Balance < days * 3f)
             {
                 SetTempData("Error","You don't have enough money to extend it's rent duartion");
@@ -170,7 +157,7 @@ namespace GameRentWeb.Controllers
             user.Balance -= days * 3f;
             HttpContext.Session.SetString("Balance", user.Balance.ToString());
             await _users.Update(user);
-            await _rentOrders.Update(rentReceived);
+            await _rentOrders.Update(selectedRent);
 
             return RedirectToAction("DisplayRents", "Rent");
         }
