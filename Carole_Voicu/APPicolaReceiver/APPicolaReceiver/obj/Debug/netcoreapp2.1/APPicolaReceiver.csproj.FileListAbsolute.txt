@@ -1,0 +1,11 @@
+C:\Users\Carole Voicu\source\repos\APPicolaReceiver\APPicolaReceiver\bin\Debug\netcoreapp2.1\APPicolaReceiver.deps.json
+C:\Users\Carole Voicu\source\repos\APPicolaReceiver\APPicolaReceiver\bin\Debug\netcoreapp2.1\APPicolaReceiver.runtimeconfig.json
+C:\Users\Carole Voicu\source\repos\APPicolaReceiver\APPicolaReceiver\bin\Debug\netcoreapp2.1\APPicolaReceiver.runtimeconfig.dev.json
+C:\Users\Carole Voicu\source\repos\APPicolaReceiver\APPicolaReceiver\bin\Debug\netcoreapp2.1\APPicolaReceiver.dll
+C:\Users\Carole Voicu\source\repos\APPicolaReceiver\APPicolaReceiver\bin\Debug\netcoreapp2.1\APPicolaReceiver.pdb
+C:\Users\Carole Voicu\source\repos\APPicolaReceiver\APPicolaReceiver\obj\Debug\netcoreapp2.1\APPicolaReceiver.csprojAssemblyReference.cache
+C:\Users\Carole Voicu\source\repos\APPicolaReceiver\APPicolaReceiver\obj\Debug\netcoreapp2.1\APPicolaReceiver.csproj.CoreCompileInputs.cache
+C:\Users\Carole Voicu\source\repos\APPicolaReceiver\APPicolaReceiver\obj\Debug\netcoreapp2.1\APPicolaReceiver.AssemblyInfoInputs.cache
+C:\Users\Carole Voicu\source\repos\APPicolaReceiver\APPicolaReceiver\obj\Debug\netcoreapp2.1\APPicolaReceiver.AssemblyInfo.cs
+C:\Users\Carole Voicu\source\repos\APPicolaReceiver\APPicolaReceiver\obj\Debug\netcoreapp2.1\APPicolaReceiver.dll
+C:\Users\Carole Voicu\source\repos\APPicolaReceiver\APPicolaReceiver\obj\Debug\netcoreapp2.1\APPicolaReceiver.pdb

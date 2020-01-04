@@ -1,0 +1,14 @@
+﻿@model APPicola.Models.SignUp
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SignUp</h2>
+@using (Html.BeginForm("Account", "SignUp", FormMethod.Post))
+{
+    <p>User: </p>@Html.TextBoxFor(model => model.User)<br><br>
+    <p>Password: </p>@Html.TextBoxFor(model => model.Password)<br><br>
+    <p>Re-Type Password: </p>@Html.TextBoxFor(model => model.RePassword)<br><br>
+    <input id="Login" type="submit" value="Sign Up" />
+}
