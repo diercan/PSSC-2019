@@ -13,6 +13,8 @@ namespace PSSC
 {
     public partial class FormLogIn : Form
     {
+        public string uid;
+        public bool dev_user;
         public FormLogIn()
         {
             InitializeComponent();
@@ -158,8 +160,11 @@ namespace PSSC
             if(login)
             //if(user and pass match db)
             {
-                MainForm f = new MainForm(textBoxUser.Text, Dev_user);
-                f.Show();
+                //  MainForm f = new MainForm(textBoxUser.Text, Dev_user);
+                //f.Show();
+                uid = textBoxUser.Text;
+                dev_user = Dev_user;
+                this.Close();
             }
             else
             {

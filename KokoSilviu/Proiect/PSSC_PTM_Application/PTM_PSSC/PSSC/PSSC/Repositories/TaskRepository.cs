@@ -12,14 +12,14 @@ namespace PSSC.Repositories
 {
     public class TaskRepository : ITaskRepository
     {
-        public PSSC.PsscdbDataSet1TableAdapters.TasksTableAdapter TableAdapter;
-        public PSSC.PsscdbDataSet1TableAdapters.TableAdapterManager TableAdapterManager;
-        public PSSC.PsscdbDataSet1 dbDataSet;
+        public PSSC.PsscdbDataSetTableAdapters.TasksTableAdapter TableAdapter;
+        public PSSC.PsscdbDataSetTableAdapters.TableAdapterManager TableAdapterManager;
+        public PSSC.PsscdbDataSet dbDataSet;
         public System.Windows.Forms.BindingSource tBinding;
 
-        public TaskRepository(PSSC.PsscdbDataSet1TableAdapters.TasksTableAdapter tta,
-                              PSSC.PsscdbDataSet1TableAdapters.TableAdapterManager tam,
-                              PSSC.PsscdbDataSet1 dbset,
+        public TaskRepository(PSSC.PsscdbDataSetTableAdapters.TasksTableAdapter tta,
+                              PSSC.PsscdbDataSetTableAdapters.TableAdapterManager tam,
+                              PSSC.PsscdbDataSet dbset,
                               System.Windows.Forms.BindingSource bsource)
         {
             TableAdapter = tta;
@@ -28,7 +28,7 @@ namespace PSSC.Repositories
             tBinding = bsource;
         }
 
-        public async Task Create(PSSC.Models.Task task)
+        public void Create(PSSC.Models.Task task)
         {
             int id = task.id;
             string nume = task.name;
@@ -68,7 +68,7 @@ namespace PSSC.Repositories
             PSSC.Models.Developer author = new PSSC.Models.Developer();
             PSSC.Models.Developer dev = new PSSC.Models.Developer();
             int cnt = 0, i = 0;
-            foreach (PsscdbDataSet1.TasksRow row in dbDataSet.Tasks.Rows)
+            foreach (PsscdbDataSet.TasksRow row in dbDataSet.Tasks.Rows)
             {
                 if (row.Id == taskID)
                 {
@@ -91,7 +91,7 @@ namespace PSSC.Repositories
             sql_con.Close();
             return t;
         }
-        public async Task UpdateTaskStatus(PSSC.Models.Task task)
+        public void UpdateTaskStatus(PSSC.Models.Task task)
         {
             SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
             string query = "Update Tasks SET Status='" + task.status + "' where Id=" + task.id + ";";
@@ -99,27 +99,29 @@ namespace PSSC.Repositories
             sql_con.Open();
             da.UpdateCommand = sql_con.CreateCommand();
             da.UpdateCommand.CommandText = query;
-            await da.UpdateCommand.ExecuteNonQueryAsync();
+            da.UpdateCommand.ExecuteNonQuery();
             sql_con.Close();
-            tBinding.EndEdit();
+            
             TableAdapterManager.UpdateAll(dbDataSet);
+            tBinding.EndEdit();
         }
 
-        public async Task UpdateTask(PSSC.Models.Task task)
+        public void UpdateTask(PSSC.Models.Task task)
         {
-            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = "Update Tasks SET Status='" + task.status + "' where Id=" + task.id + ";";
+
+            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");           
+            string query = "UPDATE Tasks SET Name='" + task.name + "',Description='" + task.description + "',Developer_uid='"  + task.developer.internal_id + "',Status='" + task.status + "',Priority='" + task.priority + "' WHERE id="+task.id+";";
             SqlDataAdapter da = new SqlDataAdapter();
             sql_con.Open();
             da.UpdateCommand = sql_con.CreateCommand();
             da.UpdateCommand.CommandText = query;
-         //   await da.UpdateCommand.ExecuteNonQueryAsync();
+            da.UpdateCommand.ExecuteNonQuery();
             sql_con.Close();
-            tBinding.EndEdit();
             TableAdapterManager.UpdateAll(dbDataSet);
+            tBinding.EndEdit();
         }
 
-        public async Task Delete(string taskID)
+        public void Delete(string taskID)
         {
             SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
             string query = "DELETE FROM Tasks where Id='" + taskID + "';";
@@ -127,37 +129,60 @@ namespace PSSC.Repositories
             sql_con.Open();
             da.DeleteCommand = sql_con.CreateCommand();
             da.DeleteCommand.CommandText = query;
-            await da.DeleteCommand.ExecuteNonQueryAsync();
-            sql_con.Close();
+            da.DeleteCommand.ExecuteNonQuery();
+            sql_con.Close();           
             tBinding.EndEdit();
             TableAdapterManager.UpdateAll(dbDataSet);
         }
 
-        public int GetPlannedNr(string uid)
+        public int GetPlannedNr(string uid, bool pm_user)
         {
             SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = "SELECT * FROM Tasks WHERE Status='Planned' AND Developer_uid='"+uid+"';";
-            SqlDataAdapter da = new SqlDataAdapter();
+            string query = null;
+            if (pm_user)
+            {
+                 query = "SELECT * FROM Tasks WHERE Status='Planned';";
+            }
+            else
+            {
+                 query = "SELECT * FROM Tasks WHERE Status='Planned' AND Developer_uid='" + uid + "';";
+            }
+             SqlDataAdapter da = new SqlDataAdapter();
             sql_con.Open();
             da.SelectCommand = sql_con.CreateCommand();
             da.SelectCommand.CommandText = query;
             da.SelectCommand.ExecuteNonQuery();
             da.Fill(dbDataSet);
             int cnt = 0;
-            foreach (PsscdbDataSet1.TasksRow row in dbDataSet.Tasks.Rows)
+            foreach (PsscdbDataSet.TasksRow row in dbDataSet.Tasks.Rows)
             {
-                if (row.Developer_uid == uid && row.Status == "Planned")
+                if (row.Status == "Planned")
                 {
-                    cnt++;
+                    if (row.Developer_uid == uid && !pm_user)
+                    {
+                        cnt++;
+                    }
+                    else if(pm_user)
+                    {
+                        cnt++;
+                    }
                 }
             }
 
             return cnt;
         }
-        public int GetInWorkN(string uid)
+        public int GetInWorkN(string uid, bool pm_user)
         {
             SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = "SELECT * FROM Tasks WHERE Status='InWork' AND Developer_uid='" + uid + "';";
+            string query = null;
+            if (pm_user)
+            {
+                query = "SELECT * FROM Tasks WHERE Status='InWork';";
+            }
+            else
+            {
+                query = "SELECT * FROM Tasks WHERE Status='InWork' AND Developer_uid='" + uid + "';";
+            }
             SqlDataAdapter da = new SqlDataAdapter();
             sql_con.Open();
             da.SelectCommand = sql_con.CreateCommand();
@@ -165,20 +190,35 @@ namespace PSSC.Repositories
             da.SelectCommand.ExecuteNonQuery();
             da.Fill(dbDataSet);
             int cnt = 0;
-            foreach(PsscdbDataSet1.TasksRow row in  dbDataSet.Tasks.Rows)
+            foreach(PsscdbDataSet.TasksRow row in  dbDataSet.Tasks.Rows)
             {
-                if (row.Developer_uid == uid && row.Status=="InWork") 
+                if (row.Status == "InWork")
                 {
-                    cnt++;
+                    if (row.Developer_uid == uid && !pm_user)
+                    {
+                        cnt++;
+                    }
+                    else if (pm_user)
+                    {
+                        cnt++;
+                    }
                 }
             }
 
             return cnt;
         }
-        public int GetRealizedNr(string uid)
+        public int GetRealizedNr(string uid, bool pm_user)
         {
             SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = "SELECT * FROM Tasks WHERE Status='Realized' AND Developer_uid='" + uid + "';";
+            string query = null;
+            if (pm_user)
+            {
+                query = "SELECT * FROM Tasks WHERE Status='Realized';";
+            }
+            else
+            {
+                query = "SELECT * FROM Tasks WHERE Status='Realized' AND Developer_uid='" + uid + "';";
+            }
             SqlDataAdapter da = new SqlDataAdapter();
             sql_con.Open();
             da.SelectCommand = sql_con.CreateCommand();
@@ -186,20 +226,35 @@ namespace PSSC.Repositories
             da.SelectCommand.ExecuteNonQuery();
             da.Fill(dbDataSet);
             int cnt = 0;
-            foreach (PsscdbDataSet1.TasksRow row in dbDataSet.Tasks.Rows)
+            foreach (PsscdbDataSet.TasksRow row in dbDataSet.Tasks.Rows)
             {
-                if (row.Developer_uid == uid && row.Status == "Realized")
+                if (row.Status == "Realized")
                 {
-                    cnt++;
+                    if (row.Developer_uid == uid && !pm_user)
+                    {
+                        cnt++;
+                    }
+                    else if (pm_user)
+                    {
+                        cnt++;
+                    }
                 }
             }
 
             return cnt;
         }
-        public int GetCanceledNr(string uid)
+        public int GetCanceledNr(string uid, bool pm_user)
         {
             SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = "SELECT * FROM Tasks WHERE Status='Canceled' AND Developer_uid='" + uid + "';";
+            string query = null;
+            if (pm_user)
+            {
+                query = "SELECT * FROM Tasks WHERE Status='Canceled';";
+            }
+            else
+            {
+                query = "SELECT * FROM Tasks WHERE Status='Canceled' AND Developer_uid='" + uid + "';";
+            }
             SqlDataAdapter da = new SqlDataAdapter();
             sql_con.Open();
             da.SelectCommand = sql_con.CreateCommand();
@@ -207,15 +262,47 @@ namespace PSSC.Repositories
             da.SelectCommand.ExecuteNonQuery();
             da.Fill(dbDataSet);
             int cnt = 0;
-            foreach (PsscdbDataSet1.TasksRow row in dbDataSet.Tasks.Rows)
+            foreach (PsscdbDataSet.TasksRow row in dbDataSet.Tasks.Rows)
             {
-                if (row.Developer_uid == uid && row.Status == "Canceled")
+                if (row.Status == "Canceled")
                 {
-                    cnt++;
+                    if (row.Developer_uid == uid && !pm_user)
+                    {
+                        cnt++;
+                    }
+                    else if (pm_user)
+                    {
+                        cnt++;
+                    }
                 }
             }
-
             return cnt;
+        }
+        public void AddDeveloper(PSSC.Models.Developer d)
+        {
+            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
+            string query = "INSERT INTO UserLogIn VALUES('" + d.internal_id + "','123456789','developer');";
+            SqlDataAdapter da = new SqlDataAdapter();
+            sql_con.Open();
+            da.InsertCommand = sql_con.CreateCommand();
+            da.InsertCommand.CommandText = query;
+            da.InsertCommand.ExecuteNonQuery();
+            sql_con.Close();
+            tBinding.EndEdit();
+            TableAdapterManager.UpdateAll(dbDataSet);
+        }
+        public void DeleteDeveloper(PSSC.Models.Developer d)
+        {
+            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
+            string query = "DELETE FROM UserLogIn where uid='" + d.internal_id + "';";
+            SqlDataAdapter da = new SqlDataAdapter();
+            sql_con.Open();
+            da.DeleteCommand = sql_con.CreateCommand();
+            da.DeleteCommand.CommandText = query;
+            da.DeleteCommand.ExecuteNonQuery();
+            sql_con.Close();
+            tBinding.EndEdit();
+            TableAdapterManager.UpdateAll(dbDataSet);
         }
     }
 }

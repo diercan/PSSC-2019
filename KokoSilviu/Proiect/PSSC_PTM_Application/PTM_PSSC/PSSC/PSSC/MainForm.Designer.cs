@@ -37,7 +37,17 @@
             this.buttonTask = new System.Windows.Forms.Button();
             this.panelindex = new System.Windows.Forms.Panel();
             this.panelStatistic = new System.Windows.Forms.Panel();
+            this.kryptonDataGridView1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.uidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userLogInBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.psscdbDataSet = new PSSC.PsscdbDataSet();
             this.panelDashboard = new System.Windows.Forms.Panel();
+            this.groupBoxAddDev = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.kryptonButtonDeleteDev = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButtonAddDev = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.textBoxAddId = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,9 +68,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.AddButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.TaskChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.tasksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.psscdbDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.psscdbDataSet1 = new PSSC.PsscdbDataSet1();
             this.panelTasks = new System.Windows.Forms.Panel();
             this.kryptonButtonStatusChange = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
@@ -82,18 +89,19 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.tasksTableAdapter = new PSSC.PsscdbDataSet1TableAdapters.TasksTableAdapter();
-            this.tableAdapterManager = new PSSC.PsscdbDataSet1TableAdapters.TableAdapterManager();
-            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.buttonStatistic = new System.Windows.Forms.Button();
+            this.tasksTableAdapter = new PSSC.PsscdbDataSetTableAdapters.TasksTableAdapter();
+            this.tableAdapterManager = new PSSC.PsscdbDataSetTableAdapters.TableAdapterManager();
+            this.userLogInTableAdapter = new PSSC.PsscdbDataSetTableAdapters.UserLogInTableAdapter();
             this.panelStatistic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLogInBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.psscdbDataSet)).BeginInit();
             this.panelDashboard.SuspendLayout();
+            this.groupBoxAddDev.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TaskChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tasksBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.psscdbDataSet1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.psscdbDataSet1)).BeginInit();
             this.panelTasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridViewTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tasksBindingSource)).BeginInit();
@@ -133,6 +141,7 @@
             // panelStatistic
             // 
             this.panelStatistic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(35)))));
+            this.panelStatistic.Controls.Add(this.kryptonDataGridView1);
             this.panelStatistic.Controls.Add(this.panelDashboard);
             this.panelStatistic.Controls.Add(this.TaskChart);
             this.panelStatistic.Controls.Add(this.panelTasks);
@@ -141,14 +150,99 @@
             this.panelStatistic.Size = new System.Drawing.Size(809, 514);
             this.panelStatistic.TabIndex = 6;
             // 
+            // kryptonDataGridView1
+            // 
+            this.kryptonDataGridView1.AutoGenerateColumns = false;
+            this.kryptonDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.kryptonDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.uidDataGridViewTextBoxColumn,
+            this.typeDataGridViewTextBoxColumn});
+            this.kryptonDataGridView1.DataSource = this.userLogInBindingSource;
+            this.kryptonDataGridView1.Location = new System.Drawing.Point(18, 313);
+            this.kryptonDataGridView1.Name = "kryptonDataGridView1";
+            this.kryptonDataGridView1.Size = new System.Drawing.Size(241, 164);
+            this.kryptonDataGridView1.TabIndex = 18;
+            // 
+            // uidDataGridViewTextBoxColumn
+            // 
+            this.uidDataGridViewTextBoxColumn.DataPropertyName = "uid";
+            this.uidDataGridViewTextBoxColumn.HeaderText = "uid";
+            this.uidDataGridViewTextBoxColumn.Name = "uidDataGridViewTextBoxColumn";
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            // 
+            // userLogInBindingSource
+            // 
+            this.userLogInBindingSource.DataMember = "UserLogIn";
+            this.userLogInBindingSource.DataSource = this.psscdbDataSet;
+            // 
+            // psscdbDataSet
+            // 
+            this.psscdbDataSet.DataSetName = "PsscdbDataSet";
+            this.psscdbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // panelDashboard
             // 
+            this.panelDashboard.Controls.Add(this.groupBoxAddDev);
             this.panelDashboard.Controls.Add(this.groupBox3);
             this.panelDashboard.Controls.Add(this.groupBox1);
-            this.panelDashboard.Location = new System.Drawing.Point(9, 6);
+            this.panelDashboard.Location = new System.Drawing.Point(3, 12);
             this.panelDashboard.Name = "panelDashboard";
-            this.panelDashboard.Size = new System.Drawing.Size(699, 505);
+            this.panelDashboard.Size = new System.Drawing.Size(773, 505);
             this.panelDashboard.TabIndex = 17;
+            // 
+            // groupBoxAddDev
+            // 
+            this.groupBoxAddDev.Controls.Add(this.label9);
+            this.groupBoxAddDev.Controls.Add(this.kryptonButtonDeleteDev);
+            this.groupBoxAddDev.Controls.Add(this.kryptonButtonAddDev);
+            this.groupBoxAddDev.Controls.Add(this.textBoxAddId);
+            this.groupBoxAddDev.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBoxAddDev.Location = new System.Drawing.Point(472, 38);
+            this.groupBoxAddDev.Name = "groupBoxAddDev";
+            this.groupBoxAddDev.Size = new System.Drawing.Size(298, 118);
+            this.groupBoxAddDev.TabIndex = 3;
+            this.groupBoxAddDev.TabStop = false;
+            this.groupBoxAddDev.Text = "Add Developer";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.Location = new System.Drawing.Point(26, 31);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(23, 18);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Id:";
+            // 
+            // kryptonButtonDeleteDev
+            // 
+            this.kryptonButtonDeleteDev.Location = new System.Drawing.Point(69, 70);
+            this.kryptonButtonDeleteDev.Name = "kryptonButtonDeleteDev";
+            this.kryptonButtonDeleteDev.Size = new System.Drawing.Size(90, 25);
+            this.kryptonButtonDeleteDev.TabIndex = 4;
+            this.kryptonButtonDeleteDev.Values.Text = "Delete Dev";
+            this.kryptonButtonDeleteDev.Click += new System.EventHandler(this.kryptonButtonDeleteDev_Click);
+            // 
+            // kryptonButtonAddDev
+            // 
+            this.kryptonButtonAddDev.Location = new System.Drawing.Point(184, 70);
+            this.kryptonButtonAddDev.Name = "kryptonButtonAddDev";
+            this.kryptonButtonAddDev.Size = new System.Drawing.Size(90, 25);
+            this.kryptonButtonAddDev.TabIndex = 3;
+            this.kryptonButtonAddDev.Values.Text = "Add Dev";
+            this.kryptonButtonAddDev.Click += new System.EventHandler(this.kryptonButtonAddDev_Click);
+            // 
+            // textBoxAddId
+            // 
+            this.textBoxAddId.Location = new System.Drawing.Point(69, 29);
+            this.textBoxAddId.Name = "textBoxAddId";
+            this.textBoxAddId.Size = new System.Drawing.Size(205, 20);
+            this.textBoxAddId.TabIndex = 1;
             // 
             // groupBox3
             // 
@@ -156,24 +250,24 @@
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.DeleteButton);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox3.Location = new System.Drawing.Point(29, 400);
+            this.groupBox3.Location = new System.Drawing.Point(472, 279);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(443, 61);
+            this.groupBox3.Size = new System.Drawing.Size(298, 102);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Delete Task";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(121, 23);
+            this.textBox1.Location = new System.Drawing.Point(69, 23);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 20);
+            this.textBox1.Size = new System.Drawing.Size(193, 20);
             this.textBox1.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(61, 23);
+            this.label1.Location = new System.Drawing.Point(6, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 23);
             this.label1.TabIndex = 3;
@@ -181,7 +275,7 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(286, 21);
+            this.DeleteButton.Location = new System.Drawing.Point(172, 60);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(90, 25);
             this.DeleteButton.TabIndex = 2;
@@ -207,7 +301,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.Location = new System.Drawing.Point(31, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(441, 343);
+            this.groupBox1.Size = new System.Drawing.Size(418, 343);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Task";
@@ -216,7 +310,7 @@
             // 
             this.textBoxPrio.Location = new System.Drawing.Point(142, 266);
             this.textBoxPrio.Name = "textBoxPrio";
-            this.textBoxPrio.Size = new System.Drawing.Size(275, 20);
+            this.textBoxPrio.Size = new System.Drawing.Size(261, 20);
             this.textBoxPrio.TabIndex = 22;
             // 
             // label7
@@ -232,7 +326,7 @@
             // 
             this.textBoxStatus.Location = new System.Drawing.Point(142, 224);
             this.textBoxStatus.Name = "textBoxStatus";
-            this.textBoxStatus.Size = new System.Drawing.Size(275, 20);
+            this.textBoxStatus.Size = new System.Drawing.Size(261, 20);
             this.textBoxStatus.TabIndex = 20;
             // 
             // label6
@@ -248,7 +342,7 @@
             // 
             this.textBoxDev.Location = new System.Drawing.Point(142, 183);
             this.textBoxDev.Name = "textBoxDev";
-            this.textBoxDev.Size = new System.Drawing.Size(275, 20);
+            this.textBoxDev.Size = new System.Drawing.Size(261, 20);
             this.textBoxDev.TabIndex = 18;
             // 
             // label4
@@ -265,7 +359,7 @@
             this.textBoxDesc.Location = new System.Drawing.Point(142, 109);
             this.textBoxDesc.Multiline = true;
             this.textBoxDesc.Name = "textBoxDesc";
-            this.textBoxDesc.Size = new System.Drawing.Size(275, 55);
+            this.textBoxDesc.Size = new System.Drawing.Size(261, 55);
             this.textBoxDesc.TabIndex = 16;
             // 
             // label3
@@ -281,7 +375,7 @@
             // 
             this.textBoxName.Location = new System.Drawing.Point(142, 69);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(275, 20);
+            this.textBoxName.Size = new System.Drawing.Size(261, 20);
             this.textBoxName.TabIndex = 14;
             // 
             // label2
@@ -300,12 +394,13 @@
             this.ModifyButton.Size = new System.Drawing.Size(90, 25);
             this.ModifyButton.TabIndex = 1;
             this.ModifyButton.Values.Text = "Modify";
+            this.ModifyButton.Click += new System.EventHandler(this.ModifyButton_Click);
             // 
             // textBoxId
             // 
             this.textBoxId.Location = new System.Drawing.Point(142, 27);
             this.textBoxId.Name = "textBoxId";
-            this.textBoxId.Size = new System.Drawing.Size(275, 20);
+            this.textBoxId.Size = new System.Drawing.Size(261, 20);
             this.textBoxId.TabIndex = 12;
             // 
             // label5
@@ -333,7 +428,6 @@
             this.TaskChart.BorderlineColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "ChartArea1";
             this.TaskChart.ChartAreas.Add(chartArea1);
-            this.TaskChart.DataSource = this.tasksBindingSource1;
             legend1.Name = "Legend1";
             this.TaskChart.Legends.Add(legend1);
             this.TaskChart.Location = new System.Drawing.Point(21, 23);
@@ -347,21 +441,6 @@
             this.TaskChart.Size = new System.Drawing.Size(422, 241);
             this.TaskChart.TabIndex = 1;
             this.TaskChart.Text = "chart1";
-            // 
-            // tasksBindingSource1
-            // 
-            this.tasksBindingSource1.DataMember = "Tasks";
-            this.tasksBindingSource1.DataSource = this.psscdbDataSet1BindingSource;
-            // 
-            // psscdbDataSet1BindingSource
-            // 
-            this.psscdbDataSet1BindingSource.DataSource = this.psscdbDataSet1;
-            this.psscdbDataSet1BindingSource.Position = 0;
-            // 
-            // psscdbDataSet1
-            // 
-            this.psscdbDataSet1.DataSetName = "PsscdbDataSet1";
-            this.psscdbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panelTasks
             // 
@@ -431,7 +510,6 @@
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descriptionDataGridViewTextBoxColumn.Width = 240;
             // 
             // authoruidDataGridViewTextBoxColumn
             // 
@@ -453,7 +531,6 @@
             this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             this.statusDataGridViewTextBoxColumn.ReadOnly = true;
-            this.statusDataGridViewTextBoxColumn.Width = 90;
             // 
             // priorityDataGridViewTextBoxColumn
             // 
@@ -461,7 +538,6 @@
             this.priorityDataGridViewTextBoxColumn.HeaderText = "Priority";
             this.priorityDataGridViewTextBoxColumn.Name = "priorityDataGridViewTextBoxColumn";
             this.priorityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priorityDataGridViewTextBoxColumn.Width = 70;
             // 
             // Id
             // 
@@ -473,7 +549,7 @@
             // tasksBindingSource
             // 
             this.tasksBindingSource.DataMember = "Tasks";
-            this.tasksBindingSource.DataSource = this.psscdbDataSet1;
+            this.tasksBindingSource.DataSource = this.psscdbDataSet;
             // 
             // buttonDashboard
             // 
@@ -568,21 +644,6 @@
             this.panel6.TabIndex = 15;
             this.panel6.MouseEnter += new System.EventHandler(this.panel6_MouseEnter);
             // 
-            // tasksTableAdapter
-            // 
-            this.tasksTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.TasksTableAdapter = this.tasksTableAdapter;
-            this.tableAdapterManager.UpdateOrder = PSSC.PsscdbDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UserTableAdapter = null;
-            // 
-            // kryptonManager1
-            // 
-            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black;
-            // 
             // buttonStatistic
             // 
             this.buttonStatistic.FlatAppearance.BorderSize = 0;
@@ -596,6 +657,21 @@
             this.buttonStatistic.Text = "Statistic";
             this.buttonStatistic.UseVisualStyleBackColor = true;
             this.buttonStatistic.Click += new System.EventHandler(this.buttonStatistic_Click);
+            // 
+            // tasksTableAdapter
+            // 
+            this.tasksTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.TasksTableAdapter = this.tasksTableAdapter;
+            this.tableAdapterManager.UpdateOrder = PSSC.PsscdbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UserLogInTableAdapter = this.userLogInTableAdapter;
+            // 
+            // userLogInTableAdapter
+            // 
+            this.userLogInTableAdapter.ClearBeforeFill = true;
             // 
             // MainForm
             // 
@@ -621,15 +697,17 @@
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelStatistic.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLogInBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.psscdbDataSet)).EndInit();
             this.panelDashboard.ResumeLayout(false);
+            this.groupBoxAddDev.ResumeLayout(false);
+            this.groupBoxAddDev.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TaskChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tasksBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.psscdbDataSet1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.psscdbDataSet1)).EndInit();
             this.panelTasks.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridViewTasks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tasksBindingSource)).EndInit();
@@ -653,25 +731,11 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panelTasks;
-        private PsscdbDataSet1 psscdbDataSet1;
-        private System.Windows.Forms.BindingSource tasksBindingSource;
-        private PsscdbDataSet1TableAdapters.TableAdapterManager tableAdapterManager;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView kryptonDataGridViewTasks;
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
         private System.Windows.Forms.ComboBox comboBoxStatus;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonStatusChange;
-        public PsscdbDataSet1TableAdapters.TasksTableAdapter tasksTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn authoruidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn developeruidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priorityDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button buttonStatistic;
         private System.Windows.Forms.DataVisualization.Charting.Chart TaskChart;
-        private System.Windows.Forms.BindingSource tasksBindingSource1;
-        private System.Windows.Forms.BindingSource psscdbDataSet1BindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.Panel panelDashboard;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox1;
@@ -692,5 +756,26 @@
         private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.Label label5;
         private ComponentFactory.Krypton.Toolkit.KryptonButton AddButton;
+        private System.Windows.Forms.GroupBox groupBoxAddDev;
+        private System.Windows.Forms.Label label9;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonDeleteDev;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonAddDev;
+        private System.Windows.Forms.TextBox textBoxAddId;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView kryptonDataGridView1;
+        private PsscdbDataSet psscdbDataSet;
+        private System.Windows.Forms.BindingSource tasksBindingSource;
+        private PsscdbDataSetTableAdapters.TasksTableAdapter tasksTableAdapter;
+        private PsscdbDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private PsscdbDataSetTableAdapters.UserLogInTableAdapter userLogInTableAdapter;
+        private System.Windows.Forms.BindingSource userLogInBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn authoruidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn developeruidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priorityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
     }
 }

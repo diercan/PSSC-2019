@@ -92,11 +92,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PsscdbDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="PsscdbDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PsscdbDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Repositories\ITaskRepository.cs" />
     <Compile Include="Repositories\TaskRepository.cs" />
     <Compile Include="Models\Task.cs" />
@@ -138,17 +133,6 @@
     <None Include="PsscdbDataSet.xss">
       <DependentUpon>PsscdbDataSet.xsd</DependentUpon>
     </None>
-    <None Include="PsscdbDataSet1.xsc">
-      <DependentUpon>PsscdbDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="PsscdbDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PsscdbDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="PsscdbDataSet1.xss">
-      <DependentUpon>PsscdbDataSet1.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -158,8 +142,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Psscdb_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>Psscdb.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

@@ -8,16 +8,18 @@ namespace PSSC.Repositories
 {
     public interface ITaskRepository
     {
-        System.Threading.Tasks.Task Create(PSSC.Models.Task task);
+        void Create(PSSC.Models.Task task);
         System.Collections.IList GetAllTasks();
-        System.Threading.Tasks.Task Delete(string taskID);
+        void Delete(string taskID);
         PSSC.Models.Task GetTask(int taskID);
-        System.Threading.Tasks.Task UpdateTaskStatus(PSSC.Models.Task task);
-        System.Threading.Tasks.Task UpdateTask(PSSC.Models.Task task);
-        int GetPlannedNr(string uid);
-        int GetInWorkN(string uid);
-        int GetRealizedNr(string uid);
-        int GetCanceledNr(string uid);
+        void UpdateTaskStatus(PSSC.Models.Task task);
+        void UpdateTask(PSSC.Models.Task task);
+        void AddDeveloper(PSSC.Models.Developer d);
+        void DeleteDeveloper(PSSC.Models.Developer d);
+        int GetPlannedNr(string uid,bool pm_user);
+        int GetInWorkN(string uid, bool pm_user);
+        int GetRealizedNr(string uid, bool pm_user);
+        int GetCanceledNr(string uid, bool pm_user);
     }
 }
 
