@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proiectfinalpssc", "Proiectfinalpssc\Proiectfinalpssc.csproj", "{756BBBC4-DD25-468A-B678-F631EDB5FCA7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inbox", "Inbox\Inbox.csproj", "{F7062E3B-8DAE-437E-BB79-4EFDF27177AB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{756BBBC4-DD25-468A-B678-F631EDB5FCA7} = {756BBBC4-DD25-468A-B678-F631EDB5FCA7}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

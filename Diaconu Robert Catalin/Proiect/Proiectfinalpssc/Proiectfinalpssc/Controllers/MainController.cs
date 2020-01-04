@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proiectfinalpssc.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,29 @@ namespace Proiectfinalpssc.Controllers
     public class MainController : Controller
     {
         // GET: Main
-        public ActionResult Menu()
+        public ActionResult Menu(CUSTOMER customerModel,string submit)
         {
-            return View("Menu");
+            submit = "history";
+            switch (submit)
+            {
+                case "history":
+                    return RedirectToAction("Show", "History", customerModel);
+             
+                case "add":
+                    return View(); 
+                case "profile":
+                    return View();
+               
+                default:
+                    return View();
+            }
+
+
+
+            
+            //var IBAN = customerModel.IBAN;
+            //ViewBag.Message = IBAN;
+
         }
     }
 }

@@ -1,0 +1,14 @@
+﻿
+@model Proiectfinalpssc.Models.TRANSACTION
+
+@{
+    ViewBag.Title = "List";
+}
+
+
+@{var data = ViewBag.Message; }
+
+<h2>List of current transactions</h2>
+<p>ID        IBAN         NUME         PRENUME</p>
+<p>@Model.ID     @Model.USERIBAN        @Model.FIRSTNAME        @Model.LASTNAME   </p>
+

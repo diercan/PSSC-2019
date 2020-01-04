@@ -140,6 +140,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\LogInController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
@@ -227,6 +228,7 @@
     <Content Include="Views\Register\Register.cshtml" />
     <Content Include="Views\LogIn\Login.cshtml" />
     <Content Include="Views\Main\Menu.cshtml" />
+    <Content Include="Views\History\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

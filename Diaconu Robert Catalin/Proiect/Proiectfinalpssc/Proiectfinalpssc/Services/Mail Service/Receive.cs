@@ -12,7 +12,10 @@ namespace Proiectfinalpssc.Services.Mail_Service
     {
         static void Main(string[] args)
         {//send de fapt
-            var factory = new ConnectionFactory() { Uri = new Uri("amqp://znjrxrfe:iH-degHzbWE-TDX7QH9SsG4pxLO_CglJ@hawk.rmq.cloudamqp.com/znjrxrfe") };
+            var factory = new ConnectionFactory() {
+                // HostName = "localhost"
+                Uri = new Uri("amqp://znjrxrfe:iH-degHzbWE-TDX7QH9SsG4pxLO_CglJ@hawk.rmq.cloudamqp.com/znjrxrfe") 
+            };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
@@ -25,8 +28,8 @@ namespace Proiectfinalpssc.Services.Mail_Service
                 Console.WriteLine(" [x] Sent {0}", message);
             }
 
-            Console.WriteLine(" Press [enter] to exit.");
-            Console.ReadLine();
+            //Console.WriteLine(" Press [enter] to exit.");
+            //Console.ReadLine();
         }
     }
 }
