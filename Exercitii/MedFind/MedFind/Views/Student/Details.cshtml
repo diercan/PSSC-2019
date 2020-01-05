@@ -25,8 +25,38 @@
             @Html.DisplayFor(model => model.StudentID)
         </dd>
 
+
+        <dt class="col-sm-2">
+            <p>Laboratoarele Alese</p>
+        </dt>
+
+        @foreach (Medic item2 in Model.List())
+        {
+            
+            <dd class="col-sm-3">
+                @Html.DisplayFor(modelItem => item2.Specialty)
+            </dd>
+            <dd class="col-sm-3">
+                @Html.DisplayFor(modelItem => item2.Description)
+            </dd>
+            <dd class="col-sm-3">
+                @Html.DisplayFor(modelItem => item2.Name)
+            </dd>
+        }
+
+
     </dl>
 </div>
+
 <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ })  
+
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ })
+    @Html.ActionLink(Model.StudentAccount,
+                    "ShowCabinets",   // <-- ActionMethod
+                     "Medic", // <-- Controller Name.
+                new { StudentAccount = Model.StudentAccount }, // <-- Route arguments.
+                null  // <-- htmlArguments .. which are none. You need this value
+                      //     otherwise you call the WRONG method ...
+                      //     (refer to comments, below).
+                )
 </div>

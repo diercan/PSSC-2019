@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MedFind.Interfaces;
+using MedFind.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +13,7 @@ namespace MedFind.Controllers
     {
 
         private IMedic _medic;
+        //private IStudent _student;
         //private readonly SignInManager<IdentityUser> signInManager;
 
         public MedicController(IMedic medic)
@@ -20,10 +22,17 @@ namespace MedFind.Controllers
 
         }
 
-        public ActionResult ShowCabinets()
+        public ActionResult ShowCabinets(String StudentAccount)
         {
-            return View(_medic.GetCabinets());
+            return View(_medic.GetCabinets(StudentAccount));
         }
+
+        public ActionResult SendCabinets(string MedicAccount)
+        {
+           return View("~/Views/Student/Details.cshtml", _medic.SendCabinet(MedicAccount));
+
+        }
+
         // GET: Medic
         public ActionResult Index()
         {
@@ -103,6 +112,11 @@ namespace MedFind.Controllers
             {
                 return View();
             }
+        }
+        
+        public class CabinetSentException:Exception
+        {
+
         }
     }
 }

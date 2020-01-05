@@ -12,5 +12,7 @@ namespace MedFind.Interfaces
         void CreateStudent(Student student);
 
         IEnumerable<Student> GetAllStudents();
+        
+        Student AddCabinet(Medic medic, string StudentAccount);
     }
 }

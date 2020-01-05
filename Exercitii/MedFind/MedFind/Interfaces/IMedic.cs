@@ -12,8 +12,8 @@ namespace MedFind.Interfaces
     {
         Medic ReturnMedicAfterLoginMedic(LoginMedicViewModel medic);
 
-        public List<Medic> GetCabinets();
-
+        public List<Medic> GetCabinets(string studentAccount);
+        public Student SendCabinet(string MeddicAccount);
 
     }
 }

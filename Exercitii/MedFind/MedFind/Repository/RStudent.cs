@@ -15,7 +15,7 @@ namespace MedFind.Repository
         {
             List_Student = new List<Student>();
 
-            List_Student.Add(new Student { StudentAccount="Madalina.Cristina", Name="Madalina Cristina",StudentID="12345"});
+            List_Student.Add(new Student { StudentAccount = "Madalina.Cristina", Name = "Madalina Cristina", StudentID = "12345"});
             List_Student.Add(new Student { StudentAccount="Darius.Bagiu", Name = "Darius Bagiu", StudentID = "12345" });
         }
 
@@ -29,8 +29,7 @@ namespace MedFind.Repository
             }
             return null;
         }
-
-
+ 
         public void CreateStudent(Student student)
         {
             List_Student.Add(student);
@@ -39,6 +38,20 @@ namespace MedFind.Repository
         public IEnumerable<Student> GetAllStudents()
         {
             return List_Student;
+        }
+
+        public Student AddCabinet(Medic medic, string StudentAccount)
+        {
+            foreach (Student item in List_Student)
+            {
+                if (item.StudentAccount.Equals(StudentAccount))
+                {
+                    item.Load(medic);
+                    return item;
+                }
+            }
+            throw new NotImplementedException();
+
         }
     }
 }

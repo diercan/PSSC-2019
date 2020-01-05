@@ -57,6 +57,7 @@ namespace MedFind.Controllers
         // GET: Student/Details/5
         public ActionResult Details(int id)
         {
+            //return View("~/Views/Student/Details.cshtml", model);
             return View();
         }
 

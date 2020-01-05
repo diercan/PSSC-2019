@@ -5,12 +5,27 @@ using System.Threading.Tasks;
 
 namespace MedFind.Models
 {
-    public class Medic: Cabinet
+    public class Medic
     {
         public string MedicAccount { get; set; }
 
         public string Name { get; set; }
-        
-        public Cabinet CabinetMedic { get; set; }
+
+        public Category Specialty { get; set; }
+
+        public string Description { get; set; }
+
+
+
+    }
+    public enum Category
+    {
+
+        Parodontologie,
+        Prostetica_dentara,
+        Chirurgia_Oro_Maxilo_Faciala,
+        Chirurgia_Dento_Alveolara,
+        Endodontie,
     }
 }
+

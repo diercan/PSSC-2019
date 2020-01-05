@@ -1,4 +1,5 @@
-﻿@model IEnumerable<MedFind.Models.Cabinet>
+﻿@model IEnumerable<MedFind.Models.Medic>
+
 
 @{
     ViewData["Title"] = "ShowCabinets";
@@ -13,29 +14,51 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Specialty)
+
+                <p>Specialty</p>
+
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+
+                <p>Description</p>
+
+            </th>
+            <th>
+
+                <p>Medic</p>
+
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Specialty)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <button class="btn btn-primary"><a color="white">SignUP</a></button>
-                <button class="btn btn-primary"><a color="white">Details</a></button>
-                
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Specialty)
+
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Description)
+
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Name)
+
+                </td>
+                <td>
+
+                    <button class="btn btn-primary"><a color="white">SignUP</a></button>
+                    @Html.ActionLink("ShowCabinets", "SendCabinets", new { MedicAccount = item.MedicAccount })
+
+
+                    
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
