@@ -16,12 +16,7 @@ namespace Proiectfinalpssc.Controllers
            
             TRANSACTION transactionModel=new TRANSACTION();
             using (PSSCEntities dbModel = new PSSCEntities())
-            {/*
-                foreach (TRANSACTION trn in dbModel.TRANSACTIONS)
-                    if (trn.USERIBAN == customerModel.IBAN)
-                    {
-                        transactionModel = trn;
-                        */
+            {
 
                 if (!string.IsNullOrEmpty(withdraw))//// make a withdrawal
                 {
@@ -39,61 +34,68 @@ namespace Proiectfinalpssc.Controllers
                         transactionModel.FIRSTNAME = amount;
                         Random rnd = new Random();
                         transactionModel.ID = rnd.Next(9999).ToString();
-                        //transactionModel.USERIBAN = customerModel.IBAN;
-                       // transactionModel.USERNAME = customerModel.USERNAME;
-                        //transactionModel.LASTNAME = customerModel.LASTNAME;
-                        //transactionModel.PASSWORD = "-";
-                        //dbModel.TRANSACTIONS.Add(transactionModel);
-                        //dbModel.SaveChanges();
-                        ViewBag.Message = "asta e" + customerModel.IBAN;
-
-
-                        //return RedirectToAction("Show", "History", customerModel);
-                        return View();
+                        transactionModel.USERIBAN =iban;
+                       transactionModel.USERNAME = customerModel.USERNAME+"1";
+                        transactionModel.LASTNAME = customerModel.LASTNAME;
+                        transactionModel.PASSWORD = "-";
+                        //transactionModel.CUSTOMER = customerModel;
+                        customerModel.TRANSACTIONS.Add(transactionModel);
+                        dbModel.SaveChanges();
+                        dbModel.TRANSACTIONS.Add(transactionModel);
+                        dbModel.SaveChanges();
+                        return RedirectToAction("Show", "History", customerModel);
+                        //return View();
                     }
 
                     
                 }
                 if (!string.IsNullOrEmpty(deposit))
                 {
-
-
-
-
-                    return RedirectToAction("Index", "Trade", customerModel);
+                    customerModel.FIRSTNAME = (Int32.Parse(customerModel.FIRSTNAME) + Int32.Parse(amount)).ToString();
+                    transactionModel.FIRSTNAME = amount;
+                    Random rnd = new Random();
+                    transactionModel.ID = rnd.Next(9999).ToString();
+                    transactionModel.USERIBAN = iban;
+                    transactionModel.USERNAME = customerModel.USERNAME + "1";
+                    transactionModel.LASTNAME = customerModel.LASTNAME;
+                    transactionModel.PASSWORD = "-";
+                    transactionModel.CUSTOMER = customerModel;
+                    customerModel.TRANSACTIONS.Add(transactionModel);
+                    dbModel.SaveChanges();
+                    //dbModel.TRANSACTIONS.Add(transactionModel);
+                    dbModel.SaveChanges();
+                    return RedirectToAction("Show", "History", customerModel);
+                    //return View();
                 }
                 if (!string.IsNullOrEmpty(transfer))
                 {
+                    foreach (CUSTOMER cst in dbModel.CUSTOMERS)
+                        if (cst.IBAN.CompareTo(iban) == 0)
+                        {
+                            customerModel.FIRSTNAME = (Int32.Parse(customerModel.FIRSTNAME) - Int32.Parse(amount)).ToString();
+                            cst.FIRSTNAME = (Int32.Parse(customerModel.FIRSTNAME) + Int32.Parse(amount)).ToString();
+                            transactionModel.FIRSTNAME = amount;
+                            Random rnd = new Random();
+                            transactionModel.ID = rnd.Next(9999).ToString();
+                            transactionModel.USERIBAN = iban;
+                            transactionModel.USERNAME = customerModel.USERNAME + "1";
+                            transactionModel.LASTNAME = customerModel.LASTNAME;
+                            transactionModel.PASSWORD = "-";
+                            transactionModel.CUSTOMER = customerModel;
+                            customerModel.TRANSACTIONS.Add(transactionModel);
+                            dbModel.SaveChanges();
+                            //dbModel.TRANSACTIONS.Add(transactionModel);
+                            dbModel.SaveChanges();
+                            return RedirectToAction("Show", "History", customerModel);
+                            //return View();
 
-
-
-
-                    return RedirectToAction("Show", "History", customerModel);
+                        }
+                    ViewBag.Message = "This iban doesn't exist in our database!";
+                    return View();
                 }
             }
             return View();
-           // return RedirectToAction("Show", "History", customerModel);
-
-
-            /*public int Deposit(int amount)
-            {
-                FIRSTNAME = amount.ToString();
-                return (Int32.Parse(CUSTOMER.FIRSTNAME) + amount);
-
-            }
-
-            public int Withdraw(int amount)
-            {
-                FIRSTNAME = amount.ToString();
-                return (Int32.Parse(CUSTOMER.FIRSTNAME) - amount);
-            }
-
-            public void TransferFunds(CUSTOMER cst, int amount)
-            {
-                destination.Deposit(amount);
-                Withdraw(amount);
-            }
-            */
+          
         }
     }
 }
