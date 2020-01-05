@@ -23,7 +23,7 @@ namespace PerfumeShop.Controllers
         [HttpPost]
         public IActionResult Login (string username,string password)
         {
-            if (username != null && password != null && username.Equals("acc1") && password.Equals("123"))
+            if (username != null && password != null && username.Equals("user1") && password.Equals("123")|| username.Equals("user2") && password.Equals("1234") || username.Equals("user3") && password.Equals("12345"))
             {
                 HttpContext.Session.SetString("username", username);
                 return View("Success");
