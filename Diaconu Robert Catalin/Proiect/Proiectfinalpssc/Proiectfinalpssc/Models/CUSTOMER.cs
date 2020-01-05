@@ -19,6 +19,7 @@ namespace Proiectfinalpssc.Models
         public CUSTOMER()
         {
             this.TRANSACTIONS = new HashSet<TRANSACTION>();
+            FIRSTNAME = "0";
         }
         [Required(ErrorMessage ="This field is required")]
         public string IBAN { get; set; }
@@ -27,9 +28,11 @@ namespace Proiectfinalpssc.Models
         [DataType(DataType.Password)]
         public string PASSWORD { get; set; }
         [Required(ErrorMessage = "This field is required")]
-        public string FIRSTNAME { get; set; }
+        public string FIRSTNAME { get; set; } // this functions get and sets the balance of the account
         [Required(ErrorMessage = "This field is required")]
         public string LASTNAME { get; set; }
+
+
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRANSACTION> TRANSACTIONS { get; set; }

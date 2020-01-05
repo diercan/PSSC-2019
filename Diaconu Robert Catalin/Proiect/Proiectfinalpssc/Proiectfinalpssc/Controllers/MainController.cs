@@ -10,28 +10,18 @@ namespace Proiectfinalpssc.Controllers
     public class MainController : Controller
     {
         // GET: Main
-        public ActionResult Menu(CUSTOMER customerModel,string submit)
+        public ActionResult Menu(CUSTOMER customerModel,string history,string add, string profile)
         {
-            submit = "history";
-            switch (submit)
-            {
-                case "history":
-                    return RedirectToAction("Show", "History", customerModel);
-             
-                case "add":
-                    return View(); 
-                case "profile":
-                    return View();
-               
-                default:
-                    return View();
-            }
+           
+            if (!string.IsNullOrEmpty(history))
+                return RedirectToAction("Show", "History", customerModel);
+            if (!string.IsNullOrEmpty(add))
+                return RedirectToAction("Index", "Trade", customerModel);
+            if (!string.IsNullOrEmpty(profile))
+                return RedirectToAction("Show", "History", customerModel);
+            return View();
 
 
-
-            
-            //var IBAN = customerModel.IBAN;
-            //ViewBag.Message = IBAN;
 
         }
     }

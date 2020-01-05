@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<body background="~/Content/trade.jpg">
+
+
+    @{
+        var data = ViewBag.Message;
+    }
+
+    <h3>Please select what action you want to perform(leave IBAN blank if no transfer is intended)</h3>
+    @using (Html.BeginForm())
+    {
+        <label for="amount">Amount</label>
+        <input type="text" name="amount" id="amount"><br>
+        <label for="iban">IBAN</label>
+        <input type="text" name="iban" id="iban"><br>
+        <input name="withdraw" type="submit" id="withdraw" value="Make a withdrawal" />
+        <input name="deposit" type="submit" id="deposit" value="Make a deposit" />
+        <input name="transfer" type="submit" id="transfer" value="Make a transfer" />
+        <label class="label-success">@data</label>
+    }
+
+</body>
+
+

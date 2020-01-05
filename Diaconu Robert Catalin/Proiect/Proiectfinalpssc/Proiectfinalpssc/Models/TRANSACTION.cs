@@ -18,9 +18,10 @@ namespace Proiectfinalpssc.Models
         public string USERIBAN { get; set; }
         public string USERNAME { get; set; }
         public string PASSWORD { get; set; }
-        public string FIRSTNAME { get; set; }
+        public string FIRSTNAME { get; set; }// this function gets and sets the amount of money the customer wants to trade
         public string LASTNAME { get; set; }
-    
+        
+
         public virtual CUSTOMER CUSTOMER { get; set; }
     }
 }

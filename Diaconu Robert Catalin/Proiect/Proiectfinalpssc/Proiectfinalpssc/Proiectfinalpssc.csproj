@@ -145,6 +145,7 @@
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TradeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,6 +178,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\trade.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -229,6 +231,8 @@
     <Content Include="Views\LogIn\Login.cshtml" />
     <Content Include="Views\Main\Menu.cshtml" />
     <Content Include="Views\History\Show.cshtml" />
+    <Content Include="Views\Trade\Index.cshtml" />
+    <Content Include="Views\History\Empty.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
