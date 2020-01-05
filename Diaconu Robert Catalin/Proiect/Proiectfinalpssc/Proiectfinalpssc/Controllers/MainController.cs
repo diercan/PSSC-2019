@@ -18,7 +18,7 @@ namespace Proiectfinalpssc.Controllers
             if (!string.IsNullOrEmpty(add))
                 return RedirectToAction("Index", "Trade", customerModel);
             if (!string.IsNullOrEmpty(profile))
-                return RedirectToAction("Show", "History", customerModel);
+                return RedirectToAction("Profile", "Profile", customerModel);
             return View();
 
 

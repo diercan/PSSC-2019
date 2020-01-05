@@ -31,10 +31,50 @@ namespace Proiectfinalpssc.Models
         public string FIRSTNAME { get; set; } // this functions get and sets the balance of the account
         [Required(ErrorMessage = "This field is required")]
         public string LASTNAME { get; set; }
+        private int balance;
+        private int minBalance=20;
+
+        public void Deposit(int amount)
+        {
+            if (amount >= 0)
+                balance += amount;
+            else throw new NotValidTransferSumException();
+        }
+
+        public void Withdraw(int amount)
+        {
+            if (amount >= 0)
+                balance -= amount;
+            else throw new NotValidTransferSumException();
+        }
+
+        public void TransferFunds(CUSTOMER destination, int amount)
+        {
+            destination.Deposit(amount);
+            Withdraw(amount);
+        }
+
+        public CUSTOMER TransferMinFunds(CUSTOMER destination, int amount)
+        {
+            if (Balance - amount > MinBalance)
+            {
+                destination.Deposit(amount);
+                Withdraw(amount);
+            }
+            else throw new NotEnoughFundsException();
+            return destination;
+        }
 
 
-    
+
+        public float Balance
+        {
+            get { return balance; }
+        }
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRANSACTION> TRANSACTIONS { get; set; }
+        public float MinBalance { get => minBalance; set => minBalance = 40; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Proiectfinalpssc.Models;
+using Proiectfinalpssc.Services.Mail_Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,16 +34,17 @@ namespace Proiectfinalpssc.Controllers
                         customerModel.FIRSTNAME = (Int32.Parse(customerModel.FIRSTNAME) - Int32.Parse(amount)).ToString();
                         transactionModel.FIRSTNAME = amount;
                         Random rnd = new Random();
-                        transactionModel.ID = rnd.Next(9999).ToString();
+                        transactionModel.ID = "4567";
                         transactionModel.USERIBAN =iban;
-                       transactionModel.USERNAME = customerModel.USERNAME+"1";
+                        transactionModel.USERNAME = customerModel.USERNAME+"1";
                         transactionModel.LASTNAME = customerModel.LASTNAME;
                         transactionModel.PASSWORD = "-";
-                        //transactionModel.CUSTOMER = customerModel;
+                        transactionModel.CUSTOMER = customerModel;
                         customerModel.TRANSACTIONS.Add(transactionModel);
                         dbModel.SaveChanges();
-                        dbModel.TRANSACTIONS.Add(transactionModel);
+                        //dbModel.TRANSACTIONS.Add(transactionModel);
                         dbModel.SaveChanges();
+                        Receive rcv = new Receive("Your account was deducted with the amount of " + amount+"dollars");
                         return RedirectToAction("Show", "History", customerModel);
                         //return View();
                     }
@@ -72,25 +74,36 @@ namespace Proiectfinalpssc.Controllers
                     foreach (CUSTOMER cst in dbModel.CUSTOMERS)
                         if (cst.IBAN.CompareTo(iban) == 0)
                         {
-                            customerModel.FIRSTNAME = (Int32.Parse(customerModel.FIRSTNAME) - Int32.Parse(amount)).ToString();
-                            cst.FIRSTNAME = (Int32.Parse(customerModel.FIRSTNAME) + Int32.Parse(amount)).ToString();
-                            transactionModel.FIRSTNAME = amount;
-                            Random rnd = new Random();
-                            transactionModel.ID = rnd.Next(9999).ToString();
-                            transactionModel.USERIBAN = iban;
-                            transactionModel.USERNAME = customerModel.USERNAME + "1";
-                            transactionModel.LASTNAME = customerModel.LASTNAME;
-                            transactionModel.PASSWORD = "-";
-                            transactionModel.CUSTOMER = customerModel;
-                            customerModel.TRANSACTIONS.Add(transactionModel);
-                            dbModel.SaveChanges();
-                            //dbModel.TRANSACTIONS.Add(transactionModel);
-                            dbModel.SaveChanges();
-                            return RedirectToAction("Show", "History", customerModel);
-                            //return View();
+                            if (Int32.Parse(customerModel.FIRSTNAME) < Int32.Parse(amount))
+                            {
 
+                                ViewBag.Message = "Not enough funds to perform this action!";
+                                return View();
+                                //return RedirectToAction("Show", "History", customerModel);
+                            }
+                            else
+                            {
+                                customerModel.FIRSTNAME = (Int32.Parse(customerModel.FIRSTNAME) - Int32.Parse(amount)).ToString();
+                                cst.FIRSTNAME = (Int32.Parse(customerModel.FIRSTNAME) + Int32.Parse(amount)).ToString();
+                                transactionModel.FIRSTNAME = amount;
+                                Random rnd = new Random();
+                                transactionModel.ID = rnd.Next(9999).ToString();
+                                transactionModel.USERIBAN = iban;
+                                transactionModel.USERNAME = customerModel.USERNAME + "1";
+                                transactionModel.LASTNAME = customerModel.LASTNAME;
+                                transactionModel.PASSWORD = "-";
+                                transactionModel.CUSTOMER = customerModel;
+                                customerModel.TRANSACTIONS.Add(transactionModel);
+                                dbModel.SaveChanges();
+                                //dbModel.TRANSACTIONS.Add(transactionModel);
+                                dbModel.SaveChanges();
+                                Receive rcv = new Receive("Transfer successful. Your account was deducted with the amount of " + amount + "dollars");
+                                return RedirectToAction("Show", "History", customerModel);
+                                //return View();
+                            }
                         }
-                    ViewBag.Message = "This iban doesn't exist in our database!";
+                            ViewBag.Message = "This iban doesn't exist in our database!";
+                        
                     return View();
                 }
             }
