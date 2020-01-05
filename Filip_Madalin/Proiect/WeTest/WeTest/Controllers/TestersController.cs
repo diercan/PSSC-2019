@@ -13,7 +13,6 @@ namespace WeTest.Controllers
     public class TestersController : Controller
     {
         private readonly WeTestContext _context;
-
         public TestersController(WeTestContext context)
         {
             _context = context;
