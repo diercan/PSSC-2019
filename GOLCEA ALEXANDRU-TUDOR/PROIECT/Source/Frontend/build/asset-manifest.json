@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/material-dashboard-react/static/css/main.0fa7ec49.chunk.css",
+    "main.js": "/material-dashboard-react/static/js/main.fc711d64.chunk.js",
+    "main.js.map": "/material-dashboard-react/static/js/main.fc711d64.chunk.js.map",
+    "runtime-main.js": "/material-dashboard-react/static/js/runtime-main.b11de153.js",
+    "runtime-main.js.map": "/material-dashboard-react/static/js/runtime-main.b11de153.js.map",
+    "static/css/2.d05ef5a0.chunk.css": "/material-dashboard-react/static/css/2.d05ef5a0.chunk.css",
+    "static/js/2.12c678ed.chunk.js": "/material-dashboard-react/static/js/2.12c678ed.chunk.js",
+    "static/js/2.12c678ed.chunk.js.map": "/material-dashboard-react/static/js/2.12c678ed.chunk.js.map",
+    "index.html": "/material-dashboard-react/index.html",
+    "precache-manifest.7b7ca12aed4f59364e296fc16cd2cf83.js": "/material-dashboard-react/precache-manifest.7b7ca12aed4f59364e296fc16cd2cf83.js",
+    "service-worker.js": "/material-dashboard-react/service-worker.js",
+    "static/css/2.d05ef5a0.chunk.css.map": "/material-dashboard-react/static/css/2.d05ef5a0.chunk.css.map",
+    "static/css/main.0fa7ec49.chunk.css.map": "/material-dashboard-react/static/css/main.0fa7ec49.chunk.css.map",
+    "static/js/2.12c678ed.chunk.js.LICENSE": "/material-dashboard-react/static/js/2.12c678ed.chunk.js.LICENSE",
+    "static/js/main.fc711d64.chunk.js.LICENSE": "/material-dashboard-react/static/js/main.fc711d64.chunk.js.LICENSE",
+    "static/media/admin-settings-male.png": "/material-dashboard-react/static/media/admin-settings-male.ad5aa2be.png",
+    "static/media/bg.jpg": "/material-dashboard-react/static/media/bg.45296cc6.jpg",
+    "static/media/marc.jpg": "/material-dashboard-react/static/media/marc.8880a65c.jpg",
+    "static/media/sidebar-1.jpg": "/material-dashboard-react/static/media/sidebar-1.8e9f0a3c.jpg",
+    "static/media/sidebar-2.jpg": "/material-dashboard-react/static/media/sidebar-2.310509c9.jpg",
+    "static/media/sidebar-3.jpg": "/material-dashboard-react/static/media/sidebar-3.25031690.jpg",
+    "static/media/sidebar-4.jpg": "/material-dashboard-react/static/media/sidebar-4.fc9cb053.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b11de153.js",
+    "static/css/2.d05ef5a0.chunk.css",
+    "static/js/2.12c678ed.chunk.js",
+    "static/css/main.0fa7ec49.chunk.css",
+    "static/js/main.fc711d64.chunk.js"
+  ]
+}
