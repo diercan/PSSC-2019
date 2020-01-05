@@ -12535,11 +12535,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PSSC-2019\\Cretea Georgiana\\Proiect\\PerfumeShop\\PerfumeShop.csproj",
+      "projectUniqueName": "C:\\Users\\Georgi\\Desktop\\pssc\\PerfumeShop\\PerfumeShop.csproj",
       "projectName": "PerfumeShop",
-      "projectPath": "D:\\PSSC-2019\\Cretea Georgiana\\Proiect\\PerfumeShop\\PerfumeShop.csproj",
+      "projectPath": "C:\\Users\\Georgi\\Desktop\\pssc\\PerfumeShop\\PerfumeShop.csproj",
       "packagesPath": "C:\\Users\\Georgi\\.nuget\\packages\\",
-      "outputPath": "D:\\PSSC-2019\\Cretea Georgiana\\Proiect\\PerfumeShop\\obj\\",
+      "outputPath": "C:\\Users\\Georgi\\Desktop\\pssc\\PerfumeShop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
