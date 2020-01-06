@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sistem_gestiune_vanzari", "Sistem_gestiune_vanzari\Sistem_gestiune_vanzari.csproj", "{92560651-27AD-459D-8EF6-4447B29EEFDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92560651-27AD-459D-8EF6-4447B29EEFDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92560651-27AD-459D-8EF6-4447B29EEFDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92560651-27AD-459D-8EF6-4447B29EEFDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92560651-27AD-459D-8EF6-4447B29EEFDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {307B7DC2-2C3D-43FA-80EA-F160BE61566F}
+	EndGlobalSection
+EndGlobal
