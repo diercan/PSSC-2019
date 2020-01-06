@@ -1,0 +1,33 @@
+﻿@model MVC_CookBook_PSSC.Models.User
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Who are you</h1>
+
+<div>
+    
+    <hr /><br /><br />
+    <dl class="row">
+    </dl>
+</div>
+<div>
+    <h2><br /><br />
+        Name : @Model.strName<br />
+        Surename : @Model.strSurename<br />
+        Username : @Model.strUsername<br />
+        IBAN : @Model.strIBAN<br />
+        Email : @Model.strEmail<br />
+        Balance: @Model.strMoney<br />
+
+
+
+        <br />
+        <br /><br /><br />    </h2>
+
+    <a asp-action="Deposit" asp-route-id="@Model.ID">Need to Deposit?</a><br />
+
+    <a asp-action="View" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MVC_CookBook_PSSC.Models.UserComponents.Recipe>
+
+@{
+    ViewData["Title"] = "Index";
+    var crtUser = ViewBag.CrtUser;
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           <td>Recipe</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <a asp-action="View" asp-route-id="@item.strID">@Html.DisplayFor(modelItem => item.strRecipeName)</a>
+            </td>
+            <td>
+                by @Html.DisplayFor(modelItem => item.strCreatorUsername)
+            </td>
+            <td>
+                <img src="~/images/thumbsup.png" width="20px" />
+                @Html.DisplayFor(modelItem => item.strLikes)
+            </td>
+            <td>
+                <img src="~/images/thumbsdown.png" width="20px" />
+                @Html.DisplayFor(modelItem => item.strDislikes)
+            </td>
+            <td>
+                @if (item.strPrice != 0) 
+                {
+                <p>@Html.DisplayFor(modelItem => item.strPrice) $</p>
+                }
+                else
+                {
+                    <p>Free</p>
+                }
+            </td>
+
+
+            @if (crtUser.strUsername == item.strCreatorUsername)
+            {
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.strID">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.strID">Delete</a>
+                </td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>

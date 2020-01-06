@@ -1,0 +1,74 @@
+﻿@model MVC_CookBook_PSSC.Models.UserComponents.Recipe
+
+@{
+    ViewData["Title"] = "View";
+}
+
+@{ var _context = ViewBag._context;}
+
+
+<div style="width:100%">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="View" style="width:200%">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="strID" />
+                @{ var creatorName = Model.GetUser();}
+                <h1>@Model.strRecipeName</h1>
+                &ensp;&ensp;&ensp;&ensp;&ensp;<h4> By @creatorName.strUsername</h4>
+                <hr />
+                <br><br>
+                <table>
+                    <tr>
+                        <td style="width:40%">
+                            <h4>Ingredients</h4>
+                            <p>
+                                @foreach (String s in Model.strRawIngredients.Split("\r\n"))
+                                {
+
+                                    if (s.Length > 3)
+                                    {
+                                        <div> @s</div>
+                                    }
+                                }
+                            </p>
+
+                            <br><br>
+                            <h4>How it's made</h4>
+                            <p>@Model.strPreparation</p>
+
+                            <br><br>
+
+                        </td>
+
+
+                        <td>
+                            <img src="@Model.strImageLocation" width=" 600px" />
+
+
+                        </td>
+
+                    </tr>
+
+
+                </table>
+
+
+
+            </form>
+
+            <form action="" method="post">
+                <button type="submit" formaction="TriggerThumbsUp" ><img src ="~/images/thumbsup.png" width="30px"/> </button>
+                <button type="submit" formaction="TriggerThumbsDown"><img src="~/images/thumbsdown.png" width="30px"/> </button>
+            </form>
+
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

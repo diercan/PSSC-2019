@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@{ var user = ViewBag.CrtUser;}
+
+@{
+    if (user != null)
+    {
+        <h1>Hello @user.strName</h1>
+    }
+    else
+    {
+        <h1>Hello Visitor</h1>
+    }
+}
+<br />
+<br />
+Thank you for using CookBook. Your access to various recipes is unlimited. You can always help us have more options for all users by <a asp-controller="Recipe" asp-action="Create">Creating your own recipe!</a>. We really apreciate you taking a bit og your time helping us grow and we hope we are helping you find what you need, or at least something similar!
+
+<br><br><br><br>
+            <div class="w3-content w3-section" align="center">
+                <img class="mySlides" src="~/images/93302.jpg" height=" 600px" style="width:100%">
+                <img class="mySlides" src="~/images/93318.jpg" height="600px" style="width:100%">
+                <img class="mySlides" src="~/images/1183962-healthy-food-wallpaper-1920x1080-for-android.jpg" height="600px" style="width:100%">
+                <img class="mySlides" src="~/images/93318.jpg" height="600px" style="width:100%">
+                <img class="mySlides" src="~/images/93312.jpg" height="600px" style="width:100%">
+                <img class="mySlides" src="~/images/657622.jpg" height="600px" style="width:100%">
+                <img class="mySlides" src="~/images/3852351-sweets-wallpapers.jpg" height="600px" style="width:100%">
+
+
+            </div>
+
+<script>
+
+
+    var slideIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) { slideIndex = 1 }
+        x[slideIndex - 1].style.display = "block";
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+</script>
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

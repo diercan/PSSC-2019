@@ -1,0 +1,214 @@
+﻿@model MVC_CookBook_PSSC.Models.User
+
+@{
+    ViewData["Title"] = "Create";
+}
+    <div style=" position:fixed;z-index:-1;padding-top:75px; margin-left:-20%">
+        @{var rnd = new Random(); }
+        @{ var number = rnd.Next(1, 17);}
+        @{ if (number == 1)
+            {
+                <div>
+                    <img src="~/images/1183962-healthy-food-wallpaper-1920x1080-for-android.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+        @{ if (number == 2)
+            {
+                <div>
+                    <img src="~/images/1920_1080_20100818122909603966.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+        @{ if (number == 3)
+            {
+                <div>
+                    <img src="~/images/248104_gamburger_-eda_-buterbrod_-fastfud_-fast-fud__1920x1080_www.Gde-Fon.com.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+        @{ if (number == 4)
+            {
+                <div>
+                    <img src="~/images/3852351-sweets-wallpapers.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+        @{ if (number == 5)
+            {
+                <div>
+                    <img src="~/images/657622.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+        @{ if (number == 6)
+            {
+                <div>
+                    <img src="~/images/93302.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+        @{ if (number == 7)
+            {
+                <div>
+                    <img src="~/images/93312.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+        @{ if (number == 8)
+            {
+                <div>
+                    <img src="~/images/93313.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+        @{ if (number == 9)
+            {
+                <div>
+                    <img src="~/images/93314.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+        @{ if (number == 10)
+            {
+                <div>
+                    <img src="~/images/93318.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+        @{ if (number == 11)
+            {
+                <div>
+                    <img src="~/images/93330.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+        @{ if (number == 12)
+            {
+                <div>
+                    <img src="~/images/93331.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+        @{ if (number == 13)
+            {
+                <div>
+                    <img src="~/images/cake_heart_raspberry_135302_1920x1080.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+        @{ if (number == 14)
+            {
+                <div>
+                    <img src="~/images/Food-3.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+        @{ if (number == 15)
+            {
+                <div>
+                    <img src="~/images/free-indian-food.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+        @{ if (number == 16)
+            {
+                <div>
+                    <img src="~/images/Sweets_Strawberry_Chocolate_561710_1920x1080.jpg" width=" 99%" />
+
+                </div>
+            }
+        }
+
+    </div>
+<table >
+    <tr>
+        <td width="100%">
+            <h4>Sign Up</h4>
+
+            
+            <hr />
+            
+            <br>
+
+            <div style=" margin-left:20px;">
+                <div class="card bg-white text-black-50">
+                    <div class="changeBox">
+                        <!--   style="width:50%;padding-left:50px;padding-top:10px"> -->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="changeControlSize">
+                                    <form asp-action="Create">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="form-group">
+                                            <label>Username <font color="red">*</font></label>
+                                            <input asp-for="strUsername" class="form-control" />
+                                            <span asp-validation-for="strUsername" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Password <font color="red">*</font></label>
+                                            <input asp-for="strPassword" class="form-control" type="password" />
+                                            <span asp-validation-for="strPassword" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Name <font color="red">*</font></label>
+                                            <input asp-for="strName" class="form-control" />
+                                            <span asp-validation-for="strName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Surename <font color="red">*</font></label>
+                                            <input asp-for="strSurename" class="form-control" />
+                                            <span asp-validation-for="strSurename" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email <font color="red">*</font></label>
+                                            <input asp-for="strEmail" class="form-control" />
+                                            <span asp-validation-for="strEmail" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>IBAN</label>
+                                            <input asp-for="strIBAN" class="form-control" />
+                                            <span asp-validation-for="strIBAN" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>CNP</label>
+                                            <input asp-for="strCNP" class="form-control" />
+                                            <span asp-validation-for="strCNP" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label><font color="red">* Required</font></label><br />
+                                            <input type="submit" name="submit" value="Sign up" class="btn btn-primary" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

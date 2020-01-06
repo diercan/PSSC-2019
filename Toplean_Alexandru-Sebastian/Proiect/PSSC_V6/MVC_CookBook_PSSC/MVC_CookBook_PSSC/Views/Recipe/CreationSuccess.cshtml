@@ -1,0 +1,27 @@
+﻿
+
+@{
+    ViewData["Title"] = "CreationSuccess";
+    var recipe = ViewBag.rec;
+}
+
+
+
+<h1>Recipe Successfully Created</h1>
+<hr />
+<h4>Thank you, @ViewBag.CrtUser.strUsername for sharing your recipe idea. From now your recipe will be widely viewed.</h4>
+<h4>Your recipe can be found here: </h4>
+
+<h2> Recipe: </h2><h2><a asp-action="View" asp-route-id="@recipe.strID">Here</a></h2>
+
+
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

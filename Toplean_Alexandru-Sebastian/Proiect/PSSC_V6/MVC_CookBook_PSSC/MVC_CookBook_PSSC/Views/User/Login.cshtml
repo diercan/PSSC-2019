@@ -1,0 +1,258 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CookBook</title>
+    <link rel="shortcut icon" href="~/images/cookbook.jpg" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+
+
+        @@media screen and (min-width:600px) {
+            .changeMenu {
+                margin-left: 10%;
+            }
+
+            .changeBox {
+                width: 500px;
+                padding-top: 10px;
+            }
+
+            .changeControlSize {
+                width: 400px;
+                padding-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CookBook - All the recipes in your pocket</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @model MVC_CookBook_PSSC.Models.User
+                @{ Layout = "";}
+
+                <div style=" position:fixed;z-index:-1;padding-top:75px; margin-left:-20%">
+                    @{var rnd = new Random(); }
+                    @{ var number = rnd.Next(1, 17);}
+                    @{ if (number == 1)
+                        {
+                            <div>
+                                <img src="~/images/1183962-healthy-food-wallpaper-1920x1080-for-android.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+                    @{ if (number == 2)
+                        {
+                            <div>
+                                <img src="~/images/1920_1080_20100818122909603966.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+                    @{ if (number == 3)
+                        {
+                            <div>
+                                <img src="~/images/248104_gamburger_-eda_-buterbrod_-fastfud_-fast-fud__1920x1080_www.Gde-Fon.com.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+                    @{ if (number == 4)
+                        {
+                            <div>
+                                <img src="~/images/3852351-sweets-wallpapers.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+                    @{ if (number == 5)
+                        {
+                            <div>
+                                <img src="~/images/657622.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+                    @{ if (number == 6)
+                        {
+                            <div>
+                                <img src="~/images/93302.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+                    @{ if (number == 7)
+                        {
+                            <div>
+                                <img src="~/images/93312.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+                    @{ if (number == 8)
+                        {
+                            <div>
+                                <img src="~/images/93312.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+                    @{ if (number == 9)
+                        {
+                            <div>
+                                <img src="~/images/93314.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+                    @{ if (number == 10)
+                        {
+                            <div>
+                                <img src="~/images/93318.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+                    @{ if (number == 11)
+                        {
+                            <div>
+                                <img src="~/images/93330.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+                    @{ if (number == 12)
+                        {
+                            <div>
+                                <img src="~/images/93331.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+                    @{ if (number == 13)
+                        {
+                            <div>
+                                <img src="~/images/cake_heart_raspberry_135302_1920x1080.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+                    @{ if (number == 14)
+                        {
+                            <div>
+                                <img src="~/images/Food-3.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+                    @{ if (number == 15)
+                        {
+                            <div>
+                                <img src="~/images/free-indian-food.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+                    @{ if (number == 16)
+                        {
+                            <div>
+                                <img src="~/images/Sweets_Strawberry_Chocolate_561710_1920x1080.jpg" width=" 99%" />
+
+                            </div>
+                        }
+                    }
+
+                </div>
+                
+                            <h1>One button away from having them all...</h1>
+                            <br>
+                            <br>
+
+
+                            <div style=" margin-left:20px;">
+                                <div class="card bg-white text-black-50">
+                                    <div style="padding-left:30px;width:500px;">
+                                        <div class="changeBox">
+                                            <h4>Login</h4>
+                                            <br />
+
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="changeControlSize">
+                                                        <form asp-action="Login">
+                                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                            <div class="form-group">
+                                                                <label class="control-label">Username</label>
+                                                                <input asp-for="strUsername" class="form-control" />
+                                                                <span asp-validation-for="strUsername" class="text-danger"></span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label">Password</label>
+                                                                <input asp-for="strPassword" class="form-control" type="password" />
+                                                                <span asp-validation-for="strPassword" class="text-danger"></span>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <input type="submit" value="Login" name="submit" class="btn btn-primary" />
+                                                                <input id="strIsLogged" type="checkbox" value="true" name="strIsLogged" />
+
+                                                                <label for="keepLog">Keep me logged in</label>
+
+                                                            </div>
+                                                        </form>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <a asp-action="Create">New here?</a><br>
+                                                <p>or....</p>
+                                                <a asp-action="Index">Just go to the index as a visitor</a>
+                                            </div>
+                                            <br><br>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+                            <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+                        
+            </main>
+        </div>
+
+        <footer class="border-top footer text-muted">
+            <div style="background-color:white;">
+                <div class="container" style="background-color:white">
+                    &copy; 2019 - MVC_CookBook_PSSC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </div>
+            </div>
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+   
+</body>
+</html>
