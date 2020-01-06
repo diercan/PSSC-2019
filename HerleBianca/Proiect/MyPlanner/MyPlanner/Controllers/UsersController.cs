@@ -85,7 +85,8 @@ namespace MyPlanner.Controllers
                     _context.Add(user);
                     await _context.SaveChangesAsync();
                 }
-                _repository.AddItem(user);
+                else
+                    _repository.AddItem(user);
                 return RedirectToAction(nameof(Index));
             }
             return View(user);
@@ -107,7 +108,7 @@ namespace MyPlanner.Controllers
             }
             if (logged_user.id != user.id)
             {
-                ViewBag.Message = string.Format("You are not allowed to edit this user's information");
+                ViewBag.Message = string.Format("You are not allowed to edit this user information");
             }
             return View(user);
         }
