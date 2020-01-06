@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\MedicalTests\" />
+    <Folder Include="Views\Appointments\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Views\Login\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\css\Login.css" />
+    <Content Remove="web.config" />
+    <Content Remove="Views\Home\Reg.cshtml" />
+    <Content Remove="Views\Home\SaveReg.cshtml" />
+    <Content Remove="Views\Home\LoginPage.cshtml" />
+    <Content Remove="Views\Home\Log.cshtml" />
+  </ItemGroup>
+</Project>
