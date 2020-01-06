@@ -1,0 +1,35 @@
+﻿@model List<Pacient>
+
+
+    <form asp-action="Index" method="POST">
+        <div class="row input-group"  style="margin-left: 50px; margin-top: 30px; width: 350px;">
+            <input type="text" name="search" id="search" class="form-control" placeholder="Nume"/>
+            <div class="input-group-btn">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+    <div class="pacient-view">
+        @foreach (var pacient in Model)
+        {
+            <div class="pacienti" style="margin-left: 50px; margin-bottom: 20px; margin-top: 20px;">
+                <div class="backround" style="background-color: white">
+                <div class="card-header">
+                    <h3>@pacient.Nume @pacient.Prenume</h3>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-action="edit" asp-controller="home"
+                       asp-route-id="@pacient.Id"
+                       class="btn btn-edit">Edit</a>
+
+                    <a asp-action="delete" asp-controller="home"
+                       asp-route-id="@pacient.Id" class="btn btn-delete">Delete</a>
+
+                    <a asp-action="details" asp-controller="home" asp-route-id="@pacient.Id"
+                       class="btn btn-view">View</a>
+
+                </div>
+                    </div>
+            </div>
+        }
+    </div>

@@ -1,0 +1,95 @@
+﻿@model List<Pacient>
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> signInManager;
+
+
+@{
+    Layout = null;
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link">Aplicatia medicala</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="home" asp-action="index1">Home</a>
+            </li>
+        </ul>
+
+
+        <ul class="navbar-nav ml-auto">
+            @if (signInManager.IsSignedIn(User))
+            {
+                <li class="nav-item">
+                    <form method="post" asp-action="logout" asp-controller="account">
+                        <button type="submit" class="nav-link btn btn-link py-0" style="width:auto">
+                            Logout @User.Identity.Name
+                        </button>
+                    </form>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="account" asp-action="register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="account" asp-action="login">Login</a>
+                </li>
+            }
+
+        </ul>
+    </div>
+</nav>
+
+<div class="titlu" style="margin-left: 40%; margin-top:10%;">
+
+    <h1>REZULTATE ANALIZE</h1>
+    
+</div>
+
+<div div class="subtitlu" style="margin-left: 30%; margin-top:5%;">
+    <h4>
+        Află rapid şi simplu rezultatele analizelor tale, fără a te mai deplasa la cabinet.
+        </h4>
+    <h4>
+        Introduceti numele si prenumele pentru acces la rezultatele analizelor.
+    </h4>
+</div>
+
+<form asp-action="Index1" method="POST">
+    <div class="row input-group" style="margin-top: 30px; width: 40%; margin-left: 33%">
+        <input type="text" name="search" id="search" class="form-control" placeholder="CNP" />
+        <div class="input-group-btn">
+            <input type="submit" value="Search" class="btn btn-primary"/>
+        </div>
+    </div>
+</form>
+
+<div class="pacient-view">
+    @foreach (var pacient in Model)
+    {
+        <div class="card m-3">
+            <div class="card-header">
+                <h3>@pacient.Nume @pacient.Prenume</h3>
+            </div>
+            <div class="card-footer text-center">
+
+                <a asp-action="detailsPacient" asp-controller="home" asp-route-id="@pacient.Id"
+                   class="btn btn-view">View</a>
+            </div>
+        </div>
+    }
+</div>
