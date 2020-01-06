@@ -1,0 +1,35 @@
+<!DOCTYPE html> <html lang="en"> <head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=100%, initial-scale=1">
+    <meta name="description" content="Controlul Locuintei">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <title>Controlul Locuintei{% block title %}{% endblock %}</title>
+    <header>
+        <div class="container">
+                <ul class="ul">
+                    <li class="li"><a href="#"><font face="Euphemia">DESPRE</font></a></li>
+ 		    <li class="li"><span class="isDisabled"><a href="#"><font face="Euphemia">INFO</font></a></span></li>
+		    <li class="li" id="index"><a href="#"><font face="Euphemia">CONTROL</font></a></li>
+		</ul>
+        </div>
+    </header>
+    {% endblock %} </head> <body class="body">
+    
+    <div class="container">
+ 	{% block content %}
+	<div class="h2">
+        <h2><font face="Euphemia">VA RUGAM SA VA AUTENTIFICATI</font></h2>
+    </div>
+    <div class="h2">
+        <form method="post">
+          {% csrf_token %}
+           <label for="{{ form.username.id_for_label }}">Utilizator:</label> {{ form.username }} <br>
+           <label for="{{ form.password.id_for_label }}">Parola:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    </label> {{ form.password }} <br>
+	<button type="submit"> Autentificare</button>
+        </form>
+    </div>
+ 	{% endblock %}
+    </div> </body>
+</html>

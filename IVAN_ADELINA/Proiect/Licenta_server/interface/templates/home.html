@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+    {% block head %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=100%, initial-scale=1">
+    <meta name="description" content="Controlul Locuintei">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <title>Controlul Locuintei{% block title %}{% endblock %}</title> 
+    
+    <header>
+        <div class="container">
+                <ul class="ul">
+                        {% if user.is_authenticated %}
+                            <li class="li"><a href="{% url 'home' %}"><font face="Euphemia">DESPRE</font></a></li>
+                           # <li class="li"><a href="{% url 'interface:render_info_page' %}">INFO</a></li>
+                            <li class="li"><a href="{% url 'interface:render_info_page' %}"><font face="Euphemia">CONTROL</font></a></li>
+                            {% else %}
+                            <li class="li" ><a href="{% url 'home' %}"><fonta face="Euphemia">DESPRE</font></a></li>
+ 		            <li class="li"><span class="isDisabled"><a href="{% url 'home' %}"><font face="Euphemia">INFO</font></a></span></li>
+		            <li class="li" id="index"><a href="{% url 'home' %}"><font face="Euphemia">CONTROL</font></a></li>
+                        {% endif %} 
+		</ul>
+        </div>
+    </header>
+    {% endblock %}
+ 	{% block content %}
+    <div class="h2">
+        {% if user.is_authenticated %}
+          <h2> Bun venit {{ user.username  }}!</h2>
+          <p>Aceasta aplicatie este dezvoltata in cadrul lucrarii de licenta si serveste ca interfata pentru controlul locuintei.</p>
+          <p><a href="{% url 'logout' %}">Deconectare</a></p>   
+        {% else %}
+          <h2><font face="Euphemnia">Informatii indisponibile</font></h2>
+          <p>Nu sunteti autentificat</p>
+          <a href="{% url 'login' %}">Autentificare</a>
+        {% endif %} 
+    </div>
+    <div class="container containerMainButtons">
+        	
+    </div>     
+	{% endblock %}
+

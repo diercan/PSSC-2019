@@ -8,3 +8,4 @@ Ca si functionalitati, am ales urmatoarele:
 -controlarea luminilor din interiorul casei - stigerea si aprinderea unui bec;
 -vizualizarea unor informatii relevante pentru utilizator - temperatura curenta, data si ora ultimei autentificari in aplicatie, cheile de acces existente;
 -posibilitatea de a adauga noi chei de acces in baza de date a aplicatiei.
+-trimiterea unui raport prin email la o adresa predefinita

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+    {% block head %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=100%, initial-scale=1">
+    <meta name="description" content="Controlul Locuintei">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <title>Controlul Locuintei{% block title %}{% endblock %}</title>
+    <header>
+        <div class="container">
+                <ul class="ul">
+                    <li class="li"><a href="{% url 'interface:index'"><font face="Euphemia">DESPRE</font></a></li>
+ 		    <li class="li"><span class="isDisabled"><a href="#"><font face="Euphemia">INFO</font></a></span></li>
+		    <li class="li" id="index"><a href="#"><font face="Euphemia">CONTROL</font></a></li>
+		</ul>
+        </div>
+    </header>
+    {% endblock %}
+ 	{% block content %}
+    <div class="h2">
+        <h2><font face="Euphemia">AUTENTIFICARE</font></h2>
+    </div>
+    <div class="container containerMainButtons">
+        	
+    </div>
+        
+	{% endblock %}
