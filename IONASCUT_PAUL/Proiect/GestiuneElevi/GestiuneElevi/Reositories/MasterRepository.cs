@@ -6,7 +6,7 @@
 
         public static void InstantiateEleviRepository()
         {
-            if (EleviRepository != null)
+            if (EleviRepository == null)
                 EleviRepository = new EleviRepository();
         }
     }

@@ -25,7 +25,7 @@ namespace GestiuneElevi
             int nota;
             try { nota = int.Parse(textBox1.Text); } catch { nota = -1; }
 
-            if(nota >= 1 && nota <= 10 && !string.IsNullOrEmpty(materie))
+            if(nota >= 1 && nota <= 10 && !string.IsNullOrWhiteSpace(materie))
             {
                 NotaEntity notaEntity = new NotaEntity(Guid.NewGuid().ToString(), elev.Cnp);
                 notaEntity.Materie = materie;

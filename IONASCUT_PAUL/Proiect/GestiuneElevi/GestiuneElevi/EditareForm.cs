@@ -42,7 +42,7 @@ namespace GestiuneElevi
             try { varsta = int.Parse(textBox4.Text); } catch(Exception) { varsta = -1; }
             try { clasa = int.Parse(textBox5.Text); } catch(Exception) { clasa = -1; }
 
-            if(!string.IsNullOrEmpty(nume) && !string.IsNullOrEmpty(prenume) && !string.IsNullOrEmpty(cnp) && varsta != -1 && clasa != -1)
+            if(!string.IsNullOrWhiteSpace(nume) && !string.IsNullOrWhiteSpace(prenume) && !string.IsNullOrWhiteSpace(cnp) && varsta != -1 && clasa != -1)
             {
                 ElevEntity elevEntity = new ElevEntity(elevGasit.PartitionKey, cnp);
                 elevEntity.Nume = nume;
