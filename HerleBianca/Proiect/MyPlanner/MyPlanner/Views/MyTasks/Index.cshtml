@@ -1,0 +1,125 @@
+﻿@model MyPlanner.Models.MyTaskAsigneeViewModel
+
+@{ViewData["Title"] = "Index";}
+<body style='background: #1d9172'>
+    <h1> <font color="white">Index </font></h1>
+
+    <p>
+        <font color="white">
+            <a asp-action="Create"><font color="white">Create New</font></a>
+        </font>
+    </p>
+    <form asp-controller="MyTasks" asp-action="Index" method="get">
+        <p>
+            <font color="white">
+                Asignee:
+                <select asp-for="MyTaskAsignee" asp-items="Model.Asignees">
+                    <option value="">All</option>
+                </select>
+
+                Project: <input type="text" asp-for="SearchString" />
+                <input type="submit" value="Filter" />
+            </font>
+        </p>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks[0].Description)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks[0].Due_Date)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks[0].Project)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks[0].Owner)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks[0].Asignee)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks[0].Status)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks[0].Review)
+                    </font>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MyTasks)
+            {
+                <tr>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Due_Date)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Project)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Owner)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Asignee)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Review)
+                        </font>
+                    </td>
+                    <td>
+                        
+                            <a asp-action="Edit" asp-route-id="@item.Id"asp-route-from_dashboard="no"><font color="white">Edit |</font></a> 
+                            <a asp-action="Details" asp-route-id="@item.Id"><font color="white">Details |</font></a> 
+                            <a asp-action="Delete" asp-route-id="@item.Id"><font color="white">Delete</font></a>
+                        
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+     @if (ViewBag.Message != null)
+        {
+            <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+            </script>
+        }
+</body>

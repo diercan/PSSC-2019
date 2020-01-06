@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MyPlanner.Models.User>
+
+@{
+    ViewData["Title"] = "All Users";
+}
+    <style>
+        body {
+            color:white;
+        }
+         tbody {
+            color:white;
+         }
+          thead {
+            color:white;
+          }
+    </style>
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create"><font color="white">Create New</font></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.username)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.username)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id"><font color="white">Edit |</font></a> 
+                    <a asp-action="Details" asp-route-id="@item.id"><font color="white">Profile |</font></a> 
+                    <a asp-action="Delete" asp-route-id="@item.id"><font color="white">Delete</font></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
