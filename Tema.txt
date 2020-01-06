@@ -1,0 +1,2 @@
+Scopul temei este cel de a putea face o rezervare online pentru o zi la una din cabanele Pensiunii Casoaia.
+Userul va putea vedea ce zile sunt deja ocupate, va putea adauga o noua rezervare si va putea sterge o rezervare in functie de parola aleasa.
