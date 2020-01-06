@@ -2,5 +2,6 @@ Cerinta: Stocarea online a analizelor medicale.
 
 	 Aplicatie web ce stocheaza analizele medicale a utilizatorului.
 
-Solutie: Utilizatorul ce doreste ca toate analizele sa ii fie stocate intr-un singur loc,
-are la dispozitie aceasta aplicatie de a adauga, edita, stergere, analizele medicale.
+Solutie: Medicul poate stoca analizele pacientilorintr-un singur loc,
+are la dispozitie aceasta aplicatie pentru a adauga, edita, stergere, analizele medicale.
+Pacientul poate vizualiza analizele medicale
