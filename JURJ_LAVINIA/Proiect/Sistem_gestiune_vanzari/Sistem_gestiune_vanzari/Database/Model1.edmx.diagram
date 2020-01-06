@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="985665e3300040a4989d9ae97f81196e" Name="Diagram1" ZoomLevel="111">
+        <EntityTypeShape EntityType="dbSistem_gestiune_vanzariModel.Tabel_Categorie" Width="1.5" PointX="3.125" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSistem_gestiune_vanzariModel.Tabel_Client" Width="1.5" PointX="8.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSistem_gestiune_vanzariModel.Tabel_Producator" Width="1.5" PointX="1.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSistem_gestiune_vanzariModel.Tabel_Produs" Width="1.5" PointX="5.625" PointY="0.75" />
+        <AssociationConnector Association="dbSistem_gestiune_vanzariModel.FK__Tabel_Pro__ident__36B12243" />
+        <AssociationConnector Association="dbSistem_gestiune_vanzariModel.FK__Tabel_Pro__ident__37A5467C" />
+        <EntityTypeShape EntityType="dbSistem_gestiune_vanzariModel.Table_Login" Width="1.5" PointX="0.75" PointY="0.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

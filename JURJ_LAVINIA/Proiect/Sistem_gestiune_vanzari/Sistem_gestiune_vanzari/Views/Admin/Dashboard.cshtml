@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    if(Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<h2>Dashboard</h2>
+

@@ -1,0 +1,53 @@
+﻿@using Sistem_gestiune_vanzari.Models
+@{
+    ViewBag.Title = "Comanda";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Detalii Comanda</h2>
+@if (Session["comanda"] == null)
+{
+    <div class="alert alert-danger">
+        <strong>Nu a fost introdus niciun produs!</strong>
+    </div>
+}
+else
+{
+    if (Session["comanda"] != null)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Produs</th>
+                    <th>Pret</th>
+                    <th>Cantitate</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    decimal suma_totala = 0;
+                }
+                @foreach (ProdusInComanda item in (List<ProdusInComanda>)Session["comanda"])
+                {
+                    decimal pret_produs_total = Convert.ToDecimal(item.Cantitate * item.Produs.pret);
+                    suma_totala = @suma_totala + pret_produs_total;
+                    <tr>
+                        <td>@item.Produs.nume_produs</td>
+                        <td>@item.Produs.pret RON</td>
+                        <td>@item.Cantitate</td>
+                        <td>@pret_produs_total RON</td>
+                    </tr>
+                }
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Suma finala</td>
+                    <td>@suma_totala RON</td>
+                </tr>
+
+            </tbody>
+        </table>
+                    }
+        <a class="btn btn-toolbar" href="@Url.Action("ExportPDFComanda","Admin")">Generare PDF >></a>
+}
+

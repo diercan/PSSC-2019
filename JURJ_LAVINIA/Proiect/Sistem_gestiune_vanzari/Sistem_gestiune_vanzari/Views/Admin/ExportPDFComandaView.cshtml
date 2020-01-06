@@ -1,0 +1,98 @@
+﻿@using Sistem_gestiune_vanzari.Models
+@{
+    Layout = null;
+}
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="~/Content/Invoice.css" rel="stylesheet" />
+</head>
+@if (Session["comanda"] == null)
+{
+    <div class="alert alert-danger">
+        <strong>Nu a fost introdus niciun produs!</strong>
+    </div>
+}
+else
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div class="row p-5">
+                            <div class="col-md-6 text-right">
+                                @{
+                                    int invoice_number = 1000;
+                                    invoice_number = @invoice_number + 1;
+                                }
+                                
+                                <p class="font-weight-bold mb-1">Numar factura @invoice_number</p>
+                                <p class="text-muted">Data factura @DateTime.Now.Date</p>
+                                <p class="text-muted">Data scadenta @DateTime.Now.Date.AddDays(30)</p>
+                            </div>
+                        </div>
+                        <hr class="my-5">
+                        <div class="row pb-5 p-5">
+                            <div class="col-md-6">
+                                <p class="font-weight-bold mb-4">Informatii client</p>
+                                <p class="mb-1">John Doe, Mrs Emma Downson</p>
+                                <p>Acme Inc</p>
+                                <p class="mb-1">Berlin, Germany</p>
+                                <p class="mb-1">6781 45P</p>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <p class="font-weight-bold mb-4">Detalii plata</p>
+                                <p class="mb-1"><span class="text-muted"></span> 1425782</p>
+                                <p class="mb-1"><span class="text-muted"></span> 10253642</p>
+                                <p class="mb-1"><span class="text-muted">Tip plata: </span> Visa</p>
+                                <p class="mb-1"><span class="text-muted">Nume: </span> John Doe</p>
+                            </div>
+                        </div>
+                        <div class="row p-5">
+                            <div class="col-md-12">
+                                <table class="table"> 
+                                    <thead>
+                                       
+                                        <tr>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Descriere</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Pret</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Cantitate</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            decimal suma_totala = 0;
+                                        }
+                                        @foreach (ProdusInComanda item in (List<ProdusInComanda>)Session["comanda"])
+                                        {
+                                            decimal pret_produs_total = Convert.ToDecimal(item.Cantitate * item.Produs.pret);
+                                            suma_totala = @suma_totala + pret_produs_total;
+                                        <tr>
+                                            <td>@item.Produs.descriere</td>
+                                            <td>@item.Produs.pret RON</td>
+                                            <td>@item.Cantitate</td>
+                                            <td>@pret_produs_total RON</td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row-reverse bg-dark text-white p-4">
+                            <div class="py-3 px-5 text-right">
+                                <div class="mb-2">Suma totala</div>
+                                <div class="h2 font-weight-light">@suma_totala RON</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-light mt-5 mb-5 text-center small"></div>
+    </div>
+
+}
+

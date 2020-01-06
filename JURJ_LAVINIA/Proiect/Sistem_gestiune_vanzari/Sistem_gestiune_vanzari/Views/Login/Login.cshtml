@@ -1,0 +1,70 @@
+﻿@model Sistem_gestiune_vanzari.Models.LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+        #login-div
+        {
+            position: absolute;
+            left:40%;
+            top:40%;
+            border: 1px solid #ccc;
+            padding: 10px,10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-div"> 
+        @using (Html.BeginForm("Autorizare","Login",FormMethod.Post))
+        {
+        <table>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.UserName)
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.UserName)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="alert">@Html.ValidationMessageFor(model => model.UserName)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Password)</td>
+                <td>@Html.EditorFor(model => model.Password)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="alert">@Html.ValidationMessageFor(model => model.Password)</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label class="alert">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+
+                <td>
+                    <br />
+                    <input type="submit" name="button_submit" value="Login" />
+                    <input type="reset" name="button_submit" value="Clear" />
+                </td>
+
+            </tr>
+        </table>
+        }
+    </div>
+    <script src="~/Content/jquery-1.10.2.min.js"></script>
+    <script src="~/Content/jquery.validate.min.js"></script>
+    <script src="~/Content/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

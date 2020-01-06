@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbSistem_gestiune_vanzariModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tabel_Categorie">
+          <Key>
+            <PropertyRef Name="identitate_categorie" />
+          </Key>
+          <Property Name="identitate_categorie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nume_categorie" Type="varchar" MaxLength="100" />
+          <Property Name="categorie_activa" Type="bit" />
+          <Property Name="categorie_stearsa" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tabel_Client">
+          <Key>
+            <PropertyRef Name="identitate_client" />
+          </Key>
+          <Property Name="identitate_client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nume_client" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="prenume_client" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="adresa_client" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="email_client" Type="varchar" MaxLength="200" />
+          <Property Name="parola_client" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tabel_Producator">
+          <Key>
+            <PropertyRef Name="identitate_producator" />
+          </Key>
+          <Property Name="identitate_producator" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nume_producator" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Tabel_Produs">
+          <Key>
+            <PropertyRef Name="identitate_produs" />
+          </Key>
+          <Property Name="identitate_produs" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="identitate_categorie" Type="int" />
+          <Property Name="nume_produs" Type="varchar" MaxLength="200" />
+          <Property Name="descriere" Type="varchar" MaxLength="500" />
+          <Property Name="cantitate" Type="int" />
+          <Property Name="cost" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="pret" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="identitate_producator" Type="int" />
+          <Property Name="imagine" Type="varchar(max)" />
+          <Property Name="produs_activ" Type="bit" />
+          <Property Name="produs_dezactivat" Type="bit" />
+        </EntityType>
+        <EntityType Name="Table_Login">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Tabel_Pro__ident__36B12243">
+          <End Role="Tabel_Categorie" Type="Self.Tabel_Categorie" Multiplicity="0..1" />
+          <End Role="Tabel_Produs" Type="Self.Tabel_Produs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tabel_Categorie">
+              <PropertyRef Name="identitate_categorie" />
+            </Principal>
+            <Dependent Role="Tabel_Produs">
+              <PropertyRef Name="identitate_categorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tabel_Pro__ident__37A5467C">
+          <End Role="Tabel_Producator" Type="Self.Tabel_Producator" Multiplicity="0..1" />
+          <End Role="Tabel_Produs" Type="Self.Tabel_Produs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tabel_Producator">
+              <PropertyRef Name="identitate_producator" />
+            </Principal>
+            <Dependent Role="Tabel_Produs">
+              <PropertyRef Name="identitate_producator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbSistem_gestiune_vanzariModelStoreContainer">
+          <EntitySet Name="Tabel_Categorie" EntityType="Self.Tabel_Categorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tabel_Client" EntityType="Self.Tabel_Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tabel_Producator" EntityType="Self.Tabel_Producator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tabel_Produs" EntityType="Self.Tabel_Produs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Login" EntityType="Self.Table_Login" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Tabel_Pro__ident__36B12243" Association="Self.FK__Tabel_Pro__ident__36B12243">
+            <End Role="Tabel_Categorie" EntitySet="Tabel_Categorie" />
+            <End Role="Tabel_Produs" EntitySet="Tabel_Produs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tabel_Pro__ident__37A5467C" Association="Self.FK__Tabel_Pro__ident__37A5467C">
+            <End Role="Tabel_Producator" EntitySet="Tabel_Producator" />
+            <End Role="Tabel_Produs" EntitySet="Tabel_Produs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbSistem_gestiune_vanzariModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tabel_Categorie">
+          <Key>
+            <PropertyRef Name="identitate_categorie" />
+          </Key>
+          <Property Name="identitate_categorie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nume_categorie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="categorie_activa" Type="Boolean" />
+          <Property Name="categorie_stearsa" Type="Boolean" />
+          <NavigationProperty Name="Tabel_Produs" Relationship="dbSistem_gestiune_vanzariModel.FK__Tabel_Pro__ident__36B12243" FromRole="Tabel_Categorie" ToRole="Tabel_Produs" />
+        </EntityType>
+        <EntityType Name="Tabel_Client">
+          <Key>
+            <PropertyRef Name="identitate_client" />
+          </Key>
+          <Property Name="identitate_client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nume_client" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prenume_client" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adresa_client" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email_client" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="parola_client" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tabel_Producator">
+          <Key>
+            <PropertyRef Name="identitate_producator" />
+          </Key>
+          <Property Name="identitate_producator" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nume_producator" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tabel_Produs" Relationship="dbSistem_gestiune_vanzariModel.FK__Tabel_Pro__ident__37A5467C" FromRole="Tabel_Producator" ToRole="Tabel_Produs" />
+        </EntityType>
+        <EntityContainer Name="dbSistem_gestiune_vanzariEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tabel_Categorie" EntityType="Self.Tabel_Categorie" />
+          <EntitySet Name="Tabel_Client" EntityType="Self.Tabel_Client" />
+          <EntitySet Name="Tabel_Producator" EntityType="Self.Tabel_Producator" />
+          <EntitySet Name="Tabel_Produs" EntityType="dbSistem_gestiune_vanzariModel.Tabel_Produs" />
+          <AssociationSet Name="FK__Tabel_Pro__ident__36B12243" Association="dbSistem_gestiune_vanzariModel.FK__Tabel_Pro__ident__36B12243">
+            <End Role="Tabel_Categorie" EntitySet="Tabel_Categorie" />
+            <End Role="Tabel_Produs" EntitySet="Tabel_Produs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tabel_Pro__ident__37A5467C" Association="dbSistem_gestiune_vanzariModel.FK__Tabel_Pro__ident__37A5467C">
+            <End Role="Tabel_Producator" EntitySet="Tabel_Producator" />
+            <End Role="Tabel_Produs" EntitySet="Tabel_Produs" />
+          </AssociationSet>
+          <EntitySet Name="Table_Login" EntityType="dbSistem_gestiune_vanzariModel.Table_Login" />
+          </EntityContainer>
+        <EntityType Name="Tabel_Produs">
+          <Key>
+            <PropertyRef Name="identitate_produs" />
+          </Key>
+          <Property Name="identitate_produs" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="identitate_categorie" Type="Int32" />
+          <Property Name="nume_produs" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="descriere" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="cantitate" Type="Int32" />
+          <Property Name="cost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="pret" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="identitate_producator" Type="Int32" />
+          <Property Name="imagine" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="produs_activ" Type="Boolean" />
+          <Property Name="produs_dezactivat" Type="Boolean" />
+          <NavigationProperty Name="Tabel_Categorie" Relationship="dbSistem_gestiune_vanzariModel.FK__Tabel_Pro__ident__36B12243" FromRole="Tabel_Produs" ToRole="Tabel_Categorie" />
+          <NavigationProperty Name="Tabel_Producator" Relationship="dbSistem_gestiune_vanzariModel.FK__Tabel_Pro__ident__37A5467C" FromRole="Tabel_Produs" ToRole="Tabel_Producator" />
+        </EntityType>
+        <Association Name="FK__Tabel_Pro__ident__36B12243">
+          <End Type="dbSistem_gestiune_vanzariModel.Tabel_Categorie" Role="Tabel_Categorie" Multiplicity="0..1" />
+          <End Type="dbSistem_gestiune_vanzariModel.Tabel_Produs" Role="Tabel_Produs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tabel_Categorie">
+              <PropertyRef Name="identitate_categorie" />
+            </Principal>
+            <Dependent Role="Tabel_Produs">
+              <PropertyRef Name="identitate_categorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tabel_Pro__ident__37A5467C">
+          <End Type="dbSistem_gestiune_vanzariModel.Tabel_Producator" Role="Tabel_Producator" Multiplicity="0..1" />
+          <End Type="dbSistem_gestiune_vanzariModel.Tabel_Produs" Role="Tabel_Produs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tabel_Producator">
+              <PropertyRef Name="identitate_producator" />
+            </Principal>
+            <Dependent Role="Tabel_Produs">
+              <PropertyRef Name="identitate_producator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Table_Login">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbSistem_gestiune_vanzariModelStoreContainer" CdmEntityContainer="dbSistem_gestiune_vanzariEntities">
+          <EntitySetMapping Name="Tabel_Categorie">
+            <EntityTypeMapping TypeName="dbSistem_gestiune_vanzariModel.Tabel_Categorie">
+              <MappingFragment StoreEntitySet="Tabel_Categorie">
+                <ScalarProperty Name="categorie_stearsa" ColumnName="categorie_stearsa" />
+                <ScalarProperty Name="categorie_activa" ColumnName="categorie_activa" />
+                <ScalarProperty Name="identitate_categorie" ColumnName="identitate_categorie" />
+                <ScalarProperty Name="nume_categorie" ColumnName="nume_categorie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tabel_Client">
+            <EntityTypeMapping TypeName="dbSistem_gestiune_vanzariModel.Tabel_Client">
+              <MappingFragment StoreEntitySet="Tabel_Client">
+                <ScalarProperty Name="identitate_client" ColumnName="identitate_client" />
+                <ScalarProperty Name="nume_client" ColumnName="nume_client" />
+                <ScalarProperty Name="prenume_client" ColumnName="prenume_client" />
+                <ScalarProperty Name="adresa_client" ColumnName="adresa_client" />
+                <ScalarProperty Name="email_client" ColumnName="email_client" />
+                <ScalarProperty Name="parola_client" ColumnName="parola_client" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tabel_Producator">
+            <EntityTypeMapping TypeName="dbSistem_gestiune_vanzariModel.Tabel_Producator">
+              <MappingFragment StoreEntitySet="Tabel_Producator">
+                <ScalarProperty Name="identitate_producator" ColumnName="identitate_producator" />
+                <ScalarProperty Name="nume_producator" ColumnName="nume_producator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tabel_Produs">
+            <EntityTypeMapping TypeName="dbSistem_gestiune_vanzariModel.Tabel_Produs">
+              <MappingFragment StoreEntitySet="Tabel_Produs">
+                <ScalarProperty Name="produs_dezactivat" ColumnName="produs_dezactivat" />
+                <ScalarProperty Name="produs_activ" ColumnName="produs_activ" />
+                <ScalarProperty Name="imagine" ColumnName="imagine" />
+                <ScalarProperty Name="identitate_producator" ColumnName="identitate_producator" />
+                <ScalarProperty Name="pret" ColumnName="pret" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+                <ScalarProperty Name="descriere" ColumnName="descriere" />
+                <ScalarProperty Name="nume_produs" ColumnName="nume_produs" />
+                <ScalarProperty Name="identitate_categorie" ColumnName="identitate_categorie" />
+                <ScalarProperty Name="identitate_produs" ColumnName="identitate_produs" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Login">
+            <EntityTypeMapping TypeName="dbSistem_gestiune_vanzariModel.Table_Login">
+              <MappingFragment StoreEntitySet="Table_Login">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

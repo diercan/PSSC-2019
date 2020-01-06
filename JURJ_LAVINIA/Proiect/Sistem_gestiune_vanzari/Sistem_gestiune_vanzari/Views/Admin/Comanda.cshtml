@@ -1,0 +1,48 @@
+﻿@using Sistem_gestiune_vanzari.Models;
+@{
+    ViewBag.Title = "Comanda";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Comanda</h2>
+
+@if (Session["comanda"] == null)
+{
+    <div class="alert alert-danger">
+        <strong>Nu a fost introdus niciun produs!</strong>
+    </div>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Produs</th>
+                <th>Cantitate</th>
+                <th>Editare</th>
+                <th>Profit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ProdusInComanda item in (List<ProdusInComanda>)Session["comanda"])
+            {
+                decimal profit_produs = Convert.ToDecimal((item.Cantitate * item.Produs.pret)-(item.Cantitate * item.Produs.cost));
+            <tr>
+                <td>@item.Produs.nume_produs</td>
+                <td>@item.Cantitate</td>
+                <td>
+                    <a href="@Url.Action("AdaugareInComanda", "Admin", new { ProdusId = item.Produs.identitate_produs, url="Comanda" })">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                    <a href="@Url.Action("MicsorareCantitate", "Admin", new { ProdusId = item.Produs.identitate_produs })">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                </td>
+                <td>@profit_produs RON</td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="@Url.Action("DetaliiComanda","Admin")">Confirmare comanda >></a>
+
+}

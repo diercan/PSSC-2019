@@ -1,0 +1,67 @@
+﻿@model Sistem_gestiune_vanzari.Models.InterfataUtilizatorModel
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<br />
+<br />
+<div>
+
+    <img src="~/Imagini/online-store.jpg" style="display:block;margin-left:auto;margin-right:auto;width:auto;height:auto;" />
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="olContent f1"><h2 style="color:black">Cautare produse</h2></div>
+<form method="post">
+    <div class="olSearch fr">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" name="cautare" placeholder="Introduceti cuvant cheie" class="form-control" />
+                </td>
+                <td>&nbsp&nbsp</td>
+                <td>
+                    <button type="submit" class="search8tn">
+                        <img style="width:20px;height:20px;" src="~/Imagini/searchButton.png" />
+                    </button>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+</form>
+<div style="text-align:center">
+    @Html.Label("label_Index", "Produsele noastre")
+</div>
+<div class="row product-container">
+    @foreach (var item in Model.lista_de_produse)
+    {
+        <div class="col-md-3 col-sm-3 col-xs-6" style="=margin-bottom:8px">
+            <div class="thumbnail product-item" style="height:300px">
+                <img class="img-responsive" title="Click to view product detail" style="cursor:pointer;height:160px;width:100%" src="~/ImaginiProduse/@item.imagine" />
+
+                <div class="caption">
+                    <h5>@item.nume_produs</h5>
+                    <p>@item.pret RON</p>
+                    <p>
+                        @if (item.cantitate > 0)
+                        {
+                        <p>Disponibil</p>
+                    }
+                    else
+                    {
+                        <p>Indisponibil</p>
+                    }
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+</div>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Sistem_gestiune_vanzari.Database.Tabel_Client>
+@{
+    /**/
+
+    ViewBag.Title = "Client";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Clienti
+        <a href="../Client/AdaugareClient" class="btn btn-info pull-right fa fa-plus">Adaugare client nou </a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Nr. Crt</th>
+                        <th>Nume client</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Nr. Crt</th>
+                        <th>Nume client</th>
+                        <th>Action</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>@item.identitate_client</td>
+                            <td>@item.nume_client</td>
+                            <td>
+                                @Html.ActionLink("Edit", "EditareClient", new { id_client = item.identitate_client })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

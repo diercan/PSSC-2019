@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Sistem_gestiune_vanzari.Database.Tabel_Produs>
+@{
+    ViewBag.Title = "Produs";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Product
+            <a href="../Produs/AdaugareProdus" class="btn btn-info pull-right fa fa-plus">Add New</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Part number</th>
+                            <th>Product</th>
+                            <th>Action</th>
+                            <th>Adauga la comanda</th>
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Part number</th>
+                            <th>Product</th>
+                            <th>Action</th>
+                            <th>Adauga la comanda</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>@item.identitate_produs</td>
+                                <td>@item.nume_produs</td>
+                                <td>
+
+                                    @Html.ActionLink("Edit", "EditareProdus", new { id_produs = item.identitate_produs })
+                                </td>
+                                <td>
+                                    @using (Html.BeginForm("AdaugareInComanda", "Admin", new { ProdusId = item.identitate_produs }, FormMethod.Post))
+                                    {
+                                        <button type="submit" class="pull-right"><i class="fa fa-shopping-cart"></i></button>
+                                    }
+
+                                </td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>

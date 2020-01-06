@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Sistem_gestiune_vanzari.Database.Tabel_Categorie>
+    @{
+        ViewBag.Title = "Categorii";
+        Layout = "~/Views/Shared/AdminLayout.cshtml";
+    }
+
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Categorii</li>
+        </ol>
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Categorii
+                <a href="../Categorie/AdaugareCategorie" class="btn btn-info pull-right fa fa-plus">Adaugare categorie noua</a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Nr. Crt</th>
+                                <th>Nume categorie</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Nr. Crt</th>
+                                <th>Nume categorie</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            
+                            @foreach (var item in Model.Select((x,i) => new {Data=x,Index=i+1}))
+                            {
+                             
+                             <tr>
+                                 <td>@item.Index</td>
+                                <td>@item.Data.nume_categorie</td>
+                                <td>
+                                    @Html.ActionLink("Edit", "EditareCategorie", new { id_categorie = item.Data.identitate_categorie })
+                                </td>
+                             </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
