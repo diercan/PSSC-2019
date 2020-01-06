@@ -1,0 +1,3 @@
+Clinica stomatologica: Clinica LaStoma
+
+Clinica stomatologica doreste sa se perfectioneze si astfel vrea ca programarile sa fie facute si online. In sectiunea de programari de pe pagina web, clientii vor putea completa datele despre controlul dorit: Nume, Prenume, Varsta, Tipul controlului/interventiile dorire, data, ora, etc. In functie de data si ora dorita se va cauta mediciul stomatolog disponibil, urmand ca apoi clientul sa poata confirma programarea.
