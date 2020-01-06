@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using GameRentWeb.Repositories;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -21,9 +22,23 @@ namespace GameRentWeb.Models
         public int Quantity { get; set; } // this will decrease when an order is made
 
         #region operations
-        internal void UpdateQuantity(int quantity)
+        public Game RentGame()
         {
-            Quantity = quantity;
+            if (Quantity > 0)
+            { 
+                Quantity--;
+                return this;
+            }
+            else
+            {
+                return null;
+            }   
+        }
+
+        public Game ReturnGame()
+        {
+            Quantity++;
+            return this;
         }
         #endregion
         

@@ -21,7 +21,30 @@ namespace GameRentWeb.Models
         public string Email { get; set; }
         public float Balance { get; set; }
         public virtual ICollection<RentOrder> RentOrders { get; set; }
-        [NotMapped]
-        public Rents UserRents { get; set; }
+
+        #region operations
+        public User AddRent(RentOrder rent)
+        {
+            if(Balance > rent.TotalPayment)
+            {
+                Balance -= rent.TotalPayment;
+                RentOrders.Add(rent);
+                return this;
+            }
+            else
+            {
+                // if null it mans that user doesn't have enough money
+                return null;
+            }
+        }
+
+        public User RemoveRent(RentOrder rent)
+        {
+            Balance += rent.TotalPayment;
+            RentOrders.Remove(rent);
+            return this;
+        }
+
+        #endregion
     }
 }
