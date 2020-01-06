@@ -23,10 +23,10 @@ const amqpModule = (function (){
                     });
                  });
             }
-			else{
+            else{
             ch.sendToQueue(queueName, new Buffer(data));
-			}
-		},
+          }
+        },
         this.close = function(){
             ch.close();
         }

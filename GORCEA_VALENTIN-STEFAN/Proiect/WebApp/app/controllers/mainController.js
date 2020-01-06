@@ -7,8 +7,10 @@ const HttpError = require('../util/httpError');
 const TrainingController = require('./trainingController');
 const UserController = require('./userController');
 var User = require('../models/userModel');
-
-module.exports = function (log, config, db, userRepository) {
+const fs = require('fs');
+const UserRepository = require('../models/repositories/userRepository');
+module.exports = function (log, config, db) {
+  let userRepository = new UserRepository(config, db)
   const app = express();
 
   // cors
@@ -30,6 +32,7 @@ module.exports = function (log, config, db, userRepository) {
     try{
     let pass = JSON.parse(req.headers['authorization']).password;
     let userName = JSON.parse(req.headers['authorization']).userName;
+    
     let user = new User(null, userName, null, null, null, pass)
     const authUser = await userRepository.getUsersWithPassword(user.password, user.userName);
     if(authUser === -1){
