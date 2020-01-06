@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MedFind.Models.Medic>
+
+
+@{
+    ViewData["Title"] = "ShowCabinets";
+    Layout = "_LayoutStudent";
+
+}
+
+<h1>Show Cabinets</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+
+                <p>Specialty</p>
+
+            </th>
+            <th>
+
+                <p>Description</p>
+
+            </th>
+            <th>
+
+                <p>Medic</p>
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Specialty)
+
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Description)
+
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Name)
+
+                </td>
+                <td>
+
+                    <button class="btn btn-primary"><a color="white">SignUP</a></button>
+                    @Html.ActionLink("ShowCabinets", "SendCabinets", new { MedicAccount = item.MedicAccount })
+
+
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
