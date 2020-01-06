@@ -7,22 +7,35 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyPlanner.Data;
 using MyPlanner.Models;
+using MyPlanner.Repository;
 
 namespace MyPlanner.Controllers
 {
     public class UsersController : Controller
     {
         private readonly MyPlannerContext _context;
+        private IUserRepository _repository;
+        public bool use_test_repository = false;
         public static User logged_user;
-        public UsersController(MyPlannerContext context)
+        public UsersController(MyPlannerContext? context, IUserRepository repository=null)
         {
             _context = context;
+            _repository = repository;
         }
+        /*public UsersController(IUserRepository repository)
+        {
+            _repository = repository;
+        }*/
 
         // GET: Users
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult>  Index()
         {
-             return View(await _context.User.ToListAsync());
+            return View( await  _context.User.ToListAsync());
+        }
+
+        public IActionResult Index_test()
+        {
+            return View("Index", _repository.GetAllItems());
         }
 
         // GET: Users/Details/5
@@ -67,8 +80,12 @@ namespace MyPlanner.Controllers
             {
                 user.id = Guid.NewGuid();
                 user.encrypted_password = SecurePasswordHasherHelper.Hash(user.encrypted_password);
-                _context.Add(user);
-                await _context.SaveChangesAsync();
+                if (!use_test_repository)
+                {
+                    _context.Add(user);
+                    await _context.SaveChangesAsync();
+                }
+                _repository.AddItem(user);
                 return RedirectToAction(nameof(Index));
             }
             return View(user);
@@ -184,12 +201,26 @@ namespace MyPlanner.Controllers
         //POST: Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(User objUser)
+        public /*async Task<IActionResult>*/ IActionResult Login(User objUser)
         {
+            User user=null;
             if (ModelState.IsValid)
             {
+                
                 // var obj = _context.Where(a => a.UserName.Equals(objUser.UserName) && a.Password.Equals(objUser.Password)).FirstOrDefault();
-                var user = await _context.User.FirstOrDefaultAsync(m => m.username == objUser.username);
+                if (use_test_repository)
+                {
+                    foreach(User item in _repository.GetAllItems())
+                    {
+                        if (item.username==objUser.username)
+                        {
+                            user = item;
+                        }
+                    }
+                }
+                    
+                else
+                     user = /*await*/ _context.User.FirstOrDefault/*Async*/(m => m.username == objUser.username);
                 if (user != null)
                 {
                     if (SecurePasswordHasherHelper.Verify(objUser.encrypted_password, user.encrypted_password))
@@ -201,7 +232,7 @@ namespace MyPlanner.Controllers
                 }
                 
             }
-            return View(objUser);
+            return View("Login",objUser);
         }
         //GET : Dashboard
         public async Task<IActionResult> Dashboard(string name)

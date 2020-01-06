@@ -16,7 +16,7 @@ namespace MyPlanner.Models.DDD
         public Volunteer Asignee { get; internal set; }
         public PlainText Review { get; internal set; }
         public StatusType Status { get; internal set; }
-        public EventLogger Logger { get; internal set; }
+        public IEventLogger Logger { get; internal set; }
 
         internal MyTask(PlainText description, CalendarDate due_date, PlainText project, Volunteer owner, Volunteer asignee, PlainText review, StatusType status)
         {
@@ -29,6 +29,19 @@ namespace MyPlanner.Models.DDD
             Review = review;
             Status = status;
             Logger = new EventLogger();
+        }
+
+        internal MyTask(PlainText description, CalendarDate due_date, PlainText project, Volunteer owner, Volunteer asignee, PlainText review, StatusType status, IEventLogger Logger)
+        {
+            Id = new Guid();
+            Description = description;
+            Due_Date = due_date;
+            Project = project;
+            Owner = owner;
+            Asignee = asignee;
+            Review = review;
+            Status = status;
+            this.Logger = Logger;
         }
 
         #region operatii

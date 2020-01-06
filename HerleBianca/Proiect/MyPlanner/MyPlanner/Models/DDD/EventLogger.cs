@@ -5,7 +5,12 @@ using System.Threading.Tasks;
 
 namespace MyPlanner.Models.DDD
 {
-    public class EventLogger
+    public interface IEventLogger
+    {
+        public void Log(string message);
+        public List<string> GetSessionEvents();
+    }
+    public class EventLogger : IEventLogger
     {
         public List<string> session_events;
         public EventLogger()
