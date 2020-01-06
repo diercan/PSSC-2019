@@ -5,9 +5,8 @@ Am hotărât ca sistemul software implementat de mine să se axeze pe gestiunea 
 sisteme desktop, periferice, monitoare, imprimante, tonere etc.
 
 Funcționalitățile sistemului software sunt:
--logare agent vânzări/client
--adăugarea clieților/produselor/producătorilor în sistem de către agentul de vânzări
+-logare agent vânzări
+-adăugarea clieților/produselor în sistem de către agentul de vânzări
 -ștergerea din interfața cu utilizatorul a produselor care nu mai sunt disponibile pe piață
--modificarea în sistem de către agentul de vânzări a detalilor legate de produse/clienți/producători
+-modificarea în sistem de către agentul de vânzări a detalilor legate de produse/clienți
 -vizualizarea de către client a descrierii și disponibilității produselor
--contactarea agentului de vânzări de către client printr-un formular de contact
