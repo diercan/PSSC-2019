@@ -27,30 +27,48 @@
 
 
         <dt class="col-sm-2">
-            <p>Laboratoarele Alese</p>
-        </dt>
+            <p>Cabinets </p>
 
-        @foreach (Medic item2 in Model.List())
-        {
-            
-            <dd class="col-sm-3">
-                @Html.DisplayFor(modelItem => item2.Specialty)
-            </dd>
-            <dd class="col-sm-3">
-                @Html.DisplayFor(modelItem => item2.Description)
-            </dd>
-            <dd class="col-sm-3">
-                @Html.DisplayFor(modelItem => item2.Name)
-            </dd>
-        }
+            <table>
+                <tr>
+                    <td class="col-sm-4">
+                        <p>Specialitate</p>
+                    </td>
+                    <td class="col-sm-4">
+                        <p>Description</p>
+                    </td>
+                    <td class="col-sm-4">
+                        <p>Name</p>
+                    </td>
+                </tr>
+                @if (Model.List() != null)
+                {
+                    foreach (Medic item2 in Model.List())
+                    {
+                        <tr>
+                            <td class="col-sm-4">
+                                @Html.DisplayFor(modelItem => item2.Specialty)
+                            </td>
+                            <td class="col-sm-4">
+                                @Html.DisplayFor(modelItem => item2.Description)
+                            </td>
+                            <td class="col-sm-4">
+                                @Html.DisplayFor(modelItem => item2.Name)
+                            </td>
+                        </tr>
+                    }
+                }
+               
+            </table>
+        </dt>
 
 
     </dl>
 </div>
 
-<div>
+<div class="text-left" collor="white">
 
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ })
+   
     @Html.ActionLink(Model.StudentAccount,
                     "ShowCabinets",   // <-- ActionMethod
                      "Medic", // <-- Controller Name.

@@ -10,10 +10,12 @@ namespace MedFind.Interfaces
 {
     public interface IMedic
     {
-        Medic ReturnMedicAfterLoginMedic(LoginMedicViewModel medic);
+        public Medic ReturnMedicAfterLoginMedic(LoginMedicViewModel medic);
 
         public List<Medic> GetCabinets(string studentAccount);
         public Student SendCabinet(string MeddicAccount);
+
+        public Medic AddStudent();
 
     }
 }

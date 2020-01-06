@@ -15,7 +15,10 @@ namespace MedFind.Repository
         public RLoginStudent()
         {
             list_accounts = new List<LoginStudentViewModel>();
-            list_accounts.Add(new LoginStudentViewModel { StudentAccount = "Darius.Bagiu", Password = "parola" });
+            list_accounts.Add(new LoginStudentViewModel { StudentAccount = "Darius.Bagiu", Password = "a" });
+            list_accounts.Add(new LoginStudentViewModel { StudentAccount = "Alexandru.Abrudan", Password = "a" });
+            list_accounts.Add(new LoginStudentViewModel { StudentAccount = "Madalina.Cristina", Password = "a" });
+            
         }
 
         

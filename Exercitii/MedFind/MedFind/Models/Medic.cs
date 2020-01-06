@@ -15,9 +15,15 @@ namespace MedFind.Models
 
         public string Description { get; set; }
 
+        public List<Student> List_Studenti { get; set; } = new List<Student>();
 
+        public List<Student> List()
+        {
+            return List_Studenti;
+        }
 
     }
+   
     public enum Category
     {
 

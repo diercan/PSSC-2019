@@ -10,7 +10,7 @@ namespace MedFind.Repository
 {
     public class RMedic : IMedic
     {
-        private readonly List<Medic> List_Medics;
+        private static List<Medic> List_Medics;
         
         private string LoggedStudent;
         public RMedic()
@@ -22,6 +22,11 @@ namespace MedFind.Repository
             List_Medics.Add(new Medic { MedicAccount = "Medic4", Name = "Mircea", Specialty = Category.Chirurgia_Dento_Alveolara, Description = "descriere cabinet 4" });
             List_Medics.Add(new Medic { MedicAccount = "Medic5", Name = "Abrudan", Specialty = Category.Chirurgia_Oro_Maxilo_Faciala, Description = "descriere cabinet 5" });
 
+        }
+
+        public Medic AddStudent()
+        {
+            throw new NotImplementedException();
         }
 
         public List<Medic> GetCabinets(string studentAccount)
@@ -43,19 +48,34 @@ namespace MedFind.Repository
 
         public Student SendCabinet(string MedicAccount)
         {
+
             foreach (Medic item in List_Medics)
             {
                 if (item.MedicAccount.Equals(MedicAccount))
                 {
-                    RStudent rstudent= new RStudent();
+                    //RStudent rstudent= new RStudent();
                     
-                    return rstudent.AddCabinet(item, LoggedStudent);
+                    return RStudent.AddCabinet(item, LoggedStudent);
                 }
             }
             throw new NotImplementedException();
         }
 
-     
+        public static  void AddStudent(Student student, string MedicAccount)
+        {
+
+            foreach (Medic item in List_Medics)
+            {
+                if (item.MedicAccount.Equals(MedicAccount))
+                {
+                    item.List_Studenti.Add(student);
+
+                }
+            }
+            //throw new NotImplementedException();
+
+        }
+
 
         Medic IMedic.ReturnMedicAfterLoginMedic(LoginMedicViewModel medic)
         {

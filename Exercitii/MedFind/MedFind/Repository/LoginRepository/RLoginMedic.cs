@@ -15,11 +15,11 @@ namespace MedFind.Repository.LoginRepository
         public RLoginMedic()
         {
             list_accounts = new List<LoginMedicViewModel>();
-            list_accounts.Add(new LoginMedicViewModel { MedicAccount = "Medic1", Password = "p" });
-            list_accounts.Add(new LoginMedicViewModel { MedicAccount = "Medic2", Password = "p" });
-            list_accounts.Add(new LoginMedicViewModel { MedicAccount = "Medic3", Password = "p" });
-            list_accounts.Add(new LoginMedicViewModel { MedicAccount = "Medic4", Password = "p" });
-            list_accounts.Add(new LoginMedicViewModel { MedicAccount = "Medic5", Password = "p" });
+            list_accounts.Add(new LoginMedicViewModel { MedicAccount = "Medic1", Password = "s" });
+            list_accounts.Add(new LoginMedicViewModel { MedicAccount = "Medic2", Password = "s" });
+            list_accounts.Add(new LoginMedicViewModel { MedicAccount = "Medic3", Password = "s" });
+            list_accounts.Add(new LoginMedicViewModel { MedicAccount = "Medic4", Password = "s" });
+            list_accounts.Add(new LoginMedicViewModel { MedicAccount = "Medic5", Password = "s" });
         }
 
         public Medic CheckLoginMedic(LoginMedicViewModel loginMedic)

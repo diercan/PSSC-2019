@@ -247,7 +247,6 @@ E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\bin\Debug\netcoreap
 E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\obj\Debug\netcoreapp3.0\MedFind.csprojAssemblyReference.cache
 E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\obj\Debug\netcoreapp3.0\staticwebassets\MedFind.StaticWebAssets.Manifest.cache
 E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\obj\Debug\netcoreapp3.0\staticwebassets\MedFind.StaticWebAssets.xml
-E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\obj\Debug\netcoreapp3.0\MedFind.MvcApplicationPartsAssemblyInfo.cache
 E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\obj\Debug\netcoreapp3.0\MedFind.RazorAssemblyInfo.cache
 E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\obj\Debug\netcoreapp3.0\MedFind.RazorAssemblyInfo.cs
 E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\obj\Debug\netcoreapp3.0\MedFind.AssemblyInfoInputs.cache
@@ -279,3 +278,6 @@ E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\obj\Debug\netcoreap
 E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\bin\Debug\netcoreapp3.0\System.Security.Cryptography.Pkcs.dll
 E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
 E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\obj\Debug\netcoreapp3.0\Razor\Views\Medic\ShowCabinets.cshtml.g.cs
+E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\bin\Debug\netcoreapp3.0\RabbitMQ.Client.dll
+E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\obj\Debug\netcoreapp3.0\MedFind.MvcApplicationPartsAssemblyInfo.cache
+E:\User\Documents\GitHub\PSSC-2019\Exercitii\MedFind\MedFind\obj\Debug\netcoreapp3.0\Razor\Views\Student\Edit.cshtml.g.cs

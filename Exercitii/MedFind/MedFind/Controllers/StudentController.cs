@@ -85,15 +85,15 @@ namespace MedFind.Controllers
         }
 
         // GET: Student/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string studentAccount)
         {
-            return View();
+            return View("~/Views/Student/Edit.cshtml");
         }
 
         // POST: Student/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Student student)
         {
             try
             {

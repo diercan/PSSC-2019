@@ -8,11 +8,15 @@ namespace MedFind.Interfaces
 {
     public interface IStudent
     {
-        Student ReturnStudentAfterLoginStudent(LoginStudentViewModel student);
-        void CreateStudent(Student student);
+        public Student ReturnStudentAfterLoginStudent(LoginStudentViewModel student);
+        public void CreateStudent(Student student);
 
-        IEnumerable<Student> GetAllStudents();
+        public IEnumerable<Student> GetAllStudents();
         
-        Student AddCabinet(Medic medic, string StudentAccount);
+        //public static Student AddCabinet(Medic medic, string StudentAccount);
+
+        public Medic SendStudent();
+
+
     }
 }

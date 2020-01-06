@@ -11,14 +11,11 @@ namespace MedFind.Models
         public string StudentID { get; set; }
         public string Name { get; set; }
 
-        private List<Medic> ListMedics = new List<Medic>();
-        public void Load(Medic data)
-        {
-            ListMedics.Add(data);
-        }
+        public List<Medic> ListCabinets { get; set; } = new List<Medic>();
+
         public List<Medic> List()
         {
-            return ListMedics;
+            return ListCabinets;
         }
     }
 }
