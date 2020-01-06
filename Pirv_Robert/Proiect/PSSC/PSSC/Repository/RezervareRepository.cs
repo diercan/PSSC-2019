@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Threading.Tasks;
 using PSSC.Models;
+
 namespace PSSC.Repository
 {
     public interface IRezervareRepository
@@ -18,7 +19,7 @@ namespace PSSC.Repository
 
     public class RezervareRepository : IRezervareRepository
     {
-        private List<Rezervare> Lista;
+        private readonly List<Rezervare> Lista;
         public RezervareRepository()
         {
             Lista = new List<Rezervare>();
@@ -29,11 +30,11 @@ namespace PSSC.Repository
                 Nume = "Pirv",
                 Prenume = "Robert",
                 murdarie = stareMasina.foarte_murdara,
-                optiune1=optiuni.ceara,
-                optiune2=optiuni.exterior,
-                optiune3=optiuni.interior,
-                optiune4=optiuni.portbagaj
-            }) ;
+                optiune1 = optiuni.ceara,
+                optiune2 = optiuni.exterior,
+                optiune3 = optiuni.interior,
+                optiune4 = optiuni.portbagaj
+            });
         }
         public void CreareRezervare(Rezervare rez)
         {

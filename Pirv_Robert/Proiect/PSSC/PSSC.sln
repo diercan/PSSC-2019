@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSSC", "PSSC\PSSC.csproj", "{E941C181-ED4A-444F-BCC5-B176F4EAE098}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSSC", "PSSC\PSSC.csproj", "{5F94F109-E49F-4910-9FF7-13624F526A56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E941C181-ED4A-444F-BCC5-B176F4EAE098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E941C181-ED4A-444F-BCC5-B176F4EAE098}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E941C181-ED4A-444F-BCC5-B176F4EAE098}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E941C181-ED4A-444F-BCC5-B176F4EAE098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F94F109-E49F-4910-9FF7-13624F526A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F94F109-E49F-4910-9FF7-13624F526A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F94F109-E49F-4910-9FF7-13624F526A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F94F109-E49F-4910-9FF7-13624F526A56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B6B95D54-0C44-4B30-A447-3B19525AFD2F}
+		SolutionGuid = {D1C395BA-4A2F-4979-AAA7-893532BD1A11}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<PSSC.Models.Rezervare>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Index</h1>
+<p>
+    <a asp-action="Create">Rezervare Noua</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdUnic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.murdarie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.optiune1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.optiune2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.optiune3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.optiune4)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var variabila in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelVariabila => variabila.IdUnic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelVariabila => variabila.Nume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelVariabila => variabila.Prenume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelVariabila => variabila.data)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelVariabila => variabila.optiune1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelVariabila => variabila.optiune2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelVariabila => variabila.optiune3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelVariabila => variabila.optiune4)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = variabila.IdUnic })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
