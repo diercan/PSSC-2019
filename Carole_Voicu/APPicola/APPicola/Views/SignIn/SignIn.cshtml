@@ -1,0 +1,13 @@
+﻿@model APPicola.Models.SignIn
+@{
+    ViewBag.Title = "SignIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SignIn</h2>
+@using (Html.BeginForm("Account", "SignIn", FormMethod.Post))
+{
+    <p>User: </p>@Html.TextBoxFor(model => model.User)<br><br>
+    <p>Password: </p>@Html.TextBoxFor(model => model.Password)<br><br>
+    <input id="Login" type="submit" value="Login" />
+}

@@ -1,0 +1,8 @@
+C:\Users\Carole Voicu\source\repos\APPicola\.vs\APPicola\lut\0\b\APPicola.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Carole Voicu\source\repos\APPicola\.vs\APPicola\lut\0\b\APPicola.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Carole Voicu\source\repos\APPicola\.vs\APPicola\lut\0\b\APPicola.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Carole Voicu\source\repos\APPicola\.vs\APPicola\lut\0\b\APPicola.Tests\bin\Debug\APPicola.Tests.dll
+C:\Users\Carole Voicu\source\repos\APPicola\.vs\APPicola\lut\0\i\APPicola.Tests\Debug\APPicola.Tests.csprojAssemblyReference.cache
+C:\Users\Carole Voicu\source\repos\APPicola\.vs\APPicola\lut\0\i\APPicola.Tests\Debug\APPicola.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Carole Voicu\source\repos\APPicola\.vs\APPicola\lut\0\i\APPicola.Tests\Debug\APPicola.Tests.csproj.CopyComplete
+C:\Users\Carole Voicu\source\repos\APPicola\.vs\APPicola\lut\0\i\APPicola.Tests\Debug\APPicola.Tests.dll
