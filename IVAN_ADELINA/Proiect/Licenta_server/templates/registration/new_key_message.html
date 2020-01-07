@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+    {% block head %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=100%, initial-scale=1">
+    <meta name="description" content="Controlul Locuintei">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <title>Controlul Locuintei{% block title %}{% endblock %}</title> 
+    
+    <header>
+        <div class="container">
+                <ul class="ul">
+                            <li class="li"><a href="{% url 'home' %}"><font face="Euphemia">DESPRE</font></a></li>
+                            <li class="li"><a href="{% url 'interface:render_info_page' %}"><font face="Euphemia">INFO</font></a></li>
+                            <li class="li"><a href="{% url 'interface:render_control_page' %}"><font face="Euphemia">CONTROL</font></a></li>
+		</ul>
+        </div>
+    </header>
+    {% endblock %}
+    {% block content %}
+ 	 <br><br> 
+    <div class="h2">    
+     <p> Noua cheie a fost adaugata cu succes! </p>
+    </div>
+    {% endblock %}

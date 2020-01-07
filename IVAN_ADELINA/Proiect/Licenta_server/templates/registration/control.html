@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+    {% block head %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=100%, initial-scale=1">
+    <meta name="description" content="Controlul Locuintei">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <title>Controlul Locuintei{% block title %}{% endblock %}</title> 
+    
+    <header>
+        <div class="container">
+                <ul class="ul">
+                            <li class="li"><a href="{% url 'home' %}"><font face="Euphemia">DESPRE</font></a></li>
+                            <li class="li"><a href="{% url 'interface:render_info_page' %}"><font face="Euphemia">INFO</font></a></li>
+                            <li class="li"><a href="{% url 'interface:render_control_page' %}"><font face="Euphemia">CONTROL</font></a></li>
+		</ul>
+        </div>
+    </header>
+    {% endblock %}
+ 	{% block content %}
+   <div class="h2">Bec camera</div> 
+   <div class="h2">Becul se afla in starea {{ led_state  }} </div>
+
+   <div class="h2"> 
+	        <span style="display: inline;">
+                   <a href="{% url 'interface:power_on_led' %}" class="buttonfilter">Aprinde</a>&nbsp;&nbsp;<a href="{% url 'interface:power_off_led' %}" class="buttonfilter">Stinge</a>
+                 </span>
+    </div>
+   <div class="h2">
+      <a href="{% url 'interface:send_info_mail' %}" class="buttonfilter">Trimite mail</a> 
+    </div>
+   <div class="h2">
+      <a href="{% url 'interface:add_new_key' %}" class="buttonfilter">Adaugare cheie acces </a></div>
+<div class="container containerMainButtons">
+        	
+    </div>     
+	{% endblock %}
+
