@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="WebAPI" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="6" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="WebRole">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="adminadmin" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBpQYJKoZIhvcNAQcDoIIBljCCAZICAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEHmhRUlfx7+sStT4+IbjkIswDQYJKoZIhvcNAQEBBQAEggEAMm1VKgWb970ini15K+fmXyQ5Vn+mT7s+gVxv0dNiLa7/GHElhDE+qITE/ZhPr8kWlcEH9uL7IG/tZLSfkQSrx9sZO8mg8EdGdPFFRMD7R+trM6CCO5W8JFH2QCkg577n9lG0eIUlL/3cS+LyQS4vAwM3/uIp2wvODziUp3i3ED1JN+slHXYRXU52y7Z+LIwy4OfrRObSdCZZ7NaYNMtJwiIa0VrdjvsWTeHCK1AWiwZixVWBVgnhnB1a4TYY9peatoEtwl2f6Eey8QS9d+vl6yqEUb4S97VNr2HXcA3E9YBrdDOoryZvV/sbCslv3cH/xkCtJb5+/x74UhBYOh+jDDA7BgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECBptGmsynyKNgBgtkpJ6QR0nyTdbWT8ReOlo6EzoLGsuTCk=" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2020-12-06T23:59:59.0000000+02:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="94fbbc01-a72b-4a41-8c84-fec93ff07bdf" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="28A9E2043818C351781FBE37E1CDD3BBDD20E1B4" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

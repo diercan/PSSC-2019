@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Web.Models.VoterViewModel>
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cnp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecretQuestionCounter)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cnp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecretQuestionCounter)
+        </td>
+        <td>
+            @Html.ActionLink("Intrebari de verificare", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>
