@@ -1,0 +1,30 @@
+<div class="people-container">
+    <app-menu [activeTab]="1">
+
+    </app-menu>
+
+    <div class="people-list" *ngIf="users">
+        <form [formGroup]="searchForm" class="form">
+            <div class="input">
+                    <input matInput type="text" formControlName="name" placeholder="Enter username..." (input)="searchUser()" autocomplete="off">
+                    <img src="./assets/icons/search-icon.svg">
+            </div>
+           
+        </form>
+        <div class="user" *ngFor="let user of users;let i=index">
+                <div class="type"><div *ngIf="!user.isSeller"> Buyer</div><div *ngIf="user.isSeller"> Seller</div></div>
+           <div class="profilePic">
+               <img src="https://writedirection.com/website/wp-content/uploads/2016/09/blank-profile-picture-973460_960_720.png" >
+           </div> 
+           <div class="flex-column">
+            
+                    <h1 class="name"  (click)="navigateToUserProfile(user.Id)">{{user.name}}</h1>
+           
+            <div class="adress">{{user.adress.City}}, {{user.adress.Country}}</div>
+            <div class="phone">{{user.phone}}</div>
+            <div class="email">{{user.email}}</div>
+           </div>
+           
+        </div>
+    </div>
+</div>

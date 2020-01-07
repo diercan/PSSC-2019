@@ -1,0 +1,44 @@
+﻿<Properties StartupConfiguration="{E9B42962-DC1F-4588-99B3-C2D205E90C54}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HomeMadeMarketAPI/Models/Product.cs">
+    <Files>
+      <File FileName="HomeMadeMarketAPI/Controllers/ProductsController.cs" Line="44" Column="10" />
+      <File FileName="HomeMadeMarketAPI/Models/Product.cs" Line="32" Column="35" />
+      <File FileName="HomeMadeMarketAPI/Services/ProductService.cs" Line="37" Column="1" />
+      <File FileName="HomeMadeMarketAPI/Services/LoginService.cs" Line="43" Column="74" />
+      <File FileName="HomeMadeMarketAPI/Controllers/UserLoginsController.cs" Line="54" Column="10" />
+      <File FileName="HomeMadeMarketAPI/Controllers/UserController.cs" Line="29" Column="30" />
+      <File FileName="HomeMadeMarketAPI/Controllers/ProfileController.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HomeMadeMarketAPI" expanded="True">
+            <Node name="HomeMadeMarketAPI" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Helpers" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Product.cs" selected="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+              <Node name="Services" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.HomeMadeMarketAPI PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

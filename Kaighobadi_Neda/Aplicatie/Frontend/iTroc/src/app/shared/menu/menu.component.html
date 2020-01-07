@@ -1,0 +1,47 @@
+<div class="menu-container">
+        <div class="logo" routerLink="/home" >
+        iTroc
+        </div>
+        <div class="navigation">
+        <div class="buttons" >
+            <button mat-button class="button" (click)="activateButton(0)" [ngClass]="{'active-button':buttons[0] == true}"
+            routerLink="/home">
+              HOME
+            </button>
+            <button mat-button class="button" (click)="activateButton(1)" [ngClass]="{'active-button':buttons[1] == true}"
+              routerLink="/people">
+              PEOPLE
+            </button>
+            <button mat-button class="button" (click)="activateButton(2)" [ngClass]="{'active-button':buttons[2] == true}"
+            routerLink="/products">
+              PRODUCTS
+            </button>
+          </div>
+        </div>
+        <div class="navigation">
+          <div class="profile" >
+              <img src="./assets/icons/menu/cart.svg" class="cart-icon">
+            <div class="pic-wrapper" [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger">
+            <img [src]="url" alt="profilePic"  class="picture" (menuClosed)="toggleDisplay()" (menuOpened)="toggleDisplay()" >
+            PROFILE
+          </div>
+           
+            <div class="menu-wrapper">
+                <div class="arrow-up" *ngIf="display[1]"></div>
+            <mat-menu #menu="matMenu" overlapTrigger="false" xPosition="before" class="user-menu">
+              <button mat-menu-item class="profile-menu-item profile-menu-pic-item" (click)="navigateToUserProfile(user._id)" *ngIf="user">
+                <img [src]="url" alt="profilePic" class="profile-picture">
+                <div class="profile-text">
+                  <div class="title">My profile</div>
+                  <div class="subtitle">{{user.name}}</div>
+                </div>
+              </button>
+              <button mat-menu-item class="profile-menu-item profile-menu-pic-item" id="logout" (click)="logOut()">
+                  <img src="/assets/icons/menu/log-out.svg" alt="log-out" class="icon">
+                  <div class="title sign-out">Sign out</div>
+                </button>
+            </mat-menu>
+          </div>
+          </div>
+        </div>
+      </div>

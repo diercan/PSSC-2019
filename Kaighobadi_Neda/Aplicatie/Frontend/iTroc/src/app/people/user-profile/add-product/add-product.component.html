@@ -1,0 +1,46 @@
+<div class="product-form-container">
+        <div class="form-container">
+          <header>Add a product</header>
+          <form [formGroup]="productForm" >
+          <mat-form-field class="input-field" floatLabel="always">
+            <mat-label class="label">NAME
+            </mat-label>
+            <input matInput class="input" autocomplete="off" placeholder="Add product name here..." formControlName="name">
+          </mat-form-field>
+          <mat-form-field class="input-field"  floatLabel="always">
+                <mat-label class="label">PICTURE</mat-label>
+            <input matInput  placeholder="Add a picture url for your product..." formControlName="picUrl">
+          </mat-form-field>
+          <mat-form-field class="input-field" floatLabel="always">
+            <mat-label class="label">CATEGORY
+            </mat-label>
+            <input matInput class="input" autocomplete="off" placeholder="Add category ..." formControlName="category">
+          </mat-form-field>
+          <mat-form-field class="input-field"  floatLabel="always">
+            <mat-label class="label">SUBCATEGORY
+            </mat-label>
+            <input matInput class="input" autocomplete="off" placeholder="Add subcategory ..." formControlName="subcategory">
+          </mat-form-field>
+          <mat-form-field class="input-field" i  floatLabel="always">
+                <mat-label class="label">DESCRIPTION
+                </mat-label>
+                <input matInput class="input" autocomplete="off" placeholder="Add description ..." formControlName="description">
+              </mat-form-field>
+              <mat-form-field class="input-field" id="description"  floatLabel="always">
+                    <mat-label class="label">PRICE
+                    </mat-label>
+                    <input matInput type="number" class="input" autocomplete="off" placeholder="Add price ..." formControlName="price">
+                  </mat-form-field>
+          </form>
+        </div>
+          <div class="footer">
+              <button mat-button mat-dialog-close class="button close">
+                  <span class="button-text" >CANCEL</span>
+                </button>
+                  <button mat-button  class="button"  (click)="onClick()">
+              <span class="button-text" *ngIf="!updateEnabled" >SAVE</span>
+              <span class="button-text" *ngIf="updateEnabled" >UPDATE</span>
+            </button>
+            
+          </div>
+      </div>

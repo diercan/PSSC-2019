@@ -1,0 +1,61 @@
+<div class="login-container">
+    <div class="login-wrapper" *ngIf="isSigningIn">
+        <h1>Welcome to <span>iTroc</span></h1>
+        <form [formGroup]="loginForm">
+        <mat-form-field floatLabel="always">
+            <mat-label >USERNAME</mat-label>
+            <input matInput type="text" class="input-field" formControlName="username" autocomplete="off">
+        </mat-form-field>
+        <mat-form-field floatLabel="always">
+                <mat-label >PASSWORD</mat-label>
+                <input matInput type="password" class="input-field" formControlName="password">
+        </mat-form-field>
+    </form>
+        <button class="login-button" (click)="signIn()">SIGN IN</button>
+        <button class="register-button" (click)="register()">REGISTER</button>
+    </div>
+    <div class="login-wrapper" *ngIf="isSigningUp">
+        <h1>Register for <span>iTroc</span></h1>
+        <form [formGroup]="registerForm">
+            <mat-form-field floatLabel="always" >
+                    <mat-label class="label">FULL NAME</mat-label>
+                    <input matInput type="text" formControlName="name" class="input-field" autocomplete="off">
+                </mat-form-field>
+                <mat-form-field floatLabel="always">
+                        <mat-label class="label">PHONE NUMBER</mat-label>
+                        <input matInput type="text" formControlName="phone" class="input-field" autocomplete="off">
+                </mat-form-field>
+                <mat-form-field floatLabel="always">
+                        <mat-label class="label">EMAIL</mat-label>
+                        <input matInput type="text" formControlName="email" class="input-field" autocomplete="off">
+                    </mat-form-field>
+                    <mat-form-field floatLabel="always">
+                        <mat-label class="label">USERNAME</mat-label>
+                        <input matInput type="text"  formControlName="username" class="input-field" autocomplete="off">
+                </mat-form-field>
+                    <mat-form-field floatLabel="always">
+                            <mat-label class="label">PASSWORD</mat-label>
+                            <input matInput type="password"  formControlName="password" class="input-field" autocomplete="off">
+                    </mat-form-field>
+                    <mat-form-field floatLabel="always">
+                            <mat-label class="label">COUNTRY</mat-label>
+                            <mat-select formControlName="country" class="input-field">
+                                <mat-option *ngFor="let country of countries" [value]="country.name">{{country.name}}</mat-option>
+                                </mat-select>
+                    </mat-form-field>
+                    <mat-form-field floatLabel="always">
+                            <mat-label class="label">CITY</mat-label>
+                            <input matInput type="text"  formControlName="city" class="input-field" autocomplete="off">
+                    </mat-form-field>
+                    <div class="radio-buttons">
+                        <label class="label">Are you planning to be a buyer or a seller?</label>
+                        <mat-radio-group formControlName="userType" class="radio-buttons" >
+                                <mat-radio-button value='buyer'>Buyer</mat-radio-button>
+                                <mat-radio-button value='seller'>Seller</mat-radio-button>
+                          </mat-radio-group>
+                        </div>
+         </form>
+         <button class="login-button" (click)="signIn()">REGISTER</button>
+         <button class="register-button" (click)="register()">ALREADY HAVE AN ACCOUNT?</button>
+    </div>
+</div>
