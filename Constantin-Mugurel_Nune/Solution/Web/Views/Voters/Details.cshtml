@@ -1,0 +1,62 @@
+﻿@model Web.Models.VoterViewModel
+
+<div>
+    <h4>VoterViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cnp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cnp)
+        </dd>
+    </dl>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            Intrebare
+        </th>
+        <th>
+            Raspuns
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.SecretQuestions)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Question)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditSecretQuestion", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteSecretQuestion", new { id = item.Id })
+            </td>
+        </tr>
+    }
+    <p>
+        @Html.ActionLink("Adauga intrebare", "AddSecretQuestion", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
