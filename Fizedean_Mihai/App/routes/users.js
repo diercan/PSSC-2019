@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const loged = require("../helpers/log");
 const router = express.Router();
 
 
@@ -12,20 +13,21 @@ const User = mongoose.model('users');
 
 // User Login Route
 router.get('/login', (req, res) => {
+    loged.Logs("SUCCES: Login page");
     res.render('users/login');
 });
 
-
 // User Register Route
 router.get('/register', (req, res) => {
+    loged.Logs("SUCCES: Register page");
     res.render('users/register');
 });
 
 // Login Form POST
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/',
-        failureRedirect: '/users/login',
+        successRedirect: 'http://localhost:5000/',
+        failureRedirect: 'http://localhost:5000/users/login',
         failureFlash: true
     })(req, res, next);
 });
@@ -46,7 +48,8 @@ router.post('/register', (req, res) => {
         });
     }
     if (errors.length > 0) {
-        res.render('users/register', {
+        loged.Logs("FAILED: failed to registerd user.");
+        res.status(400).render('users/register', {
             errors: errors,
             name: req.body.name,
             email: req.body.email,
@@ -59,7 +62,7 @@ router.post('/register', (req, res) => {
         }).then(user => {
             if (user) {
                 req.flash('error_msg', 'Email already used!');
-                res.redirect('/users/register');
+                res.redirect('http://localhost:5000/users/register');
             } else {
                 const newUser = new User({
                     name: req.body.name,
@@ -73,10 +76,13 @@ router.post('/register', (req, res) => {
                         newUser.save()
                             .then(user => {
                                 req.flash('success_msg', 'You are registered and can now log in!');
-                                res.redirect('/users/login');
+                                loged.Logs("SUCCES: user registerd successfuly.");
+                                res.redirect('http://localhost:5000/users/login');
                             })
                             .catch(err => {
                                 console.log(err);
+                                loged.Logs("FAILED: failed to registerd user.");
+                                res.status(500).send('Server Error');
                             });
                     });
                 });
@@ -90,7 +96,7 @@ router.post('/register', (req, res) => {
 router.get('/logout', (req, res)=>{
     req.logout();
     req.flash('success_msg', 'You are loged out!');
-    res.redirect('/users/login');
+    res.redirect('http://localhost:5000/users/login');
 });
 
 module.exports = router;

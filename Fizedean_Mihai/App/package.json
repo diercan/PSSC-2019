@@ -4,13 +4,17 @@
   "description": "A video idea platform",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js --no-deprecation"
+    "start": "node app.js --no-deprecation",
+    "test": "nyc --reporter=text mocha --timeout 10000"
   },
   "author": "Mihai",
   "license": "ISC",
   "dependencies": {
+    "amqplib": "^0.5.5",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "connect-flash": "^0.1.1",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
@@ -18,8 +22,12 @@
     "method": "^2.0.0",
     "method-override": "^3.0.0",
     "mongoose": "^5.8.0",
+    "nyc": "^15.0.0",
     "override": "0.0.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.2"
   }
 }

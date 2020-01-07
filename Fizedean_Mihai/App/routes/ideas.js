@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const loged = require("../helpers/log");
 const router = express.Router();
 const {
     ensureAuthenticated
@@ -19,6 +20,7 @@ router.get('/', ensureAuthenticated, (req, res) => {
             date: 'desc'
         })
         .then(ideas => {
+            loged.Logs("SUCCES: All ideas");
             res.render('ideas/index', {
                 ideas: ideas
             });
@@ -27,6 +29,7 @@ router.get('/', ensureAuthenticated, (req, res) => {
 
 // Add Idea Form
 router.get('/add', ensureAuthenticated, (req, res) => {
+    loged.Logs("SUCCES: Add idea page");
     res.render('ideas/add');
 });
 
@@ -38,6 +41,7 @@ router.get('/edit/:id', ensureAuthenticated, (req, res) => {
         .then(idea => {
             if (idea.user != req.user.id) {
                 req.flash('error_msg', 'Not authorized!');
+                loged.Logs("FAILED: Not authorized");
                 res.redirect('/ideas');
             } else {
                 res.render('ideas/edit', {
@@ -62,6 +66,7 @@ router.post('/', ensureAuthenticated, (req, res) => {
     }
 
     if (errors.length > 0) {
+        loged.Logs("FAILED: Failed to add new idea.");
         res.render('ideas/add', {
             errors: errors,
             title: req.body.title,
@@ -77,6 +82,7 @@ router.post('/', ensureAuthenticated, (req, res) => {
             .save()
             .then(idea => {
                 req.flash('success_msg', 'Video idea added');
+                loged.Logs("SUCCES: Added a new idea.");
                 res.redirect('/ideas');
             })
     }
