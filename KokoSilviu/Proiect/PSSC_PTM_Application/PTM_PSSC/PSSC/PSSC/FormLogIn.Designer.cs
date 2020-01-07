@@ -36,7 +36,6 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBoxRemember = new System.Windows.Forms.CheckBox();
             this.kryptonButtonLogIn = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.buttonPower = new System.Windows.Forms.Button();
             this.buttonSettings = new System.Windows.Forms.Button();
@@ -133,19 +132,6 @@
             this.panel1.Size = new System.Drawing.Size(350, 102);
             this.panel1.TabIndex = 10;
             // 
-            // checkBoxRemember
-            // 
-            this.checkBoxRemember.AutoSize = true;
-            this.checkBoxRemember.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxRemember.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F);
-            this.checkBoxRemember.ForeColor = System.Drawing.Color.White;
-            this.checkBoxRemember.Location = new System.Drawing.Point(130, 178);
-            this.checkBoxRemember.Name = "checkBoxRemember";
-            this.checkBoxRemember.Size = new System.Drawing.Size(110, 19);
-            this.checkBoxRemember.TabIndex = 11;
-            this.checkBoxRemember.Text = "Remember me";
-            this.checkBoxRemember.UseVisualStyleBackColor = false;
-            // 
             // kryptonButtonLogIn
             // 
             this.kryptonButtonLogIn.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Custom3;
@@ -234,7 +220,6 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.kryptonButtonLogIn);
-            this.panel3.Controls.Add(this.checkBoxRemember);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.labelUser);
             this.panel3.Controls.Add(this.labelPassword);
@@ -289,7 +274,6 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckBox checkBoxRemember;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonLogIn;
         private System.Windows.Forms.Button buttonPower;
         private System.Windows.Forms.Button buttonSettings;

@@ -257,27 +257,38 @@ namespace PSSC
         //ChangeStatus button event
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
-            string status = null;
-            if (comboBoxStatus.SelectedItem!= null)
+            if (textBox2.Text!=null && textBox2.Text!="")
             {
-              status = comboBoxStatus.SelectedItem.ToString();
-            }
-            
-            if (status != "" && status != null)
-            {
-                System.Threading.Tasks.Task.Run(async () => {
-                    var task = await taskRepository.GetTask(int.Parse(textBox2.Text));          
-                    Models.Task new_task = new Models.Task(task);
-                    
-                    new_task.ChangeStatus(status);
-                    
-                    Entities.TaskEntity modified_task = new TaskEntity(new_task);
-                    await taskRepository.UpdateTaskStatus(modified_task);             
-                }).Wait();
+                string status = null;
+                if (comboBoxStatus.SelectedItem != null)
+                {
+                    status = comboBoxStatus.SelectedItem.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Select status!");
+                }
+
+                if (status != "" && status != null)
+                {
+                    System.Threading.Tasks.Task.Run(async () => {
+                        var task = await taskRepository.GetTask(int.Parse(textBox2.Text));
+                        Models.Task new_task = new Models.Task(task);
+
+                        new_task.ChangeStatus(status);
+
+                        Entities.TaskEntity modified_task = new TaskEntity(new_task);
+                        await taskRepository.UpdateTaskStatus(modified_task);
+                    }).Wait();
 
 
+                }
+                refreshTasksDataGrid();
             }
-            refreshTasksDataGrid();
+            else
+            {
+                MessageBox.Show("Id field empty.");
+            }
         }
  
 
@@ -288,7 +299,11 @@ namespace PSSC
             {
                 taskId = textBox1.Text.ToString();
             }
-            
+             else
+            {
+                MessageBox.Show("Id field empty.");
+            }
+
             if (taskId != "" && taskId != null)
             {
                 
@@ -301,6 +316,13 @@ namespace PSSC
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            if(textBoxId.Text!=null && textBoxId.Text!="" &&
+                textBoxName.Text != null && textBoxName.Text != "" &&
+                textBoxDesc.Text != null && textBoxDesc.Text != "" &&
+                textBoxDev.Text != null && textBoxDev.Text != "" &&
+                textBoxStatus.Text != null && textBoxStatus.Text != "" &&
+                textBoxPrio.Text != null && textBoxPrio.Text != "")
+            { 
             string taskId = null;
             string taskName = null;
             string taskDesc = null;
@@ -336,16 +358,38 @@ namespace PSSC
             {
                 taskPrio = textBoxPrio.Text.ToString();
             }
-            
-            if (taskId != null && taskName != null && taskDesc != null && taskDev!=null && taskStatus!=null && taskPrio!=null)
+                bool taskID_inUse = false;
+            if (taskId != null && taskName != null && taskDesc != null && taskDev != null && taskStatus != null && taskPrio != null)
             {
-                Developer ath = new Developer(user_uid);
-                Developer dev = new Developer(taskDev);
-                PSSC.Models.Task tsk = new PSSC.Models.Task(int.Parse(taskId), taskName, ath, dev, taskDesc, taskStatus, taskPrio);
-                Entities.TaskEntity task = new TaskEntity(tsk);
-                System.Threading.Tasks.Task.Run(async () => {
-                    await taskRepository.Create(task);
-                }).Wait();
+                    System.Threading.Tasks.Task.Run(async () => {
+                        List<Entities.TaskEntity> userList = await taskRepository.GetAllTasks();
+                        foreach (Entities.TaskEntity user in userList)
+                        {
+                            if (user.PartitionKey == taskId)
+                                taskID_inUse = true;
+                        }
+                    }).Wait();
+
+                    if (!taskID_inUse)
+                    {
+                        Developer ath = new Developer(user_uid);
+                        Developer dev = new Developer(taskDev);
+                        PSSC.Models.Task tsk = new PSSC.Models.Task(int.Parse(taskId), taskName, ath, dev, taskDesc, taskStatus, taskPrio);
+                        Entities.TaskEntity task = new TaskEntity(tsk);
+                        System.Threading.Tasks.Task.Run(async () =>
+                        {
+                            await taskRepository.Create(task);
+                        }).Wait();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Task Id already used.");
+                    }
+            }
+        }
+            else
+            {
+                MessageBox.Show("Add failed.One or more fields are empty");
             }
         }
 
@@ -387,6 +431,10 @@ namespace PSSC
                 await taskRepository.UpdateTask(new_task);
                 }).Wait();
             }
+            else
+            {
+                MessageBox.Show("Complete id field in order to modify task");
+            }
         }
 
         private void kryptonButtonAddDev_Click(object sender, EventArgs e)
@@ -398,6 +446,10 @@ namespace PSSC
                 System.Threading.Tasks.Task.Run(async () => {
                     await taskRepository.AddDeveloper(dev);
                 }).Wait();
+            }
+            else
+            {
+                MessageBox.Show("Id field empty.");
             }
         }
 
@@ -411,6 +463,10 @@ namespace PSSC
                     await taskRepository.DeleteDeveloper(dev);
                 }).Wait();
 
+            }
+            else
+            {
+                MessageBox.Show("Id field empty.");
             }
         }
 

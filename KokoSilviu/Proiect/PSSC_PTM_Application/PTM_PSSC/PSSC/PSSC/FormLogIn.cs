@@ -134,46 +134,51 @@ namespace PSSC
 
         private void kryptonButtonLogIn_Click(object sender, EventArgs e)
         {
-            bool login = false;
-            bool Dev_user = false;
-
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=storeksq6lvimcn6gy;AccountKey=okS17G921c6N5lN7Czxi1QJ+DF/fbripzaWiEDoRdp4oh42RoJFz3A5Nfn70dHaoh3mUaFzQIcu9MVDTeHmmiQ==;EndpointSuffix=core.windows.net");
-
-            // Create a table client for interacting with the table service
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-            // Create a table client for interacting with the table service 
-            CloudTable table = tableClient.GetTableReference("PSSCLogInKoko");
-            table.CreateIfNotExists();
-
-            List<UserLogInEntity> users = new List<UserLogInEntity>();
-            TableQuery<UserLogInEntity> query = new TableQuery<UserLogInEntity>();
-            users = table.ExecuteQuery(new TableQuery<UserLogInEntity>()).ToList();
-
-            foreach (UserLogInEntity entity in users)
+            if (textBoxUser.Text!=null && textBoxUser.Text!="" && textBoxPassword.Text != null && textBoxPassword.Text != "")
             {
-                if (entity.PartitionKey.Equals(textBoxUser.Text) && entity.RowKey.Equals(textBoxPassword.Text))
+                bool login = false;
+                bool Dev_user = false;
+
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=storeksq6lvimcn6gy;AccountKey=okS17G921c6N5lN7Czxi1QJ+DF/fbripzaWiEDoRdp4oh42RoJFz3A5Nfn70dHaoh3mUaFzQIcu9MVDTeHmmiQ==;EndpointSuffix=core.windows.net");
+
+                // Create a table client for interacting with the table service
+                CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+                // Create a table client for interacting with the table service 
+                CloudTable table = tableClient.GetTableReference("PSSCLogInKoko");
+                table.CreateIfNotExists();
+
+                List<UserLogInEntity> users = new List<UserLogInEntity>();
+                TableQuery<UserLogInEntity> query = new TableQuery<UserLogInEntity>();
+                users = table.ExecuteQuery(new TableQuery<UserLogInEntity>()).ToList();
+
+                foreach (UserLogInEntity entity in users)
                 {
-                    login = true;
-                    if (entity.role.Equals("developer"))
+                    if (entity.PartitionKey.Equals(textBoxUser.Text) && entity.RowKey.Equals(textBoxPassword.Text))
                     {
-                        Dev_user = true;
+                        login = true;
+                        if (entity.role.Equals("developer"))
+                        {
+                            Dev_user = true;
+                        }
+                        break;
                     }
-                    break;
                 }
-            }
 
-            if (login)
-            {
-                //  MainForm f = new MainForm(textBoxUser.Text, Dev_user);
-                //f.Show();
-                uid = textBoxUser.Text;
-                dev_user = Dev_user;
-                this.Close();
+                if (login)
+                {
+                    uid = textBoxUser.Text;
+                    dev_user = Dev_user;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Login failed.Incorect User or Password.");
+                }
             }
             else
             {
-                MessageBox.Show("Incorect User or Password.");
+                MessageBox.Show("Login Faile.User or password field empty.");
             }
         }
     }

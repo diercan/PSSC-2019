@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonTask = new System.Windows.Forms.Button();
             this.panelindex = new System.Windows.Forms.Panel();
@@ -137,7 +137,7 @@
             // kryptonDataGridView1
             // 
             this.kryptonDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.kryptonDataGridView1.Location = new System.Drawing.Point(18, 313);
+            this.kryptonDataGridView1.Location = new System.Drawing.Point(36, 336);
             this.kryptonDataGridView1.Name = "kryptonDataGridView1";
             this.kryptonDataGridView1.Size = new System.Drawing.Size(241, 164);
             this.kryptonDataGridView1.TabIndex = 18;
@@ -147,9 +147,9 @@
             this.panelDashboard.Controls.Add(this.groupBoxAddDev);
             this.panelDashboard.Controls.Add(this.groupBox3);
             this.panelDashboard.Controls.Add(this.groupBox1);
-            this.panelDashboard.Location = new System.Drawing.Point(3, 12);
+            this.panelDashboard.Location = new System.Drawing.Point(12, 12);
             this.panelDashboard.Name = "panelDashboard";
-            this.panelDashboard.Size = new System.Drawing.Size(785, 499);
+            this.panelDashboard.Size = new System.Drawing.Size(776, 499);
             this.panelDashboard.TabIndex = 17;
             // 
             // groupBoxAddDev
@@ -383,19 +383,19 @@
             this.TaskChart.BackColor = System.Drawing.Color.Transparent;
             this.TaskChart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.TaskChart.BorderlineColor = System.Drawing.Color.Transparent;
-            chartArea2.Name = "ChartArea1";
-            this.TaskChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.TaskChart.Legends.Add(legend2);
+            chartArea3.Name = "ChartArea1";
+            this.TaskChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.TaskChart.Legends.Add(legend3);
             this.TaskChart.Location = new System.Drawing.Point(21, 23);
             this.TaskChart.Name = "TaskChart";
             this.TaskChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Series2";
-            this.TaskChart.Series.Add(series2);
-            this.TaskChart.Size = new System.Drawing.Size(422, 241);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Legend = "Legend1";
+            series3.Name = "Series2";
+            this.TaskChart.Series.Add(series3);
+            this.TaskChart.Size = new System.Drawing.Size(422, 258);
             this.TaskChart.TabIndex = 1;
             this.TaskChart.Text = "chart1";
             // 
@@ -407,9 +407,9 @@
             this.panelTasks.Controls.Add(this.kryptonButtonStatusChange);
             this.panelTasks.Controls.Add(this.comboBoxStatus);
             this.panelTasks.Controls.Add(this.kryptonDataGridViewTasks);
-            this.panelTasks.Location = new System.Drawing.Point(16, 15);
+            this.panelTasks.Location = new System.Drawing.Point(33, 15);
             this.panelTasks.Name = "panelTasks";
-            this.panelTasks.Size = new System.Drawing.Size(742, 378);
+            this.panelTasks.Size = new System.Drawing.Size(725, 378);
             this.panelTasks.TabIndex = 0;
             // 
             // label8
@@ -446,7 +446,7 @@
             "InWork",
             "Realized",
             "Canceled"});
-            this.comboBoxStatus.Location = new System.Drawing.Point(115, 276);
+            this.comboBoxStatus.Location = new System.Drawing.Point(115, 275);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(145, 21);
             this.comboBoxStatus.TabIndex = 1;
