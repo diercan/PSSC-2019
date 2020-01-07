@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proiectfinalpssc.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,19 @@ namespace Proiectfinalpssc.Controllers
     public class MainController : Controller
     {
         // GET: Main
-        public ActionResult Menu()
+        public ActionResult Menu(CUSTOMER customerModel,string history,string add, string profile)
         {
-            return View("Menu");
+           
+            if (!string.IsNullOrEmpty(history))
+                return RedirectToAction("Show", "History", customerModel);
+            if (!string.IsNullOrEmpty(add))
+                return RedirectToAction("Index", "Trade", customerModel);
+            if (!string.IsNullOrEmpty(profile))
+                return RedirectToAction("Profile", "Profile", customerModel);
+            return View();
+
+
+
         }
     }
 }

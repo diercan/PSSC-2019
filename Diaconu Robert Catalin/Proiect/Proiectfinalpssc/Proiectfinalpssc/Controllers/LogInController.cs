@@ -20,13 +20,20 @@ namespace Proiectfinalpssc.Controllers
         [HttpPost]
         public ActionResult Login(CUSTOMER customerModel)
         {
+            var flag = 0;
             using (PSSCEntities dbModel = new PSSCEntities())
             {
-                if (dbModel.CUSTOMERS.Any(cst => cst.USERNAME == customerModel.USERNAME && cst.PASSWORD == customerModel.PASSWORD))
+                foreach (CUSTOMER cst in dbModel.CUSTOMERS)
+                 // if (dbModel.CUSTOMERS.Any(cst => cst.USERNAME == customerModel.USERNAME && cst.PASSWORD == customerModel.PASSWORD ))
+                    if (cst.USERNAME == customerModel.USERNAME && cst.PASSWORD == customerModel.PASSWORD)
+                    {
+                        flag=1;
+                        customerModel = cst;
+                    }
+                   
+                if(flag==1)
                 {
-     
                     ViewBag.LoggedMessage = "LOGGED IN";
-                    //return View("Menu", customerModel);
                     return RedirectToAction("Menu", "Main", customerModel);
                 }
                 else
@@ -34,13 +41,10 @@ namespace Proiectfinalpssc.Controllers
                     ViewBag.IncorrectMessage = "Incorrect user or password";
                     return View("Login", customerModel);
                     //return Content("eroare");
-                   
-
-
                 }
 
 
-                
+
             } 
 
         }

@@ -1,12 +1,20 @@
-﻿@model Proiectfinalpssc.Models.CUSTOMER
+﻿
+@model Proiectfinalpssc.Models.CUSTOMER
 @{
     ViewBag.Title = "Menu";
 }
 
+
+@{var data = ViewBag.Message; }
+
 <h2>Menu</h2>
-<p>model.IBAN</p>
-<button type="button">Transaction history</button><br /><br />
-<button type="button">Make a transaction</button><br /><br />
-<button type="button">Profile</button>
+<p>@data</p>
+@using (Html.BeginForm())
+{
+    <input name="history" type="submit" id="history" value="Transaction history" />
+    <input name="add" type="submit" id="add" value="Make a transaction" />
+    <input name="profile" type="submit" id="profile" value="Profile" />
+}
+
 
 
