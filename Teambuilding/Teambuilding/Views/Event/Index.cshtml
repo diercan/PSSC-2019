@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Teambuilding.Models.Event>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Actions
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var events in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => events.date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => events.text)
+                </td>
+                
+                <td>
+                    |@Html.ActionLink("Delete Event", "DeleteEvent", new { id = events.id })|
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

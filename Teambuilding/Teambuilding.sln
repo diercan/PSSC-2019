@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teambuilding", "Teambuilding\Teambuilding.csproj", "{337F69C9-7401-4E20-AC81-577DC62EC681}"
+	ProjectSection(ProjectDependencies) = postProject
+		{55CBB571-4DB6-466E-94B9-EFDF021FB5AA} = {55CBB571-4DB6-466E-94B9-EFDF021FB5AA}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageConsole", "MessageConsole\MessageConsole.csproj", "{55CBB571-4DB6-466E-94B9-EFDF021FB5AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{337F69C9-7401-4E20-AC81-577DC62EC681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{337F69C9-7401-4E20-AC81-577DC62EC681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{337F69C9-7401-4E20-AC81-577DC62EC681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{337F69C9-7401-4E20-AC81-577DC62EC681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55CBB571-4DB6-466E-94B9-EFDF021FB5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55CBB571-4DB6-466E-94B9-EFDF021FB5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55CBB571-4DB6-466E-94B9-EFDF021FB5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55CBB571-4DB6-466E-94B9-EFDF021FB5AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4FE3B43F-370F-43DF-BB8B-7E5ADB8617AE}
+	EndGlobalSection
+EndGlobal
