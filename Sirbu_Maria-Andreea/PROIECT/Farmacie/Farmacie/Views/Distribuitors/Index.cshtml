@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Farmacie.Models.Distribuitor>
+
+@{
+    ViewData["Title"] = "Distribuitori";
+}
+<br />
+<br />
+<h1>Distribuitori</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Distribuitor
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Telefon
+            </th>
+            <th>
+                Adresa sediului
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.strNumeDistribuitor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.strEmailDistribuitor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.strNrTelefonDistribuitor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.strAdresaDistribuitor)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Editare</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Detalii</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Șterge</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

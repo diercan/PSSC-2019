@@ -1,0 +1,49 @@
+﻿@model Farmacie.Models.Distribuitor
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Distribuitor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="strNumeDistribuitor" class="control-label"></label>
+                <input asp-for="strNumeDistribuitor" class="form-control" />
+                <span asp-validation-for="strNumeDistribuitor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strEmailDistribuitor" class="control-label"></label>
+                <input asp-for="strEmailDistribuitor" class="form-control" />
+                <span asp-validation-for="strEmailDistribuitor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strNrTelefonDistribuitor" class="control-label"></label>
+                <input asp-for="strNrTelefonDistribuitor" class="form-control" />
+                <span asp-validation-for="strNrTelefonDistribuitor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strAdresaDistribuitor" class="control-label"></label>
+                <input asp-for="strAdresaDistribuitor" class="form-control" />
+                <span asp-validation-for="strAdresaDistribuitor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

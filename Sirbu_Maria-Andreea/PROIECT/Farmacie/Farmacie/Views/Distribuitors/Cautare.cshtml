@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Farmacie.Models.Distribuitor>
+
+@{
+    ViewData["Title"] = "Cautare";
+}
+<br />
+<br />
+<h1>Căutare distribuitor</h1>
+
+<body>
+    <br />
+    <br />
+    <form asp-controller="Distribuitors" asp-action="Cautare">
+        <p>
+            <br />
+            <br />
+            Introduceți numele căutat: <input type="text" name="SearchString">
+            <input type="submit" value="Căutare" />
+        </p>
+    </form>
+    <table class="table">
+        <thead>
+            @if (@ViewBag.flag == 1)
+            {
+            <tr>
+                <th>
+                    Distribuitor
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Telefon
+                </th>
+                <th>
+                    Adresa sediului
+                </th>
+                <th></th>
+            </tr>
+            }
+        </thead>
+        <tbody>
+            @if (@ViewBag.flag == 1)
+            {
+                @foreach (var item in Model)
+                {
+                    
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.strNumeDistribuitor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.strEmailDistribuitor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.strNrTelefonDistribuitor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.strAdresaDistribuitor)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Editare</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Detalii</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Șterge</a>
+                </td>
+            </tr>
+                }
+            }
+        </tbody>
+    </table>
+</body>

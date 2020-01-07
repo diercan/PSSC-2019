@@ -1,0 +1,87 @@
+﻿
+@model IEnumerable<Farmacie.Models.Farmacist>
+
+@{
+    ViewData["Title"] = "Farmaciștii APharma";
+}
+
+<br />
+<br />
+<h1>Căutare farmacist</h1>
+<body>
+    <br />
+    <br />
+    <form asp-controller="Farmacists" asp-action="Cautare">
+        <p>
+            <br />
+            <br />
+            Introduceți numele căutat: <input type="text" name="SearchString">
+            <input type="submit" value="Căutare" />
+        </p>
+    </form>
+    <table class="table">
+        <thead>
+            @if (@ViewBag.flag == 1)
+            {
+                <tr>
+                    <th>
+                        Nume
+                    </th>
+                    <th>
+                        Prenume
+                    </th>
+                    <th>
+                        CNP
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Telefon
+                    </th>
+                    <th>
+                        Adresa
+                    </th>
+                    <th></th>
+                </tr>
+            }
+            </thead>
+        <tbody>
+            @if(@ViewBag.flag==1)
+            {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strNume)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strPrenume)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strCNP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strNrTelefon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strEmail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strAdresaFarmacie)
+                    </td>
+
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.strParola)
+                        </td>*@
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+            }
+        </tbody>
+    </table>
+</body>
