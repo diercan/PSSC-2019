@@ -1,0 +1,7 @@
+Domeniul: Rezervari online
+
+
+Functionalitatile sistemului sunt:
+- vizualizarea stocului de carti disponibile
+- rezervarea unei carti prin introducerea numarului de telefon
+- vizualizarea de catre user a rezervarilor sale

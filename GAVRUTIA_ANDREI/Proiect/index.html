@@ -1,0 +1,136 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>MyBook App</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+  </style>
+</head>
+
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+      </div>
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        <h3>MyBook App</h3>
+      </div>
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+      </div>
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+        <a href="#overview" class="mdl-layout__tab is-active">Rezervarile Mele</a>
+        <a href="#features" class="mdl-layout__tab">Carti disponibile</a>
+      </div>
+    </header>
+    <main class="mdl-layout__content">
+      <div class="mdl-layout__tab-panel is-active" id="overview">
+        <input type="text" name="Add" id="PhoneNumber" minlength="10" maxlength="10" placeholder="Please add number">
+        <button onclick="submit()">Search</button>
+        <table id="ReservationTable" style="display:none ; width:100% ; margin-top:3rem">
+          <header>
+            <tr>
+              <th>Titlu</th>
+              <th>Autor</th>
+            </tr>
+          </header>
+        </table>
+
+
+      </div>
+      <div class="mdl-layout__tab-panel" id="features">
+        <!-- <section class="section--center mdl-grid mdl-grid--no-spacing">
+          <div class="mdl-cell mdl-cell--12-col"> -->
+
+        <head>
+          <style>
+            table {
+              border-collapse: collapse;
+              width: 100%;
+            }
+
+            th,
+            td {
+              text-align: left;
+              padding: 8px;
+            }
+
+            tr:nth-child(even) {
+              background-color: #f2f2f2
+            }
+
+            th {
+              background-color: rgb(91, 9, 199);
+              color: white;
+            }
+          </style>
+        </head>
+        <h4>Lista carti disponibile</h4>
+
+        <body>
+          <table id="BooksTable">
+            <header>
+              <tr>
+                <th>Titlu</th>
+                <th>Autor</th>
+                <th>Stoc</th>
+                <th>Rezerva</th>
+              </tr>
+            </header>
+          </table>
+          </p>
+      </div>
+      </section>
+  </div>
+  </main>
+  </div>
+  <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyC3urTEblETKhJnXeKNAOVUAlXGjX9mMi0",
+      authDomain: "dbwebapp-f1796.firebaseapp.com",
+      databaseURL: "https://dbwebapp-f1796.firebaseio.com",
+      projectId: "dbwebapp-f1796",
+      storageBucket: "dbwebapp-f1796.appspot.com",
+      messagingSenderId: "761743439182",
+      appId: "1:761743439182:web:2143cbf0868dd67b439a1f",
+      measurementId: "G-HCG6S3C88D"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="index.js"></script>
+</body>
+
+</html>
