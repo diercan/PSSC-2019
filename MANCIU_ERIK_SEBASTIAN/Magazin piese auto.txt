@@ -3,8 +3,8 @@
 
 FUNCTIONALITATILE:
 
--inregistrare pe aplicatie mobila
--autentificare
--resetare parola
+
+-autentificare pe aplicatia web
 -cumparare produse
+-comandare produse din cosul de cumparaturi
 
