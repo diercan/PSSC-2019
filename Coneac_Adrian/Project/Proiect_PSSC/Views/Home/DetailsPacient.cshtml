@@ -1,0 +1,84 @@
+﻿@model HomeDetailsViewModel
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> signInManager;
+@{
+    Layout = null;
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" asp-controller="home" asp-action="index"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link">MediFam</a>
+            </li>
+        </ul>
+
+
+        <ul class="navbar-nav ml-auto">
+            @if (signInManager.IsSignedIn(User))
+            {
+                <li class="nav-item">
+                    <form method="post" asp-action="logout" asp-controller="account">
+                        <button type="submit" class="nav-link btn btn-link py-0" style="width:auto">
+                            Logout @User.Identity.Name
+                        </button>
+                    </form>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="account" asp-action="register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="account" asp-action="login">Login</a>
+                </li>
+            }
+
+        </ul>
+    </div>
+</nav>
+
+
+<div class="justify-content-center ">
+    <div class="card-header">
+        <h1>@Model.Pacient.Nume @Model.Pacient.Prenume</h1>
+    </div>
+    <div class="card-body">
+        <h1>Date Generale</h1>
+            <h4>Nume : @Model.Pacient.Nume</h4>
+            <h4>Prenume : @Model.Pacient.Prenume</h4>
+            <h4>CNP : @Model.Pacient.CNP</h4>
+            <h4>Sexul : @Model.Pacient.Sexul</h4>
+            <h4>Adresa : @Model.Pacient.Adresa</h4>
+        <h1>Curbe Individuale</h1>
+            <h4>Inaltime : @Model.Pacient.Inaltime</h4>
+            <h4>Greutate : @Model.Pacient.Greutate</h4>
+            <h4>IMC : @Model.Coeficient ( 18-25 )</h4>
+            <h4>Puls : @Model.Pacient.Puls ( 60-80 Bp/min )</h4>
+        <h1>Examen Cardiologic</h1>
+            <h4>Tensiune Arteriala : @Model.Pacient.Tensiune ( 120:140 - 60:80 mmHg )</h4>
+            <h4>Frecventa Cardiaca : @Model.Pacient.Frecventa_Cardiaca ( 60 - 80 Bpm )</h4>
+        <h1>Examen Respirator</h1>
+            <h4>Inspectie Toracica : @Model.Pacient.Inspectie_Toracica</h4>
+            <h4>Frecventa Respiratorie : @Model.Pacient.Frecv_Respiratorie ( 14 - 16 resp/min )</h4>
+            <h4>Auscultatie : @Model.Pacient.Auscultatie</h4>
+        <h1>Analize de sange</h1>
+            <h4>Leucocite : @Model.Pacient.Leucocite ( 4500 - 11000 µL )</h4>
+            <h4>Eritrocite : @Model.Pacient.Eritrocite ( 4.2 - 6 µL )</h4>
+            <h4>Trombocite : @Model.Pacient.Trombocite ( 150000 - 450000 µL )</h4>
+            <h4>Hemoglobina : @Model.Pacient.Hemoglobina ( 14 - 18 g/dL )</h4>
+            <h4>Hematocrit : @Model.Pacient.Hematocrit ( 36 - 54 % )</h4>
+        </div>
+
+</div>
+
+

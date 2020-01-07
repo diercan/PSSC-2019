@@ -1,0 +1,174 @@
+﻿@model Proiect_PSSC.ViewModels.CreatePacientiViewModel
+@{
+    ViewBag.Title = "Create Pacient";
+}
+
+    <form asp-controller="Home" asp-action="Create" method="post">
+        <h1>Date Generale</h1>
+
+        <div class="form-group row">
+            <label asp-for="Nume" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Nume" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Prenume" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Prenume" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="CNP" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="CNP" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Sexul" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <select asp-for="Sexul" asp-items="Html.GetEnumSelectList<Sex>()" class="form-control"></select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Adresa" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Adresa" class="form-control" />
+            </div>
+        </div>
+
+        <h1>Curbe Individuale</h1>
+
+        <div class="form-group row">
+            <label asp-for="Inaltime" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Inaltime" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Greutate" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Greutate" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Temperatura" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Temperatura" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Puls" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Puls" class="form-control" />
+            </div>
+        </div>
+
+        <h1>Examen Cardiac</h1>
+
+        <div class="form-group row">
+            <label asp-for="Tensiune" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Tensiune" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Frecventa_Cardiaca" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Frecventa_Cardiaca" class="form-control" />
+            </div>
+        </div>
+
+        <h1>Examen Respirator</h1>
+
+        <div class="form-group row">
+            <label asp-for="Auscultatie" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Auscultatie" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Frecv_Respiratorie" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Frecv_Respiratorie" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Inspectie_Toracica" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Inspectie_Toracica" class="form-control" />
+            </div>
+        </div>
+
+        <h1>Analiza de Sange</h1>
+
+        <div class="form-group row">
+            <label asp-for="Leucocite" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Leucocite" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Eritrocite" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Eritrocite" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Trombocite" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Trombocite" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Hemoglobina" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Hemoglobina" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Hematocrit" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Hematocrit" class="form-control" />
+            </div>
+        </div>
+
+
+
+        <div>
+            <button type="submit" class="btn btn-primary">Create</button>
+
+        </div>
+
+
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
