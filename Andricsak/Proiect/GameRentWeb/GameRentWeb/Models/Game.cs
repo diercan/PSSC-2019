@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using GameRentWeb.Repositories;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -19,5 +20,39 @@ namespace GameRentWeb.Models
         public string Platform { get; set; }
         public string Category { get; set; }
         public int Quantity { get; set; } // this will decrease when an order is made
+
+        #region operations
+        public Game RentGame()
+        {
+            if (Quantity > 0)
+            { 
+                Quantity--;
+                return this;
+            }
+            else
+            {
+                return null;
+            }   
+        }
+
+        public Game ReturnGame()
+        {
+            Quantity++;
+            return this;
+        }
+        #endregion
+        
+        #region overrides
+        public override bool Equals(object obj)
+        {
+            var game = (Game)obj;
+
+            if(game != null)
+            {
+                return (Id == game.Id);
+            }
+            return false;
+        }
+        #endregion
     }
 }

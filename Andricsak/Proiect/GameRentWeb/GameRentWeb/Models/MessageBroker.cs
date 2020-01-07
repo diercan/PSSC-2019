@@ -12,6 +12,10 @@ namespace GameRentWeb.Models
     public class MessageBroker
     {
         private readonly IConnection _connection;
+        public MessageBroker()
+        {
+
+        }
         public MessageBroker(IConnection connection)
         {
             _connection = connection;
@@ -64,6 +68,7 @@ namespace GameRentWeb.Models
                                         autoAck: true,
                                         consumer: consumer);
             }
+            channel.Close();
             return await Task.FromResult<RentOrder>(rent);
         }
     }

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using GameRentWeb.GenericModels;
 using GameRentWeb.Models;
 using GameRentWeb.Repositories;
+using GameRentWeb.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -17,7 +19,6 @@ namespace GameRentWeb.Controllers
         private readonly IDataBaseRepo<Game> _games;
         private readonly IDataBaseRepo<User> _users;
         private readonly MessageBroker _broker;
-        private static Game gameRented;
         
         private int rentedGameid;
         public RentController(IDataBaseRepo<RentOrder> rentOrders, IDataBaseRepo<Game> games, MessageBroker broker,
@@ -29,18 +30,29 @@ namespace GameRentWeb.Controllers
             _users = users;
         }
 
+        public virtual void SetTempData(string key,string message)
+        {
+            TempData[key] = message;
+        }
+
+        public virtual string GetSessionValue(string key)
+        {
+            return HttpContext.Session.GetString(key);
+        }
+
         public IActionResult ExtendView()
         {
             return View();
         }
+
         public IActionResult DisplayRents()
         {
-            if (HttpContext.Session.GetString("Username") == null)
+            if (GetSessionValue("Username") == null)
             {
-                TempData["Error"] = "You need to login First!";
+                SetTempData("Error","You need to login first!");
                 return RedirectToAction("Index", "Game");
             }
-            var loggedUser = _users.GetAllObjects().Result.FirstOrDefault(u => u.UserName.Equals(HttpContext.Session.GetString("Username")));
+            var loggedUser = _users.GetAllObjects().Result.FirstOrDefault(u => u.UserName.Equals(GetSessionValue("Username")));
             
             List<RentOrder> rents = _rentOrders.GetAllObjects().Result.Where(r => r.user.Id == loggedUser.Id).ToList();
             return View("MyRents", rents);
@@ -51,56 +63,57 @@ namespace GameRentWeb.Controllers
         {
             if(HttpContext.Session.GetString("Username") ==null)
             {
-                TempData["Error"] = "You need to login First!";
+                SetTempData("Error", "You need to login first!");
                 return RedirectToAction("Index","Game");
             }
             
             rentedGameid = id;
-            gameRented = _games.GetObjectById(rentedGameid).Result;
+            var gameRented = _games.GetObjectById(rentedGameid).Result;
             ViewBag.GameName = gameRented.Name;
             if(gameRented.Quantity < 1)
             {
-                TempData["Error"] = "There are no copies available!";
+                SetTempData("Error","There are no copies available!");
                 return RedirectToAction("Index", "Game");
             }
             return View();
         }
 
-        public async Task<IActionResult> Rent(RentOrder rent)
+        public async Task<IActionResult> Rent(RentViewModel rentView)
         {
-            rent.CurrentRentedDay = DateTime.Today;
-            rent.GameRented = gameRented.Name;
-           
-            var rentJson = JsonConvert.SerializeObject(rent);
-            await _broker.SendMessage(rentJson,"RentToWorker");
-            var rentReceived = _broker.ReceiveMessage("WorkerToRent").Result;
-
-            rent.ExpiringDate = rentReceived.ExpiringDate;
-            rent.TotalPayment = rentReceived.TotalPayment;
-
-            var user = _users.GetAllObjects().Result.FirstOrDefault(u => u.UserName.Equals(HttpContext.Session.GetString("Username"))); 
-
-            user.RentOrders = new Collection<RentOrder>();
+            // database operations
+            var rentedGame = _games.GetAllObjects().Result.FirstOrDefault(g => g.Name == rentView.RentedGame);
+            var user = _users.GetAllObjects().Result.FirstOrDefault(u => u.UserName.Equals(HttpContext.Session.GetString("Username")));
+            var gameRented = _games.GetAllObjects().Result.FirstOrDefault(g => g.Name.Equals(rentView.RentedGame));
             
-            if(user.Balance > rent.TotalPayment && gameRented.Quantity >= 1)
+            rentedGame = rentedGame.RentGame();
+            if(rentedGame == null)
             {
-                user.Balance -= rent.TotalPayment;
-                // update game quantity
-                gameRented.Quantity -= 1;
-                await _rentOrders.Insert(rent);
-                user.RentOrders.Add(rent);
+                SetTempData("Quantity", "No more products left on stock");
+                return View("Index");
+            }
+            else
+            {
                 await _games.Update(gameRented);
-                
+            }
+            var rent = rentView.Rent;
+            user.RentOrders = new Collection<RentOrder>();
+            // DDD operations (kind of)
+            rent.GameRented = gameRented.Name;
+            await rent.CreateRentAsync(_broker);
+            user = user.AddRent(rent);
+
+            if(user == null)
+            {
+                SetTempData("Funds", $"Not enough funds, payment is {rent.TotalPayment}$!");
+                return View("Index");
+            }
+            else
+            {
+                await _rentOrders.Insert(rent);
                 await _users.Update(user);
                 HttpContext.Session.SetString("Balance", Convert.ToString(user.Balance));
                 return RedirectToAction("Index", "Game");
             }
-            else
-            {
-                TempData["Funds"] = $"Not enough funds, payment is {rent.TotalPayment}$!";
-                return View("Index");
-            }
-            
         }
 
         public async Task<IActionResult> Return(int id)
@@ -109,24 +122,18 @@ namespace GameRentWeb.Controllers
             RentOrder selectedRent = _rentOrders.GetObjectById(id).Result;
             if(selectedRent.CurrentRentedDay == DateTime.Today)
             {
-                TempData["Error"] = "You can't return a game on the same day you rent it!";
+                SetTempData("Error","You can't return a game on the same day you rent it!");
                 return RedirectToAction("DisplayRents", "Rent");
             }
             Game returnedGame =  _games.GetAllObjects().Result.Where(g => g.Name.Equals(selectedRent.GameRented)).FirstOrDefault();
-            returnedGame.Quantity += 1;
             var user = _users.GetAllObjects().Result.FirstOrDefault(u => u.UserName.Equals(HttpContext.Session.GetString("Username")));
-           
-            var selectedRentJson = JsonConvert.SerializeObject(selectedRent,new JsonSerializerSettings()
-            {
-                ReferenceLoopHandling =ReferenceLoopHandling.Ignore
-            }
-            );
 
-            await _broker.SendMessage(selectedRentJson, "ReturnToWorker");
-            var receivedRent = await _broker.ReceiveMessage("ReturnToWeb");
-
-            user.Balance += receivedRent.TotalPayment;
-
+            // DDD operations (kind of)
+            returnedGame = returnedGame.ReturnGame();
+            selectedRent = await selectedRent.InterruptRentAsync(_broker);     
+            user = user.RemoveRent(selectedRent);
+            
+            // database operations
             await _users.Update(user);
             await _rentOrders.Delete(selectedRent.Id);
             HttpContext.Session.SetString("Balance", user.Balance.ToString());
@@ -138,27 +145,19 @@ namespace GameRentWeb.Controllers
         [Route("Rent/Extend/{id}/{days}")]
         public async Task<IActionResult> Extend(int id,int days)
         {
-            
-            var selectedRent =  _rentOrders.GetObjectById(id).Result;           
-            selectedRent.RentPeriod += Convert.ToInt32(days);
-
-            var selectedRentJson = JsonConvert.SerializeObject(selectedRent);
-            
-            await _broker.SendMessage(selectedRentJson, "RentToWorker");
-            var rentReceived = _broker.ReceiveMessage("WorkerToRent").Result;
-
+            var selectedRent =  _rentOrders.GetObjectById(id).Result;
+            selectedRent = await selectedRent.ExtendRentAsync(days, _broker);
           
-
             var user = _users.GetAllObjects().Result.FirstOrDefault(u => u.UserName.Equals(HttpContext.Session.GetString("Username")));
-            user.Balance -= days * 3f;
-            if(user.Balance < 0)
+            if(user.Balance < days * 3f)
             {
-                TempData["Error"] = "You don't have enough money to extend it's rent duartion";
+                SetTempData("Error","You don't have enough money to extend it's rent duartion");
                 return RedirectToAction("DisplayRents", "Rent");
             }
+            user.Balance -= days * 3f;
             HttpContext.Session.SetString("Balance", user.Balance.ToString());
             await _users.Update(user);
-            await _rentOrders.Update(rentReceived);
+            await _rentOrders.Update(selectedRent);
 
             return RedirectToAction("DisplayRents", "Rent");
         }

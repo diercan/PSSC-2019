@@ -1,0 +1,180 @@
+<mxfile host="www.draw.io" modified="2020-01-02T21:02:55.764Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36" etag="nGjR7sV-RNO79-AJLzgT" version="12.4.8" type="github">
+  <diagram id="LL2LScRd_DhEOcKDATyg" name="Page-1">
+    <mxGraphModel dx="1024" dy="566" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-3" value="" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="100" y="620" as="sourcePoint"/>
+            <mxPoint x="100" y="160" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-4" value="" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="100" y="620" as="sourcePoint"/>
+            <mxPoint x="760" y="620" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-5" value="" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="100" y="160" as="sourcePoint"/>
+            <mxPoint x="760" y="160" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-6" value="" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="620" as="sourcePoint"/>
+            <mxPoint x="760" y="160" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-8" value="&lt;font&gt;&lt;b style=&quot;font-size: 12px&quot;&gt;User Controller&lt;br&gt;&lt;/b&gt;&lt;font style=&quot;font-size: 9px&quot;&gt;(MVC controller)&lt;/font&gt;&lt;br&gt;A&lt;/font&gt;&lt;font&gt;&lt;font size=&quot;1&quot;&gt;llows the users to register and also login.&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="240" width="140" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-9" value="&lt;font&gt;&lt;b style=&quot;font-size: 12px&quot;&gt;Security Component&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;Provides functionality related to sign in and registration&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="125" y="430" width="150" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-10" value="&lt;font style=&quot;font-size: 12px&quot;&gt;&lt;b&gt;Rent Controller&lt;br&gt;&lt;/b&gt;&lt;span style=&quot;font-size: 9px&quot;&gt;(MVC controller)&lt;/span&gt;&lt;br&gt;A&lt;/font&gt;&lt;font&gt;&lt;font size=&quot;1&quot;&gt;llows the users to rent a game, extend it&#39;s rent period or return a game before the expiring date.&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="230" width="150" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-11" value="&lt;font&gt;&lt;b style=&quot;font-size: 12px&quot;&gt;Game Controller&lt;br&gt;&lt;/b&gt;&lt;font style=&quot;font-size: 9px&quot;&gt;(MVC controller)&lt;/font&gt;&lt;br&gt;A&lt;/font&gt;&lt;font&gt;&lt;font size=&quot;1&quot;&gt;llows the admin of the application to add new games available for renting by normal users.&amp;nbsp;&lt;br&gt;Also displays the games available for renting.&lt;br&gt;&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="210" width="180" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-12" value="&lt;font&gt;&lt;b style=&quot;font-size: 12px&quot;&gt;Static web content&lt;br&gt;&lt;/b&gt;&lt;font style=&quot;font-size: 9px&quot;&gt;(HTML and CSS)&lt;br&gt;P&lt;/font&gt;&lt;/font&gt;&lt;font&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;rovides the static content&amp;nbsp; that enables the single page application functionalities.&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="333" y="20" width="160" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-13" value="" style="endArrow=classic;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.44;entryY=-0.003;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="RqByoCRG_jF0A8_NaVhb-12" target="RqByoCRG_jF0A8_NaVhb-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="220" as="sourcePoint"/>
+            <mxPoint x="250" y="170" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="230" y="190"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-18" value="Provides" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="RqByoCRG_jF0A8_NaVhb-13">
+          <mxGeometry x="0.0252" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-14" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="RqByoCRG_jF0A8_NaVhb-12" target="RqByoCRG_jF0A8_NaVhb-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="370" y="220" as="sourcePoint"/>
+            <mxPoint x="420" y="170" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-19" value="Provides" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="RqByoCRG_jF0A8_NaVhb-14">
+          <mxGeometry x="-0.2061" y="1" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-15" value="" style="endArrow=classic;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.576;entryY=0.016;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="RqByoCRG_jF0A8_NaVhb-12" target="RqByoCRG_jF0A8_NaVhb-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="620" y="230" as="sourcePoint"/>
+            <mxPoint x="670" y="180" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-20" value="Provides" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="RqByoCRG_jF0A8_NaVhb-15">
+          <mxGeometry x="-0.1472" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-16" value="" style="endArrow=classic;html=1;exitX=0.446;exitY=1.026;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="RqByoCRG_jF0A8_NaVhb-8" target="RqByoCRG_jF0A8_NaVhb-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="170" y="390" as="sourcePoint"/>
+            <mxPoint x="220" y="340" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-17" value="Uses" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="RqByoCRG_jF0A8_NaVhb-16">
+          <mxGeometry x="-0.2228" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-21" value="&lt;font style=&quot;font-weight: bold ; font-size: 14px&quot;&gt;Database&lt;br&gt;&lt;/font&gt;&lt;font&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;Store users information, rents made by them and games that are added for renting.&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="670" width="180" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-22" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="RqByoCRG_jF0A8_NaVhb-9" target="RqByoCRG_jF0A8_NaVhb-21">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="800" as="sourcePoint"/>
+            <mxPoint x="150" y="800" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-23" value="Reads from and writes to" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="RqByoCRG_jF0A8_NaVhb-22">
+          <mxGeometry x="-0.1535" y="1" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-25" value="&lt;font&gt;&lt;b style=&quot;font-size: 12px&quot;&gt;Rent operations service&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;font&gt;&lt;font size=&quot;1&quot;&gt;Operations made when a new rent, return or extend service is called( calculating the payment, the expiring date or extending the rent period)&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="660" width="160" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-27" value="&lt;font&gt;&lt;b style=&quot;font-size: 12px&quot;&gt;Queue message Component&lt;br&gt;&lt;/b&gt;&lt;font style=&quot;font-size: 9px&quot;&gt;(MVC controller)&lt;/font&gt;&lt;br&gt;&lt;/font&gt;&lt;font&gt;The operations made by the user are sent via a queue for processing( renting, extending or returning a game)&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="353" y="405" width="157" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-30" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="RqByoCRG_jF0A8_NaVhb-10" target="RqByoCRG_jF0A8_NaVhb-27">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390.00000000000006" y="320.00000000000006" as="sourcePoint"/>
+            <mxPoint x="395.83262044653344" y="438.18" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-31" value="Uses" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="RqByoCRG_jF0A8_NaVhb-30">
+          <mxGeometry x="-0.2228" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-32" value="" style="endArrow=classic;html=1;exitX=0.353;exitY=1.003;exitDx=0;exitDy=0;entryX=0.587;entryY=-0.005;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="RqByoCRG_jF0A8_NaVhb-27" target="RqByoCRG_jF0A8_NaVhb-21">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="420" as="sourcePoint"/>
+            <mxPoint x="340" y="590" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="350" y="600"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-33" value="Reads from and writes to&lt;br&gt;after receiving processed data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="RqByoCRG_jF0A8_NaVhb-32">
+          <mxGeometry x="-0.1535" y="1" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-34" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="RqByoCRG_jF0A8_NaVhb-27" target="RqByoCRG_jF0A8_NaVhb-25">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="441.5" y="535" as="sourcePoint"/>
+            <mxPoint x="265.6600000000001" y="679.45" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-35" value="Sends data for processing" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="RqByoCRG_jF0A8_NaVhb-34">
+          <mxGeometry x="-0.1535" y="1" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-36" value="" style="endArrow=classic;html=1;exitX=0.825;exitY=-0.042;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;exitPerimeter=0;" edge="1" parent="1" source="RqByoCRG_jF0A8_NaVhb-25" target="RqByoCRG_jF0A8_NaVhb-27">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="560" y="560" as="sourcePoint"/>
+            <mxPoint x="718.5" y="695" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-37" value="Returns processed Data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="RqByoCRG_jF0A8_NaVhb-36">
+          <mxGeometry x="-0.1535" y="1" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-39" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.78;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="RqByoCRG_jF0A8_NaVhb-21">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="690" y="790" as="sourcePoint"/>
+            <mxPoint x="615" y="760" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-41" value="Reads and writes to" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="RqByoCRG_jF0A8_NaVhb-39">
+          <mxGeometry x="0.0792" y="1" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RqByoCRG_jF0A8_NaVhb-40" value="" style="endArrow=none;html=1;entryX=0.873;entryY=1.029;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="RqByoCRG_jF0A8_NaVhb-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="690" y="790" as="sourcePoint"/>
+            <mxPoint x="740" y="740" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
