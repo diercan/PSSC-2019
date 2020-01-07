@@ -1,6 +1,0 @@
-Domeniul ales de mine este e-commerce, mai concret o piata online de produse cultivate sau confectionate manual. Aplicatia va face mai usoara viata atat a doritorilor de produse locale si create sau cultivate personal de vanzator, cat si a producatorilor de diverse produse proprii.
-
-Functionalitati:
--inregistrare si logare
--postare de produse in cazul in care inregistrarea a fost facuta ca vanzator
--cumparare de produse
