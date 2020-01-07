@@ -1,0 +1,21 @@
+Domeniul ales pentru care am realizat o aplicatie web, pe care l-am numit MedLife, este Medicina.
+Mai exact, este vorba despre o aplicatie care ofera posibilitatea de a face programare la dunare de sange.
+Donarea de sange este un proces foarte important in medicina, in urma careia putem sa salvam vieti.
+Problema din acest domeniu, pentru care am gãsit o rezolvare, constã în eviterea faptului de a mai sta ore întregi 
+asteptând în fata usii ca sã putem intra si sã putem dona. Aplicatia MedLife oferã posibilitatea de a face programare online pentru donare. 
+Scopul aplicatiei este salvarea timpului si a vietilor!
+În zilele noastre, din pãcate, cel mai mare factor de stres este timpul, care este insuficient si trecãtor.
+Multi dintre noi nu se duc sa doneze sange pentru ca i se pare ca necesita prea mult timp, dar sper ca aceasta aplicatie scoate in evidenta importanta donarii!
+
+Aplicatia realizatã de mine este un sistem software format din douã servicii, una pentru donatori - una pentru asistenti,
+si oferã urmãtoarele posibilitãti:
+-Autentificarea asistentilor si a donatorilor
+Toti donatorii primesc un nume de utilizator si o parola de la medicul de familie prin mail.
+Pentru un asistent avem urmãtoarele optiuni:
+-vizualizarea programãrilor fãcute de cãtre donatori
+-au dreptul de a refuza sau de a accepta o persoana care vrea sa doneze, verificand campurile pe care donatorul este obligat sa le completeze
+Pentru un donator avem urmãtoarele optiuni:
+-vizualizarea programarilor facute de ei si aprobarea lor
+-prin apasarea butonului de Programare pot rezerva o data anume in care vor sa doneze, dar mai inainte sunt nevoiti sa completeze toate campurile,
+ iar prin apasarea butonului de Trimite programarea va fi trimisa la asistenti care urmeaza sa-l aprobe sau sa-l respinga.
+
