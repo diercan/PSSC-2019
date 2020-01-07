@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Rent a Game</title>
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 fixed-top">
+            <div class="container">
+                <a class="navbar-brand " asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/PngController.png" height="45" width="45" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Game" asp-action="Index">Games</a>
+                        </li>
+                        @{ if (Context.Session.GetString("Username") == "Alexinio")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Game" asp-action="AddGameView">Add a Game</a>
+                                </li>
+
+                            }
+                            else if (Context.Session.GetString("Username") != null)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Rent" asp-action="DisplayRents">My Rents</a>
+                                </li>
+                            }
+
+                        }
+                    </ul>
+
+                </div>
+                @{ if (Context.Session.GetString("Username") == null)
+                    {
+                        <a class="btn btn-outline-primary m-2 my-sm-0" asp-controller="User" asp-action="RegisterView">Sign up</a>
+                        <a class="btn btn-outline-primary m-2 my-sm-0" asp-controller="User" asp-action="LoginView">Login</a>
+                    }
+                    else
+                    {
+            <p class="text-white m-2"> Hello @Context.Session.GetString("Username")! Balance: @Context.Session.GetString("Balance")$</p>
+                        <a class="btn btn-outline-primary m-2 my-sm-0" asp-controller="User" asp-action="Logout">Logout</a>
+                    }
+                }
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+
+        <main role="main" class="pb-3" style="padding-top:75px; ">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="text-muted fixed-bottom border-top">
+        <div class="container ">
+            &copy; 2019 - Rent a game - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

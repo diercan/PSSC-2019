@@ -1,0 +1,41 @@
+﻿@model List<Game>
+@{
+    ViewData["Title"] = "View";
+}
+
+@{
+    if (TempData["Error"] != null)
+    {
+        if (TempData["Error"].ToString() != "")
+        {
+            <div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>@TempData["Error"].ToString()</strong>
+            </div>
+        }
+    }
+}
+@{ foreach (var game in Model)
+    {
+        <div class="card m-5 bg-transparent">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="~/images/uploads/@game.CoverImage" style="min-height:250px; width: 250px" class="card-img">
+                </div>
+                <div class="col-md-8 text-white">
+                    <div class="card-header">
+                        <h5 class="card-title ">@game.Name</h5>
+                        <p class="card-text"><b>Platform:</b> @game.Platform</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><b>Category</b>: @game.Category</p>
+                        <p class="card-text"><b>Description</b>: @game.Description</p>
+                    </div>
+                    <div class="card-footer">
+                        <h6><a href=@Url.Action("Index","Rent", new { id = game.Id }) class="card-link">Rent</a></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }}
+

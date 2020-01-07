@@ -1,0 +1,10 @@
+Domeniul:
+-Sistem de votare online.
+-Aplicatie web in care poti vota online .
+
+Functionalitate:
+-logare votant.
+-lista cu candidati.
+-posibilitatea de a alege(vota) doar unul.
+-submit la vot catre baza de date.
+-vizualizarea statisticilor.

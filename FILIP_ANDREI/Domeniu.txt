@@ -1,0 +1,12 @@
+Domeniul pe care l-am ales este cel al vânzărilor, mai exact al licitațiilor, care presupune interacțiunea clienți si un serviciu web oferit de administrator. 
+Este un domeniu bazat pe modelul client-serivce.
+Am decis ca sistemul meu software să se axeze pe gestiunea și stocarea elementelor, de pildă: clienți, produse, caracteristici și functionalități ale acestora.
+
+
+Funcționalitățile sistemului software sunt:
+-logare și înregistrare (fiecare participant va fi reprezentat de un User -are deci un user și o parolă proprie) 
+-adăugarea, ștergerea, editarea produselor de catre cei care licitează și evident, posibilitatea de a vedea și cumpăra noi produse
+-produsele se adaugă dupa categorie, nume și preț
+-licitația poate avea un ciclu de viață limitat sau variabil
+-vizualizarea de către client a descrierii și disponibilității produselor
+-orice participant poate opta pentru orice produs
