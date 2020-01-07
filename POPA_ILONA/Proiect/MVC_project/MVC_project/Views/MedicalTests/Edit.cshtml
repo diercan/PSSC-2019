@@ -1,0 +1,76 @@
+﻿@model MVC_project.Models.MedicalTests
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h3>Edit a blood test result</h3>
+<br />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="MedicalTests" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+             <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TestName" class="control-label"></label>
+					 <select asp-for="TestName" asp-items="Html.GetEnumSelectList<TestType>()" class="form-control"></select>
+                <span asp-validation-for="TestName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TestedComponent" class="control-label"></label>
+                <input asp-for="TestedComponent" class="form-control" />
+                <span asp-validation-for="TestedComponent" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NormalValues" class="control-label"></label>
+                <input asp-for="NormalValues" class="form-control" />
+                <span asp-validation-for="NormalValues" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ResultedValues" class="control-label"></label>
+                <input asp-for="ResultedValues" class="form-control" />
+                <span asp-validation-for="ResultedValues" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Diagnosis" class="control-label"></label>
+                <input asp-for="Diagnosis" class="form-control" />
+                <span asp-validation-for="Diagnosis" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="MedicalTests" asp-action="List">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,10 @@
+Sistem de gestiune a analizelor de sânge efectuate la un laborator
+
+
+Asistentul: - introduce rezultatele analizelor + recomandările în sistem
+	    - editează analizele introduse 
+            - vizualizează programările și anulează o programare
+	            
+Pacienții: - pot vizualiza rezultatele analizelor 
+	   - își pot face o programare online
+
