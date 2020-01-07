@@ -1,0 +1,57 @@
+﻿ul#menu {
+    font-size: 1.3em;
+    font-weight: 600;
+    font-family: Calibri;
+    padding: 0;
+    text-align: center;
+}
+
+    ul#menu li {
+        float: left;
+        list-style: none;
+        padding-left: 15px;
+    }
+
+        ul#menu li a {
+            background: none;
+            color: #999;
+            text-decoration: none;
+        }
+
+            ul#menu li a:hover {
+                color: #333;
+                text-decoration: none;
+                display: block;
+            }
+
+
+
+ul#submenu {
+    display: none;
+}
+
+    ul#submenu li {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: #383838;
+        font-family: inherit;
+        margin: 0;
+        text-align: center;
+    }
+       
+           
+    
+    
+
+ul#menu li:hover ul#submenu {
+    display: block;
+    position: absolute;
+    padding-top: 5px;
+}
+
+    ul#menu li:hover ul#submenu li {
+        display: block;
+    }

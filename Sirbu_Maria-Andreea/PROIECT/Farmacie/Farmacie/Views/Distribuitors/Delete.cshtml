@@ -1,0 +1,45 @@
+﻿@model Farmacie.Models.Distribuitor
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Distribuitor</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strNumeDistribuitor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strNumeDistribuitor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strEmailDistribuitor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strEmailDistribuitor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strNrTelefonDistribuitor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strNrTelefonDistribuitor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strAdresaDistribuitor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strAdresaDistribuitor)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

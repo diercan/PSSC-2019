@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Farmacie.Models.Medicament>
+
+@{
+    ViewData["Title"] = "Cautare";
+}
+<br />
+<br />
+<h1>Căutare medicament</h1>
+
+<body>
+    <br />
+    <br />
+    <form asp-controller="Medicament" asp-action="Cautare">
+        <p>
+            <br />
+            <br />
+            Introduceți numele căutat: <input type="text" name="SearchString">
+            <input type="submit" value="Căutare" />
+        </p>
+    </form>
+    <table class="table">
+        <thead>
+            @if (@ViewBag.flag == 1)
+            {
+                <tr>
+                    <th>
+                        Nume medicament
+                    </th>
+                    <th>
+                        Stoc
+                    </th>
+                    <th>
+                        Distribuitor
+                    </th>
+                    <th>
+                        Pret vanzare
+                    </th>
+                    <th>
+                        Pret Cumpărare
+                    </th>
+                    <th>
+                        Profit
+                    </th>
+                    <th>
+                        Locație
+                    </th>
+                    <th></th>
+                </tr>
+            }
+            </thead>
+        <tbody>
+            @if (@ViewBag.flag == 1)
+            {
+                @foreach (var item in Model)
+                {
+                    decimal diferenta = Convert.ToDecimal(item.fPretVanzare - item.fPretCumparare);
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.strNumeMedicament)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.inStoc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.strDistribuitor)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fPretVanzare)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fPretCumparare)
+                        </td>
+                        <td>
+                            @diferenta
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.strLocatie)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ID">Editare</a> |
+                            <a asp-action="Details" asp-route-id="@item.ID">Detaii</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+            </tbody>
+    </table>
+</body>

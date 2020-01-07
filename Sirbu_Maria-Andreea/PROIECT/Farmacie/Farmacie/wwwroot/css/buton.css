@@ -1,0 +1,31 @@
+﻿<style >
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 34px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: solid;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    outline: none;
+    color: inherit;
+    background-color: inherit;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    position: center;
+}
+
+.button:hover {
+    background-color: #ccffcc;
+    
+}
+
+.button:active {
+    background-color: inherit;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+   
+}
+
+</style >

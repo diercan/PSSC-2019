@@ -1,0 +1,64 @@
+﻿@model Farmacie.Models.Comanda
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Comanda</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="strNumeFarmacist" class="control-label"></label>
+                <input asp-for="strNumeFarmacist" class="form-control" />
+                <span asp-validation-for="strNumeFarmacist" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strPrenumeFarmacist" class="control-label"></label>
+                <input asp-for="strPrenumeFarmacist" class="form-control" />
+                <span asp-validation-for="strPrenumeFarmacist" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strEmailFarmacist" class="control-label"></label>
+                <input asp-for="strEmailFarmacist" class="form-control" />
+                <span asp-validation-for="strEmailFarmacist" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strEmailDistribuitor" class="control-label"></label>
+                <input asp-for="strEmailDistribuitor" class="form-control" />
+                <span asp-validation-for="strEmailDistribuitor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strNumeMedicament" class="control-label"></label>
+                <input asp-for="strNumeMedicament" class="form-control" />
+                <span asp-validation-for="strNumeMedicament" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="inCantitate" class="control-label"></label>
+                <input asp-for="inCantitate" class="form-control" />
+                <span asp-validation-for="inCantitate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strAdresaFarmacie" class="control-label"></label>
+                <input asp-for="strAdresaFarmacie" class="form-control" />
+                <span asp-validation-for="strAdresaFarmacie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

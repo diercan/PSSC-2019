@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="themeSlider" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#themeSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#themeSlider" data-slide-to="1"></li>
+        <li data-target="#themeSlider" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="imgOverlay"></div>
+            <img style="height:360px;width:80%" src="~/images/img1.jpg" alt="First slide">
+            <div class="carousel-caption">
+                <h3>Farmacia APharma</h3>
+
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:360px;width:80%" src="../Images/img2.jpg" alt="Second slide">
+            <div class="carousel-caption">
+                <h3>Gestiunea stocului </h3>
+                <h3>nu a fost niciodată mai simplă!</h3>
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:360px;width:80%" src="../Images/img-01.jpg" alt="Third slide">
+            <div class="carousel-caption">
+               
+
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#themeSlider" data-slide="prev">
+        <span class="fa fa-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#themeSlider" data-slide="next">
+        <span class="fa fa-chevron-right"></span>
+    </a>
+
+</div>
+<br />
+<center><a asp-controller="Comanda" asp-action="Create"><button class="button" style="width:300px;height:80px;font-size: 24px;font-family:Calibri; text-decoration: solid;">Emite comandă</button></a></center>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2>Produsele APharma</h2>
+        </div>
+    </div>
+</div>
+
+<div class="row product-container">
+
+    <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+        <div class="thumbnail product-item" style="height:300px">
+            <a asp-controller="Medicament"
+               asp-action="Index">
+                <img class="img-responsive" title="Click pentru a vizualiza produsele"
+                     style="cursor:pointer;height:160px;width:100%"
+                     src="~/images/img5.jpg" />
+            </a>
+            <a asp-controller="Medicament"
+               asp-action="Index">
+                <img class="img-responsive" title="Click pentru a vizualiza produsele"
+                     style="cursor:pointer;height:140px;width:100%"
+                     src="~/images/img7.png" />
+            </a>
+            <a asp-controller="Farmacists" asp-action="Login"><button class="button" style="width:60px;height:20px;font-size: 10px;font-family:Calibri; text-decoration: solid;">Log out</button></a>
+        
+        </div>
+    </div>
+</div>

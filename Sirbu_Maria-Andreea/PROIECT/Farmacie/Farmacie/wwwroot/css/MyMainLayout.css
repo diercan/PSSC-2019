@@ -1,0 +1,367 @@
+﻿/*[1. IMPORT SOURCE]*/
+@import url(font-awesome.css);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300);
+
+body {
+    margin: 0;
+    padding-bottom: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    color: #333;
+    background: #fff;
+    overflow-x: hidden;
+    scrollbar-face-color: #121212;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+/*[3. LOGO]*/
+.logo {
+    margin-bottom: 40px;
+}
+
+    .logo h1,
+    .logo h2 {
+        margin: 5px 0 5px;
+        text-align: left;
+        font-size: 32px;
+        line-height: 34px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+    }
+
+        .logo h1 span,
+        .logo h2 span {
+            font-weight: 300;
+        }
+
+        .logo h1 a,
+        .logo h2 a {
+            color: #333;
+            text-decoration: none;
+            -webkit-transition: color 0.3s ease-in-out, text-decoration 0.5s ease-in-out;
+            -moz-transition: color 0.3s ease-in-out, text-decoration 0.5s ease-in-out;
+            -ms-transition: color 0.3s ease-in-out, text-decoration 0.5s ease-in-out;
+            -o-transition: color 0.3s ease-in-out, text-decoration 0.5s ease-in-out;
+            transition: color 0.3s ease-in-out, text-decoration 0.5s ease-in-out;
+        }
+
+            .logo h1 a:hover,
+            .logo h2 a:hover {
+                color: #888;
+                text-decoration: underline;
+            }
+
+
+.account {
+    text-align: right;
+}
+
+    .account a {
+        color: #333;
+        text-decoration: none;
+    }
+
+        .account a:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+
+    .account h4 {
+        font-weight: 600;
+        text-transform: uppercase;
+        line-height: 20px;
+        margin-bottom: 10px;
+    }
+
+    .account ul {
+        list-style-type: none;
+        margin-left: -20px;
+        float: right;
+    }
+
+        .account ul > li {
+            float: left;
+            margin: 0 0 0 10px;
+        }
+
+            .account ul > li:nth-child(1),
+            .account ul > #your-account {
+                border-right: 1px solid #333;
+                padding-right: 12px;
+            }
+
+/*[4. NAV MENU]*/
+
+
+.nav-menus {
+    border-top: 2px solid #333;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+    .nav-menus .nav-pills > li > a {
+        background: transparent;
+        color: #333;
+    }
+
+        .nav-menus .nav-pills > li > a:hover {
+            background: #eaeaea;
+            color: #333;
+        }
+
+    .nav-menus .nav-pills > .active > a,
+    .nav-menus .nav-pills > .active > a:hover,
+    .nav-menus .nav-pills > .active > a:focus {
+        background: #333;
+        color: #fff;
+    }
+
+
+.carousel-btns {
+    margin-top: 2em;
+}
+
+    .carousel-btns .btn {
+        width: 150px;
+    }
+
+.carousel-inner .imgOverlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(6, 28, 38, 0.5);
+}
+
+.carousel-inner img {
+    width: 100%;
+}
+
+/*CONTROL*/
+.carousel-control {
+    width: auto;
+}
+
+    .carousel-control .icon-prev,
+    .carousel-control .icon-next,
+    .carousel-control .fa-chevron-left,
+    .carousel-control .fa-chevron-right {
+        position: absolute;
+        top: 47%;
+        right: 0;
+        z-index: 5;
+        display: inline-block;
+        background-color: #000;
+        width: 38px;
+        height: 38px;
+        line-height: 40px;
+        font-size: 14px;
+    }
+
+    .carousel-control .icon-prev,
+    .carousel-control .fa-chevron-left {
+        left: 0;
+    }
+
+.carousel-indicators li {
+    width: 12px;
+    height: 12px;
+    margin: 0 1px;
+    border: 2px solid #fff;
+    opacity: .8;
+}
+
+.carousel-indicators .active {
+    background-color: #28ace2;
+    border-color: #28ace2;
+}
+
+.carousel-control .icon-prev, .carousel-control .fa-chevron-left,
+.carousel-control .icon-right, .carousel-control .fa-chevron-right {
+    border-radius: 50px;
+}
+
+.copyright {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+}
+
+    .copyright .copyright-left {
+        text-align: left;
+    }
+
+.carousel-control .icon-prev, .carousel-control .fa-chevron-left {
+    left: 30px;
+}
+
+.carousel-control .icon-right, .carousel-control .fa-chevron-right {
+    right: 30px;
+}
+
+
+.olContent {
+    width: 100%;
+}
+
+    .olContent h2 {
+        color: #fff;
+        font-size: 19px;
+        padding: 9px 0 0;
+    }
+
+.olSearch {
+    width: 100%;
+}
+
+    .olSearch .inputComn {
+        margin-bottom: 0;
+    }
+
+.inputComn {
+    color: black;
+    font-size: 14px;
+    height: 44px;
+    width: 100%;
+    cursor: pointer;
+    padding: 0 15px;
+}
+
+.searchIcon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.searchBtn {
+    background-color: #005faa;
+    border: 0 none;
+    color: #fff;
+    font-size: 16px;
+    padding: 11px 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    height: 44px;
+}
+
+    .searchBtn:hover {
+        background-color: #326987;
+    }
+
+.olSearch {
+    position: relative;
+}
+
+.content {
+}
+
+    .content .page-header {
+        padding-bottom: 5px;
+        margin: 20px 0 30px;
+        border-bottom: 1px solid #eee;
+    }
+
+        .content .page-header h2 {
+            font-weight: 700;
+        }
+
+
+.product-item {
+    position: relative;
+}
+
+    .product-item .caption h5 {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        border-top: 2px solid #333;
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+
+    .product-item .caption .product-item-price {
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+    }
+
+
+    .product-item .product-item-badge {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        padding: 5px 12px 6px;
+        color: #fff;
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: 600;
+        background: #333;
+        -webkit-border-radius: 4px 0 4px 0;
+        -moz-border-radius: 4px 0 4px 0;
+        -o-border-radius: 4px 0 4px 0;
+        border-radius: 4px 0 4px 0;
+    }
+
+.copyright .copyright-right {
+    text-align: right;
+}
+
+.copyright .list-social {
+    float: right;
+    margin-top: -10px;
+}
+
+    .copyright .list-social > li {
+        display: inline;
+        float: left;
+        margin: 2px 5px;
+    }
+
+        .copyright .list-social > li > a {
+            display: block;
+            width: 30px;
+            height: 30px;
+            position: relative;
+            background: #ffffff;
+            border: 1px solid #ccc;
+            -webkit-border-radius: 100%;
+            -moz-border-radius: 100%;
+            -o-border-radius: 100%;
+            border-radius: 100%;
+            font-size: 20px;
+            color: #333333;
+        }
+
+            .copyright .list-social > li > a:hover {
+                background: #333333;
+                border: 1px solid #333333;
+                font-size: 20px;
+                color: #ffffff;
+            }
+
+            .copyright .list-social > li > a .fa {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-left: -8px;
+                margin-top: -9px;
+            }
+ul#menu li:hover ul#submenu {
+    display: block;
+    position: absolute;
+    padding-top: 5px;
+}
+
+    ul#menu li:hover ul#submenu li {
+        display: block;
