@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbSistem_gestiune_vanzariModelStoreContainer" CdmEntityContainer="dbSistem_gestiune_vanzariEntities">
+    <EntitySetMapping Name="Tabel_Categorie">
+      <EntityTypeMapping TypeName="dbSistem_gestiune_vanzariModel.Tabel_Categorie">
+        <MappingFragment StoreEntitySet="Tabel_Categorie">
+          <ScalarProperty Name="categorie_stearsa" ColumnName="categorie_stearsa" />
+          <ScalarProperty Name="categorie_activa" ColumnName="categorie_activa" />
+          <ScalarProperty Name="identitate_categorie" ColumnName="identitate_categorie" />
+          <ScalarProperty Name="nume_categorie" ColumnName="nume_categorie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tabel_Client">
+      <EntityTypeMapping TypeName="dbSistem_gestiune_vanzariModel.Tabel_Client">
+        <MappingFragment StoreEntitySet="Tabel_Client">
+          <ScalarProperty Name="identitate_client" ColumnName="identitate_client" />
+          <ScalarProperty Name="nume_client" ColumnName="nume_client" />
+          <ScalarProperty Name="prenume_client" ColumnName="prenume_client" />
+          <ScalarProperty Name="adresa_client" ColumnName="adresa_client" />
+          <ScalarProperty Name="email_client" ColumnName="email_client" />
+          <ScalarProperty Name="parola_client" ColumnName="parola_client" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tabel_Producator">
+      <EntityTypeMapping TypeName="dbSistem_gestiune_vanzariModel.Tabel_Producator">
+        <MappingFragment StoreEntitySet="Tabel_Producator">
+          <ScalarProperty Name="identitate_producator" ColumnName="identitate_producator" />
+          <ScalarProperty Name="nume_producator" ColumnName="nume_producator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tabel_Produs">
+      <EntityTypeMapping TypeName="dbSistem_gestiune_vanzariModel.Tabel_Produs">
+        <MappingFragment StoreEntitySet="Tabel_Produs">
+          <ScalarProperty Name="produs_dezactivat" ColumnName="produs_dezactivat" />
+          <ScalarProperty Name="produs_activ" ColumnName="produs_activ" />
+          <ScalarProperty Name="imagine" ColumnName="imagine" />
+          <ScalarProperty Name="identitate_producator" ColumnName="identitate_producator" />
+          <ScalarProperty Name="pret" ColumnName="pret" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="cantitate" ColumnName="cantitate" />
+          <ScalarProperty Name="descriere" ColumnName="descriere" />
+          <ScalarProperty Name="nume_produs" ColumnName="nume_produs" />
+          <ScalarProperty Name="identitate_categorie" ColumnName="identitate_categorie" />
+          <ScalarProperty Name="identitate_produs" ColumnName="identitate_produs" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Login">
+      <EntityTypeMapping TypeName="dbSistem_gestiune_vanzariModel.Table_Login">
+        <MappingFragment StoreEntitySet="Table_Login">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
