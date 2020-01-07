@@ -1,0 +1,42 @@
+﻿@model WebApp_PSSC.Models.Produs
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Produs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TipProdus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipProdus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeProdus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeProdus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stoc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdProdus }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

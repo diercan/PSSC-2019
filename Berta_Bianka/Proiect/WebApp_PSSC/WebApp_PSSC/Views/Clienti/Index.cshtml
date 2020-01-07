@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WebApp_PSSC.Models.Client>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Localitate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nume)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Localitate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdClient }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdClient }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdClient })
+        </td>
+    </tr>
+}
+
+</table>

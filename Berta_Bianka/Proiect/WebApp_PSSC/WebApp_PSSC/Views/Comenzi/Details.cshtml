@@ -1,0 +1,42 @@
+﻿@model WebApp_PSSC.Models.Comanda
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Comanda</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.Nume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Produs.TipProdus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produs.TipProdus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NrProduse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NrProduse)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdComanda }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
