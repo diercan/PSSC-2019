@@ -1,0 +1,31 @@
+@model List<TodoEntry>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+        @using (Html.BeginForm("TodoAdd","Todo", FormMethod.Post)) 
+        {
+        <div>Titlu</div>
+        <input label="Titlu" type="text" name="titlu" id="titlu" />
+        <div>Mesaj</div>
+        <input label="Mesaj" type="text" name="mesaj" id="mesaj" />
+
+        <input type="submit" value="Add" />
+        }
+    </div>
+    <div class="col-md">
+    @foreach (var element in Model)
+    {       
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(m => element.Titlu)</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(m => element.Time)</h6>
+                <p class="card-text">@Html.DisplayFor(m => element.Mesaj)</p>
+            </div>
+        </div>
+        <hr>
+    }
+    </div>
+  </div>
+</div>
+
