@@ -1,0 +1,58 @@
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\bin\Debug\netcoreapp2.1\PerfumeShop.deps.json
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\bin\Debug\netcoreapp2.1\PerfumeShop.runtimeconfig.json
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\bin\Debug\netcoreapp2.1\PerfumeShop.runtimeconfig.dev.json
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\bin\Debug\netcoreapp2.1\PerfumeShop.dll
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.RazorAssemblyInfo.cache
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.RazorAssemblyInfo.cs
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.AssemblyInfoInputs.cache
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.AssemblyInfo.cs
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.RazorTargetAssemblyInfo.cache
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\bin\Debug\netcoreapp2.1\PerfumeShop.pdb
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.dll
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.pdb
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\bin\Debug\netcoreapp2.1\PerfumeShop.Views.dll
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\bin\Debug\netcoreapp2.1\PerfumeShop.Views.pdb
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.TagHelpers.input.cache
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.TagHelpers.output.cache
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.RazorCoreGenerate.cache
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\Razor\Views\Account\Index.cshtml.g.cs
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.RazorTargetAssemblyInfo.cs
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.Views.pdb
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.csproj.CopyComplete
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\Razor\Views\Account\Success.cshtml.g.cs
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\Razor\Views\Product\Index.cshtml.g.cs
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\Razor\Views\Cart\Index.cshtml.g.cs
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.csprojAssemblyReference.cache
+C:\Users\Georgi\Desktop\pssc\PerfumeShop\obj\Debug\netcoreapp2.1\Razor\Views\Successful\Successful.cshtml.g.cs
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\bin\Debug\netcoreapp2.1\appsettings.json
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\bin\Debug\netcoreapp2.1\PerfumeShop.deps.json
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\bin\Debug\netcoreapp2.1\PerfumeShop.runtimeconfig.json
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\bin\Debug\netcoreapp2.1\PerfumeShop.runtimeconfig.dev.json
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\bin\Debug\netcoreapp2.1\PerfumeShop.dll
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\bin\Debug\netcoreapp2.1\PerfumeShop.pdb
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\bin\Debug\netcoreapp2.1\PerfumeShop.Views.dll
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\bin\Debug\netcoreapp2.1\PerfumeShop.Views.pdb
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.csprojAssemblyReference.cache
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.RazorAssemblyInfo.cache
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.RazorAssemblyInfo.cs
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.AssemblyInfoInputs.cache
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.AssemblyInfo.cs
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.TagHelpers.input.cache
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.TagHelpers.output.cache
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.RazorCoreGenerate.cache
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\Razor\Views\Account\Index.cshtml.g.cs
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\Razor\Views\Account\Success.cshtml.g.cs
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\Razor\Views\Cart\Index.cshtml.g.cs
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\Razor\Views\Product\Index.cshtml.g.cs
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\Razor\Views\Successful\Successful.cshtml.g.cs
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.RazorTargetAssemblyInfo.cache
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.RazorTargetAssemblyInfo.cs
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.Views.pdb
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.dll
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.pdb
+D:\PSSC-2019\Cretea Georgiana\Proiect\PerfumeShop_Project\PerfumeShop\obj\Debug\netcoreapp2.1\PerfumeShop.csproj.CopyComplete

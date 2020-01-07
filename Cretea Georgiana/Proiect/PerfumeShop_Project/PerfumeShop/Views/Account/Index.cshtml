@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"content="width=device-width"/>
+    <title>Index</title> 
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <h1 align="center">Perfume Shop</h1>
+    @ViewBag.error
+    <h3 align="center">Login Page</h3>
+    <form method="post" asp-contoller="account" asp-action="login" align="center" >
+
+        <table border="0" cellpadding="2" cellspacing="2" align="center" >
+            <tr>
+                <td >Username</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="text" name="password"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit" value="Login"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+

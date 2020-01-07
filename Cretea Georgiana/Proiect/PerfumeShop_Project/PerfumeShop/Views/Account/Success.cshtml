@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using Microsoft.AspNetCore.Http;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Success</title>
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <h1 align="center">Welcome @Context.Session.GetString("username") </h1>
+    <br />
+    <br />
+    <br />
+    <table align="center">
+        <tr>
+            <td>
+            <a asp-controller="account" asp-action="logout" align="center">Logout</a>
+                </td>
+        </tr>
+        <tr>
+            <td>
+            <a asp-controller="product" asp-action="index" align="center">Go to Shooping!</a>
+                </td>
+        </tr>
+    </table>
+
+</body>
+</html>
+
