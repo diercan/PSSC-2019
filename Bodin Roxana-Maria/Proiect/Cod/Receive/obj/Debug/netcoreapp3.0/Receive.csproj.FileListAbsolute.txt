@@ -1,0 +1,13 @@
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Receive\bin\Debug\netcoreapp3.0\Receive.exe
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Receive\bin\Debug\netcoreapp3.0\Receive.deps.json
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Receive\bin\Debug\netcoreapp3.0\Receive.runtimeconfig.json
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Receive\bin\Debug\netcoreapp3.0\Receive.runtimeconfig.dev.json
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Receive\bin\Debug\netcoreapp3.0\Receive.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Receive\bin\Debug\netcoreapp3.0\Receive.pdb
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Receive\bin\Debug\netcoreapp3.0\RabbitMQ.Client.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Receive\obj\Debug\netcoreapp3.0\Receive.csprojAssemblyReference.cache
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Receive\obj\Debug\netcoreapp3.0\Receive.AssemblyInfoInputs.cache
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Receive\obj\Debug\netcoreapp3.0\Receive.AssemblyInfo.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Receive\obj\Debug\netcoreapp3.0\Receive.csproj.CopyComplete
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Receive\obj\Debug\netcoreapp3.0\Receive.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Receive\obj\Debug\netcoreapp3.0\Receive.pdb
