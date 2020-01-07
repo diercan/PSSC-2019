@@ -1,6 +1,8 @@
-Aplicatie pentru gestiunea elevilor unei scoli
+Aplicatie pentru gestiunea elevilor si a notelor unei scoli
 
 In aplicatie utilizatorul va putea sa faca urmatoarele actiuni:
 - sa introduca un elev nou
 - sa editeze informatiile despre un anumit elev
 - sa vada lista cu toti elevii scolii
+- sa adauge note la diferite materie fiecarui elev
+- sa vada o lista cu toate notele elevilor
