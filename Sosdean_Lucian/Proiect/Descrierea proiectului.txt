@@ -1,0 +1,7 @@
+Aplicația este concepută pentru gestionarea de abonamente pentru clienții unei săli de sport
+
+Functionalitatile sistemului software:
+- creare utilizatori
+- autentificare utilizatori
+- cumparare abonamente
+- status
