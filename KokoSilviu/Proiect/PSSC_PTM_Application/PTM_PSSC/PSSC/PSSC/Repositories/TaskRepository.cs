@@ -39,8 +39,8 @@ namespace PSSC.Repositories
             CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
             // Create a table client for interacting with the table service 
-            CloudTable table = tableClient.GetTableReference("PSSCLogInKoko");
-           await table.CreateIfNotExistsAsync();
+            CloudTable table = tableClient.GetTableReference("PSSCTasksKoko");
+           //await table.CreateIfNotExistsAsync();
 
             List<TaskEntity> users = new List<TaskEntity>();
             TableQuery<TaskEntity> query = new TableQuery<TaskEntity>();
@@ -61,7 +61,7 @@ namespace PSSC.Repositories
 
             // Create a table client for interacting with the table service 
             CloudTable table = tableClient.GetTableReference("PSSCTasksKoko");
-            await table.CreateIfNotExistsAsync();
+           // await table.CreateIfNotExistsAsync();
 
             TableQuery<TaskEntity> query = new TableQuery<TaskEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, taskID.ToString()));
             TableContinuationToken token = null;
@@ -260,8 +260,39 @@ namespace PSSC.Repositories
             CloudTable table = tableClient.GetTableReference("PSSCLogInKoko");
             await table.CreateIfNotExistsAsync();
 
-            var deleteOperation = TableOperation.Delete(dev);
-            await table.ExecuteAsync(deleteOperation);
+            TableQuery<TaskEntity> query = new TableQuery<TaskEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, dev.PartitionKey));
+            TableContinuationToken token = null;
+            TableQuerySegment<TaskEntity> resultSegment = await table.ExecuteQuerySegmentedAsync(query, token);
+            token = resultSegment.ContinuationToken;
+
+            foreach (TaskEntity entity in resultSegment.Results)
+            {
+                if (entity.PartitionKey == dev.PartitionKey)
+                {
+                    await table.ExecuteAsync(TableOperation.Delete(entity));
+                }
+            }
+        }
+
+        public async Task<List<UserLogInEntity>> GetAllUsers()
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=storeksq6lvimcn6gy;AccountKey=okS17G921c6N5lN7Czxi1QJ+DF/fbripzaWiEDoRdp4oh42RoJFz3A5Nfn70dHaoh3mUaFzQIcu9MVDTeHmmiQ==;EndpointSuffix=core.windows.net");
+
+            // Create a table client for interacting with the table service
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            // Create a table client for interacting with the table service 
+            CloudTable table = tableClient.GetTableReference("PSSCLogInKoko");
+            await table.CreateIfNotExistsAsync();
+
+            List<UserLogInEntity> users = new List<UserLogInEntity>();
+            TableQuery<UserLogInEntity> query = new TableQuery<UserLogInEntity>();
+            users = table.ExecuteQuery(new TableQuery<UserLogInEntity>()).ToList();
+
+            if (users.Count > 0)
+                return users;
+            else
+                return null;
         }
     }
 }

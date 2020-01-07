@@ -21,6 +21,7 @@ namespace PSSC.Repositories
         Task <int> GetInWorkN(UserLogInEntity dev, bool pm_user);
         Task<int> GetRealizedNr(UserLogInEntity devd, bool pm_user);
         Task<int> GetCanceledNr(UserLogInEntity dev, bool pm_user);
+        Task<List<UserLogInEntity>> GetAllUsers();
     }
 }
 

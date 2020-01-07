@@ -109,7 +109,7 @@ namespace PSSC
 
         private void buttonInfo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Info Feature under development.");
+            MessageBox.Show("PTM-Project Time Manager: Developed by Koko Silviu-Alexandru(silviu.koko@yahoo.com)");
         }
 
         private void buttonPower_MouseEnter(object sender, EventArgs e)

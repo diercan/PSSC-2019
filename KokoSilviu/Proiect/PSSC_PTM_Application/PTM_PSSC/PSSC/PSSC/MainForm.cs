@@ -11,6 +11,8 @@ using PSSC.Models;
 using PSSC.Repositories;
 using System.Data.SqlClient;
 using PSSC.Entities;
+using System.Diagnostics;
+using System.IO;
 
 namespace PSSC
 {
@@ -23,7 +25,6 @@ namespace PSSC
 
         public MainForm()
         {
-            //refreshTasksDataGrid();
             this.WindowState = FormWindowState.Minimized;
             InitializeComponent();
             fl.ShowDialog();
@@ -33,17 +34,14 @@ namespace PSSC
             user_uid = fl.uid;
             pm_user = !fl.dev_user;
             panelDashboard.Visible = false;
-            kryptonDataGridView1.Visible = false;
-           // userLogInBindingSource.Filter = "Type='developer'";
+            kryptonDataGridView1.Visible = false;          
             if (fl.dev_user)
             {
-                //tasksBindingSource.Filter = "Developer_uid='" +fl. uid + "'";
                 panelTasks.Visible = true;
                 buttonDashboard.Enabled = false;
             }
             else
             {
-                //tasksBindingSource.Filter = "Author_uid='" + fl.uid + "'";
                 panelTasks.Visible = true;
                 buttonDashboard.Enabled = true;
                 
@@ -58,6 +56,7 @@ namespace PSSC
 
         private void buttonTask_Click(object sender, EventArgs e)
         {
+            refreshTasksDataGrid();
             panelindex.Location = new Point(panelindex.Location.X, 117);
             panelTasks.Visible = true;
             TaskChart.Visible = false;
@@ -79,7 +78,13 @@ namespace PSSC
             panelDashboard.Visible = false;
             if (pm_user)
             {
+                refreshUserGrid();
                 kryptonDataGridView1.Visible = true;
+               // refreshUserGrid();
+            }
+            else
+            {
+                kryptonDataGridView1.Visible = false;
             }
             TaskChart.Series["Series2"].Points.Clear();
             UserLogInEntity dev = new UserLogInEntity(user_uid, "");
@@ -90,22 +95,22 @@ namespace PSSC
 
             if (int.Parse(taskPlannedNr.Result.ToString()) > 0)
             {
-                TaskChart.Series["Series2"].Points.AddXY("Planned(" + taskPlannedNr.ToString() + ")", taskPlannedNr);            
+                TaskChart.Series["Series2"].Points.AddXY("Planned(" + taskPlannedNr.Result.ToString() + ")", int.Parse(taskPlannedNr.Result.ToString()));            
             }
 
-            if (int.Parse(taskInWorkNr.ToString()) > 0)
+            if (int.Parse(taskInWorkNr.Result.ToString()) > 0)
             {
-                TaskChart.Series["Series2"].Points.AddXY("InWork(" + taskInWorkNr.ToString() + ")", taskInWorkNr);
+                TaskChart.Series["Series2"].Points.AddXY("InWork(" + taskInWorkNr.Result.ToString() + ")", int.Parse(taskInWorkNr.Result.ToString()));
             }
 
-            if (int.Parse(taskRealizedNr.ToString()) > 0)
+            if (int.Parse(taskRealizedNr.Result.ToString()) > 0)
             {
-                TaskChart.Series["Series2"].Points.AddXY("Realized(" + taskRealizedNr.ToString() + ")", taskRealizedNr);
+                TaskChart.Series["Series2"].Points.AddXY("Realized(" + taskRealizedNr.Result.ToString() + ")", int.Parse(taskRealizedNr.Result.ToString()));
             }
 
-            if (int.Parse(taskCanceledNr.ToString()) > 0)
+            if (int.Parse(taskCanceledNr.Result.ToString()) > 0)
             {
-                TaskChart.Series["Series2"].Points.AddXY("Canceled(" + taskCanceledNr.ToString()+")", taskCanceledNr);
+                TaskChart.Series["Series2"].Points.AddXY("Canceled(" + taskCanceledNr.Result.ToString()+")", int.Parse(taskCanceledNr.Result.ToString()));
             }
 
             panelindex.Location = new Point(panelindex.Location.X, 248);
@@ -145,7 +150,7 @@ namespace PSSC
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //refreshTasksDataGrid();
+            refreshTasksDataGrid();
 
             // TODO: This line of code loads data into the 'psscdbDataSet.UserLogIn' table. You can move, or remove it, as needed.
             // this.userLogInTableAdapter.Fill(this.psscdbDataSet.UserLogIn);
@@ -161,7 +166,40 @@ namespace PSSC
             //this.tasksTableAdapter.Fill(this.psscdbDataSet.Tasks);
 
         }
-    public void refreshTasksDataGrid()
+
+
+        public void refreshUserGrid()
+        {
+            // kryptonDataGridView1.DataSource = null;
+
+            //Create a New DataTable to store the Data
+            DataTable User = new DataTable("User");
+
+            //Create the Columns in the DataTable
+
+            DataColumn c0 = new DataColumn("Uid");
+            DataColumn c1 = new DataColumn("type");
+
+
+            //Add the Created Columns to the Datatable
+            User.Columns.Add(c0); User.Columns.Add(c1);
+            //Create 3 rows
+            System.Threading.Tasks.Task.Run(async () => {
+                List<Entities.UserLogInEntity> userList = await taskRepository.GetAllUsers();
+                foreach (Entities.UserLogInEntity user in userList)
+                {                 
+                        DataRow row = User.NewRow();
+                        row["Uid"] = user.PartitionKey;
+                        row["type"] = user.role;
+                        User.Rows.Add(row);
+                }
+            }).Wait();
+
+            kryptonDataGridView1.DataSource = User;
+           
+        }
+
+       public void refreshTasksDataGrid()
         {
            // kryptonDataGridView1.DataSource = null;
             
@@ -173,8 +211,8 @@ namespace PSSC
             DataColumn c0 = new DataColumn("ID");
             DataColumn c1 = new DataColumn("Name");
             DataColumn c2 = new DataColumn("Description");
-            DataColumn c3 = new DataColumn("Author");
-            DataColumn c4 = new DataColumn("Developer");
+            DataColumn c3 = new DataColumn("Author_uid");
+            DataColumn c4 = new DataColumn("Developer_uid");
             DataColumn c5 = new DataColumn("Status");
             DataColumn c6 = new DataColumn("Priority");
 
@@ -186,15 +224,30 @@ namespace PSSC
                 List<Entities.TaskEntity> tasksList = await taskRepository.GetAllTasks(); 
             foreach (Entities.TaskEntity task in tasksList)
             {
-                DataRow row = Tasks.NewRow();
-                row["ID"] = task.PartitionKey;
-                row["Name"] = task.RowKey;
-                row["Description"] = task.description;
-                row["Author"] = task.author;
-                row["Developer"] = task.developer;
-                row["Status"] = task.status;
-                row["priority"] = task.prio;
-                Tasks.Rows.Add(row);
+                    if (user_uid == task.developer && !pm_user)
+                    {
+                        DataRow row = Tasks.NewRow();
+                        row["ID"] = task.PartitionKey;
+                        row["Name"] = task.RowKey;
+                        row["Description"] = task.description;
+                        row["Author_uid"] = task.author.ToString();
+                        row["Developer_uid"] = task.developer.ToString();
+                        row["Status"] = task.status;
+                        row["priority"] = task.prio;
+                        Tasks.Rows.Add(row);
+                    }
+                    else if(pm_user)
+                    {
+                        DataRow row = Tasks.NewRow();
+                        row["ID"] = task.PartitionKey;
+                        row["Name"] = task.RowKey;
+                        row["Description"] = task.description;
+                        row["Author_uid"] = task.author.ToString();
+                        row["Developer_uid"] = task.developer.ToString();
+                        row["Status"] = task.status;
+                        row["priority"] = task.prio;
+                        Tasks.Rows.Add(row);
+                    }
             }
             }).Wait();
 
@@ -209,48 +262,24 @@ namespace PSSC
             {
               status = comboBoxStatus.SelectedItem.ToString();
             }
-
-            //update database with new status value;
-            //get aggregate instance
             
             if (status != "" && status != null)
             {
                 System.Threading.Tasks.Task.Run(async () => {
-                    var task = await taskRepository.GetTask(taskID);          
+                    var task = await taskRepository.GetTask(int.Parse(textBox2.Text));          
                     Models.Task new_task = new Models.Task(task);
-                    //change status of the task
+                    
                     new_task.ChangeStatus(status);
-                    //update the db with the changes
+                    
                     Entities.TaskEntity modified_task = new TaskEntity(new_task);
                     await taskRepository.UpdateTaskStatus(modified_task);             
                 }).Wait();
 
 
             }
-
+            refreshTasksDataGrid();
         }
-
-        int taskID = 0;
-        private void kryptonDataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            if (kryptonDataGridViewTasks.SelectedRows.Count>0)
-            {
-                DataGridViewRow row = kryptonDataGridViewTasks.SelectedRows[0];
-                if ((int)row.Cells[6].Value > 0)
-                {
-                    taskID = (int)row.Cells[6].Value;
-                }
-                else
-                {
-                    taskID = 0;
-                }
-            }
-        }
-
-        private void kryptonDataGridViewTasks_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string s = sender.ToString();
-        }
+ 
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
@@ -259,10 +288,10 @@ namespace PSSC
             {
                 taskId = textBox1.Text.ToString();
             }
-            //get aggregate instance
+            
             if (taskId != "" && taskId != null)
             {
-                //delete the task
+                
                 System.Threading.Tasks.Task.Run(async () => {
                     TaskEntity task = await taskRepository.GetTask(int.Parse(taskId));
                     await taskRepository.DeleteTask(task);
@@ -307,7 +336,7 @@ namespace PSSC
             {
                 taskPrio = textBoxPrio.Text.ToString();
             }
-            //get aggregate instance
+            
             if (taskId != null && taskName != null && taskDesc != null && taskDev!=null && taskStatus!=null && taskPrio!=null)
             {
                 Developer ath = new Developer(user_uid);
@@ -327,7 +356,7 @@ namespace PSSC
                 System.Threading.Tasks.Task.Run(async () => {
                     var tsk = await taskRepository.GetTask(int.Parse(textBoxId.Text));
                     Models.Task task = new Models.Task(tsk);
-                //change properties of the task
+               
                 if(task.status!=textBoxStatus.Text && textBoxStatus.Text!="" && textBoxStatus.Text!=null)
                 {
                     task.ChangeStatus(textBoxStatus.Text);
@@ -354,7 +383,7 @@ namespace PSSC
                     task.Assign(d);
                 }
                 Entities.TaskEntity new_task = new TaskEntity(task);
-                //update the db with the changes
+         
                 await taskRepository.UpdateTask(new_task);
                 }).Wait();
             }
@@ -375,13 +404,31 @@ namespace PSSC
         private void kryptonButtonDeleteDev_Click(object sender, EventArgs e)
         {
             if (textBoxAddId.Text != "" && textBoxAddId.Text != null)
-            {
+            {              
                 Developer d = new Developer(textBoxAddId.Text);
                 UserLogInEntity dev = new UserLogInEntity(d.internal_id, "123456789", "developer");
-                System.Threading.Tasks.Task.Run(async () => {
+                System.Threading.Tasks.Task.Run(async () => {                    
                     await taskRepository.DeleteDeveloper(dev);
                 }).Wait();
+
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("PTM-Project Time Manager: Developed by Koko Silviu-Alexandru(silviu.koko@yahoo.com)");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Process myProcess = new Process()  ;   
+            myProcess.StartInfo.UseShellExecute = false;
+            // You can start any process, HelloWorld is a do-nothing example.
+            myProcess.StartInfo.FileName = Directory.GetCurrentDirectory() + "\\PSSC.exe";
+            // myProcess.StartInfo.CreateNoWindow = true;
+            System.Windows.Forms.Application.Exit();
+            myProcess.Start();
+        }
+            
     }
 }

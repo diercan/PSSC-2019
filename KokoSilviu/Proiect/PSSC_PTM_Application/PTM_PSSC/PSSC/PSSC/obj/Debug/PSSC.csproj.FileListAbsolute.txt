@@ -222,3 +222,4 @@ D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\
 D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\obj\Debug\PSSC.csproj.GenerateResource.Cache
 D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\obj\Debug\PSSC.exe
 D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\obj\Debug\PSSC.pdb
+D:\GitRepo\PSSC-2019\KokoSilviu\Proiect\PSSC_PTM_Application\PTM_PSSC\PSSC\PSSC\obj\Debug\PSSC.csprojResolveAssemblyReference.cache

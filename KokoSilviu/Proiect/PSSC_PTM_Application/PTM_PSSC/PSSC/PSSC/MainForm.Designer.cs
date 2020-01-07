@@ -28,18 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonTask = new System.Windows.Forms.Button();
             this.panelindex = new System.Windows.Forms.Panel();
             this.panelStatistic = new System.Windows.Forms.Panel();
             this.kryptonDataGridView1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.uidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelDashboard = new System.Windows.Forms.Panel();
             this.groupBoxAddDev = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -67,17 +64,12 @@
             this.AddButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.TaskChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelTasks = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.kryptonButtonStatusChange = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.kryptonDataGridViewTasks = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.authoruidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.developeruidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priorityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            
             this.buttonDashboard = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -144,27 +136,11 @@
             // 
             // kryptonDataGridView1
             // 
-            this.kryptonDataGridView1.AutoGenerateColumns = false;
             this.kryptonDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.kryptonDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.uidDataGridViewTextBoxColumn,
-            this.typeDataGridViewTextBoxColumn});
             this.kryptonDataGridView1.Location = new System.Drawing.Point(18, 313);
             this.kryptonDataGridView1.Name = "kryptonDataGridView1";
             this.kryptonDataGridView1.Size = new System.Drawing.Size(241, 164);
             this.kryptonDataGridView1.TabIndex = 18;
-            // 
-            // uidDataGridViewTextBoxColumn
-            // 
-            this.uidDataGridViewTextBoxColumn.DataPropertyName = "uid";
-            this.uidDataGridViewTextBoxColumn.HeaderText = "uid";
-            this.uidDataGridViewTextBoxColumn.Name = "uidDataGridViewTextBoxColumn";
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "type";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
             // 
             // panelDashboard
             // 
@@ -173,7 +149,7 @@
             this.panelDashboard.Controls.Add(this.groupBox1);
             this.panelDashboard.Location = new System.Drawing.Point(3, 12);
             this.panelDashboard.Name = "panelDashboard";
-            this.panelDashboard.Size = new System.Drawing.Size(773, 505);
+            this.panelDashboard.Size = new System.Drawing.Size(785, 499);
             this.panelDashboard.TabIndex = 17;
             // 
             // groupBoxAddDev
@@ -407,18 +383,18 @@
             this.TaskChart.BackColor = System.Drawing.Color.Transparent;
             this.TaskChart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.TaskChart.BorderlineColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            this.TaskChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.TaskChart.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.TaskChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.TaskChart.Legends.Add(legend2);
             this.TaskChart.Location = new System.Drawing.Point(21, 23);
             this.TaskChart.Name = "TaskChart";
             this.TaskChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "Series2";
-            this.TaskChart.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Series2";
+            this.TaskChart.Series.Add(series2);
             this.TaskChart.Size = new System.Drawing.Size(422, 241);
             this.TaskChart.TabIndex = 1;
             this.TaskChart.Text = "chart1";
@@ -426,6 +402,8 @@
             // panelTasks
             // 
             this.panelTasks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(35)))));
+            this.panelTasks.Controls.Add(this.label8);
+            this.panelTasks.Controls.Add(this.textBox2);
             this.panelTasks.Controls.Add(this.kryptonButtonStatusChange);
             this.panelTasks.Controls.Add(this.comboBoxStatus);
             this.panelTasks.Controls.Add(this.kryptonDataGridViewTasks);
@@ -434,9 +412,26 @@
             this.panelTasks.Size = new System.Drawing.Size(742, 378);
             this.panelTasks.TabIndex = 0;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label8.Location = new System.Drawing.Point(5, 279);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(21, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "ID:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(32, 276);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(78, 20);
+            this.textBox2.TabIndex = 3;
+            // 
             // kryptonButtonStatusChange
             // 
-            this.kryptonButtonStatusChange.Location = new System.Drawing.Point(155, 271);
+            this.kryptonButtonStatusChange.Location = new System.Drawing.Point(266, 273);
             this.kryptonButtonStatusChange.Name = "kryptonButtonStatusChange";
             this.kryptonButtonStatusChange.Size = new System.Drawing.Size(90, 26);
             this.kryptonButtonStatusChange.TabIndex = 2;
@@ -451,22 +446,15 @@
             "InWork",
             "Realized",
             "Canceled"});
-            this.comboBoxStatus.Location = new System.Drawing.Point(3, 276);
+            this.comboBoxStatus.Location = new System.Drawing.Point(115, 276);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(145, 21);
             this.comboBoxStatus.TabIndex = 1;
             // 
             // kryptonDataGridViewTasks
             // 
-            this.kryptonDataGridViewTasks.AutoGenerateColumns = false;
             this.kryptonDataGridViewTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.kryptonDataGridViewTasks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.authoruidDataGridViewTextBoxColumn,
-            this.developeruidDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn,
-            this.priorityDataGridViewTextBoxColumn,
             this.Id});
             this.kryptonDataGridViewTasks.Location = new System.Drawing.Point(3, 7);
             this.kryptonDataGridViewTasks.MultiSelect = false;
@@ -474,57 +462,13 @@
             this.kryptonDataGridViewTasks.ReadOnly = true;
             this.kryptonDataGridViewTasks.Size = new System.Drawing.Size(741, 259);
             this.kryptonDataGridViewTasks.TabIndex = 0;
-            this.kryptonDataGridViewTasks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.kryptonDataGridViewTasks_CellContentClick);
-            this.kryptonDataGridViewTasks.SelectionChanged += new System.EventHandler(this.kryptonDataGridView1_SelectionChanged);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // authoruidDataGridViewTextBoxColumn
-            // 
-            this.authoruidDataGridViewTextBoxColumn.DataPropertyName = "Author_uid";
-            this.authoruidDataGridViewTextBoxColumn.HeaderText = "Author_uid";
-            this.authoruidDataGridViewTextBoxColumn.Name = "authoruidDataGridViewTextBoxColumn";
-            this.authoruidDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // developeruidDataGridViewTextBoxColumn
-            // 
-            this.developeruidDataGridViewTextBoxColumn.DataPropertyName = "Developer_uid";
-            this.developeruidDataGridViewTextBoxColumn.HeaderText = "Developer_uid";
-            this.developeruidDataGridViewTextBoxColumn.Name = "developeruidDataGridViewTextBoxColumn";
-            this.developeruidDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // priorityDataGridViewTextBoxColumn
-            // 
-            this.priorityDataGridViewTextBoxColumn.DataPropertyName = "Priority";
-            this.priorityDataGridViewTextBoxColumn.HeaderText = "Priority";
-            this.priorityDataGridViewTextBoxColumn.Name = "priorityDataGridViewTextBoxColumn";
-            this.priorityDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
-            this.Id.ReadOnly = true;         
+            this.Id.ReadOnly = true;
             // 
             // buttonDashboard
             // 
@@ -582,6 +526,7 @@
             this.button4.Size = new System.Drawing.Size(41, 34);
             this.button4.TabIndex = 12;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -594,6 +539,7 @@
             this.button3.Size = new System.Drawing.Size(41, 34);
             this.button3.TabIndex = 11;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel4
             // 
@@ -631,7 +577,7 @@
             this.buttonStatistic.TabIndex = 16;
             this.buttonStatistic.Text = "Statistic";
             this.buttonStatistic.UseVisualStyleBackColor = true;
-            this.buttonStatistic.Click += new System.EventHandler(this.buttonStatistic_Click);          
+            this.buttonStatistic.Click += new System.EventHandler(this.buttonStatistic_Click);
             // 
             // MainForm
             // 
@@ -667,6 +613,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TaskChart)).EndInit();
             this.panelTasks.ResumeLayout(false);
+            this.panelTasks.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridViewTasks)).EndInit();
             this.panelPower.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -728,5 +675,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priorityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
