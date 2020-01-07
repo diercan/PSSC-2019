@@ -1,0 +1,48 @@
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\obj\Debug\netcoreapp3.0\ConsoleExample.csprojAssemblyReference.cache
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\obj\Debug\netcoreapp3.0\ConsoleExample.AssemblyInfoInputs.cache
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\obj\Debug\netcoreapp3.0\ConsoleExample.AssemblyInfo.cs
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\ConsoleExample.exe
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\ConsoleExample.deps.json
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\ConsoleExample.runtimeconfig.json
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\ConsoleExample.runtimeconfig.dev.json
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\ConsoleExample.dll
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\ConsoleExample.pdb
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\Automatonymous.dll
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\GreenPipes.dll
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\MassTransit.dll
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\MassTransit.RabbitMqTransport.dll
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\NewId.dll
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\RabbitMQ.Client.dll
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\ContractsExample.dll
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\bin\Debug\netcoreapp3.0\ContractsExample.pdb
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\obj\Debug\netcoreapp3.0\ConsoleExample.csproj.CopyComplete
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\obj\Debug\netcoreapp3.0\ConsoleExample.dll
+C:\Users\adria\Desktop\MvcExample - With Queue\ConsoleExample\obj\Debug\netcoreapp3.0\ConsoleExample.pdb
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\ConsoleExample.exe
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\ConsoleExample.deps.json
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\ConsoleExample.runtimeconfig.json
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\ConsoleExample.runtimeconfig.dev.json
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\ConsoleExample.dll
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\ConsoleExample.pdb
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\Automatonymous.dll
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\GreenPipes.dll
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\MassTransit.dll
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\MassTransit.RabbitMqTransport.dll
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\NewId.dll
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\RabbitMQ.Client.dll
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\ContractsExample.dll
+C:\Users\adria\Desktop\License\ConsoleExample\bin\Debug\netcoreapp3.0\ContractsExample.pdb
+C:\Users\adria\Desktop\License\ConsoleExample\obj\Debug\netcoreapp3.0\ConsoleExample.csprojAssemblyReference.cache
+C:\Users\adria\Desktop\License\ConsoleExample\obj\Debug\netcoreapp3.0\ConsoleExample.AssemblyInfoInputs.cache
+C:\Users\adria\Desktop\License\ConsoleExample\obj\Debug\netcoreapp3.0\ConsoleExample.AssemblyInfo.cs
+C:\Users\adria\Desktop\License\ConsoleExample\obj\Debug\netcoreapp3.0\ConsoleExample.csproj.CopyComplete
+C:\Users\adria\Desktop\License\ConsoleExample\obj\Debug\netcoreapp3.0\ConsoleExample.dll
+C:\Users\adria\Desktop\License\ConsoleExample\obj\Debug\netcoreapp3.0\ConsoleExample.pdb

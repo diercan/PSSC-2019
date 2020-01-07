@@ -1,0 +1,24 @@
+C:\Users\adria\Desktop\PSSC-2019-master\LAB6\MvcExample - With Queue\ContractsExample\bin\Debug\netcoreapp3.0\ContractsExample.deps.json
+C:\Users\adria\Desktop\PSSC-2019-master\LAB6\MvcExample - With Queue\ContractsExample\bin\Debug\netcoreapp3.0\ContractsExample.dll
+C:\Users\adria\Desktop\PSSC-2019-master\LAB6\MvcExample - With Queue\ContractsExample\bin\Debug\netcoreapp3.0\ContractsExample.pdb
+C:\Users\adria\Desktop\PSSC-2019-master\LAB6\MvcExample - With Queue\ContractsExample\obj\Debug\netcoreapp3.0\ContractsExample.csprojAssemblyReference.cache
+C:\Users\adria\Desktop\PSSC-2019-master\LAB6\MvcExample - With Queue\ContractsExample\obj\Debug\netcoreapp3.0\ContractsExample.AssemblyInfoInputs.cache
+C:\Users\adria\Desktop\PSSC-2019-master\LAB6\MvcExample - With Queue\ContractsExample\obj\Debug\netcoreapp3.0\ContractsExample.AssemblyInfo.cs
+C:\Users\adria\Desktop\PSSC-2019-master\LAB6\MvcExample - With Queue\ContractsExample\obj\Debug\netcoreapp3.0\ContractsExample.dll
+C:\Users\adria\Desktop\PSSC-2019-master\LAB6\MvcExample - With Queue\ContractsExample\obj\Debug\netcoreapp3.0\ContractsExample.pdb
+C:\Users\adria\Desktop\MvcExample - With Queue\ContractsExample\bin\Debug\netcoreapp3.0\ContractsExample.deps.json
+C:\Users\adria\Desktop\MvcExample - With Queue\ContractsExample\bin\Debug\netcoreapp3.0\ContractsExample.dll
+C:\Users\adria\Desktop\MvcExample - With Queue\ContractsExample\bin\Debug\netcoreapp3.0\ContractsExample.pdb
+C:\Users\adria\Desktop\MvcExample - With Queue\ContractsExample\obj\Debug\netcoreapp3.0\ContractsExample.csprojAssemblyReference.cache
+C:\Users\adria\Desktop\MvcExample - With Queue\ContractsExample\obj\Debug\netcoreapp3.0\ContractsExample.AssemblyInfoInputs.cache
+C:\Users\adria\Desktop\MvcExample - With Queue\ContractsExample\obj\Debug\netcoreapp3.0\ContractsExample.AssemblyInfo.cs
+C:\Users\adria\Desktop\MvcExample - With Queue\ContractsExample\obj\Debug\netcoreapp3.0\ContractsExample.dll
+C:\Users\adria\Desktop\MvcExample - With Queue\ContractsExample\obj\Debug\netcoreapp3.0\ContractsExample.pdb
+C:\Users\adria\Desktop\License\ContractsExample\bin\Debug\netcoreapp3.0\ContractsExample.deps.json
+C:\Users\adria\Desktop\License\ContractsExample\bin\Debug\netcoreapp3.0\ContractsExample.dll
+C:\Users\adria\Desktop\License\ContractsExample\bin\Debug\netcoreapp3.0\ContractsExample.pdb
+C:\Users\adria\Desktop\License\ContractsExample\obj\Debug\netcoreapp3.0\ContractsExample.csprojAssemblyReference.cache
+C:\Users\adria\Desktop\License\ContractsExample\obj\Debug\netcoreapp3.0\ContractsExample.AssemblyInfoInputs.cache
+C:\Users\adria\Desktop\License\ContractsExample\obj\Debug\netcoreapp3.0\ContractsExample.AssemblyInfo.cs
+C:\Users\adria\Desktop\License\ContractsExample\obj\Debug\netcoreapp3.0\ContractsExample.dll
+C:\Users\adria\Desktop\License\ContractsExample\obj\Debug\netcoreapp3.0\ContractsExample.pdb
