@@ -1,0 +1,78 @@
+﻿@model MVC_CookBook_PSSC.Models.UserComponents.Recipe
+
+@{
+    ViewData["Title"] = "ErrorPage";
+}
+
+<h1>ErrorPage</h1>
+
+<h4>Recipe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ErrorPage">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="strUserID" class="control-label"></label>
+                <input asp-for="strUserID" class="form-control" />
+                <span asp-validation-for="strUserID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strRecipeName" class="control-label"></label>
+                <input asp-for="strRecipeName" class="form-control" />
+                <span asp-validation-for="strRecipeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strIngredients" class="control-label"></label>
+                <input asp-for="strIngredients" class="form-control" />
+                <span asp-validation-for="strIngredients" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strPreparation" class="control-label"></label>
+                <input asp-for="strPreparation" class="form-control" />
+                <span asp-validation-for="strPreparation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strPrice" class="control-label"></label>
+                <input asp-for="strPrice" class="form-control" />
+                <span asp-validation-for="strPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strLikes" class="control-label"></label>
+                <input asp-for="strLikes" class="form-control" />
+                <span asp-validation-for="strLikes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strDislikes" class="control-label"></label>
+                <input asp-for="strDislikes" class="form-control" />
+                <span asp-validation-for="strDislikes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strImageLocation" class="control-label"></label>
+                <input asp-for="strImageLocation" class="form-control" />
+                <span asp-validation-for="strImageLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="strVideoLocation" class="control-label"></label>
+                <input asp-for="strVideoLocation" class="form-control" />
+                <span asp-validation-for="strVideoLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="strIsPremium" /> @Html.DisplayNameFor(model => model.strIsPremium)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

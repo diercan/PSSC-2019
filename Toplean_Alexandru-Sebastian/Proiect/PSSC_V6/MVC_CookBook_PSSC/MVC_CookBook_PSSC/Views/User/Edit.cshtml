@@ -1,0 +1,65 @@
+﻿@model MVC_CookBook_PSSC.Models.User
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+
+
+            <div class="form-group">
+                <label asp-for="strName" class="control-label">Name</label>
+                <input asp-for="strName" class="form-control"/>
+                <span asp-validation-for="strName" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="strSurename" class="control-label">Surename</label>
+                <input asp-for="strSurename" class="form-control"/>
+                <span asp-validation-for="strSurename" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="strIBAN" class="control-label">IBAN</label>
+                <input asp-for="strIBAN" class="form-control"/>
+                <span asp-validation-for="strIBAN" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="strCNP" class="control-label">IBAN</label>
+                <input asp-for="strCNP" class="form-control"/>
+                <span asp-validation-for="strCNP" class="text-danger"></span>
+            </div>
+            <br />
+
+
+
+
+
+
+
+           
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

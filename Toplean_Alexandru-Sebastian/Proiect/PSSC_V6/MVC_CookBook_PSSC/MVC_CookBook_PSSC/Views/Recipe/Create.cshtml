@@ -1,0 +1,172 @@
+﻿@model MVC_CookBook_PSSC.Models.UserComponents.Recipe
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Recipe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data" style="width:700px">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="strRecipeName" class="control-label">Recipe Name</label>
+                <input asp-for="strRecipeName" class="form-control" />
+                <span asp-validation-for="strRecipeName" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="strRawIngredients" class="control-label">Ingredients</label>
+                <textarea asp-for="strRawIngredients" class="form-control" rows="5" cols="5"></textarea>
+                <span asp-validation-for="strRawIngredients" class="text-danger"></span>
+            </div>
+            <br />
+
+
+
+            <div class="form-group">
+                <label asp-for="strImageLocation" class="control-label">Upload Image(Max 2MB)</label>
+                <input type="file" accept="image/*" id="file" name="file" asp-for="strImageLocation" multiple formenctype="multipart/form-data" />
+                <span asp-validation-for="strImageLocation" class="text-danger"></span>
+            </div>
+            
+            
+            
+            <br />
+            <div class="form-group">
+                <label asp-for="strVideoLocation" class="control-label">Upload Video / Insert Video Link</label>
+                <input asp-for="strVideoLocation" class="form-control" placeholder="Leave empty if a video is uploaded" />
+                <input type="file" id="file" name="file" accept="image/*" asp-for="strVideoLocation" multiple formenctype="multipart/form-data"/>
+                <span asp-validation-for="strVideoLocation" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="strPreparation" class="control-label">Preparation mode</label>
+                <input asp-for="strPreparation" class="form-control" />
+                <span asp-validation-for="strPreparation" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label>Select up to three tags that shortly describe your recipe</label>
+
+               
+                
+
+                <div>
+
+                    <select id="combobox" class="form-control" asp-for="strComboBoxTag1">
+                        <option value="0">Select one...</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Complex">Complex</option>
+                        <option value="Fast">Fast</option>
+                        <option value="Sweet">Sweet</option>
+                        <option value="Vegan">Vegan</option>
+                        <option value="Meat Based">Meat Based</option>
+                        <option value="Vegetables">Vegetables</option>
+                        <option value="Spicy">Spicy</option>
+                        <option value="Raw">Raw</option>
+                        <option value="Fish">Fish</option>
+                        <option value="Chicken">Chicken</option>
+                        <option value="Pig">Pig</option>
+                        <option value="Duck">Duck</option>
+                        <option value="Rabbit">Rabbit</option>
+                        <option value="Traditional">Traditional</option>
+                        <option value="Personal Creation">Personal Creation</option>
+                        <option value="Gluten Free">Gluten Free</option>
+                        <option value="Lactose Free">Lactose Free</option>
+                        <option value="Low Calories">Low Calories</option>
+                        <option value="High Calories">High Calories</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Mexican">Mexican</option>
+                        <option value="SideDish">SideDish</option>
+
+                    </select>
+                    &ensp;
+                    <select id="combobox" class="form-control" asp-for="strComboBoxTag2">
+                        <option value="0">Select one...</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Complex">Complex</option>
+                        <option value="Fast">Fast</option>
+                        <option value="Sweet">Sweet</option>
+                        <option value="Vegan">Vegan</option>
+                        <option value="Meat Based">Meat Based</option>
+                        <option value="Vegetables">Vegetables</option>
+                        <option value="Spicy">Spicy</option>
+                        <option value="Raw">Raw</option>
+                        <option value="Fish">Fish</option>
+                        <option value="Chicken">Chicken</option>
+                        <option value="Pig">Pig</option>
+                        <option value="Duck">Duck</option>
+                        <option value="Rabbit">Rabbit</option>
+                        <option value="Traditional">Traditional</option>
+                        <option value="Personal Creation">Personal Creation</option>
+                        <option value="Gluten Free">Gluten Free</option>
+                        <option value="Lactose Free">Lactose Free</option>
+                        <option value="Low Calories">Low Calories</option>
+                        <option value="High Calories">High Calories</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Mexican">Mexican</option>
+                        <option value="SideDish">SideDish</option>
+
+                    </select>
+                    &ensp;
+                    <select id="combobox" class="form-control" asp-for="strComboBoxTag3">
+                        <option value="0">Select one...</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Complex">Complex</option>
+                        <option value="Fast">Fast</option>
+                        <option value="Sweet">Sweet</option>
+                        <option value="Vegan">Vegan</option>
+                        <option value="Meat Based">Meat Based</option>
+                        <option value="Vegetables">Vegetables</option>
+                        <option value="Spicy">Spicy</option>
+                        <option value="Raw">Raw</option>
+                        <option value="Fish">Fish</option>
+                        <option value="Chicken">Chicken</option>
+                        <option value="Pig">Pig</option>
+                        <option value="Duck">Duck</option>
+                        <option value="Rabbit">Rabbit</option>
+                        <option value="Traditional">Traditional</option>
+                        <option value="Personal Creation">Personal Creation</option>
+                        <option value="Gluten Free">Gluten Free</option>
+                        <option value="Lactose Free">Lactose Free</option>
+                        <option value="Low Calories">Low Calories</option>
+                        <option value="High Calories">High Calories</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Mexican">Mexican</option>
+                        <option value="SideDish">SideDish</option>
+
+                    </select>
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+            <div class="form-group">
+                <input id="strPremium" type="checkbox" value="true" name="strPremium" />
+
+
+                <label for="RequestPremium">Request premium recipe</label><br />
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
