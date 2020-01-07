@@ -1,0 +1,36 @@
+<div class="container">
+    <header>
+        <app-menu></app-menu>
+    </header>
+    <div class="user-container" *ngIf="user">
+        <div class="header">
+            <div class="pic-wrapper">
+                <img src="https://writedirection.com/website/wp-content/uploads/2016/09/blank-profile-picture-973460_960_720.png" alt="profilePic">
+            </div>
+            <div class="flex-column">
+             <h1 class="name">{{user.name}}</h1>
+            <div class="adress">{{user.adress.City}}, {{user.adress.Country}}</div>
+            <div class="phone">{{user.phone}}</div>
+            <div class="email">{{user.email}}</div>
+           </div>
+        </div>
+        <div class="description" >
+            <h1 class="title">Description:</h1>
+            <p *ngIf="user.description" >{{user.description}}</p>
+            <p *ngIf="!user.description" >No description available</p>
+            
+        </div>
+       <div class="button-container"> <button matButton class="add-product" *ngIf="user.isSeller && user.Id==currentUser.Id" (click)="openAddProductDialog()">
+           Add product</button></div>
+        <div class="products">
+                <div class="product" *ngFor="let product of products" (click)="openAddProductDialog(product)">
+                    <img [src]="product.pic" class="pic">
+                    <div class="location">{{product.sellerAdress}}</div>
+                    <div class="product-description">{{product.description}}</div>
+                    <div class="price">{{product.price}} <span *ngIf="product.units">/kg</span> <span *ngIf="!product.units">/pcs</span></div>
+                    <button matButton >Add to cart <img src="./assets/icons/menu/add.svg" alt="icon"></button>
+                </div>
+            
+        </div>
+    </div>
+</div>

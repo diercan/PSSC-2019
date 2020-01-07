@@ -1,0 +1,51 @@
+<div class="container">
+    <header>
+        <app-menu [activeTab]="2">
+        </app-menu>
+    </header>
+    <div class="products-container">
+       
+        <div class="filter-container">
+            
+             <div class="filter-btn" (click)="clearFilters()">Clear Filter </div>
+                <form [formGroup]="filterForm" >
+                    <mat-form-field floatLabel="always">
+                        <mat-label>Category</mat-label>
+                    <mat-select formControlName="category" (selectionChange)="filterProducts()">
+                        <mat-option *ngFor="let category of categories" [value]="category.name" (click)="setSubcategories(category._id)">{{category.name}}</mat-option>
+                       
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field floatLabel="always">
+                        <mat-label>Subcategory</mat-label>
+                    <mat-select formControlName="subcategory" (selectionChange)="filterProducts()" >
+                        <mat-option *ngFor="let sub of subcategories" [value]="sub.subcategory">{{sub.subcategory}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                        <mat-slider thumbLabel formControlName="price" min="0" value="10" max="100" (click)="filterProducts()"></mat-slider>
+                </form>
+                <img src="./assets/icons/menu/grid.svg" (click)="switchView('grid')" class="icon">
+                <img src="./assets/icons/menu/list.svg" (click)="switchView('list')" class="icon">
+        </div>
+        <div class="product-grid" *ngIf="grid">
+            <div class="product" *ngFor="let product of products">
+                <img [src]="product.pic" class="pic">
+                <div class="location">{{product.sellerAdress}}</div>
+                <div class="description">{{product.description}}</div>
+                <div class="price">{{product.price}} <span *ngIf="product.units">/kg</span> <span *ngIf="!product.units">/pcs</span></div>
+                <button matButton >Add to cart <img src="./assets/icons/menu/add.svg" alt="icon"></button>
+            </div>
+        </div>
+        <div class="product-list" *ngIf="!grid">
+                <div class="product" *ngFor="let product of products">
+                    <img src="./assets/icons/tomatoes.jpg" class="pic">
+                    <div class="flex-column">
+                    <div class="location">{{product.location}}</div>
+                    <div class="description">{{product.description}}</div>
+                    <div class="price">{{product.price}} <span *ngIf="product.units">/kg</span> <span *ngIf="!product.units">/pcs</span></div>
+                </div>
+                    <button matButton >Add to cart <img src="./assets/icons/menu/add.svg" alt="icon"></button>
+                </div>
+            </div>
+    </div>
+</div>

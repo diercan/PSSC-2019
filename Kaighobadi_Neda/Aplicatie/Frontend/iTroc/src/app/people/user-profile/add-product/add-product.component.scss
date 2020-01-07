@@ -1,0 +1,101 @@
+
+
+.product-form-container {
+    min-height: auto;
+    width: 100%;
+    font-family: 'Avenir';
+    font-weight: 700;
+    position: relative;
+   .form-container{
+    padding: 2rem 2rem 2rem 2rem;
+    box-sizing: border-box;
+    header {
+        width: 100%;
+        height: auto;
+        color: #5993c0;
+        font-size: 1.3rem;
+        margin-bottom: 38px;
+    }
+    mat-form-field {
+        font-family: 'Avenir';
+        width: 100%;
+        height: 3.1rem;
+        border: 1px solid #CED0EA;
+        border-radius: 5px;
+        padding: 1% 2.5% 0 1%;
+        box-sizing: border-box;
+        margin-bottom: 2rem;
+        font-size: .8rem;
+        // color: $torea-bay;
+        .label {
+            font-family: 'Avenir';
+            letter-spacing: 0.5px;
+        }
+    }
+
+    #description {
+        height: 100px;
+    }
+    .button{
+        background:none;
+        border-radius: .3rem;
+        font-size:.75rem;
+        height:2rem;
+        width:3rem;
+        border: .08rem solid #C3C5E7;
+        color:#5993c0;
+    }
+    .clicked-button{
+        background: #5993c0;
+        color:white;
+    }
+    .button-description{
+        font-size:.9rem;
+        font-weight:400;
+        font-family: 'Avenir';
+        margin-left: .7rem;
+    }
+    .error{
+        color:#5993c0;
+    }
+   }
+   .footer{
+       align-items: center;
+    display:flex;
+    box-sizing: border-box;
+    border-top:.1rem dotted #DBDCF0;
+    justify-content: flex-end;
+    padding-top:1.5rem;
+    padding-bottom: 0;
+    padding-right: 2rem;
+    padding-left:2rem;
+    width:100%;
+
+    .button {
+        width: 8.25rem;
+        height: 2.75rem;
+        background-color: #5993c0;
+        color: white;
+        font-size: .9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left:2rem;
+
+        .button-text {
+            width: 100%;
+            text-align: center;
+        }
+     }
+     .close{
+        background-color:white;
+        border:1px solid #5993c0;
+        color:#5993c0;
+    }
+    
+    
+    }
+    ::ng-deep mat-label{
+        color:#5993c0;
+    }
+}

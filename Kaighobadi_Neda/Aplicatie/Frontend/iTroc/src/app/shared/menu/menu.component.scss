@@ -1,0 +1,286 @@
+// @import '../../../styles/colors.scss';
+
+.menu-container {
+    width: 100%;
+    height: 4rem;
+    padding-left: 10%;
+    padding-right: 2%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background-color: #dae7f1;
+    font-family: 'Avenir';
+   
+
+    .logo {
+        cursor: pointer;
+        font-weight:700;
+        font-size:2rem;
+        line-height:4rem;
+        color:#3f7aa6;
+        animation-name:color;
+        animation-duration: 1s;
+        animation-iteration-count: 2;
+    }
+    
+        
+    .navigation {
+        width: auto;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        .buttons {
+            font-size: 1.2rem;
+            height: 100%;
+            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #3f7aa6;
+            font-family: 'Avenir';
+
+            .button {
+                border-radius:0;
+                min-width: auto;
+                margin-left: 10px;
+                margin-right: 10px;
+                height: 70%;
+                padding: 0 1rem 0 1rem;
+                letter-spacing: 1px;
+
+                ::ng-deep .mat-button-wrapper {
+                    padding: 10px;
+                    font-weight: 600;
+                    font-size: .9rem;
+                    font-family: 'Avenir Next';
+                }
+                &:hover{
+                    color: #3f7aa6;
+                    border-bottom:2px solid #3f7aa6;
+                    border-top: 2px solid #3f7aa6;
+                }
+            }
+
+            .active-button {
+                color: #3f7aa6;
+                border-bottom:2px solid #3f7aa6;
+                border-top: 2px solid #3f7aa6;
+            }
+        }
+
+        .profile {
+            height: 60%;
+            width: auto;
+            border-left: 1px solid #3f7aa6;
+            margin-left: 30px;
+            display: flex;
+            align-items: center;
+
+            .cart-icon {
+                width: 20px;
+                height: 20px;
+                margin-left: 30px;
+                cursor: pointer;
+            }
+           .pic-wrapper{
+               cursor: pointer;
+               color:white;
+               font-size:1rem;
+               font-weight:600;
+               display:flex;
+               justify-content: space-around;
+               justify-items: center;
+               align-items: center;
+               height:100%;
+               width:7rem;
+               background-color:#6b9fc7;
+               border-radius: 10px;
+               margin-left: 25px;
+               padding:.2rem .5rem;
+               letter-spacing: 1px;
+               
+            .picture {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+          }
+        }
+    }
+}
+
+.profile-menu-item {
+    padding: 10px 56px !important;
+    height: 60px !important;
+    line-height: 20px !important;
+    color: #444444;
+    font-family: 'Avenir Next';
+    font-size: 15px !important;
+    width:14.6rem;
+
+    .title {
+        height: 50%;
+        font-size: 15px;
+        line-height: 1rem;
+    }
+    .sign-out{
+       
+        font-weight: 500;
+    }
+    .subtitle {
+        height: 50%;
+        font-size: 12px;
+      
+        font-weight: 500;
+    }
+}
+
+.profile-menu-pic-item {
+    padding: 10px 0px !important;
+    display: flex !important;
+    align-items: center;
+
+    .profile-picture {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        margin: 0px 12px;
+    }
+    .icon{
+        width:1rem;
+        margin-left:1.34rem;
+        margin-right:1.34rem;
+    }
+}
+
+.down-arrow {
+    width: 0;
+    height: 0;
+    margin-left: 3px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid white;
+    cursor: pointer;
+}
+
+
+::ng-deep .mat-menu-panel {
+    border-radius: 5px !important;
+    margin-top:.8rem;
+    margin-right:-1.8rem;
+    max-width: 22.2rem !important;
+    max-height: 29rem!important;
+    
+}
+
+::ng-deep .mat-menu-content:not(:empty) {
+    padding: 0 !important;
+}
+
+
+.menu-item{
+    box-sizing: border-box;
+    display:flex;
+    align-items: center;
+    border-bottom:.1rem solid ;
+    width:22.2rem;
+    min-height:4rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
+.notification-text{
+    margin-left:1rem;
+    display: flex;
+    flex-direction: column;
+   // height: 4rem;
+    justify-content: center;
+    b{
+        font-weight:800;
+    }
+    .notification-description{
+        white-space: normal;
+    word-break: normal;
+   
+    font-size:.75rem;
+    line-height: 1rem;
+    
+    }
+.notification-date{
+    font-size: .6rem;
+    line-height: .87rem;
+    margin-top:.15rem;
+}
+}
+.notification-img{
+    width:1rem;
+    margin-left:.5rem;
+    margin-right:.5rem;
+}
+.profile-pic{
+    border-radius: 100%;
+    width:2rem;
+}
+.see-more{
+   
+    font-size:.75rem;
+    font-weight: 600;
+    line-height: 1rem;
+    
+}
+
+}
+
+.disabled{
+    display: none !important;
+}
+.disabled-logo{
+    pointer-events: none;
+}
+::ng-deep .mat-button:disabled{
+ display: none;
+}
+ .notification-menu{
+    position: relative;
+
+}
+.menu-wrapper{
+    position: relative;
+
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+    z-index: 3;
+    right: 1.2rem;
+    top:1.2rem;
+    position: absolute;
+    animation-name:fade;
+    animation-duration: .5s;
+  }
+.arrow-up-notification{
+    right: 0;
+    top:.9rem;
+   
+}
+.transparent{
+    opacity: 0;
+}
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+}
+::ng-deep .mat-menu-item{
+ height:auto !important;
+}
+@keyframes color{
+    0%{color:#df9fdf };
+    20%{color:#003e80};
+    40%{color:#df9fdf};
+    60%{color:#4da3ff};
+    80%{color:#003e80};
+    100%{color:#c653c6};
+}
