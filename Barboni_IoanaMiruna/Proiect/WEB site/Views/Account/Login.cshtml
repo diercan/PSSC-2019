@@ -1,0 +1,56 @@
+﻿@model LegumeDeBelint.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="label">Introdu contul curent</h2>
+<div class="row">
+    <div class="col-md-8">
+       <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <hr />
+
+                <div class="form-group label">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control form-input" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group label">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control form-input" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group label">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox form-checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group label">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Autentificare" class="btn btn-default form-submit" />
+                    </div>
+                </div>
+                <p class="label">
+                    @Html.ActionLink("Creaza un cont nou", "Register")
+                </p>
+                
+            }
+        </section>
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

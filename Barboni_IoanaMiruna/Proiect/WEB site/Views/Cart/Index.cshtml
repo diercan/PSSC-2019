@@ -1,0 +1,53 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using LegumeDeBelint.Models
+
+    <section class="sidebar">
+        <h1 class="section-header">Coș</h1>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">Produs</span>
+            <span class="cart-price cart-header cart-column">Preț</span>
+            <span class="cart-quantity cart-header cart-column">Cantitate</span>
+        </div>
+        <div class="cart-items">
+        </div>
+
+
+        @foreach (Item item in (List<Item>)Session["cart"])
+        {
+
+    <div class="cart-row">
+        <span class="cart-item cart-header cart-column">@item.Vegetable.Name</span>
+        <span class="cart-price cart-header cart-column">@item.Vegetable.Price</span>
+        <span class="cart-quantity cart-header cart-column">@item.Quantity</span>
+        <img class="cart-item-image" src="~/Content/Images/@item.Vegetable.Photo">
+        <span></span>
+        <button class="btn btn-primary btn-remove" type="button"><a class="button-link-remove" href="@Url.Action("Remove", "Cart", new { id = item.Vegetable.Id })">Șterge</a></button>
+    </div>
+            <div class="cart-items">
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Subtotal:</strong>
+                <span class="cart-total-price">@(item.Vegetable.Price * item.Quantity) </span>
+
+            </div>
+            
+
+
+            }
+            <div class="cart-total">
+                <strong class="cart-total-title">Total:</strong>
+
+                @{
+                    List<Item> cart = (List<Item>)Session["cart"];
+                    var total = cart.Sum(item => item.Vegetable.Price * item.Quantity);
+                }
+                <span class="cart-total-price">  @total </span>
+            </div>
+            <button class="btn btn-primary btn-purchase" type="button" onclick="alert('Multumim!')"><a class="button-link" href="@Url.Action("Cumpara", "Cart")">Cumpara</a></button>
+
+</section>
+

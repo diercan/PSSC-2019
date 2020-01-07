@@ -1,0 +1,442 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body{
+  height:100%;
+  font-size: 16px;
+  font-family: 'Kulim Park', sans-serif;
+  line-height: 1.8.em
+  background-color:#eee;
+}
+.container{
+  max-width: 85%;
+  margin:auto;
+
+}
+
+.clr {
+  clear: both;
+}
+
+.header {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('../images/background.jpg');
+
+}
+.header .logo{
+  float: left;
+  font-family: 'Dosis', sans-serif;
+}
+
+.header .logo img{
+  width:90px;
+  padding-top: 20px;
+  margin-left: 55px;
+  text-shadow: 2px 2px 4px #111;
+}
+
+.header .logo-name{
+  font-weight: 100;
+  font-size: 22px;
+  color:#EEE;
+  text-transform: uppercase;
+  padding: 5px 20px;
+  text-shadow: 2px 2px 4px #111;
+}
+
+.header .logo-description{
+  font-weight: 100;
+  font-size: 16px;
+  color:#EEE;
+  text-transform: uppercase;
+  padding: 5px 0px 15px 40px;
+  text-shadow: 2px 2px 4px #111;
+}
+
+.header .header-list{
+  float: right;
+  display: flex;
+  list-style: none;
+  padding: 15px;
+  margin-top:50px;
+}
+
+.header .header-list li{
+  padding: 5px;
+}
+
+.header .header-list li a{
+  text-decoration: none;
+  color: #EEE;
+
+}
+.header .header-list .button-create a{
+  text-shadow: 2px 2px 4px #111;
+  transition: 0.2s;
+}
+
+.header .header-list .button-create a:hover{
+  color: #111;
+  text-decoration: underline;
+  text-shadow: 0px 0px;
+}
+.header .header-list .button-login a{
+  border-style: solid;
+  border-width: 1px;
+  padding: 7px 13px;
+  text-shadow: 2px 2px 4px #111;
+  transition: 0.2s;
+}
+
+.header .header-list .button-login a:hover{
+  color: #111;
+  border-color: #EEE;
+  background-color: #EEE;
+  text-shadow: 0px 0px;
+}
+
+.navbar{
+  background-color: #1DC089;
+}
+.navbar .navbar-list{
+  display: flex;
+  list-style: none;
+  padding: 5px 10px;
+
+}
+
+.navbar .navbar-list .navbar-item{
+  padding:3px 25px;
+  flex-grow: 2;
+  text-align: left;
+}
+
+.navbar .navbar-list .navbar-item a{
+  text-decoration: none;
+  color: #eee;
+  transition: color 0.2s;
+}
+
+.navbar .navbar-list .navbar-item a:hover{
+  color: #111;
+}
+
+.showcase {
+  background-image: linear-gradient(rgba(29,192,137,0.3), rgba(29,192,137,0.8));
+  padding: 25px 5px;
+}
+
+.showcase .shw-title{
+  color: #333;
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.showcase .shw-text{
+  text-align: center;
+
+}
+
+.footer {
+  background-color: #eee;
+  color:#333;
+  transition: 0.1;
+  text-align: center;
+}
+
+.footer:hover{
+  background-color: #333;
+  color:#eee;
+}
+
+.image-showcase {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+    .image-showcase .indiv-image {
+        margin: 20px;
+        list-style: none;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 90%;
+        box-shadow: 2px 2px 12px #AAA;
+        background-color: rgba(29,192,137,0.05);
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgba(29,192,137,1)
+    }
+
+        .image-showcase .indiv-image:hover {
+            box-shadow: 2px 2px 12px #555;
+        }
+
+
+        .image-showcase .indiv-image .img-display img {
+            max-width: 180px;
+            max-height: 200px;
+            padding: 10px;
+        }
+
+        .image-showcase .indiv-image .img-display .shop-item-title {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 18px;
+        }
+
+
+
+        .image-showcase .indiv-image .img-display .shop-item-button {
+            width: 130px;
+            text-align: center;
+            margin-bottom: 10px;
+            padding: 10px 0px;
+            border-style: none;
+            border-radius: 10px;
+            background-color: #1DC089;
+            color: #eee;
+            transition: all 0.6s;
+            font-size: 18px;
+        }
+
+            .image-showcase .indiv-image .img-display .shop-item-button .hidden-message {
+                font-size: 12px;
+                color: #1DC089;
+                display: none;
+            }
+
+            .image-showcase .indiv-image .img-display .shop-item-button:hover {
+                background-color: rgba(29,192,137,0.05);
+                border-style: solid;
+                border-width: 1px;
+                border-color: #1DC089;
+                color: #1DC089;
+                max-width: 130px;
+            }
+
+                .image-showcase .indiv-image .img-display .shop-item-button:hover > span {
+                    display: inline;
+                }
+
+        .image-showcase .indiv-image .img-display .item-price {
+            padding-bottom: 5px;
+            color: #555;
+        }
+
+
+
+
+.sidebar {
+    margin: 20px;
+    box-shadow: 2px 2px 12px #AAA;
+    background-color: rgba(29,192,137,0.05);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(29,192,137,1)
+}
+
+
+
+    .sidebar:hover {
+        box-shadow: 2px 2px 12px #555;
+    }
+
+    .sidebar .section-header {
+        text-transform: uppercase;
+        font-size: 20px;
+        text-align: center;
+        padding: 10px 0px;
+    }
+
+.cart-row {
+    display: grid;
+    grid-template-columns: 40% 15% 45%;
+}
+
+    .cart-row .cart-header {
+        text-align: center;
+        padding: 3px 0px;
+    }
+
+    .cart-row .cart-column {
+        padding: 5px;
+    }
+
+    .cart-row .cart-item {
+        text-align: center;
+        margin: auto;
+    }
+
+
+
+    .cart-row .cart-item-price {
+        margin: auto;
+    }
+
+    .cart-row .cart-quantity {
+        display: grid;
+        grid-template-rows: 50% 50%;
+    }
+
+        .cart-row .cart-quantity .cart-item-quantity {
+            margin: auto 5px;
+            width: 90%;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 5px;
+            border-color: rgba(29,192,137,0.4);
+            background-color: inherit;
+            padding: 5px;
+        }
+
+            .cart-row .cart-quantity .cart-item-quantity:focus {
+                background-color: inherit;
+                outline-color: rgba(29,192,137,0);
+                border-color: rgba(29,192,137,1);
+            }
+
+
+
+        .cart-row .cart-quantity .btn-remove {
+            width: 90%;
+            margin: auto;
+            border-style: none;
+            border-radius: 5px;
+            background-color: #EE0022;
+            padding: 5px 10px;
+            color: #EEE;
+        }
+
+            .cart-row .cart-quantity .btn-remove:hover {
+                background-color: rgba(29,192,137,0.05);
+                border-style: solid;
+                border-width: 1px;
+                border-color: #EE0022;
+                color: #EE0022;
+            }
+
+.cart-item-image {
+    max-width: 75px;
+    border-radius: 10px;
+    display: block;
+}
+
+.cart-total {
+    text-align: right;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.btn-purchase {
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    text-align: center;
+    padding: 10px 0px;
+    border-style: none;
+    border-radius: 10px;
+    background-color: #1DC089;
+    color: #eee;
+    transition: all 0.6s;
+    font-size: 18px;
+}
+
+    .btn-purchase:hover {
+        color: #1DC089;
+        background-color: rgba(29,192,137,0.05);
+        border-style: solid;
+        border-width: 1px;
+        border-color: #1DC089;
+    }
+
+
+
+.cart-row .cart-quantity .cart-item-quantity:focus {
+    background-color: inherit;
+    outline-color: rgba(29,192,137,0);
+    border-color: rgba(29,192,137,1);
+}
+
+.form-background {
+    background: rgba(29,192,137,0.05);
+}
+
+.form-input {
+    display: block;
+    padding: 10px;
+    margin: 5px auto;
+    width: 50%;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: rgba(29,192,137,0.4);
+    background-color: inherit;
+}
+
+
+    .form-input:focus {
+        background-color: inherit;
+        outline-color: rgba(29,192,137,0);
+        border-color: rgba(29,192,137,1);
+    }
+
+.form-checkbox {
+    display: block;
+    text-align: center;
+}
+
+.form-submit {
+    display: block;
+    margin: 5px auto;
+    width: 30%;
+    text-align: center;
+    padding: 10px 0px;
+    border-style: none;
+    border-radius: 10px;
+    background-color: #1DC089;
+    color: #eee;
+    transition: all 0.6s;
+    font-size: 18px;
+}
+
+    .form-submit:hover {
+        color: #1DC089;
+        background-color: rgba(29,192,137,0.05);
+        border-style: solid;
+        border-width: 1px;
+        border-color: #1DC089;
+    }
+
+
+
+@media (max-width:1410px) {
+    .image-showcase {
+        grid-template-columns: 50% 50%;
+    }
+
+    
+}
+
+@media (max-width:920px) {
+    .image-showcase {
+        grid-template-columns: 100%;
+    }
+
+    
+}
+
+
+@media (max-width:640px) {
+
+
+    
+}
+
+
+
