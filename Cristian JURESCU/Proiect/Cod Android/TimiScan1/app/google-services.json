@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "589451771348",
+    "firebase_url": "https://training-b8119.firebaseio.com",
+    "project_id": "training-b8119",
+    "storage_bucket": "training-b8119.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589451771348:android:24f4200b5ad40972df2a41",
+        "android_client_info": {
+          "package_name": "com.example.timiscan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "589451771348-9dv1rtnlijbjuc7ah0vn2osjt4kchkil.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPB6yy43pgMvGVg3-N85j4_Fgbv_zKMEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "589451771348-9dv1rtnlijbjuc7ah0vn2osjt4kchkil.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
