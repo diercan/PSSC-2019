@@ -1,0 +1,34 @@
+﻿@model SosdeanLucian.Models.Abonament
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Abonament</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.NumeClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.NumeClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oferta.NumeOferta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oferta.NumeOferta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AbonamentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
