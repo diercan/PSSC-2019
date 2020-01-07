@@ -1,0 +1,9 @@
+Domeniul:
+Magazin de filme
+
+Functionalitati:
+-posibilitate de autentificare
+-optiune de a adauga, modifica, sterge sau cumpara filmul.
+-informatii despre filmul selectat
+-trailer youtube al filmului integrat
+-datele sunt stocate intr-o baza de date SQL.
