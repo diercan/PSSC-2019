@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_LayoutWithoutRights.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+</style>
+</head>
+<body>
+<div>
+    <fieldset>
+        <legend>What is you function? Choose one :</legend>
+        <p></p>
+        <table style="width:50%">
+            <tr>
+            @using(Html.BeginForm("Med", "Login")) { 
+               <td><button class="button button2" type="submit" name="submit" >Med</button></td>
+            }
+            @using(Html.BeginForm("Patient", "Login")) { 
+                <td><button class="button button2" type="submit" name="submit" >Pacient</button></td>
+            }
+            </tr>
+    </fieldset>
+</div>
+</body>
+</html>
+     

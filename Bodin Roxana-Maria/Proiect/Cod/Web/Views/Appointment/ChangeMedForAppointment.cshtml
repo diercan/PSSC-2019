@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Update Med for Appointment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Web.Models.AppointmentDto  
+@{  
+    ViewBag.Title = "www.compilemode.com";  
+} 
+<!DOCTYPE html>
+<html>
+<body>
+    <fieldset>
+        <div>
+        <legend>Enter Med Name:</legend>
+        </div>
+    </fieldset>
+    @using (Html.BeginForm("UpdateMedForAppointment", "Appointment", FormMethod.Post)) 
+    {  
+        @Html.AntiForgeryToken()  
+        
+        <div class="form-horizontal" align="left">  
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" }) 
+                 <div class="editor-label">
+                    @Html.LabelFor(u => u.MedName)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(u => u.MedName)
+                    @Html.ValidationMessageFor(u => u.MedName)
+                </div>
+                <p></p>
+                <button type="submit" name="Id" value=@Model.Id>Update Med</button>
+        </div> 
+    }
+</body>
+</html>

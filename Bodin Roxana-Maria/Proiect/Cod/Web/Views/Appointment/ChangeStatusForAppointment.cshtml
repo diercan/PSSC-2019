@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Update Status for Appointment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Web.Models.AppointmentDto  
+@{  
+    ViewBag.Title = "www.compilemode.com";  
+} 
+<!DOCTYPE html>
+<html>
+<body>
+    <fieldset>
+        <div>
+        <legend>Select the new state for appointment</legend>
+        </div>
+    </fieldset>
+    @using (Html.BeginForm("UpdateStatusForAppointment", "Appointment", FormMethod.Post)) 
+    {  
+        @Html.AntiForgeryToken()  
+        
+        <div class="form-horizontal" align="left">  
+               
+                @{
+                    List<SelectListItem> listItems= new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                            {
+                            Text = "InProgress",
+                            Value = "InProgress"
+                            });
+                    listItems.Add(new SelectListItem
+                            {
+                                Text = "Accepted",
+                                Value = "Accepted",
+                                Selected = true
+                            });
+                    listItems.Add(new SelectListItem
+                            {
+                                Text = "Finished",
+                                Value = "Finished"
+                            });
+                }
+
+                @Html.DropDownListFor(u => u.Status, listItems, "-- Select Status --")
+                <p></p>
+                <button type="submit" name="Id" value=@Model.Id>Update Status</button>
+        </div> 
+    }
+</body>
+</html>

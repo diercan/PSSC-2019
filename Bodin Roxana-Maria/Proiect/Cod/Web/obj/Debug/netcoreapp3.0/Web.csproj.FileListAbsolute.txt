@@ -1,0 +1,114 @@
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\appsettings.Development.json
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\appsettings.json
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\Web.exe
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\Web.deps.json
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\Web.runtimeconfig.json
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\Web.runtimeconfig.dev.json
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\Web.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\Web.pdb
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\Web.Views.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\Web.Views.pdb
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\DayPilot.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\Json.Net.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\JsonTransformation.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\System.Web.Mvc.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\System.Web.Razor.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\System.Web.Helpers.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\System.Web.WebPages.Deployment.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\System.Web.WebPages.Razor.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\System.Web.WebPages.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\Microsoft.Web.Infrastructure.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\RabbitMQ.Client.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\bin\Debug\netcoreapp3.0\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Web.csprojAssemblyReference.cache
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\staticwebassets\Web.StaticWebAssets.Manifest.cache
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\staticwebassets\Web.StaticWebAssets.xml
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Web.RazorAssemblyInfo.cache
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Web.RazorAssemblyInfo.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Web.AssemblyInfoInputs.cache
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Web.AssemblyInfo.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Web.TagHelpers.input.cache
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Web.TagHelpers.output.cache
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Web.RazorCoreGenerate.cache
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\Appointment\ChangeMedForAppointment.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\Appointment\ChangeStatusForAppointment.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\Appointment\GetAppointments.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\Appointment\Index.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\Appointment\MadeAppointment.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\Login\Med.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\Login\Patient.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\Med\Index.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\Patient\Index.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_LayoutMedic.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_LayoutWithoutRights.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Web.RazorTargetAssemblyInfo.cache
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Web.RazorTargetAssemblyInfo.cs
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Web.Views.pdb
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Web.csproj.CopyComplete
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Web.dll
+C:\Users\Bodin Roxana-Maria\Downloads\wetransfer-950a96\PSSC-2019-example\Bodin Roxana-Maria\Cod_proiect\Web\obj\Debug\netcoreapp3.0\Web.pdb
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\appsettings.Development.json
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\appsettings.json
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\Web.exe
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\Web.deps.json
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\Web.runtimeconfig.json
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\Web.runtimeconfig.dev.json
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\Web.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\Web.pdb
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\Web.Views.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\Web.Views.pdb
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\DayPilot.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\Json.Net.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\JsonTransformation.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\System.Web.Mvc.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\System.Web.Razor.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\System.Web.Helpers.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\System.Web.WebPages.Deployment.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\System.Web.WebPages.Razor.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\System.Web.WebPages.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\Microsoft.Web.Infrastructure.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\RabbitMQ.Client.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\bin\Debug\netcoreapp3.0\Microsoft.WindowsAzure.Storage.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Web.csprojAssemblyReference.cache
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\staticwebassets\Web.StaticWebAssets.Manifest.cache
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\staticwebassets\Web.StaticWebAssets.xml
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Web.MvcApplicationPartsAssemblyInfo.cache
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Web.RazorAssemblyInfo.cache
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Web.RazorAssemblyInfo.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Web.AssemblyInfoInputs.cache
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Web.AssemblyInfo.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Web.TagHelpers.input.cache
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Web.TagHelpers.output.cache
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Web.RazorCoreGenerate.cache
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\Appointment\ChangeMedForAppointment.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\Appointment\ChangeStatusForAppointment.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\Appointment\GetAppointments.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\Appointment\Index.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\Appointment\MadeAppointment.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\Login\Med.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\Login\Patient.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\Med\Index.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\Patient\Index.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Error.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_LayoutMedic.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_LayoutWithoutRights.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\_ViewImports.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Razor\Views\_ViewStart.cshtml.g.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Web.RazorTargetAssemblyInfo.cache
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Web.RazorTargetAssemblyInfo.cs
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Web.Views.pdb
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Web.csproj.CopyComplete
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Web.dll
+C:\PSSC-2019\Bodin Roxana-Maria\Cod\Web\obj\Debug\netcoreapp3.0\Web.pdb

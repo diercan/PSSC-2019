@@ -1,0 +1,77 @@
+@{
+    ViewData["Title"] = "Get Appointments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{  
+    ViewBag.Title = "www.compilemode.com";  
+} 
+@model List<Web.Models.DDD.Appointment>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+</style>
+</head>
+<body>
+<div>
+    <fieldset>
+        <legend>My Appointments</legend>
+        <p></p>
+    </fieldset>
+        <table style="width:50%">
+            <tr>
+            <th>Med</th><th>Date</th><th>Status</th><th>Cancel</th></tr>
+            @using (Html.BeginForm("ChangeMedForAppointment", "Appointment", FormMethod.Post))
+            {
+                @foreach(var item in Model)
+                {
+                <tr>
+                    <td>
+                    <button class="button button2" type="submit" name="Id" value=@item.Id>@item.MedName</button> 
+                    </td>
+                   <td>@item.DOB</td> 
+                   <td>@item.Status</td>
+                   <td>
+                    <button type="submit" name="Cancel" value=@item.Id>Cancel appointment</button> 
+                    </td>
+                </tr>
+                }
+            }
+        </table>
+     </fieldset>
+</div>
+</body>
+</html> 
