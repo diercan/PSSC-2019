@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WeTest.Models.Tester>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Company Testers</h1>
+<h3>Here you can see all testers with details.</h3>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TesterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TesterId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TesterName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TesterId)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TesterId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TesterId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TesterId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
