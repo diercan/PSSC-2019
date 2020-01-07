@@ -1,0 +1,10 @@
+Domeniul:
+Monitorizare stoc licente pentru produse software
+
+Functionalitati:
+
+-vizualizarea licentelor din stoc
+-adaugarea unei noi liccente de catre administartor
+-stergerea unei licente de catre administrator
+
+Un serviciu va trimite cate un mesaj de fiecare data cand o modificare asupra stocului va fi facuta.
