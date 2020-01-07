@@ -1,0 +1,36 @@
+﻿@model PSSC.Models.Car
+
+@{
+    ViewBag.Title = "BuyRent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BuyRent</h2>
+
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Buy","Buy","Car") |
+    @Html.ActionLink("Rent","Rent","Car")
+
+</p>
