@@ -40,8 +40,6 @@
             this.kryptonDataGridView1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.uidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userLogInBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.psscdbDataSet = new PSSC.PsscdbDataSet();
             this.panelDashboard = new System.Windows.Forms.Panel();
             this.groupBoxAddDev = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -79,7 +77,7 @@
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priorityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tasksBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            
             this.buttonDashboard = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -90,13 +88,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.buttonStatistic = new System.Windows.Forms.Button();
-            this.tasksTableAdapter = new PSSC.PsscdbDataSetTableAdapters.TasksTableAdapter();
-            this.tableAdapterManager = new PSSC.PsscdbDataSetTableAdapters.TableAdapterManager();
-            this.userLogInTableAdapter = new PSSC.PsscdbDataSetTableAdapters.UserLogInTableAdapter();
             this.panelStatistic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userLogInBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.psscdbDataSet)).BeginInit();
             this.panelDashboard.SuspendLayout();
             this.groupBoxAddDev.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -104,7 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TaskChart)).BeginInit();
             this.panelTasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridViewTasks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tasksBindingSource)).BeginInit();
             this.panelPower.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,7 +149,6 @@
             this.kryptonDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.uidDataGridViewTextBoxColumn,
             this.typeDataGridViewTextBoxColumn});
-            this.kryptonDataGridView1.DataSource = this.userLogInBindingSource;
             this.kryptonDataGridView1.Location = new System.Drawing.Point(18, 313);
             this.kryptonDataGridView1.Name = "kryptonDataGridView1";
             this.kryptonDataGridView1.Size = new System.Drawing.Size(241, 164);
@@ -174,16 +165,6 @@
             this.typeDataGridViewTextBoxColumn.DataPropertyName = "type";
             this.typeDataGridViewTextBoxColumn.HeaderText = "type";
             this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            // 
-            // userLogInBindingSource
-            // 
-            this.userLogInBindingSource.DataMember = "UserLogIn";
-            this.userLogInBindingSource.DataSource = this.psscdbDataSet;
-            // 
-            // psscdbDataSet
-            // 
-            this.psscdbDataSet.DataSetName = "PsscdbDataSet";
-            this.psscdbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panelDashboard
             // 
@@ -487,7 +468,6 @@
             this.statusDataGridViewTextBoxColumn,
             this.priorityDataGridViewTextBoxColumn,
             this.Id});
-            this.kryptonDataGridViewTasks.DataSource = this.tasksBindingSource;
             this.kryptonDataGridViewTasks.Location = new System.Drawing.Point(3, 7);
             this.kryptonDataGridViewTasks.MultiSelect = false;
             this.kryptonDataGridViewTasks.Name = "kryptonDataGridViewTasks";
@@ -544,12 +524,7 @@
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // tasksBindingSource
-            // 
-            this.tasksBindingSource.DataMember = "Tasks";
-            this.tasksBindingSource.DataSource = this.psscdbDataSet;
+            this.Id.ReadOnly = true;         
             // 
             // buttonDashboard
             // 
@@ -656,22 +631,7 @@
             this.buttonStatistic.TabIndex = 16;
             this.buttonStatistic.Text = "Statistic";
             this.buttonStatistic.UseVisualStyleBackColor = true;
-            this.buttonStatistic.Click += new System.EventHandler(this.buttonStatistic_Click);
-            // 
-            // tasksTableAdapter
-            // 
-            this.tasksTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.TasksTableAdapter = this.tasksTableAdapter;
-            this.tableAdapterManager.UpdateOrder = PSSC.PsscdbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UserLogInTableAdapter = this.userLogInTableAdapter;
-            // 
-            // userLogInTableAdapter
-            // 
-            this.userLogInTableAdapter.ClearBeforeFill = true;
+            this.buttonStatistic.Click += new System.EventHandler(this.buttonStatistic_Click);          
             // 
             // MainForm
             // 
@@ -698,8 +658,6 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelStatistic.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userLogInBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.psscdbDataSet)).EndInit();
             this.panelDashboard.ResumeLayout(false);
             this.groupBoxAddDev.ResumeLayout(false);
             this.groupBoxAddDev.PerformLayout();
@@ -710,7 +668,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TaskChart)).EndInit();
             this.panelTasks.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridViewTasks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tasksBindingSource)).EndInit();
             this.panelPower.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -762,12 +719,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButtonAddDev;
         private System.Windows.Forms.TextBox textBoxAddId;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView kryptonDataGridView1;
-        private PsscdbDataSet psscdbDataSet;
-        private System.Windows.Forms.BindingSource tasksBindingSource;
-        private PsscdbDataSetTableAdapters.TasksTableAdapter tasksTableAdapter;
-        private PsscdbDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private PsscdbDataSetTableAdapters.UserLogInTableAdapter userLogInTableAdapter;
-        private System.Windows.Forms.BindingSource userLogInBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn uidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;

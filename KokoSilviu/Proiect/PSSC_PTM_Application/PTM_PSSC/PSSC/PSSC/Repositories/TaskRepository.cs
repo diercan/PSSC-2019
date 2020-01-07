@@ -6,303 +6,262 @@ using System.Text;
 using System.Threading.Tasks;
 using PSSC;
 using System.Data.SqlClient;
-
+using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.WindowsAzure.Storage;
+using PSSC.Entities;
 
 namespace PSSC.Repositories
 {
     public class TaskRepository : ITaskRepository
     {
-        public PSSC.PsscdbDataSetTableAdapters.TasksTableAdapter TableAdapter;
-        public PSSC.PsscdbDataSetTableAdapters.TableAdapterManager TableAdapterManager;
-        public PSSC.PsscdbDataSet dbDataSet;
-        public System.Windows.Forms.BindingSource tBinding;
-
-        public TaskRepository(PSSC.PsscdbDataSetTableAdapters.TasksTableAdapter tta,
-                              PSSC.PsscdbDataSetTableAdapters.TableAdapterManager tam,
-                              PSSC.PsscdbDataSet dbset,
-                              System.Windows.Forms.BindingSource bsource)
+     
+        public async Task Create(TaskEntity task)
         {
-            TableAdapter = tta;
-            TableAdapterManager = tam;
-            dbDataSet = dbset;
-            tBinding = bsource;
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=storeksq6lvimcn6gy;AccountKey=okS17G921c6N5lN7Czxi1QJ+DF/fbripzaWiEDoRdp4oh42RoJFz3A5Nfn70dHaoh3mUaFzQIcu9MVDTeHmmiQ==;EndpointSuffix=core.windows.net");
+
+            // Create a table client for interacting with the table service
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            // Create a table client for interacting with the table service 
+            CloudTable table = tableClient.GetTableReference("PSSCTasksKoko");
+            await table.CreateIfNotExistsAsync();
+
+            var insertOrReplaceOperation = TableOperation.InsertOrReplace(task);
+            await table.ExecuteAsync(insertOrReplaceOperation);
+
         }
 
-        public void Create(PSSC.Models.Task task)
+        public async Task<List<TaskEntity>> GetAllTasks()
         {
-            int id = task.id;
-            string nume = task.name;
-            string description = task.description;
-            string status = task.status;
-            string prio = task.priority;
-           // string author = task.author.name + "(" + task.author.internal_id + ")";
-            //string dev = task.developer.name + "(" + task.developer.internal_id + ")";
-            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = "INSERT INTO Tasks VALUES('" + id + "','" + nume + "','" + description + "','" + task.author.internal_id + "','" + task.developer.internal_id + "','" + status + "','" + prio + "');";
-            SqlDataAdapter da = new SqlDataAdapter();
-            sql_con.Open();
-            da.InsertCommand = sql_con.CreateCommand();
-            da.InsertCommand.CommandText = query;
-            da.InsertCommand.ExecuteNonQuery();
-            sql_con.Close();
-            tBinding.EndEdit();
-            TableAdapterManager.UpdateAll(dbDataSet);
-        }
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=storeksq6lvimcn6gy;AccountKey=okS17G921c6N5lN7Czxi1QJ+DF/fbripzaWiEDoRdp4oh42RoJFz3A5Nfn70dHaoh3mUaFzQIcu9MVDTeHmmiQ==;EndpointSuffix=core.windows.net");
 
-        public System.Collections.IList GetAllTasks()
-        {
-            return tBinding.List;
+            // Create a table client for interacting with the table service
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            // Create a table client for interacting with the table service 
+            CloudTable table = tableClient.GetTableReference("PSSCLogInKoko");
+           await table.CreateIfNotExistsAsync();
+
+            List<TaskEntity> users = new List<TaskEntity>();
+            TableQuery<TaskEntity> query = new TableQuery<TaskEntity>();
+            users = table.ExecuteQuery(new TableQuery<TaskEntity>()).ToList();
+
+            if (users.Count > 0)
+                return users;
+            else
+                return null;
 
         }
-        public PSSC.Models.Task GetTask(int taskID)
+        public async Task<TaskEntity> GetTask(int taskID)
         {
-            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = "SELECT * FROM Tasks WHERE Id=" + taskID + ";";
-            SqlDataAdapter da = new SqlDataAdapter();
-            sql_con.Open();
-            da.SelectCommand = sql_con.CreateCommand();
-            da.SelectCommand.CommandText = query;
-            da.SelectCommand.ExecuteNonQuery();
-            da.Fill(dbDataSet);
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=storeksq6lvimcn6gy;AccountKey=okS17G921c6N5lN7Czxi1QJ+DF/fbripzaWiEDoRdp4oh42RoJFz3A5Nfn70dHaoh3mUaFzQIcu9MVDTeHmmiQ==;EndpointSuffix=core.windows.net");
 
-            PSSC.Models.Developer author = new PSSC.Models.Developer();
-            PSSC.Models.Developer dev = new PSSC.Models.Developer();
-            int cnt = 0, i = 0;
-            foreach (PsscdbDataSet.TasksRow row in dbDataSet.Tasks.Rows)
+            // Create a table client for interacting with the table service
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            // Create a table client for interacting with the table service 
+            CloudTable table = tableClient.GetTableReference("PSSCTasksKoko");
+            await table.CreateIfNotExistsAsync();
+
+            TableQuery<TaskEntity> query = new TableQuery<TaskEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, taskID.ToString()));
+            TableContinuationToken token = null;
+            TableQuerySegment<TaskEntity> resultSegment = await table.ExecuteQuerySegmentedAsync(query, token);
+            token = resultSegment.ContinuationToken;
+
+            foreach (TaskEntity entity in resultSegment.Results)
             {
-                if (row.Id == taskID)
-                {
-                    cnt=i;
-                }
-               i++;
+                if(int.Parse(entity.PartitionKey)==taskID)
+                      return entity;
             }
-            author.UpdateInternalID(dbDataSet.Tasks.Rows[cnt][3].ToString());
-            dev.UpdateInternalID(dbDataSet.Tasks.Rows[cnt][4].ToString());
+           
+            return null;
 
-            PSSC.Models.Task t = new PSSC.Models.Task();
-            t.ChangeID((int)dbDataSet.Tasks.Rows[cnt][0]);
-            t.ChangeName(dbDataSet.Tasks.Rows[cnt][1].ToString());
-            t.ChangeDescription(dbDataSet.Tasks.Rows[cnt][2].ToString());          
-            t.ChangeAuthor(author);
-            t.Assign(dev);
-            t.ChangeStatus(dbDataSet.Tasks.Rows[cnt][5].ToString());
-            t.ChangePrio(dbDataSet.Tasks.Rows[cnt][6].ToString());
-
-            sql_con.Close();
-            return t;
         }
-        public void UpdateTaskStatus(PSSC.Models.Task task)
+        public async Task UpdateTaskStatus(TaskEntity new_task)
         {
-            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = "Update Tasks SET Status='" + task.status + "' where Id=" + task.id + ";";
-            SqlDataAdapter da = new SqlDataAdapter();
-            sql_con.Open();
-            da.UpdateCommand = sql_con.CreateCommand();
-            da.UpdateCommand.CommandText = query;
-            da.UpdateCommand.ExecuteNonQuery();
-            sql_con.Close();
+            TaskEntity old_task = await GetTask(int.Parse(new_task.PartitionKey));
+
+            if (old_task.status != new_task.status)
+            {
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=storeksq6lvimcn6gy;AccountKey=okS17G921c6N5lN7Czxi1QJ+DF/fbripzaWiEDoRdp4oh42RoJFz3A5Nfn70dHaoh3mUaFzQIcu9MVDTeHmmiQ==;EndpointSuffix=core.windows.net");
+
+                // Create a table client for interacting with the table service
+                CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+                // Create a table client for interacting with the table service 
+                CloudTable table = tableClient.GetTableReference("PSSCTasksKoko");
+                await table.CreateIfNotExistsAsync();
+
+                var insertOrReplaceOperation = TableOperation.InsertOrReplace(new_task);
+                await table.ExecuteAsync(insertOrReplaceOperation);
+            }
+        }
+
+        public async Task UpdateTask(TaskEntity new_task)
+        {
+            bool task_changed = false;
+            TaskEntity old_task = await GetTask(int.Parse(new_task.PartitionKey));
+
+            if (old_task.status != new_task.status)
+            {
+                old_task.status = new_task.status;
+                task_changed = true;          
+            }
+
+            if (old_task.RowKey != new_task.RowKey)
+            {
+                old_task.RowKey = new_task.RowKey;
+                task_changed = true;
+            }
+
+            if (old_task.PartitionKey != new_task.PartitionKey)
+            {
+                old_task.PartitionKey = new_task.PartitionKey;
+                task_changed = true;
+            }
+
+            if (old_task.description != new_task.description)
+            {
+                old_task.description = new_task.description;
+                task_changed = true;
+            }
+
+            if (old_task.prio != new_task.prio)
+            {
+                old_task.prio = new_task.prio;
+                task_changed = true;
+            }
+
+            if (old_task.developer != new_task.developer)
+            {
+                old_task.developer = new_task.developer;
+                task_changed = true;
+            }
+
+            if (task_changed)
+            {
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=storeksq6lvimcn6gy;AccountKey=okS17G921c6N5lN7Czxi1QJ+DF/fbripzaWiEDoRdp4oh42RoJFz3A5Nfn70dHaoh3mUaFzQIcu9MVDTeHmmiQ==;EndpointSuffix=core.windows.net");
+
+                // Create a table client for interacting with the table service
+                CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+                // Create a table client for interacting with the table service 
+                CloudTable table = tableClient.GetTableReference("PSSCTasksKoko");
+                await table.CreateIfNotExistsAsync();
+
+                var insertOrReplaceOperation = TableOperation.InsertOrReplace(old_task);
+                await table.ExecuteAsync(insertOrReplaceOperation);
+            }
             
-            TableAdapterManager.UpdateAll(dbDataSet);
-            tBinding.EndEdit();
         }
 
-        public void UpdateTask(PSSC.Models.Task task)
+        public async Task DeleteTask(TaskEntity task)
         {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=storeksq6lvimcn6gy;AccountKey=okS17G921c6N5lN7Czxi1QJ+DF/fbripzaWiEDoRdp4oh42RoJFz3A5Nfn70dHaoh3mUaFzQIcu9MVDTeHmmiQ==;EndpointSuffix=core.windows.net");
 
-            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");           
-            string query = "UPDATE Tasks SET Name='" + task.name + "',Description='" + task.description + "',Developer_uid='"  + task.developer.internal_id + "',Status='" + task.status + "',Priority='" + task.priority + "' WHERE id="+task.id+";";
-            SqlDataAdapter da = new SqlDataAdapter();
-            sql_con.Open();
-            da.UpdateCommand = sql_con.CreateCommand();
-            da.UpdateCommand.CommandText = query;
-            da.UpdateCommand.ExecuteNonQuery();
-            sql_con.Close();
-            TableAdapterManager.UpdateAll(dbDataSet);
-            tBinding.EndEdit();
+            // Create a table client for interacting with the table service
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            // Create a table client for interacting with the table service 
+            CloudTable table = tableClient.GetTableReference("PSSCTasksKoko");
+            await table.CreateIfNotExistsAsync();
+
+            var deleteOperation = TableOperation.Delete(task);
+            await table.ExecuteAsync(deleteOperation);
         }
 
-        public void Delete(string taskID)
+        public async Task<int> GetPlannedNr(UserLogInEntity dev, bool pm_user)
         {
-            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = "DELETE FROM Tasks where Id='" + taskID + "';";
-            SqlDataAdapter da = new SqlDataAdapter();
-            sql_con.Open();
-            da.DeleteCommand = sql_con.CreateCommand();
-            da.DeleteCommand.CommandText = query;
-            da.DeleteCommand.ExecuteNonQuery();
-            sql_con.Close();           
-            tBinding.EndEdit();
-            TableAdapterManager.UpdateAll(dbDataSet);
-        }
-
-        public int GetPlannedNr(string uid, bool pm_user)
-        {
-            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = null;
-            if (pm_user)
-            {
-                 query = "SELECT * FROM Tasks WHERE Status='Planned';";
-            }
-            else
-            {
-                 query = "SELECT * FROM Tasks WHERE Status='Planned' AND Developer_uid='" + uid + "';";
-            }
-             SqlDataAdapter da = new SqlDataAdapter();
-            sql_con.Open();
-            da.SelectCommand = sql_con.CreateCommand();
-            da.SelectCommand.CommandText = query;
-            da.SelectCommand.ExecuteNonQuery();
-            da.Fill(dbDataSet);
             int cnt = 0;
-            foreach (PsscdbDataSet.TasksRow row in dbDataSet.Tasks.Rows)
+            List<TaskEntity> tasks = await GetAllTasks();
+            foreach(TaskEntity task in tasks)
             {
-                if (row.Status == "Planned")
+                if(task.status=="Planned")
                 {
-                    if (row.Developer_uid == uid && !pm_user)
-                    {
+                    if (task.developer == dev.PartitionKey && !pm_user)
                         cnt++;
-                    }
-                    else if(pm_user)
-                    {
-                        cnt++;
-                    }
-                }
-            }
-
-            return cnt;
-        }
-        public int GetInWorkN(string uid, bool pm_user)
-        {
-            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = null;
-            if (pm_user)
-            {
-                query = "SELECT * FROM Tasks WHERE Status='InWork';";
-            }
-            else
-            {
-                query = "SELECT * FROM Tasks WHERE Status='InWork' AND Developer_uid='" + uid + "';";
-            }
-            SqlDataAdapter da = new SqlDataAdapter();
-            sql_con.Open();
-            da.SelectCommand = sql_con.CreateCommand();
-            da.SelectCommand.CommandText = query;
-            da.SelectCommand.ExecuteNonQuery();
-            da.Fill(dbDataSet);
-            int cnt = 0;
-            foreach(PsscdbDataSet.TasksRow row in  dbDataSet.Tasks.Rows)
-            {
-                if (row.Status == "InWork")
-                {
-                    if (row.Developer_uid == uid && !pm_user)
-                    {
-                        cnt++;
-                    }
                     else if (pm_user)
-                    {
                         cnt++;
-                    }
                 }
             }
-
             return cnt;
         }
-        public int GetRealizedNr(string uid, bool pm_user)
+        public async Task<int> GetInWorkN(UserLogInEntity dev, bool pm_user)
         {
-            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = null;
-            if (pm_user)
-            {
-                query = "SELECT * FROM Tasks WHERE Status='Realized';";
-            }
-            else
-            {
-                query = "SELECT * FROM Tasks WHERE Status='Realized' AND Developer_uid='" + uid + "';";
-            }
-            SqlDataAdapter da = new SqlDataAdapter();
-            sql_con.Open();
-            da.SelectCommand = sql_con.CreateCommand();
-            da.SelectCommand.CommandText = query;
-            da.SelectCommand.ExecuteNonQuery();
-            da.Fill(dbDataSet);
             int cnt = 0;
-            foreach (PsscdbDataSet.TasksRow row in dbDataSet.Tasks.Rows)
+            List<TaskEntity> tasks = await GetAllTasks();
+            foreach (TaskEntity task in tasks)
             {
-                if (row.Status == "Realized")
+                if (task.status == "InWork")
                 {
-                    if (row.Developer_uid == uid && !pm_user)
-                    {
+                    if (task.developer == dev.PartitionKey && !pm_user)
                         cnt++;
-                    }
                     else if (pm_user)
-                    {
                         cnt++;
-                    }
                 }
             }
-
             return cnt;
         }
-        public int GetCanceledNr(string uid, bool pm_user)
+        public async Task<int> GetRealizedNr(UserLogInEntity dev, bool pm_user)
         {
-            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = null;
-            if (pm_user)
-            {
-                query = "SELECT * FROM Tasks WHERE Status='Canceled';";
-            }
-            else
-            {
-                query = "SELECT * FROM Tasks WHERE Status='Canceled' AND Developer_uid='" + uid + "';";
-            }
-            SqlDataAdapter da = new SqlDataAdapter();
-            sql_con.Open();
-            da.SelectCommand = sql_con.CreateCommand();
-            da.SelectCommand.CommandText = query;
-            da.SelectCommand.ExecuteNonQuery();
-            da.Fill(dbDataSet);
             int cnt = 0;
-            foreach (PsscdbDataSet.TasksRow row in dbDataSet.Tasks.Rows)
+            List<TaskEntity> tasks = await GetAllTasks();
+            foreach (TaskEntity task in tasks)
             {
-                if (row.Status == "Canceled")
+                if (task.status == "Realized")
                 {
-                    if (row.Developer_uid == uid && !pm_user)
-                    {
+                    if (task.developer == dev.PartitionKey && !pm_user)
                         cnt++;
-                    }
                     else if (pm_user)
-                    {
                         cnt++;
-                    }
                 }
             }
             return cnt;
         }
-        public void AddDeveloper(PSSC.Models.Developer d)
+        public async Task<int> GetCanceledNr(UserLogInEntity dev, bool pm_user)
         {
-            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = "INSERT INTO UserLogIn VALUES('" + d.internal_id + "','123456789','developer');";
-            SqlDataAdapter da = new SqlDataAdapter();
-            sql_con.Open();
-            da.InsertCommand = sql_con.CreateCommand();
-            da.InsertCommand.CommandText = query;
-            da.InsertCommand.ExecuteNonQuery();
-            sql_con.Close();
-            tBinding.EndEdit();
-            TableAdapterManager.UpdateAll(dbDataSet);
+            int cnt = 0;
+            List<TaskEntity> tasks = await GetAllTasks();
+            foreach (TaskEntity task in tasks)
+            {
+                if (task.status == "Canceled")
+                {
+                    if (task.developer == dev.PartitionKey && !pm_user)
+                        cnt++;
+                    else if (pm_user)
+                        cnt++;
+                }
+            }
+            return cnt;
         }
-        public void DeleteDeveloper(PSSC.Models.Developer d)
+        public async Task AddDeveloper(UserLogInEntity dev)
         {
-            SqlConnection sql_con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = "DELETE FROM UserLogIn where uid='" + d.internal_id + "';";
-            SqlDataAdapter da = new SqlDataAdapter();
-            sql_con.Open();
-            da.DeleteCommand = sql_con.CreateCommand();
-            da.DeleteCommand.CommandText = query;
-            da.DeleteCommand.ExecuteNonQuery();
-            sql_con.Close();
-            tBinding.EndEdit();
-            TableAdapterManager.UpdateAll(dbDataSet);
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=storeksq6lvimcn6gy;AccountKey=okS17G921c6N5lN7Czxi1QJ+DF/fbripzaWiEDoRdp4oh42RoJFz3A5Nfn70dHaoh3mUaFzQIcu9MVDTeHmmiQ==;EndpointSuffix=core.windows.net");
+
+            // Create a table client for interacting with the table service
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            // Create a table client for interacting with the table service 
+            CloudTable table = tableClient.GetTableReference("PSSCLogInKoko");
+            await table.CreateIfNotExistsAsync();
+
+            var insertOrReplaceOperation = TableOperation.InsertOrReplace(dev);
+            await table.ExecuteAsync(insertOrReplaceOperation);
+        }
+
+        public async Task DeleteDeveloper(UserLogInEntity dev)
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=storeksq6lvimcn6gy;AccountKey=okS17G921c6N5lN7Czxi1QJ+DF/fbripzaWiEDoRdp4oh42RoJFz3A5Nfn70dHaoh3mUaFzQIcu9MVDTeHmmiQ==;EndpointSuffix=core.windows.net");
+
+            // Create a table client for interacting with the table service
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            // Create a table client for interacting with the table service 
+            CloudTable table = tableClient.GetTableReference("PSSCLogInKoko");
+            await table.CreateIfNotExistsAsync();
+
+            var deleteOperation = TableOperation.Delete(dev);
+            await table.ExecuteAsync(deleteOperation);
         }
     }
 }

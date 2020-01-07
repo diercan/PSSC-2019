@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.WindowsAzure.Storage;
+using PSSC.Entities;
 
 namespace PSSC
 {
@@ -133,32 +136,34 @@ namespace PSSC
         {
             bool login = false;
             bool Dev_user = false;
-            SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\GitRepo\\PSSC-2019\\KokoSilviu\\Proiect\\PSSC_PTM_Application\\PTM_PSSC\\PSSC\\PSSC\\Psscdb.mdf;Integrated Security=True;Connect Timeout=30");
-            conn.Open();
-            string cmd = "SELECT * FROM UserLogIn";
-            SqlDataAdapter da = new SqlDataAdapter(cmd,conn);
-            DataSet dbdst = new DataSet();
-            DataTable dt = new DataTable();
-            da.Fill(dt);
 
-            
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=storeksq6lvimcn6gy;AccountKey=okS17G921c6N5lN7Czxi1QJ+DF/fbripzaWiEDoRdp4oh42RoJFz3A5Nfn70dHaoh3mUaFzQIcu9MVDTeHmmiQ==;EndpointSuffix=core.windows.net");
 
-            foreach (DataRow dr in dt.Rows)
+            // Create a table client for interacting with the table service
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            // Create a table client for interacting with the table service 
+            CloudTable table = tableClient.GetTableReference("PSSCLogInKoko");
+            table.CreateIfNotExists();
+
+            List<UserLogInEntity> users = new List<UserLogInEntity>();
+            TableQuery<UserLogInEntity> query = new TableQuery<UserLogInEntity>();
+            users = table.ExecuteQuery(new TableQuery<UserLogInEntity>()).ToList();
+
+            foreach (UserLogInEntity entity in users)
             {
-               if(dr["uid"].Equals(textBoxUser.Text) && dr["password"].Equals(textBoxPassword.Text))
-               {
-                 login = true;
-                 if(dr["type"].Equals("developer"))
-                 {
+                if (entity.PartitionKey.Equals(textBoxUser.Text) && entity.RowKey.Equals(textBoxPassword.Text))
+                {
+                    login = true;
+                    if (entity.role.Equals("developer"))
+                    {
                         Dev_user = true;
-                 }
+                    }
                     break;
-               }
+                }
             }
-            conn.Close();
-            //check user and password in database and call main form with parameter for developer or project manager.
-            if(login)
-            //if(user and pass match db)
+
+            if (login)
             {
                 //  MainForm f = new MainForm(textBoxUser.Text, Dev_user);
                 //f.Show();

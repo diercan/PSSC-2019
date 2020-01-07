@@ -20,6 +20,16 @@ namespace PSSC.Models
         {
 
         }
+        public Task(PSSC.Entities.TaskEntity task)
+        {
+            this.id = int.Parse(task.PartitionKey);
+            this.name = task.RowKey;
+            this.author = new Developer(task.author);
+            this.description = task.description;
+            this.developer = new Developer(task.developer);
+            this.status = task.status;
+            this.priority = task.prio;
+        }
 
         public Task(int id,string name,Developer a, Developer d, string description,string status, string priority)
         {

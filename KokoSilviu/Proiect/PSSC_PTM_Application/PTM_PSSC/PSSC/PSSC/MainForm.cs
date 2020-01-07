@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using PSSC.Models;
 using PSSC.Repositories;
 using System.Data.SqlClient;
+using PSSC.Entities;
 
 namespace PSSC
 {
@@ -22,27 +23,27 @@ namespace PSSC
 
         public MainForm()
         {
+            //refreshTasksDataGrid();
             this.WindowState = FormWindowState.Minimized;
             InitializeComponent();
             fl.ShowDialog();
             TaskChart.Visible = false;
-            taskRepository = new TaskRepository(this.tasksTableAdapter, this.tableAdapterManager, this.psscdbDataSet, tasksBindingSource);   
+            taskRepository = new TaskRepository();   
             panelPower.Visible = false;          
             user_uid = fl.uid;
             pm_user = !fl.dev_user;
             panelDashboard.Visible = false;
             kryptonDataGridView1.Visible = false;
-            userLogInBindingSource.Filter = "Type='developer'";
+           // userLogInBindingSource.Filter = "Type='developer'";
             if (fl.dev_user)
             {
-                tasksBindingSource.Filter = "Developer_uid='" +fl. uid + "'";
+                //tasksBindingSource.Filter = "Developer_uid='" +fl. uid + "'";
                 panelTasks.Visible = true;
                 buttonDashboard.Enabled = false;
-                //this.WindowState = FormWindowState.Maximized;
             }
             else
             {
-                tasksBindingSource.Filter = "Author_uid='" + fl.uid + "'";
+                //tasksBindingSource.Filter = "Author_uid='" + fl.uid + "'";
                 panelTasks.Visible = true;
                 buttonDashboard.Enabled = true;
                 
@@ -81,27 +82,28 @@ namespace PSSC
                 kryptonDataGridView1.Visible = true;
             }
             TaskChart.Series["Series2"].Points.Clear();
-            var taskPlannedNr = taskRepository.GetPlannedNr(user_uid,pm_user);
-            var taskInWorkNr = taskRepository.GetInWorkN(user_uid,pm_user);
-            var taskRealizedNr = taskRepository.GetRealizedNr(user_uid,pm_user);
-            var taskCanceledNr = taskRepository.GetCanceledNr(user_uid,pm_user);
+            UserLogInEntity dev = new UserLogInEntity(user_uid, "");
+            var taskPlannedNr = taskRepository.GetPlannedNr(dev, pm_user);
+            var taskInWorkNr = taskRepository.GetInWorkN(dev, pm_user);
+            var taskRealizedNr = taskRepository.GetRealizedNr(dev, pm_user);
+            var taskCanceledNr = taskRepository.GetCanceledNr(dev, pm_user);
 
-            if (taskPlannedNr > 0)
+            if (int.Parse(taskPlannedNr.Result.ToString()) > 0)
             {
                 TaskChart.Series["Series2"].Points.AddXY("Planned(" + taskPlannedNr.ToString() + ")", taskPlannedNr);            
             }
 
-            if (taskInWorkNr > 0)
+            if (int.Parse(taskInWorkNr.ToString()) > 0)
             {
                 TaskChart.Series["Series2"].Points.AddXY("InWork(" + taskInWorkNr.ToString() + ")", taskInWorkNr);
             }
 
-            if (taskRealizedNr > 0)
+            if (int.Parse(taskRealizedNr.ToString()) > 0)
             {
                 TaskChart.Series["Series2"].Points.AddXY("Realized(" + taskRealizedNr.ToString() + ")", taskRealizedNr);
             }
 
-            if (taskCanceledNr > 0)
+            if (int.Parse(taskCanceledNr.ToString()) > 0)
             {
                 TaskChart.Series["Series2"].Points.AddXY("Canceled(" + taskCanceledNr.ToString()+")", taskCanceledNr);
             }
@@ -141,29 +143,62 @@ namespace PSSC
             System.Windows.Forms.Application.Exit();
         }
 
-        private void tasksBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.tasksBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.psscdbDataSet);
-
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
-        {            
+        {
+            //refreshTasksDataGrid();
+
             // TODO: This line of code loads data into the 'psscdbDataSet.UserLogIn' table. You can move, or remove it, as needed.
-            this.userLogInTableAdapter.Fill(this.psscdbDataSet.UserLogIn);
+            // this.userLogInTableAdapter.Fill(this.psscdbDataSet.UserLogIn);
             // TODO: This line of code loads data into the 'psscdbDataSet.Tasks' table. You can move, or remove it, as needed.
-           // this.tasksTableAdapter.Fill(this.psscdbDataSet.Tasks);
+            // this.tasksTableAdapter.Fill(this.psscdbDataSet.Tasks);
             // TODO: This line of code loads data into the 'psscdbDataSet.UserLogIn' table. You can move, or remove it, as needed.
             //this.userLogInTableAdapter.Fill(this.psscdbDataSet.UserLogIn);
             // TODO: This line of code loads data into the 'psscdbDataSet.Tasks' table. You can move, or remove it, as needed.
-            this.tasksTableAdapter.Fill(this.psscdbDataSet.Tasks);
+            //   this.tasksTableAdapter.Fill(this.psscdbDataSet.Tasks);
             // TODO: This line of code loads data into the 'psscdbDataSet1.User' table. You can move, or remove it, as needed.
             //this.userTableAdapter.Fill(this.psscdbDataSet.User);
             // TODO: This line of code loads data into the 'psscdbDataSet1.Tasks' table. You can move, or remove it, as needed.
             //this.tasksTableAdapter.Fill(this.psscdbDataSet.Tasks);
 
+        }
+    public void refreshTasksDataGrid()
+        {
+           // kryptonDataGridView1.DataSource = null;
+            
+            //Create a New DataTable to store the Data
+            DataTable Tasks = new DataTable("Tasks");
+
+            //Create the Columns in the DataTable
+
+            DataColumn c0 = new DataColumn("ID");
+            DataColumn c1 = new DataColumn("Name");
+            DataColumn c2 = new DataColumn("Description");
+            DataColumn c3 = new DataColumn("Author");
+            DataColumn c4 = new DataColumn("Developer");
+            DataColumn c5 = new DataColumn("Status");
+            DataColumn c6 = new DataColumn("Priority");
+
+            //Add the Created Columns to the Datatable
+
+            Tasks.Columns.Add(c0); Tasks.Columns.Add(c1); Tasks.Columns.Add(c2); Tasks.Columns.Add(c3); Tasks.Columns.Add(c4); Tasks.Columns.Add(c5); Tasks.Columns.Add(c6);
+            //Create 3 rows
+            System.Threading.Tasks.Task.Run(async () => {
+                List<Entities.TaskEntity> tasksList = await taskRepository.GetAllTasks(); 
+            foreach (Entities.TaskEntity task in tasksList)
+            {
+                DataRow row = Tasks.NewRow();
+                row["ID"] = task.PartitionKey;
+                row["Name"] = task.RowKey;
+                row["Description"] = task.description;
+                row["Author"] = task.author;
+                row["Developer"] = task.developer;
+                row["Status"] = task.status;
+                row["priority"] = task.prio;
+                Tasks.Rows.Add(row);
+            }
+            }).Wait();
+
+            kryptonDataGridViewTasks.DataSource = Tasks;
         }
 
         //ChangeStatus button event
@@ -180,20 +215,17 @@ namespace PSSC
             
             if (status != "" && status != null)
             {
-                var task = taskRepository.GetTask(taskID);
-                //change status of the task
-                task.ChangeStatus(status);
-                //update the db with the changes
-                taskRepository.UpdateTaskStatus(task);
+                System.Threading.Tasks.Task.Run(async () => {
+                    var task = await taskRepository.GetTask(taskID);          
+                    Models.Task new_task = new Models.Task(task);
+                    //change status of the task
+                    new_task.ChangeStatus(status);
+                    //update the db with the changes
+                    Entities.TaskEntity modified_task = new TaskEntity(new_task);
+                    await taskRepository.UpdateTaskStatus(modified_task);             
+                }).Wait();
 
-                this.tasksBindingSource.EndEdit();
-                this.tableAdapterManager.UpdateAll(this.psscdbDataSet);
-                //kryptonDataGridViewTasks.DataSource=psscdbDataSet1.Tasks;
-               // kryptonDataGridViewTasks.Update();
-               // kryptonDataGridViewTasks.Refresh();
 
-                
-                
             }
 
         }
@@ -231,10 +263,10 @@ namespace PSSC
             if (taskId != "" && taskId != null)
             {
                 //delete the task
-                taskRepository.Delete(taskId);
-                //refresh datagridview to observe the changes
-                this.tasksBindingSource.EndEdit();
-                this.tableAdapterManager.UpdateAll(this.psscdbDataSet);
+                System.Threading.Tasks.Task.Run(async () => {
+                    TaskEntity task = await taskRepository.GetTask(int.Parse(taskId));
+                    await taskRepository.DeleteTask(task);
+                }).Wait();
             }
         }
 
@@ -281,11 +313,10 @@ namespace PSSC
                 Developer ath = new Developer(user_uid);
                 Developer dev = new Developer(taskDev);
                 PSSC.Models.Task tsk = new PSSC.Models.Task(int.Parse(taskId), taskName, ath, dev, taskDesc, taskStatus, taskPrio);
-                //delete the task
-                taskRepository.Create(tsk);
-                //refresh datagridview to observe the changes
-                this.tasksBindingSource.EndEdit();
-                this.tableAdapterManager.UpdateAll(this.psscdbDataSet);
+                Entities.TaskEntity task = new TaskEntity(tsk);
+                System.Threading.Tasks.Task.Run(async () => {
+                    await taskRepository.Create(task);
+                }).Wait();
             }
         }
 
@@ -293,7 +324,9 @@ namespace PSSC
         {
             if (textBoxId.Text != "" && textBoxId.Text != null)
             {
-                var task = taskRepository.GetTask(int.Parse(textBoxId.Text));
+                System.Threading.Tasks.Task.Run(async () => {
+                    var tsk = await taskRepository.GetTask(int.Parse(textBoxId.Text));
+                    Models.Task task = new Models.Task(tsk);
                 //change properties of the task
                 if(task.status!=textBoxStatus.Text && textBoxStatus.Text!="" && textBoxStatus.Text!=null)
                 {
@@ -320,13 +353,10 @@ namespace PSSC
                     Developer d = new Developer(textBoxDev.Text);
                     task.Assign(d);
                 }
-
+                Entities.TaskEntity new_task = new TaskEntity(task);
                 //update the db with the changes
-                taskRepository.UpdateTask(task);
-
-                //refresh datagridview to observe the changes
-                this.tasksBindingSource.EndEdit();
-                this.tableAdapterManager.UpdateAll(this.psscdbDataSet);
+                await taskRepository.UpdateTask(new_task);
+                }).Wait();
             }
         }
 
@@ -335,7 +365,10 @@ namespace PSSC
             if (textBoxAddId.Text != "" &&  textBoxAddId.Text != null )
             {
                 Developer d = new Developer(textBoxAddId.Text);
-                taskRepository.AddDeveloper(d);
+                UserLogInEntity dev = new UserLogInEntity(d.internal_id, "123456789", "developer");
+                System.Threading.Tasks.Task.Run(async () => {
+                    await taskRepository.AddDeveloper(dev);
+                }).Wait();
             }
         }
 
@@ -344,7 +377,10 @@ namespace PSSC
             if (textBoxAddId.Text != "" && textBoxAddId.Text != null)
             {
                 Developer d = new Developer(textBoxAddId.Text);
-                taskRepository.DeleteDeveloper(d);
+                UserLogInEntity dev = new UserLogInEntity(d.internal_id, "123456789", "developer");
+                System.Threading.Tasks.Task.Run(async () => {
+                    await taskRepository.DeleteDeveloper(dev);
+                }).Wait();
             }
         }
     }
