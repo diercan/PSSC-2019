@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TakeAuction.Models.Licitatii>
+
+@{
+    ViewBag.Title = "VizualizarePersonala";
+}
+
+<h2>VizualizarePersonala</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeProdus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pret)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeProdus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pret)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
