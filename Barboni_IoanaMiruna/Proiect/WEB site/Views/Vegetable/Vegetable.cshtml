@@ -1,0 +1,30 @@
+﻿@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using LegumeDeBelint.Models
+
+    <div class="container">
+        <div class="grid-legume">
+            <ul class="image-showcase">
+
+                @foreach (Vegetable vegetable in ViewBag.vegetables)
+                {
+
+                    <li class="indiv-image">
+                        <div class="img-display">
+                            <img class="shop-item-image" src="~/Content/Images/@vegetable.Photo">
+                            <p class="shop-item-title">@vegetable.Name</p>
+                            <p class="item-price">@vegetable.Price</p>
+                            <button class="btn btn-primary shop-item-button" type="button"><i class="fas fa-cart-plus"></i><span class="hidden-message"><a class = "button-link" href="@Url.Action("Buy", "Cart", new { id = vegetable.Id })">Adaugă in coș</a></span></button>
+                        </div>
+                        <div class="clr"> </div>
+                    </li>
+                }
+            </ul>
+         </div>
+     </div>
+
+            
+
