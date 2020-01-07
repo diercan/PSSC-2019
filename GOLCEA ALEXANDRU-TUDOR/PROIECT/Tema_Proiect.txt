@@ -1,0 +1,5 @@
+Problema: Necesitatea unui sistem de management al taskurilor zilnice
+
+Solutie: Implementarea unui sistem software care permite crearea si vizualizarea intr-un 
+	 calendar al taskurilor. Astfel un utilizator isi poate crea un cont personal in 
+	 care va putea utiliza sistemul de organizare, introducere si vizualizare al taskurilor.
