@@ -1,0 +1,1 @@
+npm run-script testSerial -- test/userController.spec.js

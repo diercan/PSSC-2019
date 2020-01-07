@@ -11,8 +11,6 @@ const amqpModule = (function (){
             amqp.connect(CONN_URL, function (err, conn) {
                 conn.createChannel(function (err, channel) {
                    ch = channel;
-                   //console.log(ch)
-                   console.log("2")
                 });
              });
         },
@@ -25,7 +23,9 @@ const amqpModule = (function (){
                     });
                  });
             }
+            else{
             ch.sendToQueue(queueName, new Buffer(data));
+          }
         },
         this.close = function(){
             ch.close();

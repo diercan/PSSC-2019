@@ -4,13 +4,13 @@ const http = require('http');
 const log = require('./app/middlewares/logService');
 const config = require('./app/middlewares/configuration');
 const db = new(require('./app/models/db'))(config);
-const userModel = new(require('./app/models/userModel'))(config,db);
+const userRepository = new(require('./app/models/repositories/userRepository'))(config,db);
 
 const app = require('./app/controllers/mainController')(
     log,
     config,
     db,
-    userModel
+    userRepository
 );
 
 // PORT is either provided as cli param, or read from config

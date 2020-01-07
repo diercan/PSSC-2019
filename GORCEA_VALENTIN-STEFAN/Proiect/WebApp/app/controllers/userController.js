@@ -3,15 +3,16 @@
 const express = require('express');
 const HttpError = require('../util/httpError');
 const log = require('../middlewares/logService');
+var User = require('../models/userModel');
 
 const userRouter = express.Router();
 
-const router = function (userModel) {
+const router = function (userRepository) {
 
     // get users details
     userRouter.get('/', async (req, res, next) => {
         try {
-            const user = await userModel.getUsers();
+            const user = await userRepository.getUsers();
 
             res.setHeader('Status', 200);
             res.send(user);
@@ -24,10 +25,11 @@ const router = function (userModel) {
 
     userRouter.get('/me', async (req, res, next) => {
         try {
-            const user = await userModel.getUser(req.authenticatedUser.userName);
+            let user = new User(null, req.authenticatedUser.userName);
+            const result = await userRepository.getUser(user.userName);
 
             res.setHeader('Status', 200);
-            res.send(user);
+            res.send(result);
 
         } catch (err) {
             log.error(JSON.stringify(err));
