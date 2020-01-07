@@ -1,0 +1,49 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h3>Cos cumparaturi</h3>
+    <table cellpadding="2" cellspacing="2">
+        <tr>
+
+            <th></th>
+            <th>&nbsp;&nbsp;&nbsp;Nume</th>
+            <th>&nbsp;&nbsp;&nbsp;Cantitate</th>
+            <th>&nbsp;&nbsp;&nbsp;Pret</th>
+            <th>&nbsp;&nbsp;&nbsp;Sub-total</th>
+            <th>&nbsp;&nbsp;&nbsp;Sterge</th>
+        </tr>
+        @foreach (var item in ViewBag.cart)
+        {
+            <tr>
+
+                <td><img src="~/images/@item.Product.Photo" width="100" /></td>
+                <td align="center">@item.Product.Name</td>
+                <td align="center">@item.Quantity</td>
+                <td align="center">@item.Product.Price</td>
+                <td align="center">@(item.Product.Price * item.Quantity)</td>
+                <td align="center">
+                    <a asp-controller="cart" asp-action="remove" asp-route-id="@item.Product.Id">X</a>
+                </td>
+
+            </tr>
+        }
+        <tr>
+            <td colspan="11" align="right">Total</td>
+            <td>@ViewBag.total</td>
+
+        </tr>
+
+    </table>
+    <br /> <br />
+    <a asp-controller="product">Continua cumparaturile</a>
+    @using (Html.BeginForm()) { <input name="buy" type="submit" id="buy" value="Comanda acum" />}
+    
+    
+</body>
+</html>
