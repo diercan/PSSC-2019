@@ -1,0 +1,14 @@
+Domeniul ales de mine este Organizarea si urmarirea statusului taskurilor in cadrul dezvoltarii unui produs software.
+Aplicatia pe care o voi creea vine in sprijinul atat developerilor cat si project managerilor.
+Prin intermediul aplicatiei fiecare developer v-a putea urmarii atat,ce taskuri ii sunt assignate, cat si starea lor.
+Din punctul de vedere al PM-ului(Project Manager), acesta v-a putea urmarii progresul proiectului,in ce stare se afla un task
+
+-Functionalitati pentru Developer:
+--Vizualizarea tuturor taskurilor assignate
+--Modificarea statusului unui task
+--Diverse statistici
+
+-Functionalitati pentru Project Manager
+--Adaugarea/Stergerea unui nou developer la proiect
+--Adaugarea/Stergerea unui task nou
+--Vizualizarea tuturor taskurilor proiectului
