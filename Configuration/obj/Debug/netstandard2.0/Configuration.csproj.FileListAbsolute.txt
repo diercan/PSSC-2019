@@ -1,0 +1,3 @@
+C:\Users\Cristian\OneDrive\FACULTATE\AN 4\PSSC\Github-project\StudentMVC\Configuration\obj\Debug\netstandard2.0\Configuration.csprojAssemblyReference.cache
+C:\Users\Cristian\OneDrive\FACULTATE\AN 4\PSSC\Github-project\StudentMVC\Configuration\obj\Debug\netstandard2.0\Configuration.AssemblyInfoInputs.cache
+C:\Users\Cristian\OneDrive\FACULTATE\AN 4\PSSC\Github-project\StudentMVC\Configuration\obj\Debug\netstandard2.0\Configuration.AssemblyInfo.cs

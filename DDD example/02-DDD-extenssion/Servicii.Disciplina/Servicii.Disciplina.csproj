@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A7B7026-A69C-4237-87BD-496CCB69711E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Servicii.Disciplina</RootNamespace>
+    <AssemblyName>Servicii.Disciplina</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IncarcareMaterialService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicareNoteService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modele.Disciplina\Modele.Disciplina.csproj">
+      <Project>{62354c1f-e39f-47c1-b33e-7e6e253b18e7}</Project>
+      <Name>Modele.Disciplina</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modele.Generic\Modele.Generic.csproj">
+      <Project>{237c8225-36b8-4f1a-bfb7-4e75e97825cb}</Project>
+      <Name>Modele.Generic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modele.Student\Modele.Student.csproj">
+      <Project>{e7e81b28-5481-4494-be28-686c277fdf60}</Project>
+      <Name>Modele.Student</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pdf\Pdf.csproj">
+      <Project>{2fae348e-c5de-463d-8f39-ba71011dd74b}</Project>
+      <Name>Pdf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repositories.Disciplina\Repositories.Disciplina.csproj">
+      <Project>{39de9648-ccfd-4fed-a6a5-1d255de12e69}</Project>
+      <Name>Repositories.Disciplina</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repositories.Student\Repositories.Student.csproj">
+      <Project>{88df2b93-e095-4308-9138-272623debc6b}</Project>
+      <Name>Repositories.Student</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebSitePublisher\WebSitePublisher.csproj">
+      <Project>{6f439e77-26d3-441c-8e42-36dc6e72ca6a}</Project>
+      <Name>WebSitePublisher</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

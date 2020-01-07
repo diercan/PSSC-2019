@@ -1,0 +1,16 @@
+		Feedback App 
+
+	Proiectul are ca scop îmbunătățirea sistemului educațional prin colaborarea dintre studenti, profesori și pedagogi.
+
+ 	Astfel,cu ajutorul acestei aplicații, profesorul își va putea eficientiza activitatea de predare a lecției având acces la feedback-ul studenților săi. 
+	Studentul, la rândul său va putea comunica profesorului ceea ce i-a plăcut, dar și ceea ce s-ar putea îmbunătăți. 
+	În cazul în care profesorul are nevoie de inspirație pentru a face materia cât mai relevantă pentru studenții săi, va putea comunica cu un pedagog .
+	Rolul pedagogului constă în primul rând în  analizarea feedback-urilor primite de la studenți. În al doilea rând, pedagogul va trimite  sugestii eficiente de îmbunătățire a activității de predare ( metode de captare a atenției, strategii de comunicare, tehnici de predare a informației și alte idei strânse din propria experiență a pedagogului )către profesorul care i-a solicitat ajutorul. 
+
+	Sistemul este format din 3 aplicații:
+		
+		- Aplicația studentului
+		- Aplicația profesorului
+		- Aplicația pedagogului
+
+	Studentul are posibilitatea de a trimite feedback profesorilor

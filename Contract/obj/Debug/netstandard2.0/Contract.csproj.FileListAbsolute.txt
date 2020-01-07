@@ -1,0 +1,8 @@
+C:\Users\Cristian\OneDrive\FACULTATE\AN 4\PSSC\Github-project\StudentMVC\Contract\bin\Debug\netstandard2.0\Contract.deps.json
+C:\Users\Cristian\OneDrive\FACULTATE\AN 4\PSSC\Github-project\StudentMVC\Contract\bin\Debug\netstandard2.0\Contract.dll
+C:\Users\Cristian\OneDrive\FACULTATE\AN 4\PSSC\Github-project\StudentMVC\Contract\bin\Debug\netstandard2.0\Contract.pdb
+C:\Users\Cristian\OneDrive\FACULTATE\AN 4\PSSC\Github-project\StudentMVC\Contract\obj\Debug\netstandard2.0\Contract.csprojAssemblyReference.cache
+C:\Users\Cristian\OneDrive\FACULTATE\AN 4\PSSC\Github-project\StudentMVC\Contract\obj\Debug\netstandard2.0\Contract.AssemblyInfoInputs.cache
+C:\Users\Cristian\OneDrive\FACULTATE\AN 4\PSSC\Github-project\StudentMVC\Contract\obj\Debug\netstandard2.0\Contract.AssemblyInfo.cs
+C:\Users\Cristian\OneDrive\FACULTATE\AN 4\PSSC\Github-project\StudentMVC\Contract\obj\Debug\netstandard2.0\Contract.dll
+C:\Users\Cristian\OneDrive\FACULTATE\AN 4\PSSC\Github-project\StudentMVC\Contract\obj\Debug\netstandard2.0\Contract.pdb

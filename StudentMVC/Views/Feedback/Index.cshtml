@@ -1,0 +1,55 @@
+﻿@model IEnumerable<StudentMVC.Models.Feedback>
+
+@{
+    ViewData["Title"] = "MyFeedbacks";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Add New Feedback</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                 @*@Html.DisplayNameFor(model => model.Id)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profesor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoodFeedback)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BadFeedback)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.HiddenFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profesor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoodFeedback)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BadFeedback)
+            </td>
+            <td>
+
+              @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
