@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "CreeazaPostare";
+}
+
+@using PSSC.Models.Postare
+
+@model PSSC.Models.Postare.PostareViewModel
+
+
+<h2>@ViewBag.Title.</h2>
+
+
+<style type="text/css">
+    textarea {
+        width: 400px;
+        height: 200px;
+    }
+</style>
+
+
+
+<body>
+
+    @using (Html.BeginForm("CreeazaPostare", "Postare", FormMethod.Post))
+    {
+        <div class="bs-example" style="border:2px solid gray;">
+
+            <div class="form-group centerlook">
+                <h1> Postare noua </h1>
+            </div>
+            <div class="form-group centerlook">
+                <label>Titlu: </label>
+                @Html.EditorFor(model => model.Titlu)
+                @Html.ValidationMessageFor(model => model.Titlu)
+            </div>
+            <div class="form-group centerlook">
+                <label>Topic: </label>
+                @Html.EditorFor(model => model.Topic)
+                @Html.ValidationMessageFor(model => model.Topic)
+
+            </div>
+            <div class="form-group centerlook">
+                <label>Tip: </label>
+                @Html.DropDownListFor(model => model.Tip, new SelectList(Enum.GetValues(typeof(TipPostare))),
+                    "Selectati tipul postarii")
+                @Html.ValidationMessageFor(model => model.Tip)
+
+            </div>
+            <div class="form-group centerlook">
+                <label>Nivel de importanta: </label>
+                @Html.DropDownListFor(model => model.NivelImportanta,
+               new SelectList(Enum.GetValues(typeof(GradImportantaPostare))),
+               "Select importanta postarii")
+                @Html.ValidationMessageFor(model => model.NivelImportanta)
+
+
+            </div>
+            <div class="form-group centerlook">
+                <label>Body: </label>
+                @Html.TextAreaFor(model => model.Body)
+                @Html.ValidationMessageFor(model => model.Body)
+
+            </div>
+            <div class="form-group centerlook">
+
+                <input type="submit" value="CreeazaPostare" class="btn btn-primary" />
+
+            </div>
+        </div>
+
+    }
+
+</body>
+
