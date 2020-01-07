@@ -1,8 +1,7 @@
 Se considera un sistem software care implementeaza interactiunea dintre un client-magazin parfumuri in ceea ce priveste produsele vandute in magazin.Domeniul ales fiind cel al vanzarilor.
 
 Procesul ce trebuie implementat de catre sistemul software este urmatorul:
--inregistrarea clientului(in cazul in care nu are un cont)
 -logarea clientului
 -clientul poate consulta lista cu produsele magazinului si poate cumpara produse
 -produsele se vor adauga intr-un cos de cumparaturi, unde clientul poate vedea cat are de plata in total, cantitatea aleasa pentru fiecare produs si pretul acestora.
--in urma achizitiei, clientul va primi un mail de confirmare.
+-in urma achizitiei, clientul va primi un mesaj de confirmare.

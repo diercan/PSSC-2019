@@ -1,0 +1,11 @@
+C:\Users\Georgi\Desktop\pssc\ReceiveOrder\bin\Debug\ReceiveOrder.exe.config
+C:\Users\Georgi\Desktop\pssc\ReceiveOrder\bin\Debug\ReceiveOrder.exe
+C:\Users\Georgi\Desktop\pssc\ReceiveOrder\bin\Debug\ReceiveOrder.pdb
+C:\Users\Georgi\Desktop\pssc\ReceiveOrder\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.dll
+C:\Users\Georgi\Desktop\pssc\ReceiveOrder\bin\Debug\RabbitMQ.Client.dll
+C:\Users\Georgi\Desktop\pssc\ReceiveOrder\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.xml
+C:\Users\Georgi\Desktop\pssc\ReceiveOrder\bin\Debug\RabbitMQ.Client.xml
+C:\Users\Georgi\Desktop\pssc\ReceiveOrder\obj\Debug\ReceiveOrder.csprojAssemblyReference.cache
+C:\Users\Georgi\Desktop\pssc\ReceiveOrder\obj\Debug\ReceiveOrder.csproj.CopyComplete
+C:\Users\Georgi\Desktop\pssc\ReceiveOrder\obj\Debug\ReceiveOrder.exe
+C:\Users\Georgi\Desktop\pssc\ReceiveOrder\obj\Debug\ReceiveOrder.pdb
