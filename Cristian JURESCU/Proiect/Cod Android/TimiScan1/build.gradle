@@ -1,0 +1,32 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.google.gms:google-services:4.3.3'
+        classpath 'me.dm7.barcodescanner:zxing:1.9.13'
+
+        classpath 'com.journeyapps:zxing-android-embedded:2.0.1@aar'
+        classpath 'com.journeyapps:zxing-android-legacy:2.0.1@aar'
+        classpath 'com.journeyapps:zxing-android-integration:2.0.1@aar'
+        classpath 'com.google.zxing:core:3.3.3'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
