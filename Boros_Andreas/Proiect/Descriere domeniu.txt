@@ -1,0 +1,9 @@
+Problema : - Gestionarea unui magazin cu telefoane mobile 
+	   - Aplicatie web cu lista telefoanelor mobile disponibile pentru cumparare 
+
+Solutie : - Adaugarea telefoanelor mobile in aplicatia web de catre admin.
+	  - Modificarea si stergerea telefoanelor de catre admin.
+	  - Cu ajutorul acestei aplicatii clientii nu mai sunt nevoiti sa se deplaseze pana la magazinul nostru pentru a vedea preturile si ofertele telefoanelor.
+	  - Clientii pot vizualiza specificatiile si descrierile telefoanelor.
+	  - Clientii pot selecta telefonul dorit pentru a-l achizitiona.
+	  - Clientii care doresc cumpararea unui telefon mobil si nu au fonduri suficiente pot achizitiona produsul in rate.

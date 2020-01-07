@@ -1,0 +1,88 @@
+﻿
+@inject SignInManager<ApplicationUser> signInManager;
+
+<style>
+    .backgroud-page{
+        background-image : url("../images/phoneeeeeee.jpg");
+        background-repeat : repeat;
+        background-size : cover;
+    }
+</style>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/neos21/bootstrap3-glyphicons/dist/css/bootstrap3-glyphicons.css" rel="stylesheet" />
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+
+    <link href="~/css/site.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body class="backgroud-page">
+    <div class="container">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+            <a class="navbar-brand " asp-action="index" asp-controller="home">
+                <img src="~/images/image22.jpg" height="30" width="30" />
+
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a asp-action="index" asp-controller="home" class="nav-link">List</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a asp-action="create" asp-controller="home" class="nav-link">Create</a>
+                    </li>
+                    @await Component.InvokeAsync("ShoppingCartSummary")
+
+
+
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        <li class="nav-item">
+                            <form method="post" asp-action="logout" asp-controller="account">
+                                <button type="submit" class="nav-link btn btn-link py-0 "
+                                        style="width:auto">
+                                    Logout @User.Identity.Name
+                                </button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a asp-action="register" asp-controller="account" class="nav-link">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="login" asp-controller="account" class="nav-link">Login</a>
+                        </li>
+                    }
+                    
+                </ul>
+            </div>
+
+        </nav>
+        <div>
+            @RenderBody()
+        </div>
+        @if (IsSectionDefined("Scripts"))
+        {
+            @RenderSection("Scripts", required: true)
+        }
+    </div>
+</body>
+</html>

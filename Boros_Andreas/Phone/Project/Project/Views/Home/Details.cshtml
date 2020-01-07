@@ -1,0 +1,37 @@
+﻿@model Project.ViewModels.HomeDetailsViewModel
+@{
+    ViewBag.Title = "Phone Details";
+    var photoPath = "~/images/" + (Model.Phone.PhotoPath ?? "image1.jpg");
+}
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.Phone.Name</h1>
+            </div>
+            <div class="card-body text-center">
+                <img class="card-img-top imageThumbnail" src="@photoPath" asp-append-version="true"/>
+
+               <h4>Produs Id : @Model.Phone.Id </h4>
+                <h4> Name : @Model.Phone.Name </h4>
+                <h4> Type : @Model.Phone.Type </h4>
+                <h4> Color : @Model.Phone.Color</h4>
+                <h4> Dimension : @Model.Phone.Dimension </h4>
+                <h4> Price : @Model.Phone.Price</h4>
+                <h4> Monthly Rate: @Model.Rate </h4>
+            </div> 
+            <div class="card-footer text-center">
+                <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
+                <a asp-action="edit" asp-controller="home"
+                   asp-route-id="@Model.Phone.Id"
+                   class="btn btn-primary">Edit</a>
+                <a asp-controller="home" asp-action="delete" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{ 
+    <script src="~/js/site.js"></script>
+}

@@ -1,0 +1,16 @@
+﻿@model int 
+
+@{ 
+    ViewBag.Title = "404 Error";
+}
+
+<div class="alert alert-danger mt-1mb-1">
+    <h4>404 Not Found Error</h4>
+    <hr />
+    <h5>
+        Phone with Id = @Model cannot be found
+    </h5>
+</div>
+<a asp-action="index" asp-controller="home" class="btn btn-outline-success" style="width:auto">
+    Click here to see the list of all phones
+</a>
