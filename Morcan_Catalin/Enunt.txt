@@ -1,0 +1,6 @@
+Se considera un sistem software care implementeaza un spatiu de socializare al unui cartier. Aceasta aplicatie presupune un login
+care in caz de succes va deschide o pagina cu toate postarile de pana acum si care ofera posibilitatea de a adauga unele noi. 
+- Utilizatorii pot crea postari; 
+- Utilizatorii pot vedea postarile celor din acel cartier;
+- Utilizatorii pot sterge postari;
+- Utilizatorii vor primi un e-mail in momentul in care apare o noua postare.

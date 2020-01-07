@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model IEnumerable<PSSC.Models.Postare.PostareViewModel>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h1>Home</h1>
+
+@foreach (var item in Model)
+{
+<div class="container" style="border:2px solid gray;">
+
+
+    <div class="row">
+        <Label>TITLU: </Label>@Html.DisplayFor(modelItem => item.Titlu)
+    </div>
+    <div class="row">
+        <div class="col">
+            <Label>Autor: </Label>@Html.DisplayFor(modelItem => item.Autor)
+        </div>
+        <div class="col">
+            <Label>Data: </Label>@Html.ValueFor(model => item.DataPostarii, "{0:dd/MM/yyyy}")
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col">
+            <Label>Topic: </Label>@Html.DisplayFor(modelItem => item.Topic)
+        </div>
+        <div class="col">
+            <Label>Importanta: </Label>@Html.DisplayFor(modelItem => item.NivelImportanta)
+        </div>
+    </div>
+    <div class="row">
+        <div class=" text-body">
+            <Label>Body: </Label>@Html.DisplayFor(modelItem => item.Body)
+        </div>
+
+    </div>
+    <div class="row">
+        @Html.ActionLink("Stergere", "Stergere", "Postare", new { id = item.id })
+    </div>
+    </div>
+
+    }
