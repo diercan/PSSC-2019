@@ -1,0 +1,227 @@
+﻿@model MyPlanner.Models.User
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h1>Profile</h1>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.username)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.age)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.other_ocupation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.other_ocupation)
+        </dd>
+
+    </dl>
+    <p>Assigned to</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks_asigned[0].Description)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks_asigned[0].Due_Date)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks_asigned[0].Project)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks_asigned[0].Owner)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks_asigned[0].Asignee)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks_asigned[0].Status)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks_asigned[0].Review)
+                    </font>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MyTasks_asigned)
+            {
+                <tr>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Due_Date)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Project)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Owner)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Asignee)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Review)
+                        </font>
+                    </td>
+                    <td>
+
+                        <a asp-controller="MyTasks" asp-action="Edit" asp-route-id="@item.Id" asp-route-from_dashboard="no"><font color="white">Edit |</font></a>
+                        <a asp-controller="MyTasks" asp-action="Details" asp-route-id="@item.Id"><font color="white">Details |</font></a>
+                        <a asp-controller="MyTasks" asp-action="Delete" asp-route-id="@item.Id"><font color="white">Delete</font></a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>Owner of</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks_owner[0].Description)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks_owner[0].Due_Date)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks_owner[0].Project)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks_owner[0].Owner)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks_owner[0].Asignee)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks_owner[0].Status)
+                    </font>
+                </th>
+                <th>
+                    <font color="white">
+                        @Html.DisplayNameFor(model => model.MyTasks_owner[0].Review)
+                    </font>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MyTasks_owner)
+            {
+                <tr>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Due_Date)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Project)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Owner)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Asignee)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </font>
+                    </td>
+                    <td>
+                        <font color="white">
+                            @Html.DisplayFor(modelItem => item.Review)
+                        </font>
+                    </td>
+                    <td>
+
+                        <a asp-controller="MyTasks" asp-action="Edit" asp-route-id="@item.Id" asp-route-from_dashboard="no"><font color="white">Edit |</font></a>
+                        <a asp-controller="MyTasks" asp-action="Details" asp-route-id="@item.Id"><font color="white">Details |</font></a>
+                        <a asp-controller="MyTasks" asp-action="Delete" asp-route-id="@item.Id"><font color="white">Delete</font></a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

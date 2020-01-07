@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Not allowed";
+}
+    <body style='background: #1d9172'>
+        <div>
+            <h1><font color="white">@ViewData["Title"]</font></h1>
+           
+        </div>
+        @if (ViewBag.Message != null)
+        {
+            <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+            </script>
+        }
+    </body>

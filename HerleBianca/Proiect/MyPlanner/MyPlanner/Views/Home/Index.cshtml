@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<link href='https://fonts.googleapis.com/css?family=Bungee Shade' rel='stylesheet'>
+<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div style="background-image: url('https://info.lululemon.com/content/dam/lululemon/www-images/Features%20-%20redesign%20launch%20assets/this-just-in/Six%20Meditation%20Apps/Imagecomponent_meditationApps_NewSite_01.jpg' );  width: 1080px; height: 497px; overflow: hidden; display: inline-block;" class="text-center">
+        <style>
+            h1 {
+                font-family: 'Bungee Shade';
+                font-size: 22px;
+            }
+        </style>
+        <h1 class="display-4">Welcome</h1>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
+</body>
