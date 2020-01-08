@@ -1,8 +1,7 @@
 Domeniul ales de mine este domeniul vânzărilor, care presupune interacțiunea dintre agent de vânzări și client. 
 Acesta este un domeniu care a fost și va fi în continuare prezent în viața oamenilor,
 deoarece întotdeauna va fi cineva dispus să vândă și altcineva dispus să cumpere.
-Am hotărât ca sistemul software implementat de mine să se axeze pe gestiunea și stocarea elementelor corespunzătoare comercializării
-hardware/software(cum ar fi clienți, producători, produse, stoc). Dintre produsele comercializate se regăsesc următoarele: laptopuri,
+Am hotărât ca sistemul software implementat de mine să se axeze pe gestiunea și stocarea elementelor corespunzătoare comercializării hardware/software(cum ar fi clienți, producători, produse, stoc). Dintre produsele comercializate se regăsesc următoarele: laptopuri,
 sisteme desktop, periferice, monitoare, imprimante, tonere etc.
 
 Funcționalitățile sistemului software sunt:
