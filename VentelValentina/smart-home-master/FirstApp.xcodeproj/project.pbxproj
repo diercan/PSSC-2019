@@ -1,0 +1,486 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A715AAA1229C8A8400462771 /* BluetoothViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715AA9F229C8A8400462771 /* BluetoothViewController.swift */; };
+		A715AAA2229C8A8400462771 /* ScanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715AAA0229C8A8400462771 /* ScanTableViewController.swift */; };
+		A722E27522576C81004B6AA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722E27422576C81004B6AA1 /* AppDelegate.swift */; };
+		A722E27C22576C82004B6AA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A722E27B22576C82004B6AA1 /* Assets.xcassets */; };
+		A722E27F22576C82004B6AA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A722E27D22576C82004B6AA1 /* LaunchScreen.storyboard */; };
+		A722E2872257BE09004B6AA1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722E2862257BE09004B6AA1 /* MainViewController.swift */; };
+		A722E28C2257CC20004B6AA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A722E28A2257CC1B004B6AA1 /* Main.storyboard */; };
+		A722E28E2257CD3E004B6AA1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722E28D2257CD3B004B6AA1 /* LoginViewController.swift */; };
+		A722E2902258C58A004B6AA1 /* LightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722E28F2258C58A004B6AA1 /* LightViewController.swift */; };
+		A724AF012285EF7800013431 /* UserModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A724AF002285EF7800013431 /* UserModelProtocol.swift */; };
+		A724AF03228609E200013431 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A724AF02228609E200013431 /* User.swift */; };
+		A72B277322872E050058D069 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B277222872E050058D069 /* UsersViewController.swift */; };
+		A72B277B228825FE0058D069 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B277A228825FE0058D069 /* Temperature.swift */; };
+		A72B277D228827A00058D069 /* TemperatureModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B277C228827A00058D069 /* TemperatureModelProtocol.swift */; };
+		A72B278422885A6D0058D069 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A72B278622885A6D0058D069 /* Localizable.strings */; };
+		A72B278B228EDC220058D069 /* TemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B278A228EDC220058D069 /* TemperatureViewController.swift */; };
+		A7D52AC72290AF53006C5CCF /* LightModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D52AC62290AF53006C5CCF /* LightModelProtocol.swift */; };
+		A7D52AC92290B5D5006C5CCF /* Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D52AC82290B5D5006C5CCF /* Light.swift */; };
+		A7D52ACB229133D8006C5CCF /* LightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D52ACA229133D8006C5CCF /* LightCell.swift */; };
+		A7D52ACE22957390006C5CCF /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D52ACD22957390006C5CCF /* CoreBluetooth.framework */; };
+		A7D52AD5229850B0006C5CCF /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D52AD4229850B0006C5CCF /* HTTPClient.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A715AA9F229C8A8400462771 /* BluetoothViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothViewController.swift; sourceTree = "<group>"; };
+		A715AAA0229C8A8400462771 /* ScanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanTableViewController.swift; sourceTree = "<group>"; };
+		A722E27122576C81004B6AA1 /* FirstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A722E27422576C81004B6AA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A722E27B22576C82004B6AA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A722E27E22576C82004B6AA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A722E28022576C82004B6AA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A722E2862257BE09004B6AA1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A722E28B2257CC1B004B6AA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A722E28D2257CD3B004B6AA1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A722E28F2258C58A004B6AA1 /* LightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightViewController.swift; sourceTree = "<group>"; };
+		A724AF002285EF7800013431 /* UserModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelProtocol.swift; sourceTree = "<group>"; };
+		A724AF02228609E200013431 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A72B277222872E050058D069 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		A72B277A228825FE0058D069 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		A72B277C228827A00058D069 /* TemperatureModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureModelProtocol.swift; sourceTree = "<group>"; };
+		A72B278022885A080058D069 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Main.strings; sourceTree = "<group>"; };
+		A72B278122885A090058D069 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A72B278522885A6D0058D069 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A72B278722885AE80058D069 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A72B278A228EDC220058D069 /* TemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureViewController.swift; sourceTree = "<group>"; };
+		A7D52AC62290AF53006C5CCF /* LightModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightModelProtocol.swift; sourceTree = "<group>"; };
+		A7D52AC82290B5D5006C5CCF /* Light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light.swift; sourceTree = "<group>"; };
+		A7D52ACA229133D8006C5CCF /* LightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightCell.swift; sourceTree = "<group>"; };
+		A7D52ACD22957390006C5CCF /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		A7D52AD4229850B0006C5CCF /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A722E26E22576C81004B6AA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7D52ACE22957390006C5CCF /* CoreBluetooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A715AAA3229C8C0800462771 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				A715AA9F229C8A8400462771 /* BluetoothViewController.swift */,
+				A715AAA0229C8A8400462771 /* ScanTableViewController.swift */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		A715AAA4229C8C2300462771 /* Lights */ = {
+			isa = PBXGroup;
+			children = (
+				A722E28F2258C58A004B6AA1 /* LightViewController.swift */,
+			);
+			path = Lights;
+			sourceTree = "<group>";
+		};
+		A715AAA5229C8C2B00462771 /* Temperature */ = {
+			isa = PBXGroup;
+			children = (
+				A72B278A228EDC220058D069 /* TemperatureViewController.swift */,
+			);
+			path = Temperature;
+			sourceTree = "<group>";
+		};
+		A722E26822576C81004B6AA1 = {
+			isa = PBXGroup;
+			children = (
+				A72B278622885A6D0058D069 /* Localizable.strings */,
+				A722E27322576C81004B6AA1 /* FirstApp */,
+				A722E27222576C81004B6AA1 /* Products */,
+				A7D52ACC22957390006C5CCF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A722E27222576C81004B6AA1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A722E27122576C81004B6AA1 /* FirstApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A722E27322576C81004B6AA1 /* FirstApp */ = {
+			isa = PBXGroup;
+			children = (
+				A722E27422576C81004B6AA1 /* AppDelegate.swift */,
+				A7841BF322872C340097E7E6 /* Models */,
+				A7841BF422872C480097E7E6 /* Views */,
+				A7841BF522872C510097E7E6 /* Controllers */,
+				A722E27B22576C82004B6AA1 /* Assets.xcassets */,
+				A722E28022576C82004B6AA1 /* Info.plist */,
+			);
+			path = FirstApp;
+			sourceTree = "<group>";
+		};
+		A7841BF322872C340097E7E6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A7D52AD322985085006C5CCF /* Networking */,
+				A724AF02228609E200013431 /* User.swift */,
+				A724AF002285EF7800013431 /* UserModelProtocol.swift */,
+				A72B277A228825FE0058D069 /* Temperature.swift */,
+				A72B277C228827A00058D069 /* TemperatureModelProtocol.swift */,
+				A7D52AC62290AF53006C5CCF /* LightModelProtocol.swift */,
+				A7D52AC82290B5D5006C5CCF /* Light.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A7841BF422872C480097E7E6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A722E28A2257CC1B004B6AA1 /* Main.storyboard */,
+				A722E27D22576C82004B6AA1 /* LaunchScreen.storyboard */,
+				A7D52ACA229133D8006C5CCF /* LightCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A7841BF522872C510097E7E6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A722E28D2257CD3B004B6AA1 /* LoginViewController.swift */,
+				A722E2862257BE09004B6AA1 /* MainViewController.swift */,
+				A715AAA3229C8C0800462771 /* Bluetooth */,
+				A715AAA4229C8C2300462771 /* Lights */,
+				A715AAA5229C8C2B00462771 /* Temperature */,
+				A72B277222872E050058D069 /* UsersViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A7D52ACC22957390006C5CCF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7D52ACD22957390006C5CCF /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7D52AD322985085006C5CCF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A7D52AD4229850B0006C5CCF /* HTTPClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A722E27022576C81004B6AA1 /* FirstApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A722E28322576C82004B6AA1 /* Build configuration list for PBXNativeTarget "FirstApp" */;
+			buildPhases = (
+				A722E26D22576C81004B6AA1 /* Sources */,
+				A722E26E22576C81004B6AA1 /* Frameworks */,
+				A722E26F22576C81004B6AA1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FirstApp;
+			productName = FirstApp;
+			productReference = A722E27122576C81004B6AA1 /* FirstApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A722E26922576C81004B6AA1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Valentina Vențel";
+				TargetAttributes = {
+					A722E27022576C81004B6AA1 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = A722E26C22576C81004B6AA1 /* Build configuration list for PBXProject "FirstApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ro,
+			);
+			mainGroup = A722E26822576C81004B6AA1;
+			productRefGroup = A722E27222576C81004B6AA1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A722E27022576C81004B6AA1 /* FirstApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A722E26F22576C81004B6AA1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A722E28C2257CC20004B6AA1 /* Main.storyboard in Resources */,
+				A72B278422885A6D0058D069 /* Localizable.strings in Resources */,
+				A722E27F22576C82004B6AA1 /* LaunchScreen.storyboard in Resources */,
+				A722E27C22576C82004B6AA1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A722E26D22576C81004B6AA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7D52AC72290AF53006C5CCF /* LightModelProtocol.swift in Sources */,
+				A7D52ACB229133D8006C5CCF /* LightCell.swift in Sources */,
+				A724AF012285EF7800013431 /* UserModelProtocol.swift in Sources */,
+				A722E2872257BE09004B6AA1 /* MainViewController.swift in Sources */,
+				A715AAA2229C8A8400462771 /* ScanTableViewController.swift in Sources */,
+				A724AF03228609E200013431 /* User.swift in Sources */,
+				A7D52AC92290B5D5006C5CCF /* Light.swift in Sources */,
+				A722E28E2257CD3E004B6AA1 /* LoginViewController.swift in Sources */,
+				A72B277B228825FE0058D069 /* Temperature.swift in Sources */,
+				A7D52AD5229850B0006C5CCF /* HTTPClient.swift in Sources */,
+				A72B278B228EDC220058D069 /* TemperatureViewController.swift in Sources */,
+				A722E27522576C81004B6AA1 /* AppDelegate.swift in Sources */,
+				A72B277322872E050058D069 /* UsersViewController.swift in Sources */,
+				A715AAA1229C8A8400462771 /* BluetoothViewController.swift in Sources */,
+				A722E2902258C58A004B6AA1 /* LightViewController.swift in Sources */,
+				A72B277D228827A00058D069 /* TemperatureModelProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A722E27D22576C82004B6AA1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A722E27E22576C82004B6AA1 /* Base */,
+				A72B278122885A090058D069 /* ro */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A722E28A2257CC1B004B6AA1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A722E28B2257CC1B004B6AA1 /* Base */,
+				A72B278022885A080058D069 /* ro */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A72B278622885A6D0058D069 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A72B278522885A6D0058D069 /* ro */,
+				A72B278722885AE80058D069 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A722E28122576C82004B6AA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A722E28222576C82004B6AA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A722E28422576C82004B6AA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G5S6577MEM;
+				INFOPLIST_FILE = FirstApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = VV.FirstApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A722E28522576C82004B6AA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G5S6577MEM;
+				INFOPLIST_FILE = FirstApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = VV.FirstApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A722E26C22576C81004B6AA1 /* Build configuration list for PBXProject "FirstApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A722E28122576C82004B6AA1 /* Debug */,
+				A722E28222576C82004B6AA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A722E28322576C82004B6AA1 /* Build configuration list for PBXNativeTarget "FirstApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A722E28422576C82004B6AA1 /* Debug */,
+				A722E28522576C82004B6AA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A722E26922576C81004B6AA1 /* Project object */;
+}
