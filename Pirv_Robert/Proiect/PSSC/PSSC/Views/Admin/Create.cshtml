@@ -1,0 +1,72 @@
+﻿@model PSSC.Models.Admin
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nume" class="control-label"></label>
+                <input asp-for="Nume" class="form-control" />
+                <span asp-validation-for="Nume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prenume" class="control-label"></label>
+                <input asp-for="Prenume" class="form-control" />
+                <span asp-validation-for="Prenume" class="text-danger"></span>
+            </div>
+            <!-- <div class="form-group">
+         <label asp-for="data" class="control-label"></label>
+         <input asp-for="data" class="form-control" />
+         <span asp-validation-for="data" class="text-danger"></span>
+                </div>-->
+            <div class="form-group">
+                @Html.LabelFor(m => m.data, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.data, "{0:yyyy-MM-ddThh:mm:ss}", new { @class = "form-control", type = "datetime-local" })
+                    @Html.ValidationMessageFor(m => m.data, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="murdarie" class="control-label"></label>
+                <select asp-for="murdarie" asp-items="Html.GetEnumSelectList<stareMasina>()" class="form-control"></select>
+                <span asp-validation-for="murdarie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="optiune1" class="control-label"></label>
+                <select asp-for="optiune1" asp-items="Html.GetEnumSelectList<optiuni>()" class="form-control"></select>
+                <span asp-validation-for="optiune1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="optiune2" class="control-label"></label>
+                <select asp-for="optiune2" asp-items="Html.GetEnumSelectList<optiuni>()" class="form-control"></select>
+                <span asp-validation-for="optiune2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="optiune3" class="control-label"></label>
+                <select asp-for="optiune3" asp-items="Html.GetEnumSelectList<optiuni>()" class="form-control"></select>
+                <span asp-validation-for="optiune3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="optiune4" class="control-label"></label>
+                <select asp-for="optiune4" asp-items="Html.GetEnumSelectList<optiuni>()" class="form-control"></select>
+                <span asp-validation-for="optiune4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

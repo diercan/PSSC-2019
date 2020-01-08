@@ -4,55 +4,44 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PSSC.Repository;
 using PSSC.Models;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Data.SqlClient;
+using PSSC.Repository;
 
 namespace PSSC.Controllers
 {
-    public class RezervareController : Controller
+    public class AdminController : Controller
     {
-        private readonly IConfiguration configuration;
-
         private readonly IRezervareRepository rezervareRepository;
-       
-       
-        public RezervareController(IRezervareRepository rezervareRepository, IConfiguration config)
+        public AdminController(IRezervareRepository rezervareRepository)
         {
             this.rezervareRepository = rezervareRepository;
-            this.configuration = config;
+            
         }
-
-        // GET: Rezervare
         public ActionResult Index()
         {
-            /*string connectionstring = configuration.GetConnectionString("DefaultConnectionString");
-
-            SqlConnection connection = new SqlConnection(connectionstring);
-            connection.Open();
-            SqlCommand com = new SqlCommand("select * from evidenta", connection);
-            var count = (int)com.ExecuteScalar();
-
-            ViewData["Total"] = count;
-
-            connection.Close();*/
             return View(rezervareRepository.ObtineRezervari());
         }
-
-        // GET: Rezervare/Details/5
-        public ActionResult Details(int id)
+        public IActionResult Login()
         {
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(Admin admin, IFormCollection fc)
+        {
+            string var = fc["Password"];
+            if (admin.username.Equals("admin") && admin.Password.Equals("1234"))
+                return RedirectToAction(nameof(Index));
+            else
+                return RedirectToAction(nameof(ErrorViewModel));
+        }
 
-        // GET: Rezervare/Create
+        // GET: Admin/Create
         public ActionResult Create()
         {
             return View();
         }
-
-        // POST: Rezervare/Create
+        // POST: Admin/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Rezervare rezervare)
@@ -62,13 +51,13 @@ namespace PSSC.Controllers
                 double pret = 0;
                 rezervare.IdUnic = Guid.NewGuid();
                 if (rezervare.murdarie.Equals(stareMasina.foarte_murdara))
-                    pret= pret + 30 ;
+                    pret = pret + 30;
                 else if (rezervare.murdarie.Equals(stareMasina.murdara))
                     pret = pret + 20;
                 else if (rezervare.murdarie.Equals(stareMasina.relativ_curata))
                     pret = pret + 15;
-                
-                if (rezervare.optiune1.Equals(optiuni.ceara)||rezervare.optiune2.Equals(optiuni.ceara)||
+
+                if (rezervare.optiune1.Equals(optiuni.ceara) || rezervare.optiune2.Equals(optiuni.ceara) ||
                     rezervare.optiune3.Equals(optiuni.ceara) || rezervare.optiune4.Equals(optiuni.ceara))
                     pret = pret + 5;
                 if (rezervare.optiune1.Equals(optiuni.portbagaj) || rezervare.optiune2.Equals(optiuni.portbagaj) ||
@@ -89,38 +78,13 @@ namespace PSSC.Controllers
                 return View();
             }
         }
-
-        // GET: Rezervare/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Rezervare/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Rezervare/Delete/5
+        // GET: Admin/Delete/5
         public ActionResult Delete(Guid id)
         {
             var rezervare = rezervareRepository.ObtineRezervareDupaGuid(id);
             return View(rezervare);
         }
-
-        // POST: Rezervare/Delete/5
+        // POST: Admin/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(Guid id, IFormCollection collection)

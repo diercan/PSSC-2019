@@ -33,11 +33,13 @@ namespace PSSC.Repository
                 optiune1 = optiuni.ceara,
                 optiune2 = optiuni.exterior,
                 optiune3 = optiuni.interior,
-                optiune4 = optiuni.portbagaj
-            });
+                optiune4 = optiuni.portbagaj,
+                total = 65
+            }) ;;
         }
         public void CreareRezervare(Rezervare rez)
         {
+         
             Lista.Add(rez);
         }
 

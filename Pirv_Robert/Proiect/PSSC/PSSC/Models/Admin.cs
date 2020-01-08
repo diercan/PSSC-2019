@@ -1,13 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
 namespace PSSC.Models
 {
-    public class Rezervare
+    public class Admin
     {
+        [Required]
+        public string username = "admin";
+
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password = "1234";
+
         public Guid IdUnic { get; set; }
         [Required]
         public string Nume { get; set; }
@@ -27,19 +34,5 @@ namespace PSSC.Models
         public optiuni optiune3 { get; set; }
         public optiuni optiune4 { get; set; }
         public double total { get; set; }
-    }
-    public enum stareMasina
-    {
-        relativ_curata,//15
-        murdara,//20
-        foarte_murdara//30
-    }
-    public enum optiuni
-    {
-        neselectat,//0
-        interior,//10
-        exterior,//10
-        portbagaj,//10
-        ceara//5
     }
 }
