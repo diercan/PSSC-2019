@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "iHome"; ObjectID = "0fW-wb-wBu"; */
+"0fW-wb-wBu.text" = "iHome";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "1M5-WW-9P9"; */
+"1M5-WW-9P9.text" = "Label";
+
+/* Class = "UILabel"; text = "PUK"; ObjectID = "LW8-HS-cnL"; */
+"LW8-HS-cnL.text" = "PUK";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Leg-Pt-eKg"; */
+"Leg-Pt-eKg.text" = "Label";
+
+/* Class = "UILabel"; text = "User"; ObjectID = "V0E-5q-Ije"; */
+"V0E-5q-Ije.text" = "User";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "VTM-Re-UPe"; */
+"VTM-Re-UPe.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Users"; ObjectID = "p5A-nm-g0Z"; */
+"p5A-nm-g0Z.title" = "Utilizatori";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "tuc-Nr-y10"; */
+"tuc-Nr-y10.normalTitle" = "Login";

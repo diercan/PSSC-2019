@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  FirstApp
+
+  Created by Valentina Vențel on 12/05/2019.
+  Copyright © 2019 Valentina Vențel. All rights reserved.
+*/
+
+"iHome" = "Casa inteligentă";
+"temp" = "Temperatură";
