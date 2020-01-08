@@ -1,9 +1,0 @@
-Domeniu: Organizarea evenimentelor
-
-Problema: Angajatii unei firme doresc sa aiba acces la evenimentele petrecute in cadrul sau in afara firmei.
-
-Cerinte: - inregistrarea, respectiv logarea
-	 - crearea evenimentului 
-	 - stergerea /  modificarea evenimentelor create
-	 - vizualizarea altor evenimente
-	 - in cazul in care nu se efectueaza logarea, anumite functionalitati vor fi blocate
