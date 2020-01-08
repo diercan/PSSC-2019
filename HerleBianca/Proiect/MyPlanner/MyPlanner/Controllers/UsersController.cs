@@ -21,7 +21,6 @@ namespace MyPlanner.Controllers
         {
             _context = context;
             _repository = repository;
-            logged_user = new User();
         }
         /*public UsersController(IUserRepository repository)
         {
@@ -31,24 +30,17 @@ namespace MyPlanner.Controllers
         // GET: Users
         public async Task<IActionResult>  Index()
         {
-            if (logged_user.username == "None")
-                return RedirectToAction("Privacy", "Home"); //Privacy is used as default empty page
             return View( await  _context.User.ToListAsync());
         }
 
         public IActionResult Index_test()
         {
-            if (_repository != null)
-                return View("Index", _repository.GetAllItems());
-            else
-                return View();
+            return View("Index", _repository.GetAllItems());
         }
 
         // GET: Users/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if(logged_user.username== "None")
-                return RedirectToAction("Privacy", "Home"); //Privacy is used as default empty page
             if (id == null)
             {
                 id = logged_user.id;
@@ -246,7 +238,7 @@ namespace MyPlanner.Controllers
         //GET : Dashboard
         public async Task<IActionResult> Dashboard(string name)
         {
-            if (UsersController.logged_user.username == "None")
+            if (UsersController.logged_user == null)
             {
                 return RedirectToAction("Privacy", "Home"); //Privacy is used as default empty page
             }

@@ -23,7 +23,7 @@ namespace MyPlanner.Controllers
         // GET: MyTasks
         public async Task<IActionResult> Index(string myTaskAsignee, string searchString)
         {
-            if (UsersController.logged_user.username == "None")
+            if (UsersController.logged_user == null)
             {
                 return RedirectToAction("Privacy", "Home");
             }
