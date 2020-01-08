@@ -1,0 +1,11 @@
+﻿Pentru realizarea aplicatiei am ales domeniul de baschet.
+Acest sistem software implementează interacțiunea dintre conducerea FRB - arbitru - comisar in ceea ce priveste delegarile la meciurile de baschet. 
+
+
+Sistemul software are urmatoarele functionalitati:
+- adminul trimite pe mail invitatii utilizatorilor pentru ca acestia sa se poata inregistra pe site
+- dupa inregistrare, utilizatorii se pot loga pe site
+- FRB deleaga un comisar si 3 arbitri la un meci
+- la finalul meciului, fiecare arbitru se poate autoevalua
+- la finalul meciului, comisarul va incarca pe site cele 2 rapoarte de meci, va nota scorul final al meciului si va acorda o nota fiecarui arbitru. 
+- FRB posteaza teste grila in scopul verificarii cunostintelor arbitrilor

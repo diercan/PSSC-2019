@@ -1,0 +1,62 @@
+@model object
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<link href="~/lib/calendar/scheduler.min.css" rel="stylesheet"/>
+<link href="~/lib/calendar/fullcalendar.min.css" rel="stylesheet"/>
+<script src="~/lib/calendar/jquery.min.js"></script>
+<script src="~/lib/calendar/moment.min.js"></script>
+<script src="~/lib/calendar/fullcalendar.min.js"></script>
+<script src="~/lib/calendar/scheduler.min.js"></script>
+<h2>Calendar</h2>
+<div id="calendar"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar =  new FullCalendar.Calendar(calendarEl, {
+        eventSources: [
+           {
+               events: [
+                   {
+                       title: 'Event1',
+                       start: '2018-07-13',
+                       end: '2018-07-16',
+                       allDay: false,
+                       color: 'green',
+                       backgroundColor: 'green'
+                   },
+                   {
+                       title: 'Event2',
+                       start: '2018-07-10',
+                       color: '#ff7538',
+                       backgroundColor: '#ff7538'
+                   }
+               ],
+           }
+        ],
+        header: {
+           right: 'month,agendaWeek,timelineCustom,agendaDay,prev,today,next',
+           left: 'title',
+        },
+        fixedWeekCount: false,
+        contentHeight: 650,
+        views: { 
+           timelineCustom: {
+               type: 'timeline',
+               buttonText: 'Year',
+               dateIncrement: { years: 1 },
+               slotDuration: { months: 1 },
+               visibleRange: function (currentDate) {
+                   return {
+                       start: currentDate.clone().startOf('year'),
+                       end: currentDate.clone().endOf("year")
+                   };
+               },
+            }
+        }
+        });
+          calendar.render();
+   });
+</script>

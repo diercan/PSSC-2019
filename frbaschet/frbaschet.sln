@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrBaschet.API", "FrBaschet.API\FrBaschet.API.csproj", "{3D08D229-FA05-4F7E-A903-96D593C3DC10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrBaschet.Domain", "FrBaschet.Domain\FrBaschet.Domain.csproj", "{64AAB429-0DCB-4DC5-9018-A9DB992CE888}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrBaschet.Infrastructure", "FrBaschet.Infrastructure\FrBaschet.Infrastructure.csproj", "{99BB2CEF-C43E-46A0-AE55-3D10635CC0E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D46A22B3-7BC5-4DB7-8EEA-CF25A042AA5B}"
+ProjectSection(SolutionItems) = preProject
+	README.md = README.md
+	REQUIERMENTS.md = REQUIERMENTS.md
+	.gitignore = .gitignore
+	run.bat = run.bat
+	sync.ps1 = sync.ps1
+	migrate.bat = migrate.bat
+	undoMigrate.bat = undoMigrate.bat
+	update_db.bat = update_db.bat
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0AB14ECC-6881-4C31-980C-724A2DF915F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrBaschet.Services", "FrBaschet.Services\FrBaschet.Services.csproj", "{88BD90BE-DFC4-40F3-BE83-FCCAF7D18927}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D08D229-FA05-4F7E-A903-96D593C3DC10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D08D229-FA05-4F7E-A903-96D593C3DC10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D08D229-FA05-4F7E-A903-96D593C3DC10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D08D229-FA05-4F7E-A903-96D593C3DC10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64AAB429-0DCB-4DC5-9018-A9DB992CE888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64AAB429-0DCB-4DC5-9018-A9DB992CE888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64AAB429-0DCB-4DC5-9018-A9DB992CE888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64AAB429-0DCB-4DC5-9018-A9DB992CE888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99BB2CEF-C43E-46A0-AE55-3D10635CC0E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99BB2CEF-C43E-46A0-AE55-3D10635CC0E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99BB2CEF-C43E-46A0-AE55-3D10635CC0E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99BB2CEF-C43E-46A0-AE55-3D10635CC0E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88BD90BE-DFC4-40F3-BE83-FCCAF7D18927}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88BD90BE-DFC4-40F3-BE83-FCCAF7D18927}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88BD90BE-DFC4-40F3-BE83-FCCAF7D18927}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88BD90BE-DFC4-40F3-BE83-FCCAF7D18927}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3D08D229-FA05-4F7E-A903-96D593C3DC10} = {0AB14ECC-6881-4C31-980C-724A2DF915F2}
+		{64AAB429-0DCB-4DC5-9018-A9DB992CE888} = {0AB14ECC-6881-4C31-980C-724A2DF915F2}
+		{99BB2CEF-C43E-46A0-AE55-3D10635CC0E2} = {0AB14ECC-6881-4C31-980C-724A2DF915F2}
+		{88BD90BE-DFC4-40F3-BE83-FCCAF7D18927} = {0AB14ECC-6881-4C31-980C-724A2DF915F2}
+	EndGlobalSection
+EndGlobal

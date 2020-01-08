@@ -1,0 +1,39 @@
+@model FrBaschet.Domain.ViewModels.GameViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.1/jquery.timepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.1/jquery.timepicker.min.css" type="text/css"/>
+
+<h2>@ViewData["Title"]</h2>
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                <h4>Use a local account to log in.</h4>
+                <hr/>
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="HomeTeam"></label>
+                    <input asp-for="HomeTeam.Name" class="form-control"/>
+                    <span asp-validation-for="HomeTeam.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AwayTeam"></label>
+                    <input asp-for="AwayTeam.Name" class="form-control"/>
+                    <span asp-validation-for="AwayTeam.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Date"></label>
+                    <input asp-for="Date" class="form-control"/>
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Create</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
