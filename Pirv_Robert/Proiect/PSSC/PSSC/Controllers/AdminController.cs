@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using PSSC.Models;
 using PSSC.Repository;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 
 namespace PSSC.Controllers
 {
@@ -15,7 +19,38 @@ namespace PSSC.Controllers
         public AdminController(IRezervareRepository rezervareRepository)
         {
             this.rezervareRepository = rezervareRepository;
-            
+
+        }
+
+
+        public ActionResult Vizualizare()
+        {
+            string mesajCoada=null;
+            var factory = new ConnectionFactory()
+            {
+                Uri = new Uri("amqp://lpoqlqsc:1r-UxN...@golden-kangaroo.rmq.cloudamqp.com/lpoqlqsc"),
+                UserName = "lpoqlqsc",
+                Password = "1r-UxNN_LJ7zNk9sAzubWYGyFHmtLkVW",
+            };
+
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "test", durable: false, exclusive: false, autoDelete: false, arguments: null);
+
+                var consumer = new EventingBasicConsumer(channel);
+                consumer.Received += (model, ea) =>
+                {
+                    var body = ea.Body;
+                    var message = Encoding.UTF8.GetString(body);
+                    var jsonText = JsonConvert.DeserializeObject<Comunicare>(message);
+                    mesajCoada=jsonText.Mesaj;
+                    
+                };
+
+                channel.BasicConsume(queue: "test", autoAck: true, consumer: consumer);
+            }
+            return Content(mesajCoada);
         }
         public ActionResult Index()
         {
@@ -27,9 +62,8 @@ namespace PSSC.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Admin admin, IFormCollection fc)
+        public ActionResult Login(Admin admin)
         {
-            string var = fc["Password"];
             if (admin.username.Equals("admin") && admin.Password.Equals("1234"))
                 return RedirectToAction(nameof(Index));
             else

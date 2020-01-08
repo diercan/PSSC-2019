@@ -8,6 +8,9 @@ using PSSC.Repository;
 using PSSC.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
+using RabbitMQ.Client;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace PSSC.Controllers
 {
@@ -16,8 +19,21 @@ namespace PSSC.Controllers
         private readonly IConfiguration configuration;
 
         private readonly IRezervareRepository rezervareRepository;
-       
-       
+
+        private static void SendMessage(ConnectionFactory factory, Comunicare model)
+        {
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "test", durable: false, exclusive: false, autoDelete: false, arguments: null);
+
+
+                var json = JsonConvert.SerializeObject(model);
+                var body = Encoding.UTF8.GetBytes(json);
+
+                channel.BasicPublish(exchange: "", routingKey: "test", basicProperties: null, body: body);
+            }
+        }
         public RezervareController(IRezervareRepository rezervareRepository, IConfiguration config)
         {
             this.rezervareRepository = rezervareRepository;
@@ -27,16 +43,7 @@ namespace PSSC.Controllers
         // GET: Rezervare
         public ActionResult Index()
         {
-            /*string connectionstring = configuration.GetConnectionString("DefaultConnectionString");
-
-            SqlConnection connection = new SqlConnection(connectionstring);
-            connection.Open();
-            SqlCommand com = new SqlCommand("select * from evidenta", connection);
-            var count = (int)com.ExecuteScalar();
-
-            ViewData["Total"] = count;
-
-            connection.Close();*/
+            
             return View(rezervareRepository.ObtineRezervari());
         }
 
@@ -59,6 +66,17 @@ namespace PSSC.Controllers
         {
             try
             {
+
+                var factory = new ConnectionFactory()
+                {
+                    Uri = new Uri("amqp://lpoqlqsc:1r-UxN...@golden-kangaroo.rmq.cloudamqp.com/lpoqlqsc"),
+                    UserName = "lpoqlqsc",
+                    Password = "1r-UxNN_LJ7zNk9sAzubWYGyFHmtLkVW",
+                };
+                var model = new Comunicare(){ Mesaj="Rezervare noua"};
+                SendMessage(factory, model);
+
+
                 double pret = 0;
                 rezervare.IdUnic = Guid.NewGuid();
                 if (rezervare.murdarie.Equals(stareMasina.foarte_murdara))
