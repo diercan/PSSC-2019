@@ -1,0 +1,5 @@
+Problema: Necesitatea unui sistem care sa permita clientilor sa rezerve o masa la un restaurant
+
+Solutie: Implementarea unui sistem software care permite crearea de catre client a unei rezervari si
+	vizualizarea,editarea si stergerea rezervarilor de catre mangaerul restaurantului. Totodata
+	notificarea (prin cozi) intr-o aplicatie de tip consola cand crearea sau stergerea s-a produs.
