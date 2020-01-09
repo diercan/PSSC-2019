@@ -1,0 +1,6 @@
+Scopul temei este cel de administrare al unui presupus Cinema.
+Exista doua feluri de persoane: Users si PowerUsers(Administratori).
+Userul va putea vedea ce zile sunt deja ocupate pentru filmul respectiv, va putea adauga o noua rezervare si va putea sterge o rezervare. De asemenea, daca se doreste, se pot edita informatiile deja introduse.
+Administratorul are dreptul de a adauga filme si a sterge, de asemenea, rezervarile user-ilor.
+Toate actiunile, crearea, stergerea si editarea rezervarilor si a filmelor se fac prin mesaje de tip cozi, folosind RabbitMq.
+Aceste elemente se vor salva intr-o baza de date, ca apoi sa pot fi folosite pentru operatiunile de afisare, editare si stergere.
