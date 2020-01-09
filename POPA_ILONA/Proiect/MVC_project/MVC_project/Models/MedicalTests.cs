@@ -23,8 +23,6 @@ namespace MVC_project.Models
         //[DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
-        //public NormalValues { get; set; }
-
 
 }
 

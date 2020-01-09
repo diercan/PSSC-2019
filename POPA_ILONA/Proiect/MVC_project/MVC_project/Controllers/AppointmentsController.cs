@@ -106,7 +106,7 @@ namespace MVC_project.Controllers
             {
                
 
-                //var appointments = appointmentsRepository.GetAppointmentsById(id);
+               
                 appointmentsRepository.EditAppointments(NewAppointment);
 
                 return RedirectToAction(nameof(Index));
@@ -143,10 +143,6 @@ namespace MVC_project.Controllers
             }
         }
 
-        /* public ActionResult Details(Guid id)
-        {
-            Appointments appointments = appointmentsRepository.GetAppointmentsById(id);
-
-        } */
+        
     }
 }

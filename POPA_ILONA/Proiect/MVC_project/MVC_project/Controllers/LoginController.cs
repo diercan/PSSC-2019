@@ -17,10 +17,7 @@ namespace MVC_project.Controllers
             return View();
         } 
 
-       /*  public IActionResult Login()
-        {
-            return View();
-        } */
+     
 
         public ActionResult Login(Login objUserLogin)
         {
