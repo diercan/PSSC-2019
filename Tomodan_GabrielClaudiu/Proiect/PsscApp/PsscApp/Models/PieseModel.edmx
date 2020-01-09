@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PieseDataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PieseTable">
+          <Key>
+            <PropertyRef Name="PieseID" />
+          </Key>
+          <Property Name="PieseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tip_piesa" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Marca" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Pret" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Descriere" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="UtilizatoriTable">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nume_utilizator" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Parola" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PieseDataBaseModelStoreContainer">
+          <EntitySet Name="PieseTable" EntityType="Self.PieseTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UtilizatoriTable" EntityType="Self.UtilizatoriTable" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PieseDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PieseTable">
+          <Key>
+            <PropertyRef Name="PieseID" />
+          </Key>
+          <Property Name="PieseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tip_piesa" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Marca" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pret" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Descriere" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UtilizatoriTable">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nume_utilizator" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Parola" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PieseDataBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PieseTables" EntityType="Self.PieseTable" />
+          <EntitySet Name="UtilizatoriTables" EntityType="Self.UtilizatoriTable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PieseDataBaseModelStoreContainer" CdmEntityContainer="PieseDataBaseEntities">
+          <EntitySetMapping Name="PieseTables">
+            <EntityTypeMapping TypeName="PieseDataBaseModel.PieseTable">
+              <MappingFragment StoreEntitySet="PieseTable">
+                <ScalarProperty Name="PieseID" ColumnName="PieseID" />
+                <ScalarProperty Name="Tip_piesa" ColumnName="Tip_piesa" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Pret" ColumnName="Pret" />
+                <ScalarProperty Name="Descriere" ColumnName="Descriere" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UtilizatoriTables">
+            <EntityTypeMapping TypeName="PieseDataBaseModel.UtilizatoriTable">
+              <MappingFragment StoreEntitySet="UtilizatoriTable">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Nume_utilizator" ColumnName="Nume_utilizator" />
+                <ScalarProperty Name="Parola" ColumnName="Parola" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

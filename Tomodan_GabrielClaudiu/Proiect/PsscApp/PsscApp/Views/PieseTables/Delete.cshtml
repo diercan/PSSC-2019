@@ -1,0 +1,56 @@
+﻿@model PsscApp.Models.PieseTable
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PieseTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tip_piesa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tip_piesa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pret)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pret)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descriere)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descriere)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,50 @@
+﻿@model PsscApp.Models.PieseTable
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PieseTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tip_piesa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tip_piesa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pret)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pret)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descriere)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descriere)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PieseID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
