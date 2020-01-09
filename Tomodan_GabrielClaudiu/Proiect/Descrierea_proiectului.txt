@@ -4,4 +4,3 @@ Functionalitate:
 -sistemul faciliteaza vanzarea de piese auto
 -aplicatia web va permite autentificarea utilizatorului 
 -informatiile vor fi stocate intr-o baza de date locala
--utilizatorul va primi informatii cu privire la comanda sa prin mail
