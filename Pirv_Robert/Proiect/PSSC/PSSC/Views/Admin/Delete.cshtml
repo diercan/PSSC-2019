@@ -1,0 +1,71 @@
+﻿@model PSSC.Models.Rezervare
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h3>Esti sigur ca vrei sa stergi aceasta rezervare?</h3>
+<br />
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Prenume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Prenume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.data)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.data)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.murdarie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.murdarie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.optiune1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.optiune1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.optiune2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.optiune2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.optiune3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.optiune3)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.optiune4)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.optiune4)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.total)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.total)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="submit" value="Sterge" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
