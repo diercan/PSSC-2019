@@ -16,15 +16,20 @@ export class Experiments extends Component {
 
   render() {
     return (
-      <Experiment/>
+      <div>
+        <Experiment data={this.state.experiments} isFetching = {
+        this.state.isFetching
+      }/>
+      <br/><br/>
+      </div>
     );
   }
 
   componentDidMount() {
-    this.fetchUsers();
+    this.fetchExperiments();
   }
 
-  async fetchUsersAsync() {
+  async fetchExperimentsAsync() {
     try {
       this.setState({...this.state, isFetching: true});
       const response = await axios.get(EXP_URL);
@@ -35,5 +40,5 @@ export class Experiments extends Component {
     }
   };
   
-  fetchUsers = this.fetchUsersAsync
+  fetchExperiments = this.fetchExperimentsAsync;
 }
