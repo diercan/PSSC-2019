@@ -1,0 +1,44 @@
+﻿@model Teambuilding.Models.Event
+
+@{
+    ViewData["Title"] = "What's The Event About?";
+}
+
+
+
+<hr />
+
+<body>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="AddEvent">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="date" class="control-label">When?</label>
+                            <input asp-for="date" class="form-control" />
+                            <span asp-validation-for="date" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="text" class="control-label">Describe:</label>
+                            <input asp-for="text" class="form-control" />
+                            <span asp-validation-for="text" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-success" />
+                            <a asp-action="Index" class="btn btn-outline-info">Back to List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-2"></div>
+</body>
+
+            @section Scripts {
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            }
