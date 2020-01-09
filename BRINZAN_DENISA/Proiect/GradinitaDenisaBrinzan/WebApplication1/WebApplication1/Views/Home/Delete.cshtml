@@ -1,0 +1,38 @@
+﻿@model WebApplication1.Models.Preschool
+
+@{
+    ViewData["Title"] = "Transfer";
+}
+
+<h1>Retragerea prescolarului</h1>
+
+<h3>Sunteti sigur ca doriti sa stergeti prescolarul din lista?</h3>
+<div>
+    <h4>Prescolar</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FoodRestrictions)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FoodRestrictions)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Sterge" class="btn btn-danger" /> |
+        <a asp-action="Index">Intoarceti-va la lista</a>
+    </form>
+</div>

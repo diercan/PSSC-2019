@@ -1,0 +1,37 @@
+﻿@model WebApplication1.Models.Preschool
+
+@{
+    ViewData["Title"] = "Detalii";
+}
+
+<h1>Detalii prescolar</h1>
+
+
+<div>
+    <h4>Prescolar</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FoodRestrictions)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FoodRestrictions)
+        </dd>
+    </dl>
+    
+    <div>
+        <a asp-action="Index">Intoarce-te la lista</a>
+    </div>
+</div>

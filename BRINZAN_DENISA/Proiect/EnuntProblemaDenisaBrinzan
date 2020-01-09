@@ -1,0 +1,9 @@
+Se va realiza o aplicatie ASP.NET Core MVC pentru gestionarea unei grădinițe.
+In cadrul aplicației internet se vor putea utiliza următoarele funcții:
+- inregistrarea unui prescolar printr-un formular de inscriere (adăugarea)
+- listarea prescolarilor (listare)
+- detalii despre prescolar (detalii)
+- transferul prescolarului (stergere)
+Pentru clasa prescolarului se vor folosi urmatoarele campuri: id (Guid), nume, varsta si restrictii la mancare.
+
+
