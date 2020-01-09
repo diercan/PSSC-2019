@@ -1,0 +1,6 @@
+Proiectul este destinat pentru administrarea Caminelor.
+
+Acesta permite trimiterea datelor studentilor de catre Administratia Facultatii ( prin intermediul componentei "SendTest" ), receptionarea si
+salvarea acestor date de catre Administratia Caminului ( prin intermediul componentei "Receive" ), configurarea structurii caminului
+( prin intermediul componentei "ConfigCamin" ) si repartizarea automata a studentiilor pe camere si etaje, salvarea datelor intr-o baza de 
+date si administrarea acelor date printr-o interfata specializata ( prin intermediul componentei "MVC" ).

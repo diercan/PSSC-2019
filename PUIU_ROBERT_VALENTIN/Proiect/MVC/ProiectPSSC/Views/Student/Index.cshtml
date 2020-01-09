@@ -1,0 +1,87 @@
+﻿@model ProiectPSSC.Models.StudentFacultateViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista Studenti Cazati</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-controller="Student" asp-action="Index">
+    <p>
+        Facultate: <select asp-for="Facultate" asp-items="Model.Facultati">
+            <option value="">All</option>
+        </select>
+
+        Nume: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].Prenume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].An)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].Facultate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].Camera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].Etaj)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].Sex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].TaxaAchitata)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Students) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.An)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facultate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Camera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etaj)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxaAchitata)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
