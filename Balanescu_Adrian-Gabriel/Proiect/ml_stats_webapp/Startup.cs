@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ml_stats_core.Interfaces;
 using ml_stats_infrastructure.Data;
+using ml_stats_infrastructure.Services;
 using ml_stats_webapp.Extensions;
 using ml_stats_webapp.Options;
 using Newtonsoft.Json.Serialization;
@@ -41,7 +42,13 @@ namespace ml_stats_webapp
 
             services.AddCosmosDb(serviceEndoint, authKey, databaseName, collectionNames);
             
-            services.AddScoped<IUserItemRepository, UserItemRepository>();
+            services.AddTransient<IUserItemRepository, UserItemRepository>();
+            services.AddTransient<IExperimentItemRepository, ExperimentItemRepository>();
+            services.AddTransient<IPlotItemRepository, PlotItemRepository>();
+            services.AddTransient<IPlotPointItemRepository, PlotPointItemRepository>();
+            
+            services.AddHostedService<RabbitMQHostedService>();
+            services.AddSignalR();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -76,6 +83,7 @@ namespace ml_stats_webapp
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
+                endpoints.MapHub<ExpDataHub>("/expStream");
             });
 
             app.UseSpa(spa =>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Adrian\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Adrian\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_.19.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Adrian\source\repos\PSSC-2019\Balanescu_Adrian-Gabriel\Proiect\ml_stats_webapp" t="IncludeRecursive">
+      <e p=".gitignore" t="Include" />
+      <e p="appsettings.Development.json" t="Include" />
+      <e p="appsettings.json" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="ClientApp" t="Include">
+        <e p=".gitignore" t="Include" />
+        <e p="node_modules\@babel\parser" t="IncludeRecursive" />
+        <e p="node_modules\@babel\types" t="IncludeRecursive" />
+        <e p="node_modules\@jest\console" t="IncludeRecursive" />
+        <e p="node_modules\@jest\fake-timers" t="IncludeRecursive" />
+        <e p="node_modules\@jest\source-map" t="IncludeRecursive" />
+        <e p="node_modules\@jest\test-result" t="IncludeRecursive" />
+        <e p="node_modules\@jest\types" t="IncludeRecursive" />
+        <e p="node_modules\@types" t="IncludeRecursive">
+          <e p="babel__generator" t="IncludeRecursive" />
+          <e p="babel__template" t="IncludeRecursive" />
+          <e p="babel__traverse" t="IncludeRecursive" />
+          <e p="istanbul-lib-coverage" t="IncludeRecursive" />
+          <e p="istanbul-lib-report" t="IncludeRecursive" />
+        </e>
+        <e p="node_modules\ajv" t="IncludeRecursive" />
+        <e p="node_modules\axios" t="IncludeRecursive" />
+        <e p="node_modules\babel-eslint" t="IncludeRecursive" />
+        <e p="node_modules\babel-jest" t="IncludeRecursive" />
+        <e p="node_modules\bootstrap" t="IncludeRecursive" />
+        <e p="node_modules\chalk" t="IncludeRecursive" />
+        <e p="node_modules\cross-env" t="IncludeRecursive" />
+        <e p="node_modules\dotenv-expand" t="IncludeRecursive" />
+        <e p="node_modules\eslint" t="IncludeRecursive" />
+        <e p="node_modules\eslint-config-react-app" t="IncludeRecursive" />
+        <e p="node_modules\eslint-plugin-flowtype" t="IncludeRecursive" />
+        <e p="node_modules\eslint-plugin-import" t="IncludeRecursive" />
+        <e p="node_modules\eslint-plugin-jsx-a11y" t="IncludeRecursive" />
+        <e p="node_modules\eslint-plugin-react" t="IncludeRecursive" />
+        <e p="node_modules\fast-deep-equal" t="IncludeRecursive" />
+        <e p="node_modules\jest" t="IncludeRecursive" />
+        <e p="node_modules\jest-haste-map" t="IncludeRecursive" />
+        <e p="node_modules\jest-message-util" t="IncludeRecursive" />
+        <e p="node_modules\jest-mock" t="IncludeRecursive" />
+        <e p="node_modules\jest-resolve" t="IncludeRecursive" />
+        <e p="node_modules\jest-serializer" t="IncludeRecursive" />
+        <e p="node_modules\jest-util" t="IncludeRecursive" />
+        <e p="node_modules\jest-worker" t="IncludeRecursive" />
+        <e p="node_modules\jquery" t="IncludeRecursive" />
+        <e p="node_modules\merge" t="IncludeRecursive" />
+        <e p="node_modules\oidc-client" t="IncludeRecursive" />
+        <e p="node_modules\react" t="IncludeRecursive" />
+        <e p="node_modules\react-dom" t="IncludeRecursive" />
+        <e p="node_modules\react-router" t="IncludeRecursive" />
+        <e p="node_modules\react-router-bootstrap" t="IncludeRecursive" />
+        <e p="node_modules\react-router-dom" t="IncludeRecursive" />
+        <e p="node_modules\react-scripts" t="IncludeRecursive" />
+        <e p="node_modules\reactstrap" t="IncludeRecursive" />
+        <e p="node_modules\realpath-native" t="IncludeRecursive" />
+        <e p="node_modules\rimraf" t="IncludeRecursive" />
+        <e p="node_modules\source-map" t="IncludeRecursive" />
+        <e p="node_modules\uri-js" t="IncludeRecursive" />
+        <e p="node_modules\worker-farm" t="IncludeRecursive" />
+        <e p="package-lock.json" t="Include" />
+        <e p="package.json" t="Include" />
+        <e p="public" t="Include">
+          <e p="favicon.ico" t="Include" />
+          <e p="index.html" t="Include" />
+          <e p="manifest.json" t="Include" />
+        </e>
+        <e p="README.md" t="Include" />
+        <e p="src" t="Include">
+          <e p="App.js" t="Include" />
+          <e p="App.test.js" t="Include" />
+          <e p="components" t="Include">
+            <e p="Comparer.js" t="Include" />
+            <e p="Experiment.js" t="Include" />
+            <e p="Experiments.js" t="Include" />
+            <e p="Home.js" t="Include" />
+            <e p="Layout.js" t="Include" />
+            <e p="NavMenu.css" t="Include" />
+            <e p="NavMenu.js" t="Include" />
+          </e>
+          <e p="custom.css" t="Include" />
+          <e p="index.js" t="Include" />
+          <e p="registerServiceWorker.js" t="Include" />
+        </e>
+      </e>
+      <e p="Controllers" t="Include" />
+      <e p="Extensions" t="Include">
+        <e p="GlobalErrorHandlerMiddleware.cs" t="Include" />
+        <e p="ServiceCollectionCosmosDbExtensions.cs" t="Include" />
+      </e>
+      <e p="Middleware" t="Include">
+        <e p="ErrorDetails.cs" t="Include" />
+      </e>
+      <e p="ml_stats_webapp.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp3.1" t="Include">
+            <e p="ml_stats_webapp.AssemblyInfo.cs" t="Include" />
+            <e p="ml_stats_webapp.RazorAssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Options" t="Include">
+        <e p="ConnectionStringOptions.cs" t="Include" />
+        <e p="ConnectionStringsOptions.cs" t="Include" />
+        <e p="CosmosDbOptions.cs" t="Include" />
+        <e p="KeyVaultOptions.cs" t="Include" />
+      </e>
+      <e p="package-lock.json" t="Include" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Pages" t="Include">
+        <e p="_ViewImports.cshtml" t="Include" />
+        <e p="Error.cshtml" t="Include" />
+        <e p="Error.cshtml.cs" t="Include" />
+      </e>
+      <e p="Program.cs" t="Include" />
+      <e p="Properties" t="Include">
+        <e p="launchSettings.json" t="Include" />
+      </e>
+      <e p="Startup.cs" t="Include" />
+    </e>
+  </component>
+</project>

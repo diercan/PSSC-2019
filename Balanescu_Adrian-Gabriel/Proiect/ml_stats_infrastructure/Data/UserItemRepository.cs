@@ -1,4 +1,5 @@
 ﻿﻿using System;
+ using System.Threading.Tasks;
  using Microsoft.Azure.Documents;
  using ml_stats_core.Interfaces;
  using User = ml_stats_core.Models.User;
@@ -11,7 +12,7 @@
     {
     }
     public override string CollectionName { get; } = "users";
-    public override string GenerateId(User entity) => $"{entity.Id}:{Guid.NewGuid()}";
-    public override PartitionKey ResolvePartitionKey(string entityId) => new PartitionKey(entityId.Split(':')[0]);
+    public override string GenerateId(User entity) => $"{Guid.NewGuid()}";
+    public override PartitionKey ResolvePartitionKey(string entityId) => new PartitionKey(entityId);
   }
 }
