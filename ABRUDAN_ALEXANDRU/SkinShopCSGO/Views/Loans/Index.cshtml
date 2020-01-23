@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SkinShopCSGO.Models.Loan>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skin.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Skin.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoanDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LoanId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LoanId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LoanId })
+        </td>
+    </tr>
+}
+
+</table>
