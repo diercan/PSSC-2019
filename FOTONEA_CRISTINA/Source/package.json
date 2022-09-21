@@ -32,7 +32,7 @@
     "sql": "^0.78.0",
     "vue": "^2.6.10",
     "vue-router": "^3.1.2",
-    "vuetify": "^2.0.10"
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",
